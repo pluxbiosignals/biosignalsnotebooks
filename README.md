@@ -44,7 +44,7 @@ We have been perusing the mission of making biosignals as accessible as possible
     </p>
 </a>
 
-*For viewing biosignalsnotebooks .ipynb files corretly formated and with the right CSS configurations the user should access the link contained in the previous image instead of navigating manually through the files in GitHub repository*
+*For viewing biosignalsnotebooks .ipynb files correctly formatted and with the right CSS configurations the user should access the link contained in the previous image instead of navigating manually through the files in GitHub repository*
 
 ## Installation of biosignalsnotebooks package
 In order to *biosignalsnotebooks* package be installed, the user should open a Windows command prompt (by searching for "cmd") and type the following instruction:
