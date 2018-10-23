@@ -1,0 +1,24 @@
+
+1 - Nos notebooks, assinalar as células que desejamos remover durante o processo de conversão para HTML. Este desígnio é alcançado através da especificação de uma tag ("hide_both", "hide_in", "hide_out"), referindo quando pretendemos ocultar o input e outuput, só o input ou apenas o output.
+2 - Criar um template jinja;
+	2.1 - Este template será especificado como input da instrução nbconvert, servindo de guia para a conversão de cada notebook em html;
+	2.2 - O código "varre" todo o notebook e sempre que deteta uma célulula com alguma das três tags anteriores realiza uma operação;
+	2.3 - A operação será simplesmente a atribuição de uma classe no objeto div em questão (class="hide_both" or "hide_in" or "hide_out");
+3 - Converter notebook em html através da linha de comandos:
+	jupyter nbconvert --to html Template.ipynb --template=mytemplate.tpl
+
+	(https://nbconvert.readthedocs.io/en/latest/customizing.html)
+4 - Com um programa em Python ler o ficheiro HTML obtido após a conversão (utilizar o package BeautifulSoup);
+5 - Aceder a todas as divs com a classe "hide_in"
+	5.1 - Na subdiv "input" atribuir classe "hide" especificada no ficheiro css theme_styles.css;
+6 - Aceder a todas as divs com a classe "hide_out"
+	6.1 - Na subdiv "output" atribuir classe "hide" especificada no ficheiro css theme_styles.css;
+7 - Aceder a todas as divs com a classe "hide_both"
+	7.1 - Atribuir classe hide à própria div;
+8 - Gerar um novo ficheiro HTML com as presentes correções;
+
+Páginas Relevantes:
+- https://nbconvert.readthedocs.io/en/latest/customizing.html (Nbconvert cell tags.)
+- https://stackoverflow.com/questions/38519975/beautifulsoup-loop-through-html (BeautifulSoup iterate.)
+- https://www.crummy.com/software/BeautifulSoup/bs4/doc/ (Aceder a elementos com classe ou id igual a...)
+- https://stackoverflow.com/questions/42255564/how-to-export-and-preserve-linked-jupyter-notebooks/42279992

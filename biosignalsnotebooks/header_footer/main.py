@@ -1,0 +1,194 @@
+"""
+biosignalsnotebooks module intended to generate programatically the header and footer of each
+Jupyter Notebook.
+
+"""
+
+import os
+import shutil
+import nbformat
+
+from cell_content_strings import HEADER, FOOTER, DESCRIPTION_SIGNAL_SAMPLES, DESCRIPTION_GROUP_BY
+from osf_notebook_class import notebook, NOTEBOOK_KEYS
+
+# ==================================================================================================
+# =================================== Script Constants =============================================
+# ==================================================================================================
+
+DICT_GROUP_BY_DIFF = {}
+
+DICT_GROUP_BY_TAG = {}
+
+# ==================================================================================================
+# ===================== Inclusion of Header and Footer in each Notebook ============================
+# ==================================================================================================
+
+def run(list_notebooks=["All"]):
+    # Storage of the current directory path.
+    root = os.getcwd()
+
+    # ============================= Creation of the main directory =====================================
+    current_dir = root + "\\biosignalsnotebooks_environment"
+    if not os.path.isdir(current_dir):
+        os.makedirs(current_dir)
+
+    # ==================== Copy of 'images' 'styles' and 'signal_samples' folders ======================
+    for var in ["images", "styles", "signal_samples", "categories"]:
+        new_dir = current_dir + "\\" + var
+
+        # Delete of old files if the directory was previously created.
+        if os.path.isdir(new_dir):
+            shutil.rmtree(new_dir)
+
+        # Definition of the "source" folder to copy.
+        src = "..\\biosignalsnotebooks_notebooks\\" + var
+
+        # Definition of the "destination" folder where the files will be stored after copying.
+        destination = new_dir
+
+        # Clone directory.
+        shutil.copytree(src, destination)
+
+    # ======================== Copy of the original versions of Notebooks ==============================
+    current_dir = os.getcwd() + "\\biosignalsnotebooks_environment\\categories"
+    for category in list(NOTEBOOK_KEYS.keys()):
+        list_files = os.listdir(current_dir + "\\" + category)
+        for file in list_files:
+            # Access to all Notebook files (with the extension .ipynb)
+            if file.endswith(".ipynb") and (file.split(".ipynb")[0] in list_notebooks or
+                                            "All" in list_notebooks):
+                # Read of the current Notebook.
+                file_dir = current_dir + "\\" + category + "\\" + file
+                notebook = nbformat.read(file_dir, nbformat.NO_CONVERT)
+
+                # Search for "header" and/or "footer".
+                header_cell, footer_cell, title, nbr_stars, tags = _get_metadata(notebook, file,
+                                                                                 category)
+
+                # Update or Insertion of header and footer.
+                # [Header]
+                header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".dwipynb")
+                #header_rev = header_rev.replace("DIR", category)
+                if header_cell is None:
+                    notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
+                    footer_cell += 1
+                else:
+                    notebook["cells"][header_cell] = nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}})
+
+                # [Footer]
+                if footer_cell is None:
+                    notebook["cells"].insert(footer_cell, nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}}))
+                else:
+                    notebook["cells"][footer_cell] = nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}})
+
+                # Generation of the Notebook with the header and footer.
+                nbformat.write(notebook, file_dir)
+
+                # Run Notebook.
+                os.system("jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 "
+                          + file_dir)
+                os.system("jupyter trust " + file_dir)
+
+                # Storage of Notebook metadata in global dictionaries.
+                if category != "MainFiles":
+                    if str(nbr_stars) not in (DICT_GROUP_BY_DIFF.keys()):
+                        DICT_GROUP_BY_DIFF[str(nbr_stars)] = []
+                    DICT_GROUP_BY_DIFF[str(nbr_stars)].append(file_dir + "&" + title)
+
+                    for tag in tags:
+                        if tag not in (DICT_GROUP_BY_TAG.keys()):
+                            DICT_GROUP_BY_TAG[str(tag)] = []
+                        DICT_GROUP_BY_TAG[str(tag)].append(file_dir + "&" + title)
+
+    # ==============================================================================================
+    # ============================ Generate "Group by ..." Pages ===================================
+    # ==============================================================================================
+    _generate_group_by_pages()
+
+# ==================================================================================================
+# ================================== Private Functions =============================================
+# ==================================================================================================
+
+def _get_metadata(notebook, filename, category):
+    # Variable initialisation.
+    header_cell = None
+    footer_cell = None
+    title = None
+    nbr_stars = None
+    tags = None
+    list_cells = notebook["cells"]
+
+    # Search for "header" and "footer" tags and collect Notebook "difficulty" and "tags".
+    for cell_nbr, cell in enumerate(list_cells):
+        if "tags" in list(cell["metadata"].keys()):
+            # [Header and Footer identification]
+            if "header" in cell["metadata"]["tags"] and header_cell is None:
+                header_cell = cell_nbr
+            elif "footer" in cell["metadata"]["tags"] and footer_cell is None:
+                footer_cell = cell_nbr
+            elif "aux" in cell["metadata"]["tags"] and footer_cell is None:
+                footer_cell = cell_nbr
+            elif ("header" in cell["metadata"]["tags"] and header_cell is not None) or \
+                    ("footer" in cell["metadata"]["tags"] and footer_cell is not None):
+                raise RuntimeError("Duplicated 'header' or 'cell' tags inside the Notebook " +
+                               filename + " !")
+
+            # [Title, Difficulty and Tags]
+            if category != "MainFiles":
+                # [Title]
+                if "intro_info_title" in cell["metadata"]["tags"]:
+                    cell_content = cell["source"]
+
+                    # Notebook Title.
+                    title = cell_content.split('<td class="header_text">')[1].split('</td>')[0]
+
+                # [Tags]
+                if "intro_info_tags" in cell["metadata"]["tags"]:
+                    cell_content = cell["source"]
+
+                    # Notebook tag list.
+                    tags = cell_content.split('<td class="shield_right" id="tags">')[1].split('</td>')[0].split("&#9729;")
+
+                    # Difficulty level.
+                    nbr_stars = cell_content.count("checked")
+
+    return header_cell, footer_cell, title, nbr_stars, tags
+
+
+def _generate_group_by_pages():
+    file_path = os.getcwd() + "\\biosignalsnotebooks_environment"
+
+    # Generation of biosignalsnotebooks environment main files.
+    filename = "biosignalsnotebooks"
+    main_page = notebook("Main_Files_By_Category", dict_by_difficulty=DICT_GROUP_BY_DIFF,
+                         dict_by_tag=DICT_GROUP_BY_TAG, notebook_file=filename)
+    main_page.write_to_file(file_path, filename)
+
+    filename = "by_diff"
+    by_difficulty = notebook("Main_Files_By_Difficulty", "Notebooks Grouped by Difficulty",
+                             dict_by_difficulty=DICT_GROUP_BY_DIFF, dict_by_tag=DICT_GROUP_BY_TAG,
+                             notebook_file=filename)
+    by_difficulty.write_to_file(file_path, filename)
+
+    filename = "by_tag"
+    by_tags = notebook("Main_Files_By_Tag", "Notebooks Grouped by Tag Values",
+                       dict_by_difficulty=DICT_GROUP_BY_DIFF, dict_by_tag=DICT_GROUP_BY_TAG,
+                       notebook_file=filename)
+    by_tags.write_to_file(file_path, filename)
+
+    filename = "by_signal_type"
+    by_signal_type = notebook("Main_Files_By_Signal_Type", "Notebooks Grouped by Signal Type",
+                              dict_by_difficulty=DICT_GROUP_BY_DIFF, dict_by_tag=DICT_GROUP_BY_TAG,
+                              notebook_file=filename)
+    by_signal_type.write_to_file(file_path, filename)
+
+    filename = "signal_samples"
+    signal_samples = notebook("Main_Files_Signal_Samples", "Signal Samples Library",
+                              notebook_file=filename)
+    signal_samples.write_to_file(file_path, filename)
+
+# Execute Script.
+#run(list_notebooks=["open_h5"])
+run()
+
+# 17/10/2018  22h25m :)

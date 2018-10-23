@@ -1,0 +1,13 @@
+h5py
+pyedflib
+python-magic
+numpy
+wget
+datetime
+bokeh
+scipy
+IPython
+pandas
+novainstrumentation
+importlib
+nbformat
