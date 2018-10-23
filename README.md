@@ -20,21 +20,20 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 
 **Be inspired on how to make the most of your biosignals!**
 
-
-## What is **OpenSignals**
-
-[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *Plux* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
-
-In some cases **OpenSignals** provides [*plugins*](http://biosignalsplux.com/en/software/add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
-
-The list of plugins can be found here: http://biosignalsplux.com/en/software/add-ons
-
 ## What is **PLUX**
 
 PLUX wireless biosignals is devoted to the creation innovative products for advanced biosignals monitoring platforms
 that integrate wearable body sensors combined with wireless connectivity, algorithms and software applications.
 
 We have been perusing the mission of making biosignals as accessible as possible to researchers and students in many areas of application, ranging from biomedical engineering, computer science, human computer interaction, sport sciences, psychology, clinical research among other fields.
+
+## Plux's Software and Hardware Environment
+
+[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *Plux* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
+
+In some cases **OpenSignals** provides [*plugins*](http://biosignalsplux.com/en/software/add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
+
+The list of plugins can be found here: http://biosignalsplux.com/en/software/add-ons
 
 ## Access to biosignalsnotebooks Notebooks
 
@@ -43,6 +42,8 @@ We have been perusing the mission of making biosignals as accessible as possible
       <img src="https://image.ibb.co/fRStKU/osf_logo.gif" width="40%">
     </p>
 </a>
+
+*For viewing biosignalsnotebooks .ipynb files correctly formatted and with the right CSS configurations the user should access the link contained in the previous image instead of navigating manually through the files in GitHub repository*
 
 ## Installation of biosignalsnotebooks package
 In order to *biosignalsnotebooks* package be installed, the user should open a Windows command prompt (by searching for "cmd") and type the following instruction:
