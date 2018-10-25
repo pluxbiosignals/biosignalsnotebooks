@@ -22,38 +22,38 @@ HEADER = """<table width="100%">
         <td style="text-align:left" width="5%">
             <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks"><img src="../../images/icons/github.png"></a>
         </td>
-        <td style="border-left:solid 2pt #009EE3" width="20%">
+        <td style="border-left:solid 2pt #009EE3" width="15%">
             <img src="../../images/ost_logo.png">
         </td>
     </tr>
 </table>"""
 
-FOOTER = """<hr>
-<table width="100%">
-    <tr>
-        <td style="border-right:solid 3px #009EE3" width="30%">
-            <img src="../../images/ost_logo.png">
-        </td>
-        <td width="35%" style="text-align:left">
-            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
-            <br>
-            <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
-            <br>
-            <a href="https://pypi.org/project/biosignalsnotebooks/">&#9740; How to install biosignalsnotebooks Python package ?</a>
-            <br>
-            <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
-        </td>
-        <td width="35%" style="text-align:left">
-            <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
-            <br>
-            <a href="../MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
-            <br>
-            <a href="../MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
-            <br>
-            <br>
-        </td>
-    </tr>
-</table>"""
+# FOOTER = """<hr>
+# <table width="100%">
+#     <tr>
+#         <td style="border-right:solid 3px #009EE3" width="20%">
+#             <img src="../../images/ost_logo.png">
+#         </td>
+#         <td width="40%" style="text-align:left">
+#             <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
+#             <br>
+#             <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
+#             <br>
+#             <a href="https://pypi.org/project/biosignalsnotebooks/">&#9740; How to install biosignalsnotebooks Python package ?</a>
+#             <br>
+#             <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
+#         </td>
+#         <td width="40%" style="text-align:left">
+#             <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
+#             <br>
+#             <a href="../MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
+#             <br>
+#             <a href="../MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
+#             <br>
+#             <br>
+#         </td>
+#     </tr>
+# </table>"""
 
 DESCRIPTION_SIGNAL_SAMPLES = """With *Plux* acquisition systems, a vast set of physiological signals can be acquired.
 
@@ -101,7 +101,7 @@ HEADER_MAIN_FILES = """<link rel="stylesheet" href="../../styles/theme_style.css
 
 <table width="100%">
     <tr>
-        <td id="image_td" width="50%" class="header_image_color_2">
+        <td id="image_td" width="20%" class="header_image_color_2">
             <img id="image_img" src="../../images/ost_logo.png"></td>
         <td class="header_text"> Notebook Title </td>
     </tr>
@@ -110,7 +110,7 @@ HEADER_MAIN_FILES = """<link rel="stylesheet" href="../../styles/theme_style.css
 DESCRIPTION_CATEGORY = """<link rel="stylesheet" href="../../styles/theme_style.css">
 ![OpenSignals_logo](../../images/OS_logo_title.png)
 
-**<span style="color:#009EE3">biosignalsnotebooks</span>** (<a href="../MainFiles/bn_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
+**<span style="color:#009EE3">biosignalsnotebooks</span>** (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
 
 This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **bitalino** or **biosignalsplux**, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
 
@@ -163,11 +163,11 @@ css_style_apply()"""
 FOOTER = """<hr>
 <table width="100%">
     <tr>
-        <td style="border-right:solid 3px #009EE3" width="30%">
+        <td style="border-right:solid 3px #009EE3" width="20%">
             <img src="../../images/ost_logo.png">
         </td>
-        <td width="35%" style="text-align:left">
-            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; Project Presentation</a>
+        <td width="40%" style="text-align:left">
+            <a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">&#9740; Project Presentation</a>
             <br>
             <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
             <br>
@@ -175,7 +175,7 @@ FOOTER = """<hr>
             <br>
             <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
         </td>
-        <td width="35%" style="text-align:left">
+        <td width="40%" style="text-align:left">
             <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
             <br>
             <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
@@ -187,4 +187,4 @@ FOOTER = """<hr>
     </tr>
 </table>"""
 
-# 11/10/2018 16h45m :)
+# 25/10/2018  00h19m :)

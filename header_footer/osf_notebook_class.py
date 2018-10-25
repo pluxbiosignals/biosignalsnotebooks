@@ -786,3 +786,5 @@ def _generate_notebook_by_signal_type_body(notebook_object, dict_by_tag):
 
             # ==================== Insertion of HTML table in a new Notebook cell ======================
             notebook_object["cells"].append(nb.v4.new_markdown_cell(markdown_cell))
+
+# 25/10/2018  00h19m :)

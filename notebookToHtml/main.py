@@ -52,6 +52,16 @@ for category in listOfNbCategories:
     if not os.path.exists(path_temp):
         os.makedirs(path_temp)
 
+    # Copy of aux_files folder.
+    if category == "MainFiles":
+        source_path = "../biosignalsnotebooks_notebooks/Categories/MainFiles/aux_files"
+        destination_path = path_temp + "\\aux_files"
+        if not os.path.isdir(destination_path):
+            shutil.copytree(source_path, destination_path)
+        else:
+            shutil.rmtree(destination_path)
+            shutil.copytree(source_path, destination_path)
+
     print ("\nEntering in " + category + " category...")
     if "." not in category: # If "." is contained in the string it means that we are not analysing a desired folder.
         print ("'mytemplate.tpl' copy started...")
@@ -163,4 +173,4 @@ for category in listOfNbCategories:
 # ======================================================================================================================
 
 
-# 17/10/2018 22h24m
+# 25/10/2018  00h19m :)

@@ -1,5 +1,5 @@
 
-<img src="https://image.ibb.co/ePxtKU/main_image.png">
+<img src="https://image.ibb.co/eE75WV/OS-logo-title.png">
 
 ## Description
 
@@ -39,7 +39,7 @@ The list of plugins can be found here: http://biosignalsplux.com/en/software/add
 
 <a href="http://www.opensignals.net">
     <p align="center">
-      <img src="https://image.ibb.co/fRStKU/osf_logo.gif" width="40%">
+      <img src="https://image.ibb.co/ingFWV/bsnb-logo-animation.gif" width="40%">
     </p>
 </a>
 

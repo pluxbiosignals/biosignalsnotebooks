@@ -1,5 +1,5 @@
 MANIFEST.in
-README.md
+README_BSN.md
 setup.py
 biosignalsnotebooks/__init__.py
 biosignalsnotebooks/__notebook_support__.py

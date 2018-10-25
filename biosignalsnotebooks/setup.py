@@ -8,12 +8,12 @@ from os import path
 
 # read the contents of your README file
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(path.join(this_directory, 'README_BSN.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 
 setup(name='biosignalsnotebooks',
-      version='0.1.2',
+      version='0.1.5',
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,
