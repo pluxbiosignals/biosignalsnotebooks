@@ -4,5 +4,4 @@ h5py
 wget
 scipy
 bokeh
-python-markdown
 jupyter_contrib_nbextensions
