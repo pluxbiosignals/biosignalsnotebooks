@@ -1,2 +1,2 @@
 jupyter contrib nbextension install --user
-jupyter nbextension enable init_cell/main
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb
