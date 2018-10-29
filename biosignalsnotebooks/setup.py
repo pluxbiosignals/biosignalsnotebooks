@@ -13,7 +13,7 @@ with open(path.join(this_directory, 'README_BSN.md'), encoding='utf-8') as f:
 
 
 setup(name='biosignalsnotebooks',
-      version='0.1.5',
+      version='0.2.1',
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,
@@ -23,11 +23,13 @@ setup(name='biosignalsnotebooks',
       author_email='gramos@plux.info',
       license='MIT',
       packages=['biosignalsnotebooks'],
+      setup_requires=['numpy'],
       install_requires=[
-          'h5py', 'pyedflib', 'python-magic', 'numpy', 'wget', 'datetime',
-          'bokeh', 'scipy', 'IPython', 'pandas', 'novainstrumentation', 'importlib', 'nbformat'
+          'numpy', 'matplotlib', 'scipy', 'h5py', 'python-magic', 'wget', 'datetime',
+          'libmagic', 'bokeh', 'scipy', 'IPython', 'pandas', 'novainstrumentation',
+          'nbformat'
       ],
       zip_safe=False,
       include_package_data=True)
 
-# 11/10/2018 16h45m :)
+# 27/10/2018 15h44m :)

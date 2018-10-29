@@ -6,3 +6,9 @@ include biosignalsnotebooks/notebook_files/osf_files/signal_samples/*
 include biosignalsnotebooks/notebook_files/osf_files/styles/*
 include biosignalsnotebooks/notebook_files/osf_files/images/*.png
 include biosignalsnotebooks/notebook_files/osf_files/images/icons/*
+include biosignalsnotebooks/external_packages/pyedflib/*
+include biosignalsnotebooks/external_packages/pyedflib/__pycache__/*
+include biosignalsnotebooks/external_packages/pyedflib/_extensions/*
+include biosignalsnotebooks/external_packages/pyedflib/_extensions/__pycache__/*
+include biosignalsnotebooks/external_packages/pyedflib/data/*
+include biosignalsnotebooks/external_packages/pyedflib/data/__pycache__/*

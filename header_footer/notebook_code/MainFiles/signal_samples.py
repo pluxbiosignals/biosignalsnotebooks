@@ -4,7 +4,7 @@
 
 
 IMPORT_CODE = """
-import opensignalstools as ost
+import biosignalsnotebooks as bsnb
 import numpy
 
 # Base packages used in OpenSignals Tools Notebooks for plotting data
@@ -16,7 +16,7 @@ output_notebook(hide_banner=True)
 """
 
 PLOTS_SIGNAL_SAMPLES = """\
-signal_dict, file_header = ost.load(signal_samples_dir + file, get_header=True)
+signal_dict, file_header = bsnb.load(signal_samples_dir + file, get_header=True)
 mac_addresses = list(signal_dict.keys())
 
 mac_0 = mac_addresses[0]
@@ -29,12 +29,12 @@ for mac in mac_addresses:
     channels = list(signal_dict[mac].keys())
     for chn in channels:
         fig = figure(x_axis_label='Time (s)', y_axis_label='Raw Data',
-                     title=mac + "@" + chn, **ost.opensignals_kwargs("figure"))
+                     title=mac + "@" + chn, **bsnb.opensignals_kwargs("figure"))
         fig.line(time, signal_dict[mac][chn],
-                 **ost.opensignals_kwargs("line"))
+                 **bsnb.opensignals_kwargs("line"))
         grid_layout.append([fig])
-ost.opensignals_style([item for sublist in grid_layout for item in sublist])
-grid_plot = gridplot(grid_layout, **ost.opensignals_kwargs("gridplot"))
+bsnb.opensignals_style([item for sublist in grid_layout for item in sublist])
+grid_plot = gridplot(grid_layout, **bsnb.opensignals_kwargs("gridplot"))
 show(grid_plot)"""
 
-# 21/09/2018 16h57m :)
+# 27/10/2018  15h43m :)

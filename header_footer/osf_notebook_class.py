@@ -20,7 +20,7 @@ import notebook_code.MainFiles.signal_samples as signal_samples_code
 from cell_content_strings import DESCRIPTION_GROUP_BY, DESCRIPTION_SIGNAL_SAMPLES, \
                                  HEADER_ALL_CATEGORIES, HEADER_MAIN_FILES, \
                                  DESCRIPTION_CATEGORY, HEADER_TAGS, SEPARATOR, AUX_CODE_MESSAGE, \
-                                 CSS_STYLE_CODE, FOOTER, HEADER
+                                 JS_CODE_AUTO_PLAY, CSS_STYLE_CODE, FOOTER, HEADER
 
 SIGNAL_TYPE_LIST = ["emg", "ecg"]
 
@@ -169,6 +169,9 @@ class notebook:
                                                               **{"metadata":
                                                                      {"tags": ["hide_mark"]}}))
         self.notebook["cells"].append(nb.v4.new_code_cell(CSS_STYLE_CODE,
+                                                          **{"metadata":
+                                                                 {"tags": ["hide_both"]}}))
+        self.notebook["cells"].append(nb.v4.new_code_cell(JS_CODE_AUTO_PLAY,
                                                           **{"metadata":
                                                                  {"tags": ["hide_both"]}}))
 
@@ -787,4 +790,4 @@ def _generate_notebook_by_signal_type_body(notebook_object, dict_by_tag):
             # ==================== Insertion of HTML table in a new Notebook cell ======================
             notebook_object["cells"].append(nb.v4.new_markdown_cell(markdown_cell))
 
-# 25/10/2018  00h19m :)
+# 27/10/2018  15h43m :)

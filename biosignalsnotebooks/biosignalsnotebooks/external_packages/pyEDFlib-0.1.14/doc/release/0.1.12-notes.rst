@@ -1,0 +1,23 @@
+==============================
+PyEDFlib 0.1.12 Release Notes
+==============================
+
+.. contents::
+
+- small bug fixes
+
+Authors
+=======
+
+* Holger Nahrstaedt
+
+
+Issues closed for v0.1.12
+------------------------
+
+- #24 : Issues reading EDF's
+- #25 : file_info_long() method is broken.
+
+Pull requests for v0.1.12
+------------------------
+

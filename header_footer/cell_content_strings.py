@@ -72,25 +72,6 @@ HEADER_ALL_CATEGORIES = """<link rel="stylesheet" href="../../styles/theme_style
     <tr>
         <td id="image_td" width="15%" class="header_image_color_i"><div id="image_img"
         class="header_image_i"></div></td>
-        <!-- Available classes for "image_td" element:
-        - header_image_color_1 (For Notebooks of "Open" Area);
-        - header_image_color_2 (For Notebooks of "Acquire" Area);
-        - header_image_color_3 (For Notebooks of "Visualise" Area);
-        - header_image_color_4 (For Notebooks of "Process" Area);
-        - header_image_color_5 (For Notebooks of "Detect" Area);
-        - header_image_color_6 (For Notebooks of "Extract" Area);
-        - header_image_color_7 (For Notebooks of "Decide" Area);
-        - header_image_color_8 (For Notebooks of "Explain" Area);
-
-        Available classes for "image_img" element:
-        - header_image_1 (For Notebooks of "Open" Area);
-        - header_image_2 (For Notebooks of "Acquire" Area);
-        - header_image_3 (For Notebooks of "Visualise" Area);
-        - header_image_4 (For Notebooks of "Process" Area);
-        - header_image_5 (For Notebooks of "Detect" Area);
-        - header_image_6 (For Notebooks of "Extract" Area);
-        - header_image_7 (For Notebooks of "Decide" Area);
-        - header_image_8 (For Notebooks of "Explain" Area);-->
         <td class="header_text"> Notebook Title </td>
     </tr>
 </table>"""
@@ -160,6 +141,21 @@ the user)**</span>"""
 CSS_STYLE_CODE = """from biosignalsnotebooks.__notebook_support__ import css_style_apply
 css_style_apply()"""
 
+JS_CODE_AUTO_PLAY = """%%html
+<script>
+    // AUTORUN ALL CELLS ON NOTEBOOK-LOAD!
+    require(
+        ['base/js/namespace', 'jquery'],
+        function(jupyter, $) {
+            $(jupyter.events).on("kernel_ready.Kernel", function () {
+                console.log("Auto-running all cells-below...");
+                jupyter.actions.call('jupyter-notebook:run-all-cells-below');
+                jupyter.actions.call('jupyter-notebook:save-notebook');
+            });
+        }
+    );
+</script>"""
+
 FOOTER = """<hr>
 <table width="100%">
     <tr>
@@ -187,4 +183,4 @@ FOOTER = """<hr>
     </tr>
 </table>"""
 
-# 25/10/2018  00h19m :)
+# 27/10/2018  15h43m :)

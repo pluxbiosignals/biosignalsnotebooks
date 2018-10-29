@@ -30,9 +30,11 @@
       <file leaf-file-name="osf_notebook_class.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25542">
-              <caret line="790" column="0" lean-forward="false" selection-start-line="790" selection-start-column="0" selection-end-line="790" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="25608">
+              <caret line="792" column="23" lean-forward="false" selection-start-line="792" selection-start-column="23" selection-end-line="792" selection-end-column="23" />
+              <folding>
+                <element signature="e#116#127#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +42,18 @@
       <file leaf-file-name="cell_content_strings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6237">
-              <caret line="189" column="23" lean-forward="false" selection-start-line="189" selection-start-column="23" selection-end-line="189" selection-end-column="23" />
+            <state relative-caret-position="6105">
+              <caret line="185" column="23" lean-forward="false" selection-start-line="185" selection-start-column="23" selection-end-line="185" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signal_samples.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1287">
+              <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -83,9 +95,11 @@
       <find>first_border</find>
       <find>/\\</find>
       <find>dwipynb</find>
-      <find>opensignalsfactory</find>
       <find>FOOTER</find>
       <find>HEADER</find>
+      <find>CSS_STYLE_CODE</find>
+      <find>opensignalsfactory</find>
+      <find>ost</find>
     </findStrings>
     <replaceStrings>
       <replace>new_dir</replace>
@@ -95,6 +109,7 @@
       <replace>HEADER_ALL_CATEGORIES</replace>
       <replace>opensignalsfactory</replace>
       <replace>biosignalsnotebooks</replace>
+      <replace>bsnb</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\gui_s\Documents\Trabalho_na_Plux\opensignalstools\biosignalsnotebooks\header_footer</dir>
@@ -116,6 +131,7 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/osf_notebook_class.py" />
         <option value="$PROJECT_DIR$/cell_content_strings.py" />
+        <option value="$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py" />
       </list>
     </option>
   </component>
@@ -140,6 +156,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -172,12 +190,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../notebookToHtml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.Unnamed">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -381,21 +397,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#122#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26070">
           <caret line="790" column="0" lean-forward="false" selection-start-line="790" selection-start-column="0" selection-end-line="790" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -421,7 +429,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16797">
           <caret line="525" column="48" lean-forward="false" selection-start-line="525" selection-start-column="48" selection-end-line="525" selection-end-column="48" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -447,7 +457,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15873">
           <caret line="497" column="5" lean-forward="false" selection-start-line="497" selection-start-column="5" selection-end-line="497" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -480,7 +492,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -513,7 +527,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23397">
           <caret line="709" column="0" lean-forward="false" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -546,7 +562,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4026">
           <caret line="122" column="12" lean-forward="false" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="12" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -572,7 +590,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -598,7 +618,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -624,7 +646,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
           <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -650,7 +674,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25542">
           <caret line="774" column="35" lean-forward="false" selection-start-line="774" selection-start-column="35" selection-end-line="774" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -676,7 +702,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9207">
           <caret line="279" column="77" lean-forward="false" selection-start-line="279" selection-start-column="59" selection-end-line="279" selection-end-column="77" />
-          <folding />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -768,16 +796,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25542">
-          <caret line="790" column="0" lean-forward="false" selection-start-line="790" selection-start-column="0" selection-end-line="790" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="25608">
+          <caret line="792" column="23" lean-forward="false" selection-start-line="792" selection-start-column="23" selection-end-line="792" selection-end-column="23" />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6237">
-          <caret line="189" column="23" lean-forward="false" selection-start-line="189" selection-start-column="23" selection-end-line="189" selection-end-column="23" />
+        <state relative-caret-position="6105">
+          <caret line="185" column="23" lean-forward="false" selection-start-line="185" selection-start-column="23" selection-end-line="185" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1287">
+          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding />
         </state>
       </provider>

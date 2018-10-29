@@ -23,8 +23,8 @@ None
 import os
 from .load import load
 
-SIGNAL_PATH = os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
-              "notebook_files\\osf_files\\signal_samples\\"
+SIGNAL_PATH = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
+              "notebook_files\\osf_files\\signal_samples\\").replace("\\", "/")
 FILE_EXTENSION = ".h5"
 
 

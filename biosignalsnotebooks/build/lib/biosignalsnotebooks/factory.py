@@ -9,7 +9,7 @@ import os
 import re
 import shutil
 import warnings
-import importlib.util
+#import importlib.util
 
 import nbformat as nb
 from .notebook_files.MainFiles.group_by_difficulty import STAR_TABLE_HEADER
@@ -162,7 +162,8 @@ class notebook:
 
         categories_path = _generate_dir_structure(path)
 
-        full_path =categories_path + "\\" + self.notebook_type + "\\" + filename + ".ipynb"
+        full_path =(categories_path + "\\" + self.notebook_type + "\\" + filename
+                    + ".ipynb").replace("\\", "/")
         nb.write(self.notebook, full_path)
 
         # ========================== Run Notebook Code Instructions ================================
@@ -460,7 +461,7 @@ def _generate_notebook_by_difficulty_body(notebook_object, dict_by_difficulty):
         markdown_cell = STAR_TABLE_HEADER
         markdown_cell = _set_star_value(markdown_cell, int(difficulty))
         for notebook_file in dict_by_difficulty[str(difficulty)]:
-            split_path = notebook_file.split("\\")
+            split_path = notebook_file.split("/")
             notebook_type = split_path[-2]
             notebook_name = split_path[-1].split("&")[0]
             notebook_title = split_path[-1].split("&")[1]
@@ -535,7 +536,7 @@ def _generate_notebook_by_tag_body(notebook_object, dict_by_tag):
             markdown_cell = TAG_TABLE_HEADER
             markdown_cell = markdown_cell.replace("Tag i", tag)
             for notebook_file in dict_by_tag[tag]:
-                split_path = notebook_file.split("\\")
+                split_path = notebook_file.split("/")
                 notebook_type = split_path[-2]
                 notebook_name = split_path[-1].split("&")[0]
                 notebook_title = split_path[-1].split("&")[1]
@@ -608,7 +609,7 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
                     else:
                         last_border = ""
 
-                    split_path = notebook_file.split("\\")
+                    split_path = notebook_file.split("/")
                     notebook_name = split_path[-1].split("&")[0]
                     notebook_title = split_path[-1].split("&")[1]
                     markdown_cell += "\n\t<tr " + last_border + ">" \
@@ -645,7 +646,7 @@ def _generate_notebook_by_signal_type_body(notebook_object, dict_by_tag):
             markdown_cell = TAG_TABLE_HEADER
             markdown_cell = markdown_cell.replace("Tag i", tag.upper())
             for notebook_file in dict_by_tag[tag]:
-                split_path = notebook_file.split("\\")
+                split_path = notebook_file.split("/")
                 notebook_type = split_path[-2]
                 notebook_name = split_path[-1].split("&")[0]
                 notebook_title = split_path[-1].split("&")[1]
@@ -685,29 +686,29 @@ def _generate_dir_structure(path):
     """
 
     # ============================ Creation of the main directory ==================================
-    current_dir = path + "\\opensignalsfactory_environment"
+    current_dir = (path + "\\opensignalsfactory_environment").replace("\\", "/")
     if not os.path.isdir(current_dir):
         os.makedirs(current_dir)
 
     # ================== Copy of 'images' 'styles' and 'signal_samples' folders ====================
-    path_cloned_files = os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
-                        "\\notebook_files\\osf_files\\"
+    path_cloned_files = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
+                        "\\notebook_files\\osf_files\\").replace("\\", "/")
     for var in ["images", "styles", "signal_samples"]:
-        if os.path.isdir(current_dir + "\\" + var):
-            shutil.rmtree(current_dir + "\\" + var)
-        src = path_cloned_files + "\\" + var
-        destination = current_dir + "\\" + var
+        if os.path.isdir((current_dir + "\\" + var).replace("\\", "/")):
+            shutil.rmtree((current_dir + "\\" + var).replace("\\", "/"))
+        src = (path_cloned_files + "\\" + var).replace("\\", "/")
+        destination = (current_dir + "\\" + var).replace("\\", "/")
         shutil.copytree(src, destination)
 
     # =========================== Generation of 'Categories' folder ================================
-    current_dir += "\\Categories"
+    current_dir += "/Categories"
     if not os.path.isdir(current_dir):
         os.makedirs(current_dir)
 
     categories = list(NOTEBOOK_KEYS.keys())
     for category in categories:
-        if not os.path.isdir(current_dir + "\\" + category):
-            os.makedirs(current_dir + "\\" + category)
+        if not os.path.isdir(current_dir + "/" + category):
+            os.makedirs(current_dir + "/" + category)
 
     return current_dir
 

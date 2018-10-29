@@ -23,8 +23,8 @@ None
 import os
 from .load import load
 
-SIGNAL_PATH = os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
-              "notebook_files\\osf_files\\signal_samples\\"
+SIGNAL_PATH = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
+              "notebook_files\\osf_files\\signal_samples\\").replace("\\", "/")
 FILE_EXTENSION = ".h5"
 
 
@@ -40,7 +40,7 @@ def load_signal(signal_name, get_header=False):
         Name that identifies the signal sample to be loaded.
 
         Possible values:
-        [ecg_4000_hz]
+        [ecg_4000_Hz]
         =================   ==============
         Signal Type                    ECG
         Acquisition Time           00:12.4
@@ -154,7 +154,7 @@ def load_signal(signal_name, get_header=False):
         Metadata of the acquisition file (includes sampling rate, resolution, used device...
     """
 
-    available_signals = ["ecg_4000_hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",
+    available_signals = ["ecg_4000_Hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",
                          "ecg_20_sec_100_Hz", "ecg_20_sec_1000_Hz", "emg_bursts", "emg_fatigue",
                          "temp_res_8_16", "bvp_sample"]
 
