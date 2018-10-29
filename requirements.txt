@@ -5,3 +5,4 @@ wget
 scipy
 bokeh
 jupyter_contrib_nbextensions
+nbconvert
