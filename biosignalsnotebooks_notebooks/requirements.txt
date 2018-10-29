@@ -1,0 +1,6 @@
+numpy
+biosignalsnotebooks
+h5py
+wget
+scipy
+bokeh
