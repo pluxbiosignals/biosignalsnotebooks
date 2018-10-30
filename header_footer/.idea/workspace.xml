@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="23" />
+            <state relative-caret-position="306">
+              <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="osf_notebook_class.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="osf_notebook_class.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25608">
-              <caret line="792" column="23" lean-forward="false" selection-start-line="792" selection-start-column="23" selection-end-line="792" selection-end-column="23" />
+            <state relative-caret-position="273">
+              <caret line="529" column="34" lean-forward="false" selection-start-line="529" selection-start-column="34" selection-end-line="529" selection-end-column="34" />
               <folding>
                 <element signature="e#116#127#0" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="cell_content_strings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6105">
-              <caret line="185" column="23" lean-forward="false" selection-start-line="185" selection-start-column="23" selection-end-line="185" selection-end-column="23" />
+            <state relative-caret-position="303">
+              <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file leaf-file-name="signal_samples.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1287">
+            <state relative-caret-position="911">
               <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
@@ -70,17 +70,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>notebook.dict_by_difficulty</find>
-      <find>current_dir</find>
-      <find>'</find>
-      <find>dict_by_difficulty</find>
       <find>_generate_notebook_by_tag_body</find>
       <find>dict_by_diff</find>
       <find>_search_header_footer</find>
       <find>path</find>
       <find>root</find>
       <find>HEADER_MAIN_FILES</find>
-      <find>DESCRIPTION_CATEGORY</find>
       <find>NOTEBOOK_KEYS =</find>
       <find>dict_by_tag</find>
       <find>NOTEBOOK_KEYS</find>
@@ -96,10 +91,15 @@
       <find>/\\</find>
       <find>dwipynb</find>
       <find>FOOTER</find>
-      <find>HEADER</find>
       <find>CSS_STYLE_CODE</find>
       <find>opensignalsfactory</find>
       <find>ost</find>
+      <find>DESCRIPTION_CATEGORY</find>
+      <find>PLOTS_SIGNAL_SAMPLES</find>
+      <find>FILENAME</find>
+      <find>HEADER</find>
+      <find>os.chdir</find>
+      <find>signal_samples_dir</find>
     </findStrings>
     <replaceStrings>
       <replace>new_dir</replace>
@@ -128,10 +128,10 @@
         <option value="$PROJECT_DIR$/opensignalsfactory_environment/categories/Load/open_txt.ipynb" />
         <option value="$PROJECT_DIR$/opensignalsfactory_environment/categories/Load/open_h5.ipynb" />
         <option value="$PROJECT_DIR$/opensignalsfactory_environment/categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" />
+        <option value="$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py" />
+        <option value="$PROJECT_DIR$/cell_content_strings.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/osf_notebook_class.py" />
-        <option value="$PROJECT_DIR$/cell_content_strings.py" />
-        <option value="$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py" />
       </list>
     </option>
   </component>
@@ -156,8 +156,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -188,12 +188,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="biosignalsnotebooks_environment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="biosignalsnotebooks_environment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="categories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../notebookToHtml" />
   </component>
   <component name="RunManager" selected="Python.Unnamed">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -365,15 +397,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2762" height="1770" extended-state="7" />
-    <editor active="false" />
+    <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291474" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32518175" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -794,38 +826,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25608">
-          <caret line="792" column="23" lean-forward="false" selection-start-line="792" selection-start-column="23" selection-end-line="792" selection-end-column="23" />
-          <folding>
-            <element signature="e#116#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6105">
-          <caret line="185" column="23" lean-forward="false" selection-start-line="185" selection-start-column="23" selection-end-line="185" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1287">
-          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state relative-caret-position="303">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="23" />
+        <state relative-caret-position="306">
+          <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="529" column="34" lean-forward="false" selection-start-line="529" selection-start-column="34" selection-end-line="529" selection-end-column="34" />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
           </folding>
         </state>
       </provider>

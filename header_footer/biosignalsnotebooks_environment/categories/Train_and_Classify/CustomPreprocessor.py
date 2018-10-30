@@ -8,5 +8,6 @@ class CustomPreprocessor(Preprocessor):
         if 'source' in cell and cell.cell_type == "markdown":
             cell.source = re.sub(r"\[(.*)\]\(([^)]*)\.ipynb\)",r"[\1](\2_rev.html)",cell.source)
             cell.source = re.sub(r"\.ipynb", r"_rev.html", cell.source)
+            cell.source = re.sub(r"\.dwipynb", r".ipynb", cell.source)
 
         return cell, resources

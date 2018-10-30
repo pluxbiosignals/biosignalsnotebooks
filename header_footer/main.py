@@ -68,7 +68,8 @@ def run(list_notebooks=["All"]):
                 # Update or Insertion of header and footer.
                 # [Header]
                 header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".dwipynb")
-                #header_rev = header_rev.replace("DIR", category)
+                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file)
+
                 if header_cell is None:
                     notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
                     footer_cell += 1
@@ -104,6 +105,11 @@ def run(list_notebooks=["All"]):
     # ============================ Generate "Group by ..." Pages ===================================
     # ==============================================================================================
     _generate_group_by_pages()
+
+    # ==============================================================================================
+    # ======================== Generate a Post-Build File for Binder ===============================
+    # ==============================================================================================
+    _generate_post_build_files()
 
 # ==================================================================================================
 # ================================== Private Functions =============================================
@@ -187,8 +193,31 @@ def _generate_group_by_pages():
                               notebook_file=filename)
     signal_samples.write_to_file(file_path, filename)
 
+def _generate_post_build_files():
+    # Constant Values
+    relative_path_for_binder = "header_footer/biosignalsnotebooks_environment/categories/"
+    source_path = "biosignalsnotebooks_environment/categories/"
+
+    # Dynamic string
+    post_build_str = "jupyter contrib nbextension install --user\n"
+
+    # Inclusion of data inside the dynamic string.
+    categories = os.listdir(source_path)
+    for category in categories:
+        current_file_path = source_path + category + "/"
+        list_files = os.listdir(current_file_path)
+        for file in list_files:
+            if ".ipynb" in file:
+                post_build_str += "jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 " + relative_path_for_binder + category + "/" + file + "\n"
+                post_build_str += "jupyter trust " + relative_path_for_binder + category + "/" + file + "\n"
+
+    # Write to file.
+    post_build_file = open("../postBuild", "w")
+    post_build_file.write(post_build_str)
+    post_build_file.close()
+
 # Execute Script.
 #run(list_notebooks=["open_h5"])
 run()
 
-# 27/10/2018  15h43m :)
+# 29/10/2018  19h39m :)

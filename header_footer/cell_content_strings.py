@@ -10,7 +10,7 @@ HEADER = """<table width="100%">
             <a href="FILENAME" download><img src="../../images/icons/download.png"></a>
         </td>
         <td style="text-align:left" width="10%">
-            <a><img class="not_active_img" src="../../images/icons/program.png" title="Will be released soon !"></a>
+            <a href="SOURCE"><img src="../../images/icons/program.png" title="Be creative and test your solutions !"></a>
         </td>
         <td></td>
         <td style="text-align:left" width="5%">
@@ -89,7 +89,7 @@ HEADER_MAIN_FILES = """<link rel="stylesheet" href="../../styles/theme_style.css
 </table>"""
 
 DESCRIPTION_CATEGORY = """<link rel="stylesheet" href="../../styles/theme_style.css">
-![OpenSignals_logo](../../images/OS_logo_title.png)
+<img src="../../images/OS_logo_title.png">
 
 **<span style="color:#009EE3">biosignalsnotebooks</span>** (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
 

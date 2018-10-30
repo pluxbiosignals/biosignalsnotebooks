@@ -498,7 +498,7 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
 
     header_aux = HEADER
     header_aux = header_aux.replace("FILENAME", notebook_file.split(".")[0] + ".dwipynb")
-    #header_aux = header_aux.replace("DIR", notebook_type)
+    header_aux = header_aux.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + notebook_type + "%2F" + notebook_file + ".ipynb")
 
     if "Main_Files" in notebook_type:
         header_aux = header_aux.replace("../MainFiles/", "")
@@ -526,12 +526,13 @@ def _generate_signal_samples_body(notebook_object):
                                                             {"tags": ["hide_both"]}}))
 
     # ========= Generation of a table that synthesises the information about each signal ===========
-    signal_samples_dir = "../biosignalsnotebooks_notebooks/signal_samples"
-    list_of_files = os.listdir(signal_samples_dir)
+    signal_samples_dir_jupyter = "../../signal_samples"
+    signal_samples_dir_project = "biosignalsnotebooks_environment/signal_samples"
+    list_of_files = os.listdir(signal_samples_dir_project)
     for file in list_of_files:
         if ".json" not in file:
             file_name = file.split(".")[0]
-            with open(signal_samples_dir + "/" + file_name + '_info.json') as json_data:
+            with open(signal_samples_dir_project + "/" + file_name + '_info.json') as json_data:
                 signal_info = json.load(json_data)
 
             info_table = "<table width='100%'>\n" \
@@ -552,8 +553,7 @@ def _generate_signal_samples_body(notebook_object):
             notebook_object["cells"].append(nb.v4.new_markdown_cell(info_table))
 
             # ========================= Graphical Representation of Signals =======================
-            path_str = '"' + (os.getcwd() + "\\" +
-                              signal_samples_dir + "\\").replace("\\", "/") + '"'
+            path_str = '"' + (signal_samples_dir_jupyter + "\\").replace("\\", "/") + '"'
             plot_signal_samples_temp = re.sub(re.compile(r'\bsignal_samples_dir\b'),
                                               path_str, signal_samples_code.PLOTS_SIGNAL_SAMPLES)
             plot_signal_samples_temp = re.sub(re.compile(r'\bfile\b'),

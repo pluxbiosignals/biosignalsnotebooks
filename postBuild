@@ -1,3 +1,29 @@
 jupyter contrib nbextension install --user
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/MainFiles/signal_samples.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/MainFiles/signal_samples.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb
