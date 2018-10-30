@@ -204,12 +204,13 @@ def _generate_post_build_files():
     # Inclusion of data inside the dynamic string.
     categories = os.listdir(source_path)
     for category in categories:
-        current_file_path = source_path + category + "/"
-        list_files = os.listdir(current_file_path)
-        for file in list_files:
-            if ".ipynb" in file:
-                post_build_str += "jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 " + relative_path_for_binder + category + "/" + file + "\n"
-                post_build_str += "jupyter trust " + relative_path_for_binder + category + "/" + file + "\n"
+        if "checkpoints" not in category:
+            current_file_path = source_path + category + "/"
+            list_files = os.listdir(current_file_path)
+            for file in list_files:
+                if ".ipynb" in file:
+                    post_build_str += "jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 " + relative_path_for_binder + category + "/" + file + "\n"
+                    post_build_str += "jupyter trust " + relative_path_for_binder + category + "/" + file + "\n"
 
     # Write to file.
     post_build_file = open("../postBuild", "w")

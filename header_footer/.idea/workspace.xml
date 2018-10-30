@@ -18,8 +18,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+            <state relative-caret-position="84">
+              <caret line="173" column="22" lean-forward="false" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -30,8 +30,8 @@
       <file leaf-file-name="osf_notebook_class.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="529" column="34" lean-forward="false" selection-start-line="529" selection-start-column="34" selection-end-line="529" selection-end-column="34" />
+            <state relative-caret-position="751">
+              <caret line="676" column="0" lean-forward="false" selection-start-line="676" selection-start-column="0" selection-end-line="676" selection-end-column="0" />
               <folding>
                 <element signature="e#116#127#0" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="cell_content_strings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+            <state relative-caret-position="138">
+              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file leaf-file-name="signal_samples.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="911">
+            <state relative-caret-position="853">
               <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
@@ -86,7 +86,6 @@
       <find>Contacts</find>
       <find>Open</find>
       <find>color2_top</find>
-      <find>STAR_TABLE_HEADER</find>
       <find>first_border</find>
       <find>/\\</find>
       <find>dwipynb</find>
@@ -98,8 +97,9 @@
       <find>PLOTS_SIGNAL_SAMPLES</find>
       <find>FILENAME</find>
       <find>HEADER</find>
-      <find>os.chdir</find>
+      <find>STAR_TABLE_HEADER</find>
       <find>signal_samples_dir</find>
+      <find>os.chdir</find>
     </findStrings>
     <replaceStrings>
       <replace>new_dir</replace>
@@ -748,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/group_by_difficulty.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_h5-checkpoint.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -826,36 +819,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+        <state relative-caret-position="84">
+          <caret line="173" column="22" lean-forward="false" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="911">
+        <state relative-caret-position="853">
           <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/group_by_difficulty.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="529" column="34" lean-forward="false" selection-start-line="529" selection-start-column="34" selection-end-line="529" selection-end-column="34" />
+        <state relative-caret-position="751">
+          <caret line="676" column="0" lean-forward="false" selection-start-line="676" selection-start-column="0" selection-end-line="676" selection-end-column="0" />
           <folding>
             <element signature="e#116#127#0" expanded="true" />
           </folding>

@@ -590,7 +590,7 @@ def _generate_notebook_by_difficulty_body(notebook_object, dict_by_difficulty):
             notebook_type = split_path[-2]
             notebook_name = split_path[-1].split("&")[0]
             notebook_title = split_path[-1].split("&")[1]
-            markdown_cell += "\n\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
+            markdown_cell += "\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
                              str(NOTEBOOK_KEYS[notebook_type]) + "'><img " \
                              "src='../../images/icons/" + notebook_type.title() +\
                              ".png' width='15%'>\n\t\t</td>"
@@ -665,7 +665,7 @@ def _generate_notebook_by_tag_body(notebook_object, dict_by_tag):
                 notebook_type = split_path[-2]
                 notebook_name = split_path[-1].split("&")[0]
                 notebook_title = split_path[-1].split("&")[1]
-                markdown_cell += "\n\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
+                markdown_cell += "\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
                                  str(NOTEBOOK_KEYS[notebook_type]) + "'><img " \
                                  "src='../../images/icons/" + notebook_type.title() +\
                                  ".png' width='15%'>\n\t\t</td>"
@@ -775,7 +775,7 @@ def _generate_notebook_by_signal_type_body(notebook_object, dict_by_tag):
                 notebook_type = split_path[-2]
                 notebook_name = split_path[-1].split("&")[0]
                 notebook_title = split_path[-1].split("&")[1]
-                markdown_cell += "\n\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
+                markdown_cell += "\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
                                  str(NOTEBOOK_KEYS[notebook_type]) + "'><img " \
                                                                      "src='../../images/icons/" + notebook_type.title() + \
                                  ".png' width='15%'>\n\t\t</td>"
