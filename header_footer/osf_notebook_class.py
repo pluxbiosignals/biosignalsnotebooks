@@ -498,7 +498,7 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
 
     header_aux = HEADER
     header_aux = header_aux.replace("FILENAME", notebook_file.split(".")[0] + ".dwipynb")
-    header_aux = header_aux.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + notebook_type + "%2F" + notebook_file + ".ipynb")
+    header_aux = header_aux.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + notebook_type + "%2F" + notebook_file + ".dwipynb")
 
     if "Main_Files" in notebook_type:
         header_aux = header_aux.replace("../MainFiles/", "")

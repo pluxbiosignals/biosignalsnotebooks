@@ -68,7 +68,7 @@ def run(list_notebooks=["All"]):
                 # Update or Insertion of header and footer.
                 # [Header]
                 header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".dwipynb")
-                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file)
+                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
 
                 if header_cell is None:
                     notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))

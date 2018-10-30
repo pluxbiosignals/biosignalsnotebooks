@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="173" column="22" lean-forward="false" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
+            <state relative-caret-position="674">
+              <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="osf_notebook_class.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="osf_notebook_class.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="751">
-              <caret line="676" column="0" lean-forward="false" selection-start-line="676" selection-start-column="0" selection-end-line="676" selection-end-column="0" />
+            <state relative-caret-position="292">
+              <caret line="500" column="55" lean-forward="false" selection-start-line="500" selection-start-column="55" selection-end-line="500" selection-end-column="63" />
               <folding>
                 <element signature="e#116#127#0" expanded="true" />
               </folding>
@@ -70,7 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_generate_notebook_by_tag_body</find>
       <find>dict_by_diff</find>
       <find>_search_header_footer</find>
       <find>path</find>
@@ -100,6 +99,7 @@
       <find>STAR_TABLE_HEADER</find>
       <find>signal_samples_dir</find>
       <find>os.chdir</find>
+      <find>_generate_header</find>
     </findStrings>
     <replaceStrings>
       <replace>new_dir</replace>
@@ -130,8 +130,8 @@
         <option value="$PROJECT_DIR$/opensignalsfactory_environment/categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" />
         <option value="$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py" />
         <option value="$PROJECT_DIR$/cell_content_strings.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/osf_notebook_class.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -819,28 +819,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="173" column="22" lean-forward="false" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
-          <folding>
-            <element signature="e#122#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cell_content_strings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="853">
-          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -853,12 +835,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notebook_code/MainFiles/signal_samples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="853">
+          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/osf_notebook_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="676" column="0" lean-forward="false" selection-start-line="676" selection-start-column="0" selection-end-line="676" selection-end-column="0" />
+        <state relative-caret-position="292">
+          <caret line="500" column="55" lean-forward="false" selection-start-line="500" selection-start-column="55" selection-end-line="500" selection-end-column="63" />
           <folding>
             <element signature="e#116#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding>
+            <element signature="e#122#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
