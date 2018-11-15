@@ -5,12 +5,12 @@ in the notebooks.
 """
 
 HEADER = """<table width="100%">
-    <tr>
-        <td style="text-align:left" width="10%" class="border_pre_gradient">
-            <a href="../MainFiles/biosignalsnotebooks.ipynb"><img src="../../images/icons/download.png"></a>
+    <tr style="border-bottom:solid 2pt #009EE3">
+        <td style="text-align:left" width="10%">
+            <a href="FILENAME" download><img src="../../images/icons/download.png"></a>
         </td>
-        <td style="text-align:left" width="10%" class="border_gradient">
-            <a href="../MainFiles/biosignalsnotebooks.ipynb"><img src="../../images/icons/program.png"></a>
+        <td style="text-align:left" width="10%">
+            <a href="SOURCE" target="_blank"><img src="../../images/icons/program.png" title="Be creative and test your solutions !"></a>
         </td>
         <td></td>
         <td style="text-align:left" width="5%">
@@ -20,40 +20,40 @@ HEADER = """<table width="100%">
             <a href="../MainFiles/contacts.ipynb"><img src="../../images/icons/contacts.png"></a>
         </td>
         <td style="text-align:left" width="5%">
-            <a href="https://pypi.org/project/biosignalsnotebooks/"><img src="../../images/icons/package.png"></a>
+            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks" target="_blank"><img src="../../images/icons/github.png"></a>
         </td>
-        <td style="border-left:solid 3px #009EE3" width="20%">
+        <td style="border-left:solid 2pt #009EE3" width="15%">
             <img src="../../images/ost_logo.png">
         </td>
     </tr>
 </table>"""
 
-FOOTER = """<hr>
-<table width="100%">
-    <tr>
-        <td style="border-right:solid 3px #009EE3" width="30%">
-            <img src="../../images/ost_logo.png">
-        </td>
-        <td width="35%" style="text-align:left">
-            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
-            <br>
-            <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
-            <br>
-            <a href="https://pypi.org/project/biosignalsnotebooks/">&#9740; How to install biosignalsnotebooks Python package ?</a>
-            <br>
-            <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
-        </td>
-        <td width="35%" style="text-align:left">
-            <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
-            <br>
-            <a href="../MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
-            <br>
-            <a href="../MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
-            <br>
-            <br>
-        </td>
-    </tr>
-</table>"""
+# FOOTER = """<hr>
+# <table width="100%">
+#     <tr>
+#         <td style="border-right:solid 3px #009EE3" width="20%">
+#             <img src="../../images/ost_logo.png">
+#         </td>
+#         <td width="40%" style="text-align:left">
+#             <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
+#             <br>
+#             <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
+#             <br>
+#             <a href="https://pypi.org/project/biosignalsnotebooks/">&#9740; How to install biosignalsnotebooks Python package ?</a>
+#             <br>
+#             <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
+#         </td>
+#         <td width="40%" style="text-align:left">
+#             <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
+#             <br>
+#             <a href="../MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
+#             <br>
+#             <a href="../MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
+#             <br>
+#             <br>
+#         </td>
+#     </tr>
+# </table>"""
 
 DESCRIPTION_SIGNAL_SAMPLES = """With *Plux* acquisition systems, a vast set of physiological signals can be acquired.
 
@@ -72,25 +72,6 @@ HEADER_ALL_CATEGORIES = """<link rel="stylesheet" href="../../styles/theme_style
     <tr>
         <td id="image_td" width="15%" class="header_image_color_i"><div id="image_img"
         class="header_image_i"></div></td>
-        <!-- Available classes for "image_td" element:
-        - header_image_color_1 (For Notebooks of "Open" Area);
-        - header_image_color_2 (For Notebooks of "Acquire" Area);
-        - header_image_color_3 (For Notebooks of "Visualise" Area);
-        - header_image_color_4 (For Notebooks of "Process" Area);
-        - header_image_color_5 (For Notebooks of "Detect" Area);
-        - header_image_color_6 (For Notebooks of "Extract" Area);
-        - header_image_color_7 (For Notebooks of "Decide" Area);
-        - header_image_color_8 (For Notebooks of "Explain" Area);
-
-        Available classes for "image_img" element:
-        - header_image_1 (For Notebooks of "Open" Area);
-        - header_image_2 (For Notebooks of "Acquire" Area);
-        - header_image_3 (For Notebooks of "Visualise" Area);
-        - header_image_4 (For Notebooks of "Process" Area);
-        - header_image_5 (For Notebooks of "Detect" Area);
-        - header_image_6 (For Notebooks of "Extract" Area);
-        - header_image_7 (For Notebooks of "Decide" Area);
-        - header_image_8 (For Notebooks of "Explain" Area);-->
         <td class="header_text"> Notebook Title </td>
     </tr>
 </table>"""
@@ -101,29 +82,29 @@ HEADER_MAIN_FILES = """<link rel="stylesheet" href="../../styles/theme_style.css
 
 <table width="100%">
     <tr>
-        <td id="image_td" width="50%" class="header_image_color_2">
+        <td id="image_td" width="20%" class="header_image_color_2">
             <img id="image_img" src="../../images/ost_logo.png"></td>
-        <td class="header_text header_gradient"> Notebook Title </td>
+        <td class="header_text"> Notebook Title </td>
     </tr>
 </table>"""
 
 DESCRIPTION_CATEGORY = """<link rel="stylesheet" href="../../styles/theme_style.css">
-![OpenSignals_logo](../../images/OS_logo_title.png)
+<img src="../../images/OS_logo_title.png">
 
-**<span style="color:#009EE3">OpenSignals Tools</span>** is set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
+**<span style="color:#009EE3">biosignalsnotebooks</span>** (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
 
 This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **bitalino** or **biosignalsplux**, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
 
-A **<span class="color1">Python</span>** library (entitled **<span style="color:#009EE3">biosignalsnotebooks</span>** ) is the base toolbox to support the notebooks and to provide some useful functionalities. It can be installed through pip command, like demonstrated in a [PyPI <img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline">](https://pypi.org/project/biosignalsnotebooks/) dedicated page.
+A **<span class="color1">Python</span>** library (entitled **<span style="color:#009EE3">biosignalsnotebooks</span>** ) is the base toolbox to support the notebooks and to provide some useful functionalities. It can be installed through pip command, like demonstrated in a <a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">PyPI <img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a> dedicated page.
 
 In many cases we also point and illustrate with code the usage of other python toolboxes dedicated to biosignal processing.
 
-The notebooks will cover the full topics pipeline of working with biosignals: **<span class="color1">Open</span>** a file; **<span class="color3">Visualise</span>** the data online and offline, **<span class="color4">Process</span>** a one channel signal or a multi-channel acquisition, **<span class="color5">Detect</span>** relevant events in the signals, **<span class="color6">Extract</span>** features from many different type of sensors and domains, **<span class="color7">Decide</span>** among a set of classes with several machine learning approaches, **<span class="color8">Explain</span>** the obtained results with metrics and validations techniques.
+The notebooks will cover the full topics pipeline of working with biosignals, such as: **<span class="color1">Load</span>** a file; **<span class="color3">Visualise</span>** the data online and offline, **<span class="color4">Pre-Process</span>** a one channel signal or a multi-channel acquisition, **<span class="color5">Detect</span>** relevant events in the signals, **<span class="color6">Extract</span>** features from many different type of sensors and domains, **<span class="color7">Train and Classify</span>** among a set of classes with several machine learning approaches, **<span class="color8">Understand</span>** the obtained results with metrics and validations techniques.
 
 These examples are carried in a multitude of biosignals , from ECG, EDA, EMG, Accelerometer, Respiration among many others.
-The notebooks have a set of labels to help navigate among topics <...>, types of signals <...>, application area <...> and complexity <...> level to support the search for particular solutions.
+The notebooks have a set of labels to help navigate among topics <a href="../MainFiles/by_tag.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="../MainFiles/by_signal_type.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="../MainFiles/biosignalsnotebooks.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="../MainFiles/by_diff.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
 
-We encourage you to share new example ideas, to pose questions :::ADD email here:::, and to make improvements or suggestion to this set of notebooks.
+We encourage you to share new example ideas, to pose questions info@plux.info, and to make improvements or suggestion to this set of notebooks.
 
 **Be inspired on how to make the most of your biosignals!**
 
@@ -160,31 +141,52 @@ the user)**</span>"""
 CSS_STYLE_CODE = """from biosignalsnotebooks.__notebook_support__ import css_style_apply
 css_style_apply()"""
 
+JS_CODE_AUTO_PLAY = """%%html
+<script>
+    // AUTORUN ALL CELLS ON NOTEBOOK-LOAD!
+    require(
+        ['base/js/namespace', 'jquery'],
+        function(jupyter, $) {
+            $(jupyter.events).on("kernel_ready.Kernel", function () {
+                console.log("Auto-running all cells-below...");
+                jupyter.actions.call('jupyter-notebook:run-all-cells-below');
+                jupyter.actions.call('jupyter-notebook:save-notebook');
+            });
+        }
+    );
+</script>"""
+
 FOOTER = """<hr>
 <table width="100%">
     <tr>
-        <td style="border-right:solid 3px #009EE3" width="30%">
+        <td style="border-right:solid 3px #009EE3" width="20%">
             <img src="../../images/ost_logo.png">
         </td>
-        <td width="35%" style="text-align:left">
-            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
+        <td width="40%" style="text-align:left">
+            <a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">&#9740; Project Presentation</a>
             <br>
-            <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
+            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks" target="_blank">&#9740; GitHub Repository</a>
             <br>
-            <a href="https://pypi.org/project/biosignalsnotebooks/">&#9740; How to install biosignalsnotebooks Python package ?</a>
+            <a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">&#9740; How to install biosignalsnotebooks Python package ?</a>
             <br>
             <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
         </td>
-        <td width="35%" style="text-align:left">
+        <td width="40%" style="text-align:left">
+            <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
+            <br>
             <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
             <br>
             <a href="../MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
             <br>
             <a href="../MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
-            <br>
-            <br>
         </td>
     </tr>
 </table>"""
 
-# 11/10/2018 16h45m :)
+MD_EXAMPLES = """<p class="steps">1 - Description of the first instruction</p>
+<strong><span class="color1">Example of a Markdown cell (supports HTML and some LaTex syntax)</span></strong>"""
+
+CODE_EXAMPLES = """# Code cell where Python instructions can be applied
+print("Hello and Welcome to biosignalsnotebooks environment !")"""
+
+# 07/11/2018  00h02m :)

@@ -12,3 +12,4 @@ IPython
 pandas
 novainstrumentation
 nbformat
+ipython

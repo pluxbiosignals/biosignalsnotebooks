@@ -595,7 +595,7 @@ def _checkup(peaks, ecg_integrated, sample_rate, rr_buffer, spk1, npk1, threshol
         # is more than 1.5 rr intervals away
         # just abandon it if there is no peak before
         # or after
-        elif amp > threshold / 2 and definitive_peaks and len(peaks) > i + 1:
+        elif amp > threshold / 2 and list(definitive_peaks) and len(peaks) > i + 1:
             mean_rr = numpy.mean(rr_buffer)
             last_qrs_ms = (peak - definitive_peaks[-1]) * (1000 / sample_rate)
             last_qrs_to_next_peak = peaks[i+1] - definitive_peaks[-1]
@@ -711,9 +711,9 @@ def tachogram(data, sample_rate, signal=False, in_seconds=False, out_seconds=Fal
 
     if signal is False:  # data is a list of R peaks position.
         data_copy = data
-        time_axis = numpy.array(data).cumsum()
+        time_axis = numpy.array(data)#.cumsum()
         if out_seconds is True and in_seconds is False:
-            time_axis /= sample_rate
+            time_axis = time_axis / sample_rate
     else:  # data is a ECG signal.
         # Detection of R peaks.
         data_copy = detect_r_peaks(data, sample_rate, time_units=out_seconds, volts=False,
@@ -721,7 +721,7 @@ def tachogram(data, sample_rate, signal=False, in_seconds=False, out_seconds=Fal
         time_axis = data_copy
 
     # Generation of Tachogram.
-    tachogram_data = numpy.diff(data_copy)
+    tachogram_data = numpy.diff(time_axis)
     tachogram_time = time_axis[1:]
 
     return tachogram_data, tachogram_time

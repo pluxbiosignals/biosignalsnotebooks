@@ -40,6 +40,9 @@ import numpy
 import scipy.signal as scisign
 from inspect import signature
 from warnings import warn
+import time as time_package
+import os
+from bokeh.plotting import output_file
 
 
 def _is_instance(type_to_check, element, condition="any", deep=False):
@@ -344,5 +347,48 @@ def _inv_key(list_keys, valid_keys):
             inv_keys.append(i)
 
     return bool_out, inv_keys
+
+def _generate_bokeh_file(file_name):
+    """
+    -----
+    Brief
+    -----
+    Auxiliary function responsible for the creation of a directory where Bokeh figures will be
+    stored.
+    The "active" output file for Bokeh will also be updated for the new one.
+
+    -----------
+    Description
+    -----------
+    To ensure that Bokeh plots are correctly observed in the HTML version of the Notebooks, it is
+    necessary to embed the plots inside Iframes.
+
+    Taking this into consideration, the source file of the plot is mandatory to use an Iframe, and
+    this function ensures the generation of a Bokeh file for each plot, storing it in an adequate
+    place.
+
+    ----------
+    Parameters
+    ----------
+    file_name : str
+        Name given to the file.
+
+    Returns
+    -------
+    out : str
+        String containing the file name.
+    """
+    # Creation of our output file instance.
+    if file_name is None:
+        file_name = "plot_" + time_package.strftime("%Y_%m_%d_%H_%M_%S.html")
+    else:
+        file_name += ".html"
+
+    if not os.path.exists("generated_plots"):
+        os.makedirs("generated_plots")
+
+    output_file(os.getcwd().replace("\\", "/") + "/generated_plots/" + file_name)
+
+    return file_name
 
 # 01/10/2018 19h19m :)

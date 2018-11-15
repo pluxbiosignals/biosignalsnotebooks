@@ -38,19 +38,16 @@ None
 import itertools
 from numbers import Number
 import numpy
-from bokeh.plotting import figure, output_file, show
+from bokeh.plotting import figure, output_file, show, save
 from bokeh.models.tools import PanTool, ResetTool, BoxZoomTool, WheelZoomTool
 from bokeh.models.glyphs import Line
 from bokeh.plotting.figure import FigureOptions
 from bokeh.layouts import gridplot
-from .aux_functions import _filter_keywords, _is_instance
+from IPython.display import HTML
+from .aux_functions import _filter_keywords, _is_instance, _generate_bokeh_file
 
 COLOR_LIST = itertools.cycle(("#009EE3", "#302683", "#00893E", "#94C11E", "#FDC400", "#E84D0E",
                               "#CF0272", "#F199C1"))
-
-# output to static HTML file
-output_file("simpleBokehFigure.html")
-
 
 def plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lines=None,
                 hor_lines_leg=None, vert_lines=None, vert_lines_leg=None,
@@ -277,8 +274,8 @@ def plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_line
 
 def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=None,
          grid_plot=False, grid_lines=None, grid_columns=None, hor_lines=None, hor_lines_leg=None,
-         vert_lines=None, vert_lines_leg=None, apply_opensignals_style=True, show_plot=True, warn_print=False,
-         **kwargs):
+         vert_lines=None, vert_lines_leg=None, apply_opensignals_style=True, show_plot=True,
+         warn_print=False, get_fig_list=False, file_name=None, **kwargs):
     """
     Plotting function intended for an easy representation of OpenSignals acquired data.
 
@@ -336,6 +333,13 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
     warn_print : bool
         If True some warnings about invalid kwargs keys will be prompted.
 
+    get_fig_list : bool
+        If True then it will be returned a list containing the figure objects generated during
+        the function execution.
+
+    file_name : str
+        Path containing the destination folder where the Bokeh figure will be stored.
+
     **kwargs : dict
         Keyword values for applying in bokeh figures, lines and gridplots.
 
@@ -345,6 +349,10 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
         Object that is produced during the execution of the present function.
 
     """
+
+    # Generation of the HTML file where the plot will be stored.
+    file_name = _generate_bokeh_file(file_name)
+
     # Data conversion for ensuring that the function only works with lists.
     if len(args) == 1:
         time = numpy.linspace(1, len(args[0]) + 1, len(args[0]))
@@ -384,8 +392,8 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
             title = [title]
         if legend is not None:
             legend = [legend]
-    elif _is_instance(numpy.ndarray, data, condition="all") \
-            or _is_instance(numpy.ndarray, time, condition="all"):
+    elif _is_instance(numpy.ndarray, data, condition="any") \
+            or _is_instance(numpy.ndarray, time, condition="any"):
         time = list(map(list, time))
         data = list(map(list, data))
 
@@ -517,6 +525,7 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
                         fig_list.append(figure(title=title[list_entry],
                                                y_axis_label=y_axis_label[list_entry],
                                                x_axis_label=x_axis_label,
+                                               sizing_mode='scale_both',
                                                **style_figure))
 
                     fig_list[-1].line(time[list_entry], data[list_entry], legend=legend[list_entry],
@@ -620,6 +629,9 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
 
             if show_plot is True:
                 show(grid)
+            else:
+                save(grid)
+                #return HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
         else:
             raise RuntimeError("The specified number of lines and columns for the grid plot is not "
                                "compatible.")
@@ -627,8 +639,12 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
     else:
         if show_plot is True:
             show(fig_list[-1])
+        else:
+            save(fig_list[-1])
+            #return HTML('<iframe width=100% height="' + str(fig_list[-1].plot_height) + '" src="generated_plots/' + file_name + '"></iframe>')
 
-    return fig_list
+    if get_fig_list is True:
+        return fig_list
 
 
 def opensignals_style(figure_list, grid_plot=None, toolbar="right"):
@@ -791,4 +807,4 @@ def _check_validity_of_inputs(data, input_arg, input_name, grid_plot, dimension)
 
     return input_arg
 
-# 25/09/2018 18h58m :)
+# 07/11/2018  20h28m :)

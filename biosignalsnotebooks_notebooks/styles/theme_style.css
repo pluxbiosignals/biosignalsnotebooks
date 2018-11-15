@@ -8,7 +8,7 @@ font-weight: 400 !important;
 color: #58585A !important;
 text-align: justify !important;
 text-justify: inter-word !important;
-background-color: rgba(162,162,162,0.7) !important;
+background-color: white !important;
 }
 /*
 #notebook-container {
@@ -78,6 +78,10 @@ background: whitesmoke !important;
 pre {
 /*max-height: 100px !important;*/
 overflow-x: hidden !important;
+}
+
+.bk-root{
+height: auto !important;
 }
 
 .color1{
@@ -387,11 +391,15 @@ text-indent: 30px !important;
 }
 
 #notebook{
-background-color: rgba(162,162,162,0.7) !important;
+background-color: white !important;
 }
 
 #notebook-container{
+width: 100% !important;
 background-color: white !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+padding: 0px !important;
 }
 
 .prompt{
@@ -689,7 +697,7 @@ min-height: 20px !important;
 }
 
 .file_icon::before {
-content: url(images/icons/virtual_pixel_small.png) !important;
+content: url("../../images/icons/virtual_pixel_small.png") !important;
 }
 
 .not_active {

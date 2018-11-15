@@ -49,6 +49,8 @@ import ast
 import os
 import datetime
 import magic
+import requests
+import mimetypes
 import numpy
 import wget
 import h5py
@@ -56,7 +58,7 @@ import h5py
 from .aux_functions import _is_instance, _filter_keywords
 
 TEMP_PATH = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] +
-             "\\temp\\").replace("\\", "/")
+             "temp\\").replace("\\", "/")
 
 
 def load(file, channels=None, devices=None, get_header=False, remote=False, **kwargs):
@@ -97,10 +99,15 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, **kw
         # if not os.path.exists("tempOST"):
         #     os.makedirs("tempOST")
 
-        file = wget.download(file, (TEMP_PATH + "\\file_" +
-                             datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" + "_" +
-                                                              "%H_%M_%S") +
-                             "." + file.split(".")[-1]).replace("\\", "/"))
+        # Check if it is a Google Drive link.
+        if "drive.google" in file:
+            response = requests.get(file)
+            content_type = response.headers['content-type']
+            extension = mimetypes.guess_extension(content_type)
+        else:
+            extension = "." + file.split(".")[-1]
+
+        file = wget.download(file, (TEMP_PATH + "file_" + datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" + "_" + "%H_%M_%S") + extension).replace("\\", "7"))
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Verification of file type %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     file_type = _file_type(file)
@@ -409,7 +416,8 @@ def _load_h5(file, devices, channels):
             # for sublist in h5_data:
             #    for item in sublist:
             #        flat_list.append(item)
-            out_dict[device]["CH" + str(chn)] = [item for sublist in data_temp for item in sublist]
+            #out_dict[device]["CH" + str(chn)] = [item for sublist in data_temp for item in sublist]
+            out_dict[device]["CH" + str(chn)] = numpy.concatenate(data_temp)
 
     return out_dict
 
@@ -611,4 +619,4 @@ def _file_type(file):
 
     return file_type
 
-# 25/09/2018 18h58m :)
+# 07/11/2018  00h02m :)

@@ -8,8 +8,9 @@ import os
 import shutil
 import nbformat
 
-from cell_content_strings import HEADER, FOOTER, DESCRIPTION_SIGNAL_SAMPLES, DESCRIPTION_GROUP_BY
-from osf_notebook_class import notebook, NOTEBOOK_KEYS
+from biosignalsnotebooks.notebook_files.cell_content_strings import HEADER, FOOTER, \
+    DESCRIPTION_SIGNAL_SAMPLES, DESCRIPTION_GROUP_BY
+from biosignalsnotebooks.factory import notebook, NOTEBOOK_KEYS
 
 # ==================================================================================================
 # =================================== Script Constants =============================================
@@ -23,16 +24,18 @@ DICT_GROUP_BY_TAG = {}
 # ===================== Inclusion of Header and Footer in each Notebook ============================
 # ==================================================================================================
 
-def run(list_notebooks=["All"]):
+def run(list_notebooks=["All"], exclude_notebooks=["None"]):
     # Storage of the current directory path.
     root = os.getcwd()
 
-    # ============================= Creation of the main directory =====================================
+    # ============================= Creation of the main directory =================================
     current_dir = root + "\\biosignalsnotebooks_environment"
     if not os.path.isdir(current_dir):
         os.makedirs(current_dir)
 
-    # ==================== Copy of 'images' 'styles' and 'signal_samples' folders ======================
+    # ============================= Copy of  =================================
+
+    # ==================== Copy of 'images' 'styles' and 'signal_samples' folders ==================
     for var in ["images", "styles", "signal_samples", "categories"]:
         new_dir = current_dir + "\\" + var
 
@@ -49,14 +52,16 @@ def run(list_notebooks=["All"]):
         # Clone directory.
         shutil.copytree(src, destination)
 
-    # ======================== Copy of the original versions of Notebooks ==============================
+    # ======================== Copy of the original versions of Notebooks ==========================
     current_dir = os.getcwd() + "\\biosignalsnotebooks_environment\\categories"
     for category in list(NOTEBOOK_KEYS.keys()):
         list_files = os.listdir(current_dir + "\\" + category)
         for file in list_files:
             # Access to all Notebook files (with the extension .ipynb)
             if file.endswith(".ipynb") and (file.split(".ipynb")[0] in list_notebooks or
-                                            "All" in list_notebooks):
+                                            "All" in list_notebooks) \
+                    and (file.split(".ipynb")[0] not in exclude_notebooks
+                         or "None" in exclude_notebooks):
                 # Read of the current Notebook.
                 file_dir = current_dir + "\\" + category + "\\" + file
                 notebook = nbformat.read(file_dir, nbformat.NO_CONVERT)
@@ -72,13 +77,14 @@ def run(list_notebooks=["All"]):
 
                 if header_cell is None:
                     notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
-                    footer_cell += 1
+                    if footer_cell is not None:
+                        footer_cell += 1
                 else:
                     notebook["cells"][header_cell] = nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}})
 
                 # [Footer]
                 if footer_cell is None:
-                    notebook["cells"].insert(footer_cell, nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}}))
+                    notebook["cells"].append(nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}}))
                 else:
                     notebook["cells"][footer_cell] = nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}})
 
@@ -204,7 +210,7 @@ def _generate_post_build_files():
     # Inclusion of data inside the dynamic string.
     categories = os.listdir(source_path)
     for category in categories:
-        if "checkpoints" not in category:
+        if category != ".ipynb_checkpoints":
             current_file_path = source_path + category + "/"
             list_files = os.listdir(current_file_path)
             for file in list_files:
@@ -219,6 +225,8 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["open_h5"])
-run()
+run(exclude_notebooks=["signal_loading_preparatory_steps", "digital_filtering",
+                       "unit_conversion_ecg"])
+#run()
 
-# 29/10/2018  19h39m :)
+# 07/11/2018  00h02m :)

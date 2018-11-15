@@ -10,6 +10,12 @@ load_signal
     Function that returns a dictionary with the data contained inside a signal sample file
     (stored in the biosignalsnotebooks signal samples directory).
 
+[Private]
+
+_generate_download_google_link
+    Google Drive sharable links do not allow a direct download with wget function, so, this private
+    function manipulates the input link to ensure the desired download.
+
 Observations/Comments
 ---------------------
 None
@@ -28,7 +34,7 @@ SIGNAL_PATH = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] + 
 FILE_EXTENSION = ".h5"
 
 
-def load_signal(signal_name, get_header=False):
+def load_signal(signal_handler, get_header=False):
     """
     Function that returns a dictionary with the data contained inside 'signal_name' file (stored in
     the biosignalsnotebooks signal samples directory.
@@ -36,8 +42,8 @@ def load_signal(signal_name, get_header=False):
     ----------
     Parameters
     ----------
-    signal_name : file name
-        Name that identifies the signal sample to be loaded.
+    signal_name : file name or url
+        Name that identifies the signal sample to be loaded or a url.
 
         Possible values:
         [ecg_4000_Hz]
@@ -158,15 +164,53 @@ def load_signal(signal_name, get_header=False):
                          "ecg_20_sec_100_Hz", "ecg_20_sec_1000_Hz", "emg_bursts", "emg_fatigue",
                          "temp_res_8_16", "bvp_sample"]
 
-    if signal_name in available_signals:
-        out, header = load(SIGNAL_PATH + signal_name + FILE_EXTENSION, get_header=True)
+    # Check if signal_handler is a url.
+    # [Statements to be executed if signal_handler is a url]
+    if any(mark in signal_handler for mark in ["http://", "https://", "www.", ".pt", ".com", ".org",
+                                               ".net"]):
+        # Check if it is a Google Drive sharable link.
+        if "drive.google" in signal_handler:
+            signal_handler = _generate_download_google_link(signal_handler)
+
+        # Load file.
+        out, header = load(signal_handler, remote=True, get_header=True)
+
+    # [Statements to be executed if signal_handler is an identifier of the signal]
     else:
-        raise RuntimeError("The signal name defined as input does not correspond to any of the "
+        if signal_handler in available_signals:
+            out, header = load(SIGNAL_PATH + signal_handler + FILE_EXTENSION, get_header=get_header)
+        else:
+            raise RuntimeError("The signal name defined as input does not correspond to any of the "
                            "signal samples contained in the package.")
 
     if get_header is True:
         return out, header
     else:
         return out
+
+def _generate_download_google_link(link):
+    """
+       Function that returns a direct download link of a file stored inside a Google Drive
+       Repository.
+
+       ----------
+       Parameters
+       ----------
+       link : str
+           Sharable Google Drive link.
+
+        Returns
+        -------
+        out : str
+            Manipulated link, that ensures a direct download with wget function.
+    """
+    "https://drive.google.com/file/d/1NHNIpGjTdA8bxNlxuulJfhJ1Latm0znB/view"
+    # Split link into segments (split character --> /)
+    split_link = link.split("/")
+
+    # Get file id.
+    file_id = split_link[-2]
+
+    return "https://drive.google.com/uc?export=download&id=" + file_id
 
 # 11/10/2018 16h45m :)
