@@ -1,6 +1,10 @@
 
 <img src="https://image.ibb.co/eE75WV/OS-logo-title.png">
 
+[https://img.shields.io/badge/python-3.6-blue.svg]()
+[https://img.shields.io/badge/html-5-green.svg]()
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fbiosignalsnotebooks.ipynb)
+
 ## Description
 
 **<span style="color:#009EE3">biosignalsnotebooks</span>** is a set of documents and a **<span style="color: #62C3EE">Python</span>** library to provide programming examples in the form of **<span style="color:#72BE94">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
