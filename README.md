@@ -1,8 +1,8 @@
 
 <img src="https://image.ibb.co/eE75WV/OS-logo-title.png">
 
-[https://img.shields.io/badge/python-3.6-blue.svg]()
-[https://img.shields.io/badge/html-5-green.svg]()
+[![Python](https://img.shields.io/badge/python-3.6-blue.svg)]()
+[![html5](https://img.shields.io/badge/html-5-green.svg)]()
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fbiosignalsnotebooks.ipynb)
 
 ## Description
