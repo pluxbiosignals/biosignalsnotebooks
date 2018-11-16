@@ -18,7 +18,7 @@ In many cases we also point and illustrate with code the usage of other python t
 The notebooks will cover the full topics pipeline of working with biosignals, such as: **<span style="color: #62C3EE">Load</span>** a file; **<span style="color:#AFE1F6">Visualise</span>** the data online and offline, **<span style="color:#00893E">Pre-Process</span>** a one channel signal or a multi-channel acquisition, **<span style="color:#72BE94">Detect</span>** relevant events in the signals, **<span style="#A8D7BD">Extract</span>** features from many different type of sensors and domains, **<span style="#CF0272">Train and Classify</span>** among a set of classes with several machine learning approaches, **<span style="#F0B2D4">Understand</span>** the obtained results with metrics and validations techniques.
 
 These examples are carried in a multitude of biosignals , from ECG, EDA, EMG, Accelerometer, Respiration among many others.
-The notebooks have a set of labels to help navigate among topics <a href="notebookToHtml/biosignalsnotebooks_html/Categories/MainFiles/by_tag.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="notebookToHtml/biosignalsnotebooks_html/Categories/MainFiles/by_signal_type.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="notebookToHtml/biosignalsnotebooks_html/Categories/MainFiles/biosignalsnotebooks.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="notebookToHtml/biosignalsnotebooks_html/Categories/MainFiles/by_diff.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
+The notebooks have a set of labels to help navigate among topics <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_tag.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_diff.ipynb"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
 
 We encourage you to share new example ideas, to pose questions info@plux.info, and to make improvements or suggestion to this set of notebooks.
 
@@ -41,7 +41,7 @@ The list of plugins can be found here: http://biosignalsplux.com/en/software/add
 
 ## Access to biosignalsnotebooks Notebooks
 
-<a href="http://biosignalsplux.com/notebooks/neo_index.php">
+<a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php">
     <p align="center">
       <img src="https://image.ibb.co/ingFWV/bsnb-logo-animation.gif" width="40%">
     </p>
