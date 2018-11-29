@@ -7,3 +7,4 @@ bokeh
 jupyter_contrib_nbextensions
 nbconvert
 sty
+python-magic-bin==0.4.14
