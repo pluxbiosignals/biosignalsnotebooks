@@ -1,5 +1,5 @@
 
-<img src="https://image.ibb.co/eE75WV/OS-logo-title.png">
+<img src="https://i.ibb.co/rbtv3dW/OS-logo-title-slim.png">
 
 [![Python](https://img.shields.io/badge/python-3.6-blue.svg)]()
 [![html5](https://img.shields.io/badge/html-5-green.svg)]()
@@ -23,6 +23,40 @@ The notebooks have a set of labels to help navigate among topics <a href="http:/
 We encourage you to share new example ideas, to pose questions info@plux.info, and to make improvements or suggestion to this set of notebooks.
 
 **Be inspired on how to make the most of your biosignals!**
+
+
+## Available Notebooks
+
+<table width="100%">
+    <tr>
+        <td width="20%" align="center"><strong> Category <strong></td>
+        <td width="80%"></td>
+    </tr>
+	<tr>
+		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/YPbCnzD/Load.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_h5_rev.php' target='_blank'>Load acquired data from .h5 file</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_txt_rev.php'>Load acquired data from .txt file</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/d2jZH1s/Record.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/sampling_rate_and_aliasing_rev.php' target='_blank'>Problems of low sampling rate (aliasing)</a> </td>
+	</tr>
+	<tr>
+		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.php'>Fatigue Evaluation - Evolution of Median Power Frequency</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ecg_rev.php'>ECG Sensor - Unit Conversion </a> </td>
+	</tr>
+</table>
 
 ## What is **PLUX**
 
