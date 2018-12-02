@@ -21,7 +21,7 @@ from .notebook_files.cell_content_strings import DESCRIPTION_GROUP_BY, DESCRIPTI
                                  HEADER_ALL_CATEGORIES, HEADER_MAIN_FILES, \
                                  DESCRIPTION_CATEGORY, HEADER_TAGS, SEPARATOR, AUX_CODE_MESSAGE, \
                                  JS_CODE_AUTO_PLAY, CSS_STYLE_CODE, FOOTER, HEADER, MD_EXAMPLES, \
-                                 CODE_EXAMPLES
+                                 CODE_EXAMPLES, OPEN_IMAGE
 
 SIGNAL_TYPE_LIST = ["emg", "ecg"]
 
@@ -114,6 +114,8 @@ class notebook:
             self.notebook_type = "MainFiles"
             _generate_header(self.notebook, self.notebook_type, notebook_file)
             _generate_notebooks_by_category(self.notebook, dict_by_tag)
+            if os.path.exists("../biosignalsnotebooks_notebooks"):
+                _generate_github_readme(self.notebook, dict_by_tag)
 
         elif notebook_type == "Main_Files_Signal_Samples":
             self.notebook_type = "MainFiles"
@@ -723,17 +725,17 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
 
     """
 
-    # ============================ Insertion of an introductory text ===============================
-    markdown_cell = DESCRIPTION_CATEGORY
+    # ============================ Insertion of an opening text ====================================
+    markdown_cell = OPEN_IMAGE
 
     # == Generation of a table that group Notebooks by category the information about each signal ==
     category_list = list(NOTEBOOK_KEYS.keys())
     tag_keys = list(dict_by_tag.keys())
 
-    markdown_cell += """\n<table width="100%">
+    markdown_cell += """\n<table id="notebook_list" width="100%">
     <tr>
         <td width="20%" class="center_cell group_by_header_grey"> Category </td>
-        <td width="60%" class="center_cell gourp_by_header"></td>
+        <td width="60%" class="center_cell group_by_header"></td>
         <td width="20%" class="center_cell"></td>
     </tr>"""
 
@@ -770,8 +772,89 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
 
     markdown_cell += "\n</table>"
 
+    # ============================ Insertion of an introductory text ===============================
+    markdown_cell += DESCRIPTION_CATEGORY
+
     # =================== Insertion of the HTML table inside a markdown cell =======================
     notebook_object["cells"].append(nb.v4.new_markdown_cell(markdown_cell))
+
+
+def _generate_github_readme(notebook_object, dict_by_tag):
+    """
+    Internal function that is used for generation of the GitHub and PyPI README file.
+
+    ----------
+    Parameters
+    ----------
+    notebook_object : notebook object
+        Object of "notebook" class where the body will be created.
+
+    dict_by_tag : dict
+        Dictionary where each key is a tag and the respective value will be a list containing the
+        Notebooks (title and filename) that include this tag.
+
+    """
+
+    # ==================== List of urls that contain each Category icon ============================
+    icons = {"Detect": "https://i.ibb.co/rymrvFL/Detect.png",
+             "Evaluate": "https://i.ibb.co/yfwcy2M/Evaluate.png",
+             "Extract": "https://i.ibb.co/tchq7Cc/Extract.png",
+             "Load": "https://i.ibb.co/YPbCnzD/Load.png",
+             "Pre-Process": "https://i.ibb.co/1rKWccX/Pre-Process.png",
+             "Record": "https://i.ibb.co/d2jZH1s/Record.png",
+             "Train_and_Classify": "https://i.ibb.co/CQ4cyGb/Train-and-Classify.png",
+             "Understand": "https://i.ibb.co/MnhRRQT/Understand.png",
+             "Visualise": "https://i.ibb.co/wh4HKzf/Visualise.png"}
+
+    # =========================== biosignalsnotebooks website ======================================
+    biosignalsnotebooks_web = "http://www.biosignalsplux.com/notebooks/Categories/"
+
+    # == Generation of a table that group Notebooks by category the information about each signal ==
+    category_list = list(NOTEBOOK_KEYS.keys())
+    tag_keys = list(dict_by_tag.keys())
+
+    markdown_cell = """<table width="100%">
+    <tr>
+        <td width="20%" align="center"><strong> Category <strong></td>
+        <td width="80%"></td>
+    </tr>"""
+
+    for i, category in enumerate(category_list):
+        if category != "MainFiles":
+            if category.lower() in tag_keys:
+                nbr_notebooks = len(dict_by_tag[category.lower()])
+                notebook_list = dict_by_tag[category.lower()]
+                split_path = notebook_list[0].replace("\\", "/").split("/")
+                notebook_name = split_path[-1].split("&")[0]
+                notebook_title = split_path[-1].split("&")[1]
+                markdown_cell += "\n\t<tr>" \
+                                 "\n\t\t<td rowspan='" + str(nbr_notebooks) + "'><p align='center'><img src='" + icons[category] + "' width='50%' align='center'></p></td>" \
+                                 "\n\t\t<td align='center'> <a href='" + biosignalsnotebooks_web + category + "/" + notebook_name.replace(".ipynb", "_rev.php") + "' target='_blank'>" + notebook_title + "</a> </td>" \
+                                 "\n\t</tr>"
+
+                for j, notebook_file in enumerate(notebook_list[1:]):
+                    split_path = notebook_file.replace("\\", "/").split("/")
+                    notebook_name = split_path[-1].split("&")[0]
+                    notebook_title = split_path[-1].split("&")[1]
+                    markdown_cell += "\n\t<tr>" \
+                                     "\n\t\t<td align='center'> <a href='" + biosignalsnotebooks_web + category + "/" + notebook_name.replace(".ipynb", "_rev.php") + "'>" + notebook_title + "</a> </td>" \
+                                     "\n\t</tr>"
+
+    markdown_cell += "\n</table>"
+
+    # ============================ Generation of README files ======================================
+    # [Open template]
+    template_path = os.path.abspath(__file__).split(os.path.basename(__file__))[0].replace("\\", "/") + "/notebook_files/github/README_TEMPLATE.md"
+    with open(template_path, 'r') as readme:
+        readme_str = readme.read()
+
+    readme_str = readme_str.replace("LIST_OF_NOTEBOOKS", markdown_cell)
+
+    # [Storage of the updated files]
+    for path in ["../biosignalsnotebooks/README_BSN.md", "../README.md"]:
+        with open(path, 'w') as readme_out:
+            readme_out.write(readme_str)
+        readme_out.close()
 
 
 def _generate_notebook_by_signal_type_body(notebook_object, dict_by_tag):
@@ -930,4 +1013,4 @@ def _get_metadata(notebook, filename, category):
 
     return header_cell, footer_cell, title, nbr_stars, tags
 
-# 12/11/2018  21h23m :)
+# 29/11/2018  17h18m :)

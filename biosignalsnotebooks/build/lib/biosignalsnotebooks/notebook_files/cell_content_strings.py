@@ -88,10 +88,11 @@ HEADER_MAIN_FILES = """<link rel="stylesheet" href="../../styles/theme_style.css
     </tr>
 </table>"""
 
-DESCRIPTION_CATEGORY = """<link rel="stylesheet" href="../../styles/theme_style.css">
-<img src="../../images/OS_logo_title.png">
+OPEN_IMAGE = """<link rel="stylesheet" href="../../styles/theme_style.css">
+<img src="../../images/OS_logo_title_slim.png">
+<div class="title"><h2 class="color11"> Available Notebooks </h2></div>"""
 
-**<span style="color:#009EE3">biosignalsnotebooks</span>** (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
+DESCRIPTION_CATEGORY = """<br>**<span style="color:#009EE3">biosignalsnotebooks</span>** (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a **<span class="color1">Python</span>** library to provide programming examples in the form of **<span class="color5">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
 
 This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **bitalino** or **biosignalsplux**, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
 
@@ -109,8 +110,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 **Be inspired on how to make the most of your biosignals!**
 
 <br>
-
-<div class="title"><h2 class="color11"> Available Notebooks </h2></div>"""
+"""
 
 HEADER_TAGS = """<div id="flex-container">
     <div id="diff_level" class="flex-item">

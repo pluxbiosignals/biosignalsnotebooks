@@ -3,6 +3,7 @@
 body {
 font-family: 'Cuprum' !important;
 font-size: 12pt !important;
+/*overflow: hidden !important;*/
 line-height: 1 !important;
 font-weight: 400 !important;
 color: #58585A !important;
@@ -15,6 +16,7 @@ background-color: white !important;
 -webkit-box-shadow: none;
 box-shadow: none;
 }
+
 .rendered_html h1 { font-size: 4rem !important;  }
 .rendered_html h2 { font-size: 3rem !important; }
 .rendered_html h3 { font-size: 2.5rem !important; }
@@ -400,6 +402,8 @@ background-color: white !important;
 -webkit-box-shadow: none !important;
 box-shadow: none !important;
 padding: 0px !important;
+font-size: 12pt !important;
+/*line-height: 10pt !important;*/
 }
 
 .prompt{

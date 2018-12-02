@@ -391,4 +391,89 @@ def _generate_bokeh_file(file_name):
 
     return file_name
 
+
+def _is_a_url(input_element):
+    """
+    -----
+    Brief
+    -----
+    Auxiliary function responsible for checking if the input is a string that contains a url.
+
+    -----------
+    Description
+    -----------
+    Some biosignalsnotebooks functions support a remote access to files. In this situation it is
+    important to understand if the input is a url, which can be easily achieved by checking if some
+    key-markers are present.
+
+    The key-markers that will be searched are "http://", "https://", "www.", ".pt", ".com", ".org",
+    ".net".
+
+    ----------
+    Parameters
+    ----------
+    input_element : unknown
+        The data structure that will be checked.
+
+    Returns
+    -------
+    out : bool
+        If the input_element is a string and if it contains any key-marker, then True flag will be returned.
+    """
+    if type(input_element) is str:
+        # Check if signal_handler is a url.
+        # [Statements to be executed if signal_handler is a url]
+        if any(mark in input_element for mark in ["http://", "https://", "www.", ".pt", ".com",
+                                                  ".org", ".net"]):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def _generate_download_google_link(link):
+    """
+    -----
+    Brief
+    -----
+    Function that returns a direct download link of a file stored inside a Google Drive
+    Repository.
+
+    -----------
+    Description
+    -----------
+    Generally a link from a Google Drive file is only for viewing purposes.
+
+    If the user wants to download the file it can be done with Google Drive graphical user
+    interface.
+
+    However if we try to programmatically download the file it cannot be done with the normal url.
+
+    So, the current function converts the "read-only" link to a downloadable format.
+
+    ----------
+    Parameters
+    ----------
+    link : str
+        Sharable Google Drive link.
+
+    Returns
+    -------
+    out : str
+        Manipulated link, that ensures a direct download with wget function.
+    """
+
+    # Get file id.
+    if "id=" not in link:
+        # Split link into segments (split character --> /)
+        split_link = link.split("/")
+
+        file_id = split_link[-2]
+    else:
+        # Split link into segments (split string --> "id=")
+        split_link = link.split("id=")
+        file_id = split_link[-1]
+
+    return "https://drive.google.com/uc?export=download&id=" + file_id
+
 # 01/10/2018 19h19m :)

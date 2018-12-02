@@ -18,8 +18,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6056">
-              <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+            <state relative-caret-position="1210">
+              <caret line="230" column="19" lean-forward="false" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -100,6 +100,7 @@
         <option value="$PROJECT_DIR$/cell_content_strings.py" />
         <option value="$PROJECT_DIR$/osf_notebook_class.py" />
         <option value="C:/Python362/Lib/site-packages/biosignalsnotebooks-0.2.2-py3.6.egg/biosignalsnotebooks/factory.py" />
+        <option value="C:/Python362/Lib/site-packages/biosignalsnotebooks-0.3.5-py3.6.egg/biosignalsnotebooks/factory.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -111,7 +112,7 @@
     <option name="height" value="1770" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -124,10 +125,41 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="header_footer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="biosignalsnotebooks_environment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../biosignalsnotebooks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../notebookToHtml" />
   </component>
   <component name="RunManager" selected="Python.Unnamed">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -302,7 +334,7 @@
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -331,16 +363,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5049">
-          <caret line="158" column="52" lean-forward="false" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
-          <folding>
-            <element signature="e#122#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/osf_notebook_class.py" />
     <entry file="file://$PROJECT_DIR$/cell_content_strings.py" />
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -461,13 +483,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" />
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/sampling_rate_and_aliasing-checkpoint.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -483,27 +499,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" />
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" />
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" />
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -537,10 +535,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python362/Lib/site-packages/biosignalsnotebooks-0.3.5-py3.6.egg/biosignalsnotebooks/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="824" column="61" lean-forward="false" selection-start-line="824" selection-start-column="61" selection-end-line="824" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6056">
-          <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+        <state relative-caret-position="1210">
+          <caret line="230" column="19" lean-forward="false" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
           </folding>

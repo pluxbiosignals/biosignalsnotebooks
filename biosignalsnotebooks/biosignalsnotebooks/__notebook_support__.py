@@ -66,7 +66,7 @@ from bokeh.io import output_notebook
 from bokeh.layouts import gridplot
 from bokeh.models import BoxAnnotation, Arrow, VeeHead
 from .external_packages.novainstrumentation.freq_analysis import max_frequency, plotfft
-from .external_packages.novainstrumentation.filter import bandpass
+from .external_packages.novainstrumentation.filter import lowpass
 output_notebook(hide_banner=True)
 
 
@@ -151,7 +151,7 @@ def plot_sample_rate_compare(data_dict, file_name=None):
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     nbr_rows = len(list(data_dict.keys()))
 
@@ -221,7 +221,7 @@ def acquire_subsamples_gp1(input_data, file_name=None):
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     # Number of acquired samples (Original sample_rate = 4000 Hz)
     fs_orig = 4000
@@ -314,7 +314,7 @@ def plot_compare_act_config(signal, sample_rate, file_name=None):
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     time = numpy.linspace(0, len(signal) / sample_rate, len(signal))[0:14000]
     signal = numpy.array(signal[0:14000]) - numpy.average(signal[0:14000])
@@ -458,7 +458,7 @@ def plot_median_freq_evol(time_signal, signal, time_median_freq, median_freq, ac
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     list_figures_1 = plot([list(time_signal), list(time_median_freq)],
                           [list(signal), list(median_freq)],
@@ -563,7 +563,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     # ----------------------------- Verification procedure -----------------------------------------
     # Check if list is the type of input arguments x_lim and y_lim.
@@ -591,7 +591,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     list_figures[-1].line(freqs, power, legend=legend,
                             **opensignals_kwargs("line"))
 
-    # Highlighting of information band
+    # Highlighting of informational band
     color = opensignals_color_pallet()
     box_annotation = BoxAnnotation(left=band_begin, right=band_end, fill_color=color,
                                    fill_alpha=0.1)
@@ -599,21 +599,21 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
                               legend="Informational Band")
     list_figures[-1].add_layout(box_annotation)
 
-    # Determination of the maximum frequency
-    max_freq = max_frequency(signal, sr)
-
-    # Rejection band(above maximum frequency)
-    color = "black"
-    box_annotations = BoxAnnotation(left=max_freq, right=max_freq + 5, fill_color=color,
-                                    fill_alpha=0.1)
-
-    # Show of the plots with the rejection band
-    list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1, legend="Rejected Band")
-    list_figures[-1].add_layout(box_annotations)
-    list_figures[-1].add_layout(Arrow(end=VeeHead(size=15, line_color=color, fill_color=color,
-                                                    fill_alpha=0.1), line_color=color,
-                                        x_start=max_freq + 5, y_start=y_lim[1]/2,
-                                        x_end=max_freq + 15, y_end=y_lim[1]/2))
+    # # Determination of the maximum frequency
+    # max_freq = max_frequency(signal, sr)
+    #
+    # # Rejection band(above maximum frequency)
+    # color = "black"
+    # box_annotations = BoxAnnotation(left=max_freq, right=max_freq + 5, fill_color=color,
+    #                                 fill_alpha=0.1)
+    #
+    # # Show of the plots with the rejection band
+    # list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1, legend="Rejected Band")
+    # list_figures[-1].add_layout(box_annotations)
+    # list_figures[-1].add_layout(Arrow(end=VeeHead(size=15, line_color=color, fill_color=color,
+    #                                                 fill_alpha=0.1), line_color=color,
+    #                                     x_start=max_freq + 5, y_start=y_lim[1]/2,
+    #                                     x_end=max_freq + 15, y_end=y_lim[1]/2))
 
     # Apply opensignals style.
     if len(numpy.shape(list_figures)) != 1:
@@ -631,7 +631,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
 
 
 def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[], y_lim=[],
-                             horizontal=True, show_plot=False, file_name=None):
+                             orientation="hor", show_plot=False, file_name=None):
     """
     -----
     Brief
@@ -639,7 +639,7 @@ def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[]
     The use of the current function is very useful for comparing two power spectrum's (before and
     after filtering the signal).
     This function invokes "plot_informational_band" in order to get the power spectrum before
-    applying the signal to the bandpass filter.
+    applying the signal to the lowpass filter.
 
     -----------
     Description
@@ -683,9 +683,10 @@ def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[]
     y_lim : list
         A list with length equal to 2, defining the first and last y value that should be presented.
 
-    horizontal : bool
-        If True then the generated figures will be joined together in an horizontal gridplot.
-        When False the gridplot will be a vertical grid.
+    orientation : str
+        If "hor" then the generated figures will be joined together in an horizontal gridplot.
+        When "vert" the gridplot will be a vertical grid and when "same" the plots are generated at
+        the same figure.
 
     show_plot : bool
         If True then the generated figure/plot will be shown to the user.
@@ -700,7 +701,7 @@ def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[]
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     # Generation of FFT power spectrum accordingly to the filter order.
     for i in range(0, order + 1):
@@ -711,32 +712,35 @@ def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[]
             figure_after = plot_informational_band(freqs_after, power_after, signal, sr,
                                                    band_begin, band_end,
                                                    legend="Signal Power Spectrum", x_lim=x_lim,
-                                                   y_lim=y_lim, show_plot=True)
+                                                   y_lim=y_lim)
             # List that store the figure handler
             list_figures = [[figure_after]]
         else:
-            filter_signal = bandpass(signal, f1=band_begin, f2=band_end, order=i, fs=sr,
-                                     use_filtfilt=True)
+            filter_signal = lowpass(signal, f=band_end, order=i, fs=sr)
 
             # Power spectrum
             freqs_after, power_after = plotfft(filter_signal, sr)
-            figure_after = plot_informational_band(freqs_after, power_after, filter_signal, sr,
-                                                   band_begin, band_end,
-                                                   legend="Filtered FFT (Order " + str(i) + ")",
-                                                   x_lim=x_lim, y_lim=y_lim, show_plot=True)
-            # Append data accordingly to the desired direction of representation.
-            if horizontal is True:
-                # Append to the figure list the power spectrum of the signal after filtering.
-                list_figures[-1].append(figure_after)
+
+            if orientation != "same":
+                figure_after = plot_informational_band(freqs_after, power_after, filter_signal, sr,
+                                                       band_begin, band_end,
+                                                       legend="Filtered FFT (Order " + str(i) + ")",
+                                                       x_lim=x_lim, y_lim=y_lim)
+                # Append data accordingly to the desired direction of representation.
+                if orientation == "hor":
+                    # Append to the figure list the power spectrum of the signal after filtering.
+                    list_figures[-1].append(figure_after)
+                elif orientation == "vert":
+                    list_figures.append([figure_after])
             else:
-                list_figures.append([figure_after])
+                list_figures[-1][0].line(freqs_after, power_after, **opensignals_kwargs("line"),
+                                         legend="Filtered FFT (Order " + str(i) + ")")
 
     # Show gridplot.
     grid_plot_1 = gridplot(list_figures, **opensignals_kwargs("gridplot"))
 
     if show_plot is True:
         show(grid_plot_1)
-        #HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
 
     return list_figures
 
@@ -787,7 +791,7 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     # Frequency list.
     freqs = numpy.linspace(1, 1200, 100000)

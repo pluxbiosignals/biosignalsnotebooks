@@ -54,6 +54,9 @@ import mimetypes
 import numpy
 import wget
 import h5py
+import shutil
+import json
+import time
 #from .external_packages import pyedflib
 from .aux_functions import _is_instance, _filter_keywords
 
@@ -107,7 +110,9 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, **kw
         else:
             extension = "." + file.split(".")[-1]
 
-        file = wget.download(file, (TEMP_PATH + "file_" + datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" + "_" + "%H_%M_%S") + extension).replace("\\", "7"))
+        remote_file_path = (TEMP_PATH + "file_" + datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" + "_" + "%H_%M_%S") + extension).replace("\\", "/")
+        file = wget.download(file, remote_file_path)
+
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Verification of file type %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     file_type = _file_type(file)
@@ -153,6 +158,65 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, **kw
     elif file_type in ["edf", "octet-stream"]:
         raise RuntimeWarning("In the present package version loading data from .edf files is not "
                              "available yet.")
+
+    # =============================================================================================
+    # ======================= Clone downloaded file to signal library =============================
+    # =============================================================================================
+    project_dir = "../../signal_samples"
+    if remote is True and os.path.isdir(project_dir):
+        devices = list(header.keys())
+
+        # Check the number of devices.
+        nbr_devices = len(devices)
+        if nbr_devices > 1:
+            devices_label = "multi_hub"
+        else:
+            devices_label = "single_hub"
+
+        # Get the list of used sensors.
+        sensor_list = []
+        channels_dev_str = ""
+        resolutions_str = ""
+        comments_str = ""
+        for mac_i, mac in enumerate(devices):
+            if len(devices) > 1 and mac_i != len(devices) - 1:
+                comment_sep = "\n"
+                other_sep = "\t"
+            else:
+                comment_sep = ""
+                other_sep = ""
+            sensor_list.append(header[mac]["sensor"])
+            channels_dev_str += "[" + mac + "] " + str(len(sensor_list[-1])) + other_sep
+            resolutions_str += "[" + mac + "] " + str(header[mac]["resolution"][0]) + " bits" + other_sep
+            comments_str += "[" + mac + "] " + str(header[mac]["comments"]) + comment_sep
+
+        sensor_list = list(set(numpy.concatenate(sensor_list)))
+        # Check if date and sensor_list is in a bytes format.
+        date = header[mac]["date"]
+        if type(date) is bytes:
+            date = date.decode("ascii")
+
+        if type(sensor_list[0]) in [bytes, numpy.bytes_]:
+            sensor_list = [item.decode('ascii') for item in sensor_list]
+
+        date = date.replace("-", "_")
+        file_extension = remote_file_path.split(".")[-1]
+
+        shutil.copy(remote_file_path, project_dir + "/" + "signal_sample_" +
+                    devices_label + "_" + "_".join(sensor_list) + "_" + date + "." + file_extension)
+
+        # Generation of a json file with relevant metadata.
+        aux_chn = list(data[mac].keys())[0]
+        json_dict = {"Signal Type": " | ".join(sensor_list),
+                     "Acquisition Time": time.strftime("%H:%M:%S.0", time.gmtime(len(data[mac][aux_chn]) / int(header[mac]["sampling rate"]))),
+                     "Sample Rate": str(header[devices[0]]["sampling rate"]) + " Hz",
+                     "Number of Hubs": str(len(devices)),
+                     "Number of Channels": channels_dev_str,
+                     "Resolutions": resolutions_str,
+                     "Observations": comments_str}
+        with open(project_dir + "/" + "signal_sample_" + devices_label + "_" +
+                  "_".join(sensor_list) + "_" + date + ".json", 'w') as outfile:
+            json.dump(json_dict, outfile)
 
     # =============================================================================================
     # ===================================== Outputs ===============================================
@@ -206,7 +270,7 @@ def read_header(file):
         for mac in macs:
             # ------------ Removal of "special", "sensor", "mode" and "position" keys -------------
             del header[mac]["special"]
-            del header[mac]["sensor"]
+            #del header[mac]["sensor"]
             del header[mac]["position"]
             del header[mac]["mode"]
 
@@ -229,7 +293,7 @@ def read_header(file):
         header = {}
         for mac in macs:
             header[mac] = dict(file_temp.get(mac).attrs.items())
-
+            header[mac]["sensor"] = []
             # --------- Removal of "duration", "keywords", "mode", "nsamples" ... keys ------------
             for key in ["duration", "mode", "keywords", "nsamples", "forcePlatform values",
                         "macaddress"]:
@@ -247,6 +311,7 @@ def read_header(file):
             for chn in header[mac]["channels"]:
                 chn_label = "channel_" + str(chn)
                 column_labels[chn] = chn_label
+                header[mac]["sensor"].append(dict(file_temp.get(mac).get("raw").get("channel_" + str(chn)).attrs.items())["sensor"])
             header[mac]["column labels"] = column_labels
 
         file_temp.close()

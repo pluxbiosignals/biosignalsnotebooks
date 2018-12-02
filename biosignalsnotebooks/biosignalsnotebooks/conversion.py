@@ -23,6 +23,8 @@ None
 """
 
 import numpy
+from .aux_functions import _is_a_url, _generate_download_google_link
+from .load import load
 
 
 def raw_to_phy(sensor, device, raw_signal, resolution, option):
@@ -202,7 +204,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
     return out
 
 
-def generate_time(signal, sample_rate):
+def generate_time(signal, sample_rate=1000):
     """
     Function intended to generate a time axis of the input signal.
 
@@ -220,6 +222,16 @@ def generate_time(signal, sample_rate):
     out : list
         Time axis with each list entry in seconds.
     """
+
+    # Download of signal if the input is a url.
+    if _is_a_url(signal):
+        # Check if it is a Google Drive sharable link.
+        if "drive.google" in signal:
+            signal = _generate_download_google_link(signal)
+        data = load(signal, remote=True)
+        mac = list(data.keys())[0]
+        chn = list(data[mac].keys())[0]
+        signal = data[mac][chn]
 
     nbr_of_samples = len(signal)
     end_of_time = nbr_of_samples / sample_rate

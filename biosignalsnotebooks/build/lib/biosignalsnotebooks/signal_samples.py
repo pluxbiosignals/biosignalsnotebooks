@@ -28,6 +28,7 @@ None
 # =================================================================================================
 import os
 from .load import load
+from .aux_functions import _generate_download_google_link
 
 SIGNAL_PATH = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
               "notebook_files\\osf_files\\signal_samples\\").replace("\\", "/")
@@ -178,7 +179,7 @@ def load_signal(signal_handler, get_header=False):
     # [Statements to be executed if signal_handler is an identifier of the signal]
     else:
         if signal_handler in available_signals:
-            out, header = load(SIGNAL_PATH + signal_handler + FILE_EXTENSION, get_header=get_header)
+            out, header = load(SIGNAL_PATH + signal_handler + FILE_EXTENSION, get_header=True)
         else:
             raise RuntimeError("The signal name defined as input does not correspond to any of the "
                            "signal samples contained in the package.")
@@ -187,30 +188,5 @@ def load_signal(signal_handler, get_header=False):
         return out, header
     else:
         return out
-
-def _generate_download_google_link(link):
-    """
-       Function that returns a direct download link of a file stored inside a Google Drive
-       Repository.
-
-       ----------
-       Parameters
-       ----------
-       link : str
-           Sharable Google Drive link.
-
-        Returns
-        -------
-        out : str
-            Manipulated link, that ensures a direct download with wget function.
-    """
-    "https://drive.google.com/file/d/1NHNIpGjTdA8bxNlxuulJfhJ1Latm0znB/view"
-    # Split link into segments (split character --> /)
-    split_link = link.split("/")
-
-    # Get file id.
-    file_id = split_link[-2]
-
-    return "https://drive.google.com/uc?export=download&id=" + file_id
 
 # 11/10/2018 16h45m :)

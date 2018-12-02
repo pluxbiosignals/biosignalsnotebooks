@@ -10,6 +10,9 @@ bokeh
 scipy
 IPython
 pandas
-novainstrumentation
 nbformat
 ipython
+requests
+
+[:platform_system != "Linux"]
+python-magic-bin

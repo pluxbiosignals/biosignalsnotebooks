@@ -225,8 +225,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["open_h5"])
-run(exclude_notebooks=["signal_loading_preparatory_steps", "digital_filtering",
-                       "unit_conversion_ecg"])
+run(exclude_notebooks=["generation_of_time_axis"])
 #run()
 
-# 07/11/2018  00h02m :)
+# 29/11/2018  17h18m :)

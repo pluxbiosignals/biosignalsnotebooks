@@ -351,7 +351,7 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
     """
 
     # Generation of the HTML file where the plot will be stored.
-    file_name = _generate_bokeh_file(file_name)
+    #file_name = _generate_bokeh_file(file_name)
 
     # Data conversion for ensuring that the function only works with lists.
     if len(args) == 1:
@@ -629,8 +629,8 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
 
             if show_plot is True:
                 show(grid)
-            else:
-                save(grid)
+            #else:
+            #    save(grid)
                 #return HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
         else:
             raise RuntimeError("The specified number of lines and columns for the grid plot is not "
@@ -639,8 +639,8 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
     else:
         if show_plot is True:
             show(fig_list[-1])
-        else:
-            save(fig_list[-1])
+        #else:
+        #    save(fig_list[-1])
             #return HTML('<iframe width=100% height="' + str(fig_list[-1].plot_height) + '" src="generated_plots/' + file_name + '"></iframe>')
 
     if get_fig_list is True:

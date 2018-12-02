@@ -152,6 +152,7 @@ def hrv_parameters(data, sample_rate, signal=False, in_seconds=False):
     out_dict["VLF_Power"] = power_band["vlf_band"]["Power Band"]
     out_dict["LF_Power"] = power_band["lf_band"]["Power Band"]
     out_dict["HF_Power"] = power_band["hf_band"]["Power Band"]
+    out_dict["LF_HF_Ratio"] = power_band["lf_band"]["Power Band"] / power_band["hf_band"]["Power Band"]
     out_dict["Total_Power"] = total_power
 
     return out_dict

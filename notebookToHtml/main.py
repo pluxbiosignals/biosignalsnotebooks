@@ -49,17 +49,17 @@ def run(apply_to_biosignalsplux_website=False):
             shutil.copytree(src, destination)
 
         if var == "styles" and apply_to_biosignalsplux_website is True:
-            # Read CSS file and adapt relative paths.
-            with open(destination + "\\theme_style.css", "r") as css_in:
-                with open(destination + "\\theme_style_rev.css", "w") as css_out:
-                    for line in css_in:
-                        css_out.write(line.replace('../../', ''))
-            css_in.close()
-            css_out.close()
-
-            # Rename Files.
-            os.rename(destination + "\\theme_style.css", destination + "\\theme_style_old.css")
-            os.rename(destination + "\\theme_style_rev.css", destination + "\\theme_style.css")
+            # # Read CSS file and adapt relative paths.
+            # with open(destination + "\\theme_style.css", "r") as css_in:
+            #     with open(destination + "\\theme_style_rev.css", "w") as css_out:
+            #         for line in css_in:
+            #             css_out.write(line.replace('../../', ''))
+            # css_in.close()
+            # css_out.close()
+            #
+            # # Rename Files.
+            # os.rename(destination + "\\theme_style.css", destination + "\\theme_style_old.css")
+            # os.rename(destination + "\\theme_style_rev.css", destination + "\\theme_style.css")
 
             # Remove <style> markup.
             cssFile = open(destination + "\\theme_style.css", "r")
@@ -119,6 +119,27 @@ def run(apply_to_biosignalsplux_website=False):
                         os.popen("jupyter nbconvert --output-dir='" + path_temp.replace("\\", "/") + "' --config='" + projectAbsPath.replace("\\", "/") + "/nbconvert_config.py' --to html " + notebook + " --template=template.tpl")
                     else:
                         os.popen("jupyter nbconvert --output-dir='" + path_temp.replace("\\", "/") + "' --config='" + projectAbsPath.replace("\\", "/") + "/nbconvert_config_index.py' --to html " + notebook + " --template=template.tpl")
+
+                        # Generation of an index.php file (Ensuring detection by the crawlers).
+                        php_path = path_temp + "/" + notebook.split(".")[0] + "_rev.php"
+                        copyfile((projectAbsPath + "/index.php").replace("\\", "/"), php_path)
+
+                        # Adjustment of index.php content in order to include the path to the
+                        # current Notebook.
+                        with open(php_path, "r") as php_in:
+                            with open(path_temp + notebook.split(".")[0] + "_temp.php", "w") as php_out:
+                                for line in php_in:
+                                    php_out.write(line.replace('RELATIVE_PATH', notebook.split(".")[0] +
+                                                               "_rev.html").replace('Notebbok Title Here',
+                                                                                    "Notebook - " +
+                                                                                    notebook.split(".")[0].replace("_", " ")))
+                        php_in.close()
+                        php_out.close()
+
+                        # Delete original file and rename the new one.
+                        os.remove(php_path)
+                        os.rename(path_temp + notebook.split(".")[0] + "_temp.php", php_path)
+
                     time.sleep(10)
 
                     # Read of the generated html file.
@@ -168,10 +189,10 @@ def run(apply_to_biosignalsplux_website=False):
                         styleContainer[0].insert_before(tag)
 
                     # Tracking script.
-                    scriptSoup = htmlLib.BeautifulSoup("<!-- Global site tag (gtag.js) - Google Analytics --><script async src='https://www.googletagmanager.com/gtag/js?id=UA-38036509-2'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-38036509-2');</script>",
-                                                       "html.parser")
-                    headContainer = htmlObject.find_all("head")
-                    headContainer[0].append(scriptSoup)
+                    #scriptSoup = htmlLib.BeautifulSoup("<!-- Global site tag (gtag.js) - Google Analytics --><script async src='https://www.googletagmanager.com/gtag/js?id=UA-38036509-2'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-38036509-2');</script>",
+                    #                                   "html.parser")
+                    #headContainer = htmlObject.find_all("head")
+                    #headContainer[0].append(scriptSoup)
 
                     # headerContainer = htmlObject.find_all(attrs={"id": "image_td"})
                     # if len(headerContainer) != 0:
@@ -194,20 +215,6 @@ def run(apply_to_biosignalsplux_website=False):
                     htmlFile.close()
                     os.remove(path_temp + "\\" + notebook.split(".")[0] + ".html")
 
-                    #     print (inputContainer["class"])
-                    # print (htmlObject.find_all("div", attrs={"class": "hide_in"})[0].find_next(attrs={"class": "input"}))
-
-# # Repetir o procedimento seguinte para cada ficheiro .ipynb contido na pasta "Categories" varrendo as subpastas.
-# htmlFile = open("../Notebooks/Categories/Template.html", "r")
-# htmlObject = htmlLib.BeautifulSoup(htmlFile, "html.parser")
-#
-# print (htmlObject.prettify().split("\n"))
-
-
-# ======================================================================================================================
-# ===================================== Execution of cmd command =======================================================
-# ======================================================================================================================
-
 run(apply_to_biosignalsplux_website=True)
 
-# 13/11/2018  23h14m :)
+# 29/11/2018  17h18m :)

@@ -1,6 +1,7 @@
 MANIFEST.in
 README_BSN.md
 setup.py
+setup_linux.py
 biosignalsnotebooks/__init__.py
 biosignalsnotebooks/__notebook_support__.py
 biosignalsnotebooks/aux_functions.py
@@ -123,6 +124,7 @@ biosignalsnotebooks/notebook_files/cell_content_strings.py
 biosignalsnotebooks/notebook_files/MainFiles/group_by_difficulty.py
 biosignalsnotebooks/notebook_files/MainFiles/group_by_tag.py
 biosignalsnotebooks/notebook_files/MainFiles/signal_samples.py
+biosignalsnotebooks/notebook_files/github/README_TEMPLATE.md
 biosignalsnotebooks/notebook_files/osf_files/images/OS_logo_title.png
 biosignalsnotebooks/notebook_files/osf_files/images/bsn_logo_ext.png
 biosignalsnotebooks/notebook_files/osf_files/images/ost_logo.png
