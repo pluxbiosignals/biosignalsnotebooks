@@ -24,7 +24,9 @@ None
 """
 
 import numpy
+from scipy.signal import filtfilt, butter, lfilter
 from .detect import tachogram
+from .visualise import plot
 
 
 def poincare(data, sample_rate, signal=False, in_seconds=False):
@@ -140,5 +142,174 @@ def smooth(input_signal, window_len=10, window='hanning'):
     sig_conv = numpy.convolve(win / win.sum(), sig, mode='same')
 
     return sig_conv[window_len: -window_len]
+
+
+def plotfft(s, fmax, doplot=False):
+    """ This functions computes the fft of a signal, returning the frequency
+    and their magnitude values.
+
+    Parameters
+    ----------
+    s: array-like
+      the input signal.
+    fmax: int
+      the sampling frequency.
+    doplot: boolean
+      a variable to indicate whether the plot is done or not.
+
+    Returns
+    -------
+    f: array-like
+      the frequency values (xx axis)
+    fs: array-like
+      the amplitude of the frequency values (yy axis)
+    """
+
+    fs = abs(numpy.fft.fft(s))
+    f = numpy.linspace(0, fmax / 2, len(s) / 2)
+    if doplot:
+        plot(list(f[1:int(len(s) / 2)]), list(fs[1:int(len(s) / 2)]))
+    return f[1:int(len(s) / 2)].copy(), fs[1:int(len(s) / 2)].copy()
+
+
+def lowpass(s, f, order=2, fs=1000.0, use_filtfilt=False):
+    '''
+    @brief: for a given signal s rejects (attenuates) the frequencies higher
+    then the cuttof frequency f and passes the frequencies lower than that
+    value by applying a Butterworth digital filter
+
+    @params:
+
+    s: array-like
+    signal
+
+    f: int
+    the cutoff frequency
+
+    order: int
+    Butterworth filter order
+
+    fs: float
+    sampling frequency
+
+    @return:
+
+    signal: array-like
+    filtered signal
+
+    '''
+    b, a = butter(order, f / (fs/2))
+
+    if use_filtfilt:
+        return filtfilt(b, a, s)
+
+    return lfilter(b, a, s)
+
+
+def highpass(s, f, order=2, fs=1000.0, use_filtfilt=False):
+    '''
+    @brief: for a given signal s rejects (attenuates) the frequencies lower
+    then the cuttof frequency f and passes the frequencies higher than that
+    value by applying a Butterworth digital filter
+
+    @params:
+
+    s: array-like
+    signal
+
+    f: int
+    the cutoff frequency
+
+    order: int
+    Butterworth filter order
+
+    fs: float
+    sampling frequency
+
+    @return:
+
+    signal: array-like
+    filtered signal
+
+    '''
+
+    b, a = butter(order, f * 2 / (fs/2), btype='highpass')
+    if use_filtfilt:
+        return filtfilt(b, a, s)
+
+    return lfilter(b, a, s)
+
+
+def bandstop(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
+    '''
+    @brief: for a given signal s rejects (attenuates) the frequencies within a
+    certain range (between f1 and f2) and passes the frequencies outside that
+    range by applying a Butterworth digital filter
+
+    @params:
+
+    s: array-like
+    signal
+
+    f1: int
+    the lower cutoff frequency
+
+    f2: int
+    the upper cutoff frequency
+
+    order: int
+    Butterworth filter order
+
+    fs: float
+    sampling frequency
+
+    @return:
+
+    signal: array-like
+    filtered signal
+
+    '''
+    b, a = butter(order, [f1 * 2 / fs, f2 * 2 / fs], btype='bandstop')
+    if use_filtfilt:
+        return filtfilt(b, a, s)
+    return lfilter(b, a, s)
+
+
+def bandpass(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
+    '''
+    @brief: for a given signal s passes the frequencies within a certain range
+    (between f1 and f2) and rejects (attenuates) the frequencies outside that
+    range by applying a Butterworth digital filter
+
+    @params:
+
+    s: array-like
+    signal
+
+    f1: int
+    the lower cutoff frequency
+
+    f2: int
+    the upper cutoff frequency
+
+    order: int
+    Butterworth filter order
+
+    fs: float
+    sampling frequency
+
+    @return:
+
+    signal: array-like
+    filtered signal
+
+    '''
+    b, a = butter(order, [f1 * 2 / fs, f2 * 2 / fs], btype='bandpass')
+
+    if use_filtfilt:
+        return filtfilt(b, a, s)
+
+    return lfilter(b, a, s)
+
 
 # 25/09/2018 18h58m :)

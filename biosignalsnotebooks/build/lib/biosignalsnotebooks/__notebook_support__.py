@@ -55,7 +55,7 @@ from os.path import exists as pathexist
 
 import numpy
 # import novainstrumentation as ni
-from .process import smooth
+from .process import smooth, plotfft, lowpass
 from .visualise import plot, opensignals_kwargs, opensignals_color_pallet, opensignals_style
 from .detect import detect_emg_activations
 from .aux_functions import _generate_bokeh_file
@@ -65,8 +65,6 @@ from bokeh.models.annotations import Title
 from bokeh.io import output_notebook
 from bokeh.layouts import gridplot
 from bokeh.models import BoxAnnotation, Arrow, VeeHead
-from .external_packages.novainstrumentation.freq_analysis import max_frequency, plotfft
-from .external_packages.novainstrumentation.filter import lowpass
 output_notebook(hide_banner=True)
 
 

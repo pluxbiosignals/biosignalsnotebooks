@@ -110,8 +110,14 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, **kw
         else:
             extension = "." + file.split(".")[-1]
 
-        remote_file_path = (TEMP_PATH + "file_" + datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" + "_" + "%H_%M_%S") + extension).replace("\\", "/")
-        file = wget.download(file, remote_file_path)
+        if None not in [TEMP_PATH,
+                        datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" +
+                                                                 "_" + "%H_%M_%S"),
+                        extension]:
+            remote_file_path = (TEMP_PATH + "file_" + datetime.datetime.now().strftime("%Y" + "_" + "%m" + "_" + "%d" + "_" + "%H_%M_%S") + extension).replace("\\", "/")
+            file = wget.download(file, remote_file_path)
+        else:
+            file = wget.download(file)
 
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Verification of file type %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,10 +155,10 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, **kw
     # =========================== Read of Data from acquisition file ==============================
     # =============================================================================================
     data = None
-    if file_type in ["txt", "plain"]:
+    if file_type in ["txt", "plain", "bat"]:
         data = _load_txt(file, dev_list_standard, chn_list_standard, header, **kwargs)
 
-    elif file_type in ["h5", "x-hdf"]:
+    elif file_type in ["h5", "x-hdf", "a"]:
         data = _load_h5(file, dev_list_standard, chn_list_standard)
 
     elif file_type in ["edf", "octet-stream"]:
@@ -256,7 +262,7 @@ def read_header(file):
     # ========================= Read Header accordingly to file type ==============================
     # =============================================================================================
 
-    if file_type in ["txt", "plain"]:
+    if file_type in ["txt", "plain", "bat"]:
         file_temp = open(file, "r")
         header = file_temp.readlines()[1]
         file_temp.close()
@@ -286,7 +292,7 @@ def read_header(file):
             del header[mac]["column"]
             del header[mac]["label"]
 
-    elif file_type in ["h5", "x-hdf"]:
+    elif file_type in ["h5", "x-hdf", "a"]:
         file_temp = h5py.File(file)
         macs = file_temp.keys()
 
