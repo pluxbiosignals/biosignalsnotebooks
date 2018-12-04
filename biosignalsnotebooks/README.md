@@ -1,6 +1,13 @@
 ## Description
 
-This folder includes all **Python** files (modules) inside **biosignalsnotebooks** package. A simple description of the main purpose of each module is presented in the following item list.
+The most relevant files inside current directory are listed and described below:
+
++ ***setup.py*** &#9983; one of the "major" **Python** files that contains all the necessary information for package building;
++ ***README_BSN.md*** &#9983; readme file that contains the package description in a markdown format (it will be presented at [**biosignalnsplux** <img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline">](https://pypi.org/project/biosignalsnotebooks/) package PyPI page;
++ ***MANIFEST.in*** &#9983; inside this file are specified all subfolders that must be included in the built package (stored at **PyPI**);
++ ***LICENSE.txt*** &#9983; specification of the type of license attributed to the project.
+
+In the particular case of the folder **biosignalsnotebooks**, it includes all **Python** files (modules) inside **biosignalsnotebooks** package. A simple description of the main purpose of each module is presented in the following item list.
 
 + ***__notebook_support__*** &#x0219D; module that contains graphical functions needed for plotting data in specific notebooks;
 + ***aux_functions*** &#x0219D; set of functions (most of them private) to be used in other modules of the package;
