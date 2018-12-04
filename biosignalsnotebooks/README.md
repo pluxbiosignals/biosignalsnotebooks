@@ -3,7 +3,7 @@
 The most relevant files inside current directory are listed and described below:
 
 + ***setup.py*** &#9983; one of the "major" **Python** files that contains all the necessary information for package building;
-+ ***README_BSN.md*** &#9983; readme file that contains the package description in a markdown format (it will be presented at [**biosignalnsplux** <img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline">](https://pypi.org/project/biosignalsnotebooks/) package PyPI page;
++ ***README_BSN.md*** &#9983; readme file that contains the package description in a markdown format (it will be presented at [**biosignalnsplux** <img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline">](https://pypi.org/project/biosignalsnotebooks/) package PyPI page);
 + ***MANIFEST.in*** &#9983; inside this file are specified all subfolders that must be included in the built package (stored at **PyPI**);
 + ***LICENSE.txt*** &#9983; specification of the type of license attributed to the project.
 
