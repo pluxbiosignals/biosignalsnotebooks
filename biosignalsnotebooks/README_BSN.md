@@ -47,7 +47,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/sampling_rate_and_aliasing_rev.php' target='_blank'>Problems of low sampling rate (aliasing)</a> </td>
 	</tr>
 	<tr>
-		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
@@ -55,12 +55,6 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ecg_rev.php'>ECG Sensor - Unit Conversion </a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_eeg_rev.php'>EEG Sensor - Unit Conversion </a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_fNIRS_rev.php'>fNIRS Sensor - Unit Conversion </a> </td>
 	</tr>
 </table>
 

@@ -157,10 +157,16 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, **kw
     data = None
     if file_type in ["txt", "plain", "bat"]:
         data = _load_txt(file, dev_list_standard, chn_list_standard, header, **kwargs)
-
+        if remote is True:
+            if extension == None:
+                extension = ".txt"
+                remote_file_path = "download_file_name" + extension
     elif file_type in ["h5", "x-hdf", "a"]:
         data = _load_h5(file, dev_list_standard, chn_list_standard)
-
+        if remote is True:
+            if extension == None:
+                extension = ".h5"
+                remote_file_path = "download_file_name" + extension
     elif file_type in ["edf", "octet-stream"]:
         raise RuntimeWarning("In the present package version loading data from .edf files is not "
                              "available yet.")
