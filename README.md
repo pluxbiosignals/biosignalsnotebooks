@@ -33,8 +33,11 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
         <td width="80%"></td>
     </tr>
 	<tr>
-		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/YPbCnzD/Load.png' width='50%' align='center'></p></td>
+		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/YPbCnzD/Load.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_h5_rev.php' target='_blank'>Load acquired data from .h5 file</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_signals_after_acquisition_rev.php'> Load Signals after Acquisition [OpenSignals] </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_txt_rev.php'>Load acquired data from .txt file</a> </td>
@@ -43,18 +46,78 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/d2jZH1s/Record.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/sampling_rate_and_aliasing_rev.php' target='_blank'>Problems of low sampling rate (aliasing)</a> </td>
+		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/d2jZH1s/Record.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/record_data_rev.php' target='_blank'> Signal Acquisition [OpenSignals] </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/resolution_rev.php'> Resolution - The difference between smooth and abrupt variations </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/sampling_rate_and_aliasing_rev.php'>Problems of low sampling rate (aliasing)</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/store_signals_after_acquisition_rev.php'> Store Files after Acquisition [OpenSignals] </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='7'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.php'>Fatigue Evaluation - Evolution of Median Power Frequency</a> </td>
 	</tr>
 	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/generation_of_time_axis_rev.php'> Generation of a time axis (conversion of samples into seconds) </a> </td>
+	</tr>
+	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ecg_rev.php'>ECG Sensor - Unit Conversion </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_eeg_rev.php'>EEG Sensor - Unit Conversion </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_emg_rev.php'>EMG Sensor - Unit Conversion </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_fNIRS_rev.php'>fNIRS Sensor - Unit Conversion </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/rymrvFL/Detect.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/detect_bursts_rev.php' target='_blank'> Event Detection - Muscular Activations (EMG) </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/r_peaks_rev.php'> Event Detection - R Peaks (ECG) </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php' target='_blank'> EMG Analysis - Time and Frequency Parameters </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_orange_rev.php' target='_blank'> Stone, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_1_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 1] </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_2_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 2] </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_3_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 3] </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/yfwcy2M/Evaluate.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_4_rev.php' target='_blank'> Stone, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/4fBR4Q3/Install.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_anaconda_rev.php' target='_blank'> Download, Install and Execute Anaconda </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_jupyter_rev.php'> Download, Install and Execute Jypyter Notebook Environment </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/3yDZpxC/Connect.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Connect/pairing_device_rev.php' target='_blank'> Pairing a Device at Windows 10 [biosignalsplux] </a> </td>
 	</tr>
 </table>
 
