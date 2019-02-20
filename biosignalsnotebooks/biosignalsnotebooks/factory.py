@@ -27,7 +27,7 @@ SIGNAL_TYPE_LIST = ["emg", "ecg"]
 
 NOTEBOOK_KEYS = {"Load": 1, "Record": 2, "Visualise": 3, "Pre-Process": 4, "Detect": 5,
                  "Extract": 6, "Train_and_Classify": 7, "Understand": 8, "Evaluate": 12,
-                 "MainFiles": 0}
+                 "Install": 13, "Connect": 14, "Other": 15, "MainFiles": 0}
 
 # ==================================================================================================
 # ======================================= notebook Class ===========================================
@@ -104,7 +104,7 @@ class notebook:
                           "the " + notebook_type + " notebook type !")
 
         if notebook_type in ["Load", "Record", "Visualise", "Pre-Process", "Detect",
-                             "Extract", "Train_and_Classify", "Understand", "Evaluate"]:
+                             "Extract", "Train_and_Classify", "Understand", "Evaluate", "Other", "Install", "Connect"]:
             self.notebook_type = notebook_type
             _generate_header(self.notebook, self.notebook_type, notebook_file)
             _generate_notebook_header(self.notebook, notebook_type, notebook_title, tags,
@@ -520,6 +520,9 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
                        - "Extract"
                        - "Decide"
                        - "Explain"
+                       - "Other"
+                       - "Install"
+                       - "Connect"
 
     """
 
@@ -555,7 +558,7 @@ def _generate_signal_samples_body(notebook_object):
 
     # ========= Generation of a table that synthesises the information about each signal ===========
     signal_samples_dir_jupyter = "../../signal_samples"
-    signal_samples_dir_project = os.path.abspath(__file__).split(os.path.basename(__file__))[0].replace("\\", "/") + "/notebook_files/osf_files/signal_samples"
+    signal_samples_dir_project = os.path.abspath(__file__).split(os.path.basename(__file__))[0].replace("\\", "/") + "notebook_files/osf_files/signal_samples"
     list_of_files = os.listdir(signal_samples_dir_project)
     for file in list_of_files:
         if ".json" not in file:
@@ -804,7 +807,10 @@ def _generate_github_readme(notebook_object, dict_by_tag):
              "Record": "https://i.ibb.co/d2jZH1s/Record.png",
              "Train_and_Classify": "https://i.ibb.co/CQ4cyGb/Train-and-Classify.png",
              "Understand": "https://i.ibb.co/MnhRRQT/Understand.png",
-             "Visualise": "https://i.ibb.co/wh4HKzf/Visualise.png"}
+             "Visualise": "https://i.ibb.co/wh4HKzf/Visualise.png",
+             "Other": "https://i.ibb.co/ry9BzhV/Other.png",
+             "Install": "https://i.ibb.co/4fBR4Q3/Install.png",
+             "Connect": "https://i.ibb.co/3yDZpxC/Connect.png"}
 
     # =========================== biosignalsnotebooks website ======================================
     biosignalsnotebooks_web = "http://www.biosignalsplux.com/notebooks/Categories/"

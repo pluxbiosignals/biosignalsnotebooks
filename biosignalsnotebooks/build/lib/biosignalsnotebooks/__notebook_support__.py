@@ -64,7 +64,7 @@ from bokeh.plotting import figure, show, save
 from bokeh.models.annotations import Title
 from bokeh.io import output_notebook
 from bokeh.layouts import gridplot
-from bokeh.models import BoxAnnotation, Arrow, VeeHead
+from bokeh.models import BoxAnnotation, Arrow, VeeHead, Range1d, LinearAxis
 output_notebook(hide_banner=True)
 
 
@@ -263,6 +263,397 @@ def acquire_subsamples_gp1(input_data, file_name=None):
                                   data_interp[sample_rate]["data"][:int(sample_rate)],
                                   **opensignals_kwargs("line"))
 
+# =================================================================================================
+# ==================================== Detect Category ============================================
+# =================================================================================================
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% r_peaks.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def plot_ecg_pan_tompkins_steps(time, orig_ecg, pre_process_ecg, sampling_rate, titles):
+    """
+    -----
+    Brief
+    -----
+    With this plotting function it will be possible to plot simultaneously (in pairs) "Original"/
+    "Filtered"/"Differentiated"/"Rectified"/"Integrated" ECG signals used at "Pan-Tompkins R Peaks
+    Detection Algorithm".
+
+    -----------
+    Description
+    -----------
+    Function intended to generate a Bokeh figure with 1x2 format, being 1 the of rows and 2 the number
+    of columns.
+
+    At the first column is plotted the ECG signal resulting from pre-process step i while in the second
+    column it is presented the ECG signal resulting from pre-process step i+1.
+
+    Applied in the Notebook titled "Event Detection - R Peaks (ECG)".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        List containing the time-axis sequence of values.
+
+    orig_ecg : list
+        Sequence of sampled values (Original ECG).
+
+    pre_process_ecg : list
+        Sequence of sampled values (Pre-Processed ECG).
+
+    sampling_rate : int
+        Acquisition sampling rate (Hz)
+
+    titles : list
+        List containing the title of each subplot.
+
+    """
+
+    if len(titles) == 2:
+        # Representation of the output of Step 1 of Pan-Tompkins R-Peak Detection Algorithm.
+        # List that store the figure handler
+        list_figures_1 = [[]]
+
+        # Plotting of Original Signal
+        list_figures_1[-1].append(figure(x_axis_label='Time (s)', y_axis_label='Raw Data',
+                                         title=titles[0], **opensignals_kwargs("figure")))
+        list_figures_1[-1][-1].line(time[:sampling_rate], orig_ecg[:sampling_rate], **opensignals_kwargs("line"))
+
+        # Plotting of Filtered Signal
+        list_figures_1[-1].append(figure(x_axis_label='Time (s)', y_axis_label='Raw Data',
+                                         title=titles[1], **opensignals_kwargs("figure")))
+        list_figures_1[-1][-1].line(time[:sampling_rate], pre_process_ecg[:sampling_rate], **opensignals_kwargs("line"))
+
+        # Grid-Plot.
+        opensignals_style([item for sublist in list_figures_1 for item in sublist])
+        grid_plot_1 = gridplot(list_figures_1, **opensignals_kwargs("gridplot"))
+        show(grid_plot_1)
+    else:
+        raise RuntimeError("The field 'title' must be a list of strings with size 2 !")
+
+
+def plot_ecg_pan_tompkins_peaks(time, orig_ecg, integrated_ecg, sampling_rate, possible_peaks,
+                                probable_peaks, definitive_peaks):
+    """
+    -----
+    Brief
+    -----
+    With this plotting function it will be possible to demonstrate which "peaks" are being
+    detected in each stage of Pan-Tompkins Algorithm (possible, probable, definitive).
+
+    -----------
+    Description
+    -----------
+    Function intended to generate a Bokeh figure containing all peaks detected in a temporal
+    segment (of ECG integrated signal) with 2 seconds.
+
+    "Possible Peaks" are marked with the smallest circle while "Probable Peaks" and "Definitive
+    Peaks" are highlighted with medium and large size circles.
+
+    Applied in the Notebook titled "Event Detection - R Peaks (ECG)".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        List containing the time-axis sequence of values.
+
+    orig_ecg : list
+        Sequence of sampled values (Original ECG).
+
+    integrated_ecg : list
+        Sequence of sampled values (Integrated ECG).
+
+    sampling_rate : int
+        Acquisition sampling rate (Hz)
+
+    possible_peaks : list
+        List containing all "Possible Peaks" detected from Pan-Tompkins R Peak Detection
+        Algorithm.
+
+    probable_peaks : list
+        List containing all "Probable Peaks" detected from Pan-Tompkins R Peak Detection
+        Algorithm.
+
+    definitive_peaks : list
+        List containing all "Definitive Peaks" detected from Pan-Tompkins R Peak Detection
+        Algorithm.
+    """
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Plotting of a signal segment with 2 seconds
+    segment_data = numpy.array(orig_ecg[:2 * sampling_rate])
+    segment_int = numpy.array(integrated_ecg[:2 * sampling_rate])
+    segment_time = numpy.array(time[:2 * sampling_rate])
+
+    # Peaks list for the 2 seconds window
+    possible_peaks_wind = numpy.array(possible_peaks)[numpy.array(possible_peaks) < len(segment_int)]
+    probable_peaks_wind = numpy.array(probable_peaks)[numpy.array(probable_peaks) < len(segment_int)]
+    definitive_peaks_wind = numpy.array(definitive_peaks)[numpy.array(definitive_peaks) < len(segment_int)]
+
+    list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Raw Data', **opensignals_kwargs("figure")))
+    list_figures[-1].line(segment_time, segment_int, **opensignals_kwargs("line"))
+    list_figures[-1].circle(segment_time[definitive_peaks_wind], segment_int[definitive_peaks_wind], size=30, color="#00893E", legend="Definitive Peaks")
+    list_figures[-1].circle(segment_time[probable_peaks_wind], segment_int[probable_peaks_wind], size=20, color="#009EE3", legend="Probable Peaks")
+    list_figures[-1].circle(segment_time[possible_peaks_wind], segment_int[possible_peaks_wind], size=10, color="#302683", legend="Possible Peaks")
+
+    # Show figure.
+    opensignals_style(list_figures)
+    show(list_figures[-1])
+
+
+# =================================================================================================
+# ==================================== Extract Category ===========================================
+# =================================================================================================
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% emg_parameters.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def plot_emg_graphical_durations(max_time, min_time, avg_time, std_time):
+    """
+    -----
+    Brief
+    -----
+    This plotting function ensures a graphical representation of maximum, minimum and average time
+    durations of the muscular activation periods.
+
+    -----------
+    Description
+    -----------
+    Function intended to generate a single Bokeh figure graphically describing and identifying
+    some statistical parameters related with the time duration of the muscular activation periods
+    that compose the input EMG signal.
+
+    Applied in the Notebook titled "EMG Analysis - Time and Frequency Parameters".
+
+    ----------
+    Parameters
+    ----------
+    max_time : float
+        Time duration of the longest EMG muscular activation.
+
+    min_time : float
+        Time duration of the shortest EMG muscular activation.
+
+    avg_time : float
+        Average time duration of the EMG muscular activation set.
+
+    std_time : int
+        Standard deviation of the muscular activation time duration relatively to avg_time.
+    """
+
+    # List that store the figure handler
+    list_figures_1 = []
+    color_1 = "#009EE3"
+    color_2 = "#00893E"
+    color_3 = "#E84D0E"
+    color_4 = "#CF0272"
+
+    # Plotting of Burst duration distribution
+    list_figures_1.append(figure(x_axis_label='Time (s)', **opensignals_kwargs("figure"), x_range=[0, max_time], y_range=[0, 1]))
+    box_annotation_max = BoxAnnotation(left=0, right=max_time, top=0.33, bottom=0, fill_color=color_1, fill_alpha=0.5)
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_1, fill_alpha=0.5, legend="Maximum Burst Time")
+    list_figures_1[-1].add_layout(box_annotation_max)
+
+    box_annotation_avg = BoxAnnotation(left=0, right=avg_time, top=0.66, bottom=0.33, fill_color=color_2, fill_alpha=0.5)
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_2, fill_alpha=0.5, legend="Average Burst Time")
+    list_figures_1[-1].add_layout(box_annotation_avg)
+
+    box_annotation_min = BoxAnnotation(left=0, right=min_time, top=1, bottom=0.66, fill_color=color_3, fill_alpha=0.5)
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_3, fill_alpha=0.5, legend="Minimum Burst Time")
+    list_figures_1[-1].add_layout(box_annotation_min)
+
+    box_annotation_std = BoxAnnotation(left=avg_time, right=avg_time + std_time, top=0.55, bottom=0.44, fill_color=color_4, fill_alpha=0.5)
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_4, fill_alpha=0.5, legend="Average + Standard Deviation Time")
+    list_figures_1[-1].add_layout(box_annotation_std)
+
+    # Show figure.
+    opensignals_style(list_figures_1)
+    show(list_figures_1[-1])
+
+
+def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_value, avg_sample_value,
+                                   std_sample_value):
+    """
+    -----
+    Brief
+    -----
+    This plotting function ensures a graphical representation of maximum, minimum and average sample
+    values registered on the entire EMG acquisition.
+
+    -----------
+    Description
+    -----------
+    Function intended to generate a single Bokeh figure with graphically describing and identifying
+    some statistical parameters extracted from the analysis of the entire electromyographic (EMG) signal.
+
+    Applied in the Notebook titled "EMG Analysis - Time and Frequency Parameters".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        Time-axis linked to the acquired EMG signal samples.
+
+    signal : list
+        Acquired EMG signal samples.
+
+    max_sample_value : float
+        Maximum value registered in the acquired EMG samples.
+
+    min_sample_value: float
+        Minimum value registered in the acquired EMG samples.
+
+    avg_sample_value : float
+        Average value registered in the acquired EMG samples.
+
+    std_sample_value : int
+        Standard deviation of the acquired EMG sample values relatively to avg_sample_value.
+    """
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Plotting of EMG.
+    list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Electric Tension (mV)', x_range=(0, time[-1] + 0.50 * time[-1]), y_range=[-1.10, 1], **opensignals_kwargs("figure")))
+    list_figures[-1].line(time, signal, legend="EMG Signal", **opensignals_kwargs("line"))
+
+    # Representation of EMG and the determined parameters
+    parameter_list = ["Maximum", "Minimum", "Average", "Standard Deviation"]
+    for parameter in parameter_list:
+        find_time_max = numpy.array(time)[numpy.where(numpy.array(signal) == max_sample_value)]
+        find_time_min = numpy.array(time)[numpy.where(numpy.array(signal) == min_sample_value)]
+        if parameter == "Maximum":
+            list_figures[-1].circle(find_time_max, max_sample_value, radius = 0.5, fill_color=opensignals_color_pallet(),
+                                    legend=parameter + " EMG")
+        elif parameter == "Minimum":
+            list_figures[-1].circle(find_time_min, max_sample_value, radius=0.5, fill_color=opensignals_color_pallet(),
+                                    legend=parameter + " EMG")
+        elif parameter == "Average":
+            list_figures[-1].line([0, time[-1]], [avg_sample_value, avg_sample_value],
+                                  legend=parameter + " EMG Sample", **opensignals_kwargs("line"))
+        elif parameter == "Standard Deviation":
+            box_annotation = BoxAnnotation(left=0, right=time[-1], top=avg_sample_value + std_sample_value,
+                                           bottom=avg_sample_value - std_sample_value, fill_color="black",
+                                           fill_alpha=0.3)
+            list_figures[-1].rect(find_time_min, std_sample_value, width=0, height=0, fill_color="black", fill_alpha=0.3,
+                                  legend="Average + Standard Deviation Zone")
+            list_figures[-1].add_layout(box_annotation)
+
+    # Show figure.
+    opensignals_style(list_figures)
+    show(list_figures[-1])
+
+
+def plot_emg_rms_area(time, signal, rms, area):
+    """
+    -----
+    Brief
+    -----
+    With the current function it will be plotted the EMG signals together with RMS line and the time-series that
+    describes the evolution of the cumulative area.
+
+    -----------
+    Description
+    -----------
+    Function intended to generate a single Bokeh figure graphically describing and identifying
+    Root Mean Square and Area parameters extracted from the analysis of the entire electromyographic (EMG) signal.
+
+    Applied in the Notebook titled "EMG Analysis - Time and Frequency Parameters".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        Time-axis linked to the acquired EMG signal samples.
+
+    signal : list
+        Acquired EMG signal samples.
+
+    rms : float
+        Root Mean Square value (amplitude estimator for the EMG signal under analysis).
+
+    area : list
+        List containing the sequential cumulative values of the area under the EMG signal curve.
+
+    """
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Plotting of EMG area and RMS line
+    list_figures.append(
+        figure(x_axis_label='Frequency (Hz)', y_axis_label='Electric Tension (mV)', x_range=[0, time[-1]],
+               y_range=[-1, 1], **opensignals_kwargs("figure")))
+    list_figures[-1].line(time, signal, **opensignals_kwargs("line"))
+    list_figures[-1].line([time[0], time[-1]], [rms, rms], legend="RMS Value", **opensignals_kwargs("line"))
+
+    # Setting the second y axis range name and range
+    list_figures[-1].extra_y_ranges = {"Area": Range1d(start=0, end=area[-1])}
+
+    # Adding the second axis to the plot
+    list_figures[-1].add_layout(LinearAxis(y_range_name="Area", axis_label='Area (mV.s)'), 'right')
+    list_figures[-1].line(time[1:], area, legend="Area along time (cumulative)", y_range_name="Area",
+                            **opensignals_kwargs("line"))
+
+    # Show figure.
+    opensignals_style(list_figures)
+    show(list_figures[-1])
+
+
+def plot_emg_spect_freq(freq_axis, power_axis, max_freq, median_freq):
+    """
+    -----
+    Brief
+    -----
+    A plot with frequency power spectrum of the input EMG signal is presented graphically, highlighting maximum and
+    median power frequency.
+
+    -----------
+    Description
+    -----------
+    Function intended to generate a single Bokeh figure graphically describing and identifying maximum and median
+    power frequency on Power Spectrum.
+
+    Applied in the Notebook titled "EMG Analysis - Time and Frequency Parameters".
+
+    ----------
+    Parameters
+    ----------
+    freq_axis : list
+        List with the values of power spectrum frequency axis.
+
+    power_axis : list
+        List with the values of power spectrum y axis (relative weight of the frequency component on signal
+        reconstruction.
+
+    max_freq : float
+        Frequency value registered when the maximum power is reached on the spectrum.
+
+    median_freq : float
+        Frequency value registered when the half of the total power is reached on the cumulative power spectrum.
+
+    """
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Plotting of EMG Power Spectrum
+    list_figures.append(
+        figure(x_axis_label='Frequency (Hz)', y_axis_label='Relative Power (a.u.)', **opensignals_kwargs("figure")))
+    list_figures[-1].line(freq_axis, power_axis, legend="Power Spectrum", **opensignals_kwargs("line"))
+    list_figures[-1].patch(list(freq_axis) + list(freq_axis)[::-1], list(power_axis) + list(numpy.zeros(len(power_axis))),
+                           fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
+                           legend="Area Under Curve")
+    list_figures[-1].line([median_freq, median_freq], [0, power_axis[numpy.where(freq_axis == median_freq)[0][0]]],
+                          legend="Median Frequency", **opensignals_kwargs("line"))
+    list_figures[-1].line([max_freq, max_freq], [0, power_axis[numpy.where(freq_axis == max_freq)[0][0]]],
+                          legend="Maximum Power Frequency", **opensignals_kwargs("line"))
+
+    # Show figure.
+    opensignals_style(list_figures)
+    show(list_figures[-1])
 
 # =================================================================================================
 # ================================ Pre-Process Category ===========================================
@@ -583,9 +974,8 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     list_figures = []
 
     # Plotting of power spectrum
-    list_figures.append(figure(x_axis_label='Frequency (Hz)', y_axis_label='Relative Weight',
-                                 **opensignals_kwargs("figure"), x_range=(x_lim[0], x_lim[-1]),
-                                 y_range=(y_lim[0], y_lim[1])))
+    list_figures.append(figure(x_axis_label='Frequency (Hz)', y_axis_label='Relative Weight', x_range=(x_lim[0], x_lim[-1]),
+                                 y_range=(y_lim[0], y_lim[1]), **opensignals_kwargs("figure")))
     list_figures[-1].line(freqs, power, legend=legend,
                             **opensignals_kwargs("line"))
 
@@ -731,8 +1121,8 @@ def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[]
                 elif orientation == "vert":
                     list_figures.append([figure_after])
             else:
-                list_figures[-1][0].line(freqs_after, power_after, **opensignals_kwargs("line"),
-                                         legend="Filtered FFT (Order " + str(i) + ")")
+                list_figures[-1][0].line(freqs_after, power_after, legend="Filtered FFT (Order " + str(i) + ")",
+                                         **opensignals_kwargs("line"))
 
     # Show gridplot.
     grid_plot_1 = gridplot(list_figures, **opensignals_kwargs("gridplot"))
@@ -831,6 +1221,76 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
     if show_plot is True:
         show(fig_list[0])
         #HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
+
+
+# =================================================================================================
+# ===================================== Record Category ===========================================
+# =================================================================================================
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% resolution.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+def plot_compare_resolutions(time, signal_res_1, signal_res_2, sampling_rate):
+    """
+    -----
+    Brief
+    -----
+    With the current function it will be presented a gridplot with 2 rows, where three plots are graphically
+    represented
+
+    -----------
+    Description
+    -----------
+    Acquiring data with a right resolution ensures that posterior conclusions will be more reliable and effective.
+
+    The current function is intended to generate a Bokeh figure with 2 rows. In the first row is shown a plot
+    containing two synchronized signals acquired with different resolutions.
+
+    The second gridplot row is divided into 2 cells, showing each one the previously presented multi resolution
+    signals but in separate subfigures and in a zoomed format.
+
+    Applied in the Notebook titled "Resolution - The difference between smooth and abrupt variations".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        Time-axis linked to the acquired signal samples.
+
+    signal_res_1 : list
+        Acquired signal samples for the smallest resolution.
+
+    signal_res_2 : list
+        Acquired signal samples for the biggest resolution.
+
+    sampling_rate : int
+        Sampling rate of the acquisition.
+    """
+
+    # Figure with the two plots
+    figure_8_16 = figure(x_axis_label='Time (s)', y_axis_label="Temperature (ºC)", **opensignals_kwargs("figure"))
+    figure_8_16.line(time, signal_res_1, legend="8 Bits Acquisition", **opensignals_kwargs("line"))
+    figure_8_16.line(time, signal_res_2, legend="16 Bits Acquisition", **opensignals_kwargs("line"))
+
+    # Zoom window
+    wind_start = sampling_rate * 110  # 110 seconds
+    wind_end = sampling_rate * 150  # 150 seconds
+
+    # Figure with 8 bits zoom
+    figure_8 = figure(x_axis_label='Time (s)', y_axis_label="Temperature (ºC)", title="8 Bits Acquisition",
+                      y_range=[38, 40.5], **opensignals_kwargs("figure"))
+    figure_8.line(time[wind_start:wind_end], signal_res_1[wind_start:wind_end], **opensignals_kwargs("line"))
+
+    # Figure with 16 bits zoom
+    figure_16 = figure(x_axis_label='Time (s)', y_axis_label="Temperature (ºC)", title="16 Bits Acquisition",
+                       y_range=[38, 40.5], **opensignals_kwargs("figure"))
+    figure_16.line(time[wind_start:wind_end], signal_res_2[wind_start:wind_end],
+                   **opensignals_kwargs("line"))
+
+    # Show gridplot.
+    opensignals_style([figure_8, figure_16, figure_8_16])
+    grid_plot = gridplot([[figure_8_16], [figure_8, figure_16]], **opensignals_kwargs("gridplot"))
+    show(grid_plot)
 
 
 # =================================================================================================
@@ -1018,8 +1478,7 @@ def plot_resp_diff(signal, rect_signal, sample_rate):
     figure_list[2].title = title
 
     figure_list[2].line(time, norm_signal, **opensignals_kwargs("line"))
-    figure_list[2].line(time[1:], smooth_norm_diff, **opensignals_kwargs("line"),
-                        legend="RIP 1st Derivative")
+    figure_list[2].line(time[1:], smooth_norm_diff, legend="RIP 1st Derivative", **opensignals_kwargs("line"))
 
     # [Plot of inhalation and exhalation segments]
     _inhal_exhal_segments(figure_list[2], list(time), list(norm_rect_signal), inhal_begin,

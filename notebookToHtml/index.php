@@ -20,6 +20,7 @@
 		<div id="header-bio" class="clearHeader ">
 			<?php include "../../notebooks-hd.php";?></div>
 		<div id="main-bio">
+			<div id="notebook-loading" style="text-align:center"><img align="center" style="width:30%;margin-top:-100px" src="../../images/icons/loading_icon.gif"></div>
 			<div id="notebook-include"></div>	
 		</div>
 		<div id="footer-bio">
@@ -43,7 +44,11 @@
 	/*notebook links related stuff*/
 	function loadNotebook(){
 		var loadLink = "RELATIVE_PATH";
-		$("#notebook-include").load(loadLink); 
+		$("#notebook-include").load(loadLink, complete=after_load); 
+	};
+	
+	function after_load() {
+		document.getElementById("notebook-loading").style.display = "none";
 	};
 	</script> 
 </body>

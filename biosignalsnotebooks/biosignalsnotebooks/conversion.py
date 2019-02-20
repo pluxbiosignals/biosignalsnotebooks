@@ -197,6 +197,19 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
                                          option="uA")) * 1e-6
 
+    elif sensor == "ACC":
+        available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller",
+                           "swifter", "ddme_openbanplux"]
+        if option == "g":
+            if device in available_dev_1:
+                Cm = 28000.0
+                CM = 38000.0
+            else:
+                raise RuntimeError("The output specified unit does not have a defined transfer "
+                                   "function for the used device.")
+
+            out = 2.0*((2**(16.0 - resolution) * raw_signal - Cm) / (CM - Cm)) - 1.0
+
     else:
         raise RuntimeError("The specified sensor is not valid or for now is not available for unit "
                            "conversion.")
@@ -229,9 +242,15 @@ def generate_time(signal, sample_rate=1000):
         if "drive.google" in signal:
             signal = _generate_download_google_link(signal)
         data = load(signal, remote=True)
-        mac = list(data.keys())[0]
-        chn = list(data[mac].keys())[0]
-        signal = data[mac][chn]
+        key_level_1 = list(data.keys())[0]
+        if "00:" in key_level_1:
+            mac = key_level_1
+            chn = list(data[mac].keys())[0]
+            signal = data[mac][chn]
+        else:
+            chn = key_level_1
+            signal = data[chn]
+
 
     nbr_of_samples = len(signal)
     end_of_time = nbr_of_samples / sample_rate

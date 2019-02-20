@@ -16,7 +16,7 @@ output_notebook(hide_banner=True)
 """
 
 PLOTS_SIGNAL_SAMPLES = """\
-signal_dict, file_header = bsnb.load(signal_samples_dir + file, get_header=True)
+signal_dict, file_header = bsnb.load(signal_samples_dir + file, get_header=True, out_dict=True)
 mac_addresses = list(signal_dict.keys())
 
 mac_0 = mac_addresses[0]

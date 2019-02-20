@@ -73,7 +73,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"]):
                 # Update or Insertion of header and footer.
                 # [Header]
                 header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".dwipynb")
-                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
+                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/biosignalsnotebooks_binder?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
 
                 if header_cell is None:
                     notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
@@ -100,6 +100,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"]):
                 if category != "MainFiles":
                     if str(nbr_stars) not in (DICT_GROUP_BY_DIFF.keys()):
                         DICT_GROUP_BY_DIFF[str(nbr_stars)] = []
+
                     DICT_GROUP_BY_DIFF[str(nbr_stars)].append(file_dir + "&" + title)
 
                     for tag in tags:
@@ -225,7 +226,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["open_h5"])
-run(exclude_notebooks=["generation_of_time_axis", "unit_conversion_eeg", "unit_conversion_fNIRS"])
+run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"])
 #run()
 
 # 29/11/2018  17h18m :)

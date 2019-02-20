@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: biosignalsnotebooks
-Version: 0.4.11
+Version: 0.4.13
 Summary: A Python package for supporting the external loading and processing of OpenSignals electrophysiological acquisitions.
 Home-page: https://github.com/biosignalsnotebooks/biosignalsnotebooks
 Author: Plux Wireless Biosignals

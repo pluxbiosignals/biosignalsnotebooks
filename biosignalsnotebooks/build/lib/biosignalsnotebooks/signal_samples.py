@@ -174,12 +174,12 @@ def load_signal(signal_handler, get_header=False):
             signal_handler = _generate_download_google_link(signal_handler)
 
         # Load file.
-        out, header = load(signal_handler, remote=True, get_header=True)
+        out, header = load(signal_handler, remote=True, get_header=True, signal_sample=True)
 
     # [Statements to be executed if signal_handler is an identifier of the signal]
     else:
         if signal_handler in available_signals:
-            out, header = load(SIGNAL_PATH + signal_handler + FILE_EXTENSION, get_header=True)
+            out, header = load(SIGNAL_PATH + signal_handler + FILE_EXTENSION, get_header=True, signal_sample=True)
         else:
             raise RuntimeError("The signal name defined as input does not correspond to any of the "
                            "signal samples contained in the package.")
