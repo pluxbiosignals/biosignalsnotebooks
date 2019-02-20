@@ -9,4 +9,3 @@ nbconvert
 sty
 novainstrumentation
 scikit-learn
-json
