@@ -8,3 +8,5 @@ jupyter_contrib_nbextensions
 nbconvert
 sty
 novainstrumentation
+scikit-learn
+json
