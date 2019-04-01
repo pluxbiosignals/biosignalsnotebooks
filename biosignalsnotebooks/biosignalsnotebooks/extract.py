@@ -41,7 +41,23 @@ from .visualise import plot, opensignals_kwargs, opensignals_color_pallet
 
 def hrv_parameters(data, sample_rate, signal=False, in_seconds=False):
     """
+    -----
+    Brief
+    -----
     Function for extracting HRV parameters from time and frequency domains.
+
+    -----------
+    Description
+    -----------
+    ECG signals require specific processing due to their cyclic nature. For example, it is expected that in similar
+    conditions the RR peak interval to be similar, which would mean that the heart rate variability (HRV) would be
+    constant.
+
+    In this function, it is calculated the tachogram of the input ECG signal, that allows to understand the variability
+    of the heart rate by the calculus of the time difference between consecutive RR peaks. Thus, different features
+    may be extracted from the tachogram, such as, maximum, minimum and average RR peak interval.
+
+    This function extracts a wide range of features related to the HRV and returns them as a dictionary.
 
     ----------
     Parameters
@@ -54,7 +70,7 @@ def hrv_parameters(data, sample_rate, signal=False, in_seconds=False):
         Sampling frequency.
 
     signal : boolean
-        If true, then the data argument contains the set of the ECG acquired samples.
+        If True, then the data argument contains the set of the ECG acquired samples.
 
     in_seconds : boolean
         If the R peaks list defined as the input argument "data" contains the sample numbers where
@@ -63,7 +79,27 @@ def hrv_parameters(data, sample_rate, signal=False, in_seconds=False):
     Returns
     -------
     out : dict
-        Dictionary with HRV parameters values.
+        Dictionary with HRV parameters values, with keys:
+            MaxRR : Maximum RR interval
+            MinRR : Minimum RR interval
+            AvgRR : Average RR interval
+            MaxBPM : Maximum RR interval in BPM
+            MinBPM : Minimum RR interval in BPM
+            AvgBPM : Average RR interval in BPM
+            SDNN : Standard deviation of the tachogram
+            SD1 : Square root of half of the sqaured standard deviation of the differentiated tachogram
+            SD2 : Square root of double of the squared SD1 minus the SD2 squared
+            SD1/SD2 : quotient between SD1 and SD2
+            NN20 : Number of consecutive heartbeats with a difference larger than 20 ms
+            pNN20 : Relative number of consecutive heartbeats with a difference larger than 20 ms
+            NN50 : Number of consecutive heartbeats with a difference larger than 50 ms
+            pNN50 : Relative number of consecutive heartbeats with a difference larger than 50 ms
+            ULF_Power : Power of the spectrum between 0 and 0.003 Hz
+            VLF_Power : Power of the spectrum between 0.003 and 0.04 Hz
+            LF_Power : Power of the spectrum between 0.04 and 0.15 Hz
+            HF_Power : Power of the spectrum between 0.15 and 0.40 Hz
+            LF_HF_Ratio : Quotient between the values of LF_Power and HF_Power
+            Total_Power : Power of the whole spectrum
     """
 
     out_dict = {}
@@ -160,7 +196,19 @@ def hrv_parameters(data, sample_rate, signal=False, in_seconds=False):
 
 def remove_ectopy(tachogram_data, tachogram_time):
     """
+    -----
+    Brief
+    -----
     Function for removing ectopic beats.
+
+    -----------
+    Description
+    -----------
+    Ectopic beats are beats that are originated in cells that do not correspond to the expected pacemaker cells. These
+    beats are identifiable in ECG signals by abnormal rhythms.
+
+    This function allows to remove the ectopic beats by defining time thresholds that consecutive heartbeats should
+    comply with.
 
     ----------
     Parameters
@@ -219,16 +267,27 @@ def remove_ectopy(tachogram_data, tachogram_time):
 
 def psd(tachogram_time, tachogram_data):
     """
+    -----
+    Brief
+    -----
     Determination of the Power Spectral Density Function (Fourier Domain)
+
+    -----------
+    Description
+    -----------
+    The Power Spectral Density Function allows to perceive the behavior of a given signal in terms of its frequency.
+    This procedure costs the time resolution of the signal but may be important to extract features in a different
+    domain appart from the time domain.
+
+    This function constructs the Power Spectral Density Function in the frequency domain.
 
     ----------
     Parameters
     ----------
-    tachogram_data : list
-        Y Axis of tachogram.
-
     tachogram_time : list
         X Axis of tachogram.
+    tachogram_data : list
+        Y Axis of tachogram.
 
     Returns
     -------
@@ -258,7 +317,21 @@ def psd(tachogram_time, tachogram_data):
 
 def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", resolution=16):
     """
+    -----
+    Brief
+    -----
     Function for extracting EMG parameters from time and frequency domains.
+
+    -----------
+    Description
+    -----------
+    EMG signals have specific properties that are different from other biosignals. For example, it is not periodic,
+    contrary to ECG signals.
+    This type of biosignals are composed of activation and inactivation periods that are different from one another.
+    Specifically, there differences in the amplitude domain, in which the activation periods are characterised by an
+    increase of amplitude.
+
+    This function allows the extraction of a wide range of features specific of EMG signals.
 
     ----------
     Parameters
@@ -290,7 +363,21 @@ def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", r
     Returns
     -------
     out : dict
-        Dictionary with EMG parameters values.
+        Dictionary with EMG parameters values, with keys:
+            Maximum Burst Duration : Duration of the longest activation in the EMG signal
+            Minimum Burst Duration : Duration of the shortest activation in the EMG signal
+            Average Burst Duration : Average duration of the activations in the EMG signal
+            Standard Deviation of Burst Duration : Standard Deviation duration of the activations in the EMG signal
+            Maximum Sample Value : Maximum value of the EMG signal
+            Minimum Sample Value : Minimum value of the EMG signal
+            Average Sample Value : Average value of the EMG signal
+            Standard Deviation Sample Value : Standard deviation value of the EMG signal
+            RMS : Root mean square of the EMG signal
+            Area : Area under the curve of the EMG signal
+            Total Power Spect : Total power of the power spectrum of the EMG signal
+            Median Frequency : Median frequency of the EMG signal calculated using the power spectrum of the EMG signal
+            Maximum Power Frequency : Frequency correspondent to the maximum amplitude in the power spectrum of the EMG
+                                      signal
     """
 
     out_dict = {}
@@ -353,7 +440,19 @@ def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", r
 def fatigue_eval_med_freq(data, sample_rate, time_units=True, raw_to_mv=True,
                           device="biosignalsplux", resolution=16, show_plot=False):
     """
-    Function for extracting EMG parameters from time and frequency domains.
+    -----
+    Brief
+    -----
+    Returns the evolution time series of EMG median frequency along the acquisition, based on a sliding window
+    mechanism.
+
+    -----------
+    Description
+    -----------
+    The median frequency of activation events in EMG signal is particularly important in fatigue evaluation methods.
+
+    This function calculates the median frequency of each activation period and allows to plot those values in order to
+    see the temporal evolution of this particular feature.
 
     ----------
     Parameters
@@ -365,7 +464,7 @@ def fatigue_eval_med_freq(data, sample_rate, time_units=True, raw_to_mv=True,
         Sampling frequency.
 
     time_units : boolean
-        If true this function will return the x axis samples in seconds.
+        If True this function will return the x axis samples in seconds.
 
     raw_to_mv : boolean
         If True then it is assumed that the input samples are in a raw format and the output
@@ -389,8 +488,8 @@ def fatigue_eval_med_freq(data, sample_rate, time_units=True, raw_to_mv=True,
 
     Returns
     -------
-    out : dict
-        Dictionary with the time and the sequence of median frequency evolution.
+    out : pandas.DataFrame
+        DataFrame with the time and the sequence of median frequency evolution.
     """
 
     # Conversion of data samples to mV if requested by raw_to_mv input.

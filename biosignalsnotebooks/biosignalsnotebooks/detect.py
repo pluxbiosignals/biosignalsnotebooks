@@ -79,7 +79,18 @@ output_notebook(hide_banner=True)
 def detect_r_peaks(ecg_signal, sample_rate, time_units=False, volts=False, resolution=None,
                    device="biosignalsplux", plot_result=False):
     """
-    Python implementation of R peak detection algorithm (proposed by Raja Selvaraj)
+    -----
+    Brief
+    -----
+    Python implementation of R peak detection algorithm (proposed by Raja Selvaraj).
+
+    -----------
+    Description
+    -----------
+    Pan-Tompkins algorithm is one of the gold-standard algorithms in R-peak detection on ECG due to its low
+    computational complexity, which allows for real-time applications, preserving high accuracy values.
+
+    This function allows the detection of these events in ECG signals using the Pan-Tompkins.
 
     ----------
     Parameters
@@ -91,10 +102,10 @@ def detect_r_peaks(ecg_signal, sample_rate, time_units=False, volts=False, resol
         Sampling frequency.
 
     time_units : boolean
-        If true this function will return the R peak position in seconds.
+        If True this function will return the R peak position in seconds.
 
     volts : boolean
-        If true, then the conversion of raw units to mV will be done. Resolution need to be
+        If True, then the conversion of raw units to mV will be done. Resolution needs to be
         specified.
 
     resolution : int or None
@@ -104,7 +115,7 @@ def detect_r_peaks(ecg_signal, sample_rate, time_units=False, volts=False, resol
         Specification of the device category.
 
     plot_result : boolean
-        If true it will be presented a graphical representation of the R peak position in the ECG
+        If True it will be presented a graphical representation of the R peak position in the ECG
         signal.
 
     Returns
@@ -191,7 +202,19 @@ def detect_emg_activations(emg_signal, sample_rate, smooth_level=20, threshold_l
                            time_units=False, volts=False, resolution=None, device="biosignalsplux",
                            plot_result=False):
     """
-    Python implementation of Burst detection algorithm using TKEO operator.
+    -----
+    Brief
+    -----
+    Python implementation of Burst detection algorithm using Teager Kaiser Energy Operator.
+
+    -----------
+    Description
+    -----------
+    Activation events in EMG readings correspond to an increase of muscular activity, namely, from inaction to action.
+    These events are characterised by an increase in electric potential that returns to the initial values when the
+    muscle returns to a state of inaction.
+
+    This function detects activation events using the Teager Kaiser Energy Operator.
 
     ----------
     Parameters
@@ -204,17 +227,17 @@ def detect_emg_activations(emg_signal, sample_rate, smooth_level=20, threshold_l
 
     smooth_level : number
         Defines a percentage proportional to the smoothing level, i.e. the bigger this value is,
-        then more smoothed is the signal.
+        the more smoothed is the signal.
 
     threshold_level : number
         Specification of the single threshold position, used for distinguishing between activation
         (above) and inactivation samples (below).
 
     time_units : boolean
-        If true this function will return the Burst begin and end positions in seconds.
+        If True this function will return the Burst begin and end positions in seconds.
 
     volts : boolean
-        If true, then the conversion of raw units to mV will be done. Resolution need to be
+        If True, then the conversion of raw units to mV will be done. Resolution need to be
         specified.
 
     resolution : int
@@ -224,7 +247,7 @@ def detect_emg_activations(emg_signal, sample_rate, smooth_level=20, threshold_l
         Specification of the device category.
 
     plot_result : boolean
-        If true it will be presented a graphical representation of the detected burst in the EMG
+        If True it will be presented a graphical representation of the detected burst in the EMG
         signal.
 
     Returns
@@ -233,7 +256,7 @@ def detect_emg_activations(emg_signal, sample_rate, smooth_level=20, threshold_l
         Begin and end of bursts (sample number or time instant in seconds).
 
     smooth_signal: list
-        It is return the smoothed EMG signal (after the processing steps intended to simplify the
+        It is returned the smoothed EMG signal (after the processing steps intended to simplify the
         signal).
 
     threshold_level: float
@@ -343,7 +366,7 @@ def _ecg_band_pass_filter(data, sample_rate):
     """
     Bandpass filter with a bandpass setting of 5 to 15 Hz
 
-    ---------
+    ----------
     Parameters
     ----------
     data : list
@@ -366,7 +389,7 @@ def _differentiate(data):
     """
     Derivative nearly linear between dc and 30 Hz
 
-    ---------
+    ----------
     Parameters
     ----------
     data : list
@@ -387,7 +410,7 @@ def _squaring(data):
     Squaring data point by point. Nonlinear amplification, emphasizing the higher
     frequencies
 
-    ---------
+    ----------
     Parameters
     ----------
     data : ndarry
@@ -407,7 +430,7 @@ def _integration(data, sample_rate):
     Moving window integration. N is the number of samples in the width of the integration
     window
 
-    ---------
+    ----------
     Parameters
     ----------
     data : ndarray
@@ -433,7 +456,7 @@ def _buffer_ini(data, sample_rate):
     """
     Initializes the buffer with eight 1s intervals
 
-    ---------
+    ----------
     Parameters
     ----------
     data : ndarray
@@ -474,15 +497,15 @@ def _buffer_update(npk1, spk1):
     """
     Computes threshold based on signal and noise values
 
-    ---------
+    ----------
     Parameters
     ----------
-    spk1 : float
-        Actual value of SPK1 parameter defined in Pan-Tompkins real-time R peak detection algorithm
-        (named signal peak).
     npk1 : int
         Actual value of NPK1 parameter defined in Pan-Tompkins real-time R peak detection algorithm
         (named noise peak).
+    spk1 : float
+        Actual value of SPK1 parameter defined in Pan-Tompkins real-time R peak detection algorithm
+        (named signal peak).
 
     Returns
     -------
@@ -499,7 +522,7 @@ def _detects_peaks(ecg_integrated, sample_rate):
     """
     Detects peaks from local maximum
 
-    ---------
+    ----------
     Parameters
     ----------
     ecg_integrated : ndarray
@@ -551,12 +574,12 @@ def _checkup(peaks, ecg_integrated, sample_rate, rr_buffer, spk1, npk1, threshol
     """
     Check each peak according to thresholds
 
-    ---------
+    ----------
     Parameters
     ----------
     peaks : list
         List of local maximums that pass the first stage of conditions needed to be considered as
-        a R peak.
+        an R peak.
     ecg_integrated : ndarray
         Array that contains the samples of the integrated signal.
     sample_rate : int
@@ -619,7 +642,7 @@ def _acceptpeak(peak, amp, definitive_peaks, spk1, rr_buffer):
     """
     Private function intended to insert a new RR interval in the buffer.
 
-    ---------
+    ----------
     Parameters
     ----------
     peak : int
@@ -659,7 +682,7 @@ def _noisepeak(amp, npk1):
     """
     Private function intended to insert a new RR interval in the buffer.
 
-    ---------
+    ----------
     Parameters
     ----------
     amp : int
@@ -693,7 +716,7 @@ def tachogram(data, sample_rate, signal=False, in_seconds=False, out_seconds=Fal
         Sampling frequency.
 
     signal : boolean
-        If true, then the data argument contains the set of the ECG acquired samples.
+        If True, then the data argument contains the set of the ECG acquired samples.
 
     in_seconds : boolean
         If the R peaks list defined as the input argument "data" contains the sample numbers where
@@ -735,7 +758,7 @@ def _thres_norm_reg(threshold_level, signal, pre_smooth_signal):
     level (used in the muscular activation detection algorithm).
     Converts a relative threshold level to an absolute value.
 
-    ---------
+    ----------
     Parameters
     ----------
     threshold_level : int

@@ -49,7 +49,7 @@ from .aux_functions import _filter_keywords, _is_instance, _generate_bokeh_file
 COLOR_LIST = itertools.cycle(("#009EE3", "#302683", "#00893E", "#94C11E", "#FDC400", "#E84D0E",
                               "#CF0272", "#F199C1"))
 
-def plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lines=None,
+def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lines=None,
                 hor_lines_leg=None, vert_lines=None, vert_lines_leg=None,
                 apply_opensignals_style=True, show_plot=True, warn_print=False, **kwargs):
     """
@@ -277,7 +277,20 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
          vert_lines=None, vert_lines_leg=None, apply_opensignals_style=True, show_plot=True,
          warn_print=False, get_fig_list=False, file_name=None, **kwargs):
     """
+    -----
+    Brief
+    -----
     Plotting function intended for an easy representation of OpenSignals acquired data.
+
+    -----------
+    Description
+    -----------
+    This function allows to plot data acquired with resource to OpenSignals, available at
+    https://bitalino.com/en/software, in an easy way using the Bokeh library (https://bokeh.pydata.org/en/latest/).
+    The plot will automatically present the OpenSignals style if the corresponding parameter is set to True
+    (apply_opensignals_style=True).
+
+    This allows to easily use multiple plot elements without the need to know any visualization libraries.
 
     ----------
     Parameters
@@ -649,7 +662,17 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
 
 def opensignals_style(figure_list, grid_plot=None, toolbar="right"):
     """
-    Function used to be automatically applied the OpenSignals graphical style to the Bokeh plots.
+    -----
+    Brief
+    -----
+    Function used to automatically apply the OpenSignals graphical style to Bokeh plots.
+
+    -----------
+    Description
+    -----------
+    OpenSignals has its own graphical style and Bokeh plots function in an object oriented way.
+
+    This function allows to apply the Opensignals graphical style to a set of Bokeh figures objects given as inputs.
 
     ----------
     Parameters
@@ -714,7 +737,17 @@ def opensignals_style(figure_list, grid_plot=None, toolbar="right"):
 
 def opensignals_color_pallet():
     """
+    -----
+    Brief
+    -----
     Function that automatically returns one of the available OpenSignals colors.
+
+    -----------
+    Description
+    -----------
+    OpenSignals has a set of predefined colours that can be applied in plots.
+
+    This functions returns one of those colors as a hexadecimal code.
 
     Returns
     -------
@@ -728,8 +761,19 @@ def opensignals_color_pallet():
 
 def opensignals_kwargs(obj):
     """
-    Function used to be automatically applied the OpenSignals graphical style to the toolbar of
-    Bokeh grid plots.
+    -----
+    Brief
+    -----
+    Function used to automatically apply the OpenSignals graphical style to the toolbar of Bokeh grid plots.
+
+    -----------
+    Description
+    -----------
+    Bokeh grid plots have numerous options in order to personalise the visual aspect and functionalities of plots.
+    OpenSignals uses a specific graphical design that limits this options and unifies the aspect of its plots.
+
+    This function applies the graphical aspect of the toolbar of OpenSignals to a given Bokeh figure object given as
+    input.
 
     ----------
     Parameters

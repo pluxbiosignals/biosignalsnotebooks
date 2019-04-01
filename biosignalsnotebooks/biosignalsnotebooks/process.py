@@ -1,4 +1,4 @@
-
+# coding=utf-8
 """
 Processing capabilities that are more general than the remaining modules categories.
 
@@ -31,7 +31,22 @@ from .visualise import plot
 
 def poincare(data, sample_rate, signal=False, in_seconds=False):
     """
-    Function for generation of Poincaré Plot (Heart rate variability analysis)
+    -----
+    Brief
+    -----
+    Function for generation of Poincaré Plot (Heart rate variability analysis).
+
+    -----------
+    Description
+    -----------
+    ECG signals measure the electric potential in the heart of the subject. In normal conditions, it is expeted that the
+    the electric potential to be similar in different heartbeats and that the rhythm of those heartbeats to be
+    maintained if all the conditions are maintained. Thus, by plotting the current RR interval against the previous one,
+    it is expected that the values to be maintained. Poincaré plot, is this representation, which allows to analyse the
+    heart rate variability.
+
+    This function returns the x and y axis of a Poincaré plot and also the standard deviations of the more
+    representative directions of the data points.
 
     ----------
     Parameters
@@ -44,7 +59,7 @@ def poincare(data, sample_rate, signal=False, in_seconds=False):
         Sampling frequency.
 
     signal : boolean
-        If true, then the data argument contains the set of the ECG acquired samples.
+        If True, then the data argument contains the set of the ECG acquired samples.
 
     in_seconds : boolean
         If the R peaks list defined as the input argument "data" contains the sample numbers where
@@ -80,12 +95,20 @@ def poincare(data, sample_rate, signal=False, in_seconds=False):
 
 def smooth(input_signal, window_len=10, window='hanning'):
     """
-    @brief: Smooth the data using a window with requested size.
+    -----
+    Brief
+    -----
+    Smooth the data using a window with requested size.
 
+    -----------
+    Description
+    -----------
     This method is based on the convolution of a scaled window with the signal.
-    The signal is prepared by introducing reflected copies of the signal
-    (with the window size) in both ends so that transient parts are minimized
-    in the beginning and end part of the output signal.
+    The signal is prepared by introducing reflected copies of the signal (with the window size) in both ends so that
+    transient parts are minimized in the beginning and end part of the output signal.
+
+    The results of the application of this functions is analogous to the application of a mean filter in image
+    processing. The results is the smoothed input_signal.
 
     ----------
     Parameters
@@ -145,9 +168,22 @@ def smooth(input_signal, window_len=10, window='hanning'):
 
 
 def plotfft(s, fmax, doplot=False):
-    """ This functions computes the fft of a signal, returning the frequency
-    and their magnitude values.
+    """
+    -----
+    Brief
+    -----
+    This functions computes the Fast Fourier Transform of a signal, returning the frequency and magnitude values.
 
+    -----------
+    Description
+    -----------
+    Fast Fourier Transform (FFT) is a method to computationally calculate the Fourier Transform of discrete finite
+    signals. This transform converts the time domain signal into a frequency domain signal by abdicating the temporal
+    dimension.
+
+    This function computes the FFT of the input signal and returns the frequency and respective amplitude values.
+
+    ----------
     Parameters
     ----------
     s: array-like
@@ -173,31 +209,45 @@ def plotfft(s, fmax, doplot=False):
 
 
 def lowpass(s, f, order=2, fs=1000.0, use_filtfilt=False):
-    '''
-    @brief: for a given signal s rejects (attenuates) the frequencies higher
-    then the cuttof frequency f and passes the frequencies lower than that
-    value by applying a Butterworth digital filter
+    """
+    -----
+    Brief
+    -----
+    For a given signal s rejects (attenuates) the frequencies higher than the cutoff frequency f and passes the
+    frequencies lower than that value by applying a Butterworth digital filter.
 
-    @params:
+    -----------
+    Description
+    -----------
+    Signals may have frequency components of multiple bands. If our interest is to have an idea about the behaviour
+    of low frequency bands, we should apply a low pass filter, which would attenuate the higher frequencies of the
+    signal. The degree of attenuation is controlled by the parameter "order", that as it increases, allows to better
+    attenuate frequencies closer to the cutoff frequency. Notwithstanding, the higher the order, the higher the
+    computational complexity and the higher the instability of the filter that may compromise the results.
 
+    This function allows to apply a low pass Butterworth digital filter and returns the filtered signal.
+
+    ----------
+    Parameters
+    ----------
     s: array-like
-    signal
-
+        signal
     f: int
-    the cutoff frequency
-
+        the cutoff frequency
     order: int
-    Butterworth filter order
-
+        Butterworth filter order
     fs: float
-    sampling frequency
+        sampling frequency
+    use_filtfilt: boolean
+        If True, the signal will be filtered once forward and then backwards. The result will have zero phase and twice
+        the order chosen.
 
-    @return:
-
+    Returns
+    -------
     signal: array-like
-    filtered signal
+        filtered signal
 
-    '''
+    """
     b, a = butter(order, f / (fs/2))
 
     if use_filtfilt:
@@ -207,31 +257,45 @@ def lowpass(s, f, order=2, fs=1000.0, use_filtfilt=False):
 
 
 def highpass(s, f, order=2, fs=1000.0, use_filtfilt=False):
-    '''
-    @brief: for a given signal s rejects (attenuates) the frequencies lower
-    then the cuttof frequency f and passes the frequencies higher than that
-    value by applying a Butterworth digital filter
+    """
+    -----
+    Brief
+    -----
+    For a given signal s rejects (attenuates) the frequencies lower then the cutoff frequency f and passes the
+    frequencies higher than that value by applying a Butterworth digital filter.
 
-    @params:
+    -----------
+    Description
+    -----------
+    Signals may have frequency components of multiple bands. If our interest is to have an idea about the behaviour
+    of high frequency bands, we should apply a high pass filter, which would attenuate the lower frequencies of the
+    signal. The degree of attenuation is controlled by the parameter "order", that as it increases, allows to better
+    attenuate frequencies closer to the cutoff frequency. Notwithstanding, the higher the order, the higher the
+    computational complexity and the higher the instability of the filter that may compromise the results.
 
+    This function allows to apply a high pass Butterworth digital filter and returns the filtered signal.
+
+    ----------
+    Parameters
+    ----------
     s: array-like
-    signal
-
+        signal
     f: int
-    the cutoff frequency
-
+        the cutoff frequency
     order: int
-    Butterworth filter order
-
+        Butterworth filter order
     fs: float
-    sampling frequency
+        sampling frequency
+    use_filtfilt: boolean
+        If True, the signal will be filtered once forward and then backwards. The result will have zero phase and twice
+        the order chosen.
 
-    @return:
-
+    Returns
+    -------
     signal: array-like
-    filtered signal
+        filtered signal
 
-    '''
+    """
 
     b, a = butter(order, f * 2 / (fs/2), btype='highpass')
     if use_filtfilt:
@@ -241,34 +305,48 @@ def highpass(s, f, order=2, fs=1000.0, use_filtfilt=False):
 
 
 def bandstop(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
-    '''
-    @brief: for a given signal s rejects (attenuates) the frequencies within a
-    certain range (between f1 and f2) and passes the frequencies outside that
-    range by applying a Butterworth digital filter
+    """
+    -----
+    Brief
+    -----
+    For a given signal s rejects (attenuates) the frequencies within a certain range (between f1 and f2) and passes the
+    frequencies outside that range by applying a Butterworth digital filter.
 
-    @params:
+    -----------
+    Description
+    -----------
+    Signals may have frequency components of multiple bands. If our interest is to have an idea about the behaviour
+    of all frequency bands except a specific band, we should apply a band stop filter, which would attenuate the
+    frequencies of that band of the signal. The degree of attenuation is controlled by the parameter "order", that as it
+    increases, allows to better attenuate frequencies closer to the cutoff frequencies. Notwithstanding, the higher the
+    order, the higher the computational complexity and the higher the instability of the filter which may compromise the
+    results.
 
+    This function allows to apply a band stop Butterworth digital filter and returns the filtered signal.
+
+    ----------
+    Parameters
+    ----------
     s: array-like
-    signal
-
+        signal
     f1: int
-    the lower cutoff frequency
-
+        the lower cutoff frequency
     f2: int
-    the upper cutoff frequency
-
+        the upper cutoff frequency
     order: int
-    Butterworth filter order
-
+        Butterworth filter order
     fs: float
-    sampling frequency
+        sampling frequency
+    use_filtfilt: boolean
+        If True, the signal will be filtered once forward and then backwards. The result will have zero phase and twice
+        the order chosen.
 
-    @return:
-
+    Returns
+    -------
     signal: array-like
-    filtered signal
+        filtered signal
 
-    '''
+    """
     b, a = butter(order, [f1 * 2 / fs, f2 * 2 / fs], btype='bandstop')
     if use_filtfilt:
         return filtfilt(b, a, s)
@@ -276,34 +354,47 @@ def bandstop(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
 
 
 def bandpass(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
-    '''
-    @brief: for a given signal s passes the frequencies within a certain range
-    (between f1 and f2) and rejects (attenuates) the frequencies outside that
-    range by applying a Butterworth digital filter
+    """
+    -----
+    Brief
+    -----
+    For a given signal s passes the frequencies within a certain range (between f1 and f2) and rejects (attenuates) the
+    frequencies outside that range by applying a Butterworth digital filter.
 
-    @params:
+    -----------
+    Description
+    -----------
+    Signals may have frequency components of multiple bands. If our interest is to have an idea about the behaviour
+    of a specific frequency band, we should apply a band pass filter, which would attenuate all the remaining
+    frequencies of the signal. The degree of attenuation is controlled by the parameter "order", that as it increases,
+    allows to better attenuate frequencies closer to the cutoff frequency. Notwithstanding, the higher the order, the
+    higher the computational complexity and the higher the instability of the filter that may compromise the results.
 
+    This function allows to apply a band pass Butterworth digital filter and returns the filtered signal.
+
+    ----------
+    Parameters
+    ----------
     s: array-like
-    signal
-
+        signal
     f1: int
-    the lower cutoff frequency
-
+        the lower cutoff frequency
     f2: int
-    the upper cutoff frequency
-
+        the upper cutoff frequency
     order: int
-    Butterworth filter order
-
+        Butterworth filter order
     fs: float
-    sampling frequency
+        sampling frequency
+    use_filtfilt: boolean
+        If True, the signal will be filtered once forward and then backwards. The result will have zero phase and twice
+        the order chosen.
 
-    @return:
-
+    Returns
+    -------
     signal: array-like
-    filtered signal
+        filtered signal
 
-    '''
+    """
     b, a = butter(order, [f1 * 2 / fs, f2 * 2 / fs], btype='bandpass')
 
     if use_filtfilt:

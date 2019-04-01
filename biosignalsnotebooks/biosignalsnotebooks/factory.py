@@ -39,8 +39,24 @@ class notebook:
                  difficulty_stars=1, notebook_description="Notebook Description",
                  dict_by_difficulty=None, dict_by_tag=None, notebook_file=None):
         """
+        -----
+        Brief
+        -----
         Class constructor that generates a new Notebook template, taking into account the
         specified 'notebook_type'.
+
+        -----------
+        Description
+        -----------
+        OpenSignals notebooks have specific templates according to different types. They possess specific headers,
+        footers and general arrangement and features, such as, the way of presenting the difficulty level and keywords.
+        All of these elements need to be implemented using HTML and CSS in order to use all functionalities of the
+        jupyter notebook environment.
+        That environment allows to easily and clearly present and compile Python code as well as information in markdown
+        cells, and has been widely used in data mining applications.
+
+        This class allows to generate a jupyter notebook template in order to facilitate content creation without the
+        need to worry about the design.
 
         ----------
         Parameters
@@ -146,7 +162,18 @@ class notebook:
 
     def write_to_file(self, path, filename, footer=True, group_by=False):
         """
+        -----
+        Brief
+        -----
         Class method responsible for generating a file containing the notebook object data.
+
+        -----------
+        Description
+        -----------
+        biosignalsnotebooks allows to create jupyter notebook objects that includes all of the information required to
+        generate a jupyter notebook file.
+
+        This function write a jupyter notebook file from a jupyter notebook object.
 
         ----------
         Parameters
@@ -203,8 +230,20 @@ class notebook:
 
     def add_markdown_cell(self, content, tags=None):
         """
+        -----
+        Brief
+        -----
         Class method responsible for adding a markdown cell with content 'content' to the
         Notebook object.
+
+        -----------
+        Description
+        -----------
+        Jupyter notebooks allow to use multiple format cells. One of those formats is the markdown cell, which allows
+        to write informational content, write HTML and CSS code and structure the overall content of the notebook.
+
+        This function allows to programmatically create a markdown cell with the content specified in the respective
+        input.
 
         ----------
         Parameters
@@ -220,8 +259,20 @@ class notebook:
 
     def add_code_cell(self, content, tags=None):
         """
+        -----
+        Brief
+        -----
         Class method responsible for adding a code cell with content 'content' to the
         Notebook object.
+
+        -----------
+        Description
+        -----------
+        Jupyter notebooks allow to use multiple format cells. One of those formats is the code cell, which allows
+        to write Python code that can be ran in the notebooks.
+
+        This function allows to programmatically create a code cell with the content specified in the respective
+        input.
 
         ----------
         Parameters
@@ -240,9 +291,21 @@ class notebook:
 # ========================== Generate OpenSignalTools File Hierarchy ===============================
 # ==================================================================================================
 
+
 def opensignals_hierarchy(root=None, update=False, clone=False):
     """
+    -----
+    Brief
+    -----
     Function that generates the OpenSignalsTools Notebooks File Hierarchy programatically.
+
+    -----------
+    Description
+    -----------
+    OpenSignalsTools Notebooks folder obey to a predefined hierarchy that allows to run the code of online available
+    notebooks and using the sample files, figures and CSS files in an easy way.
+
+    This function generates the folder hierarchy programatically and automatically.
 
     ----------
     Parameters
@@ -428,6 +491,7 @@ def _generate_notebook_header(notebook_object, notebook_type, notebook_title="No
     notebook_object["cells"].append(nb.v4.new_markdown_cell(MD_EXAMPLES))
     notebook_object["cells"].append(nb.v4.new_code_cell(CODE_EXAMPLES))
 
+
 def _generate_main_files_header(notebook_object, notebook_title="Notebook Title",
                                 notebook_description="Notebook Description"):
     """
@@ -496,7 +560,7 @@ def _generate_footer(notebook_object, notebook_type):
 
 def _generate_header(notebook_object, notebook_type, notebook_file):
     """
-    Internal function that is used for generation of the notebooks footer.
+    Internal function that is used for generation of the notebooks header.
 
     ----------
     Parameters
@@ -539,15 +603,17 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
                                                             **{"metadata":
                                                                {"tags": ["header"]}}))
 
+
 def _generate_signal_samples_body(notebook_object):
     """
-    Internal function that is used for generation of the 'MainFiles' notebooks header.
+    Internal function that is used for the generation of the table that enumerates all signal samples and respective
+    descriptions.
 
     ----------
     Parameters
     ----------
     notebook_object : notebook object
-        Object of "notebook" class where the header will be created.
+        Object of "notebook" class where the signal samples table is generated.
 
     """
 
