@@ -73,7 +73,7 @@ class notebook:
                            - "Process"
                            - "Detect"
                            - "Extract"
-                           - "Decide"
+                           - "Train_and_Classify"
                            - "Explain"
 
         notebook_title : None or str
@@ -84,7 +84,7 @@ class notebook:
            - "Process"
            - "Detect"
            - "Extract"
-           - "Decide"
+           - "Train_and_Classify"
            - "Explain"
 
         tags : str
@@ -434,7 +434,7 @@ def _generate_notebook_header(notebook_object, notebook_type, notebook_title="No
                        - "Process"
                        - "Detect"
                        - "Extract"
-                       - "Decide"
+                       - "Train_and_Classify"
                        - "Explain"
 
     notebook_title : None or str
@@ -445,7 +445,7 @@ def _generate_notebook_header(notebook_object, notebook_type, notebook_title="No
        - "Process"
        - "Detect"
        - "Extract"
-       - "Decide"
+       - "Train_and_Classify"
        - "Explain"
 
     tags : str
@@ -543,7 +543,7 @@ def _generate_footer(notebook_object, notebook_type):
                        - "Process"
                        - "Detect"
                        - "Extract"
-                       - "Decide"
+                       - "Train_and_Classify"
                        - "Explain"
 
     """
@@ -582,7 +582,7 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
                        - "Process"
                        - "Detect"
                        - "Extract"
-                       - "Decide"
+                       - "Train_and_Classify"
                        - "Explain"
                        - "Other"
                        - "Install"

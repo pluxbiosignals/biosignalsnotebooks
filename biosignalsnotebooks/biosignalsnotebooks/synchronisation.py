@@ -1,3 +1,49 @@
+# coding=utf-8
+"""
+Functions intended to synchronise two signals and generate a new file containing the new synchronised signals.
+
+Available Functions
+-------------------
+[Public]
+
+synchronise_signals
+    This function synchronises the input signals using the full cross correlation function between the signals.
+
+generate_sync_txt_file
+    This function allows to generate a text file with synchronised signals from the input file(s).
+
+generate_sync_h5_file
+    This function allows to generate a h5 file with synchronised signals from the input file(s).
+
+create_synchronised_files
+    This function creates .txt and .h5 files with synchronised signals.
+
+Available Functions
+-------------------
+[Private]
+
+_shape_array
+    Function that equalises the input arrays by zero-padding the shortest one.
+
+_create_h5_file_old
+    Function to create a new .h5 file that contains the copy of the contents of the input file(s).
+
+_create_h5_file
+    Function to create a new .h5 file that contains the copy of the contents of the input file(s).
+
+_create_txt_from_str
+    This function allows to generate a text file with synchronised signals from the input file.
+
+_create_txt_from_list
+    This function allows to generate a text file with synchronised signals from the input files.
+
+Observations/Comments
+---------------------
+None
+
+/\
+"""
+
 import biosignalsnotebooks as bsnb
 import numpy as np
 from h5py import File
@@ -8,7 +54,7 @@ def synchronise_signals(in_signal_1, in_signal_2):
     -----
     Brief
     -----
-    This function synchronises the input signals.
+    This function synchronises the input signals using the full cross correlation function between the signals.
 
     -----------
     Description
@@ -229,7 +275,7 @@ def create_synchronised_files(in_path=(('file1.txt', 'file2.txt'), ('file1.h5', 
     -----
     Brief
     -----
-    This functions creates .txt and .h5 files with synchronised signals.
+    This function creates .txt and .h5 files with synchronised signals.
 
     -----------
     Description

@@ -16,6 +16,25 @@ smooth
     (from one of the predefined formats 'hanning', 'blackman'...) in order to a weigh be attributed
     to each sample inside the moving window.
 
+plotfft
+    This functions computes the Fast Fourier Transform of a signal, returning the frequency and magnitude values.
+
+lowpass
+    For a given signal s rejects (attenuates) the frequencies higher than the cutoff frequency f and passes the
+    frequencies lower than that value by applying a Butterworth digital filter.
+
+highpass
+    For a given signal s rejects (attenuates) the frequencies lower then the cutoff frequency f and passes the
+    frequencies higher than that value by applying a Butterworth digital filter.
+
+bandstop
+    For a given signal s rejects (attenuates) the frequencies within a certain range (between f1 and f2) and passes the
+    frequencies outside that range by applying a Butterworth digital filter.
+
+bandpass
+    For a given signal s passes the frequencies within a certain range (between f1 and f2) and rejects (attenuates) the
+    frequencies outside that range by applying a Butterworth digital filter.
+
 Observations/Comments
 ---------------------
 None

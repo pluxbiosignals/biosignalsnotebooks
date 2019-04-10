@@ -25,7 +25,7 @@ _check_shape_and_type
     With this function it is possible to check if the "devices" and "channels" fields of
     load function have the same shape.
 _check_chn_type
-    Function used for checking weather the elements in "channels" input of load function are
+    Function used for checking whether the elements in "channels" input of load function are
     coincident with the available channels (specified in the acquisition file).
 _available_channels
     Intended for the determination of the available channels in each device.
