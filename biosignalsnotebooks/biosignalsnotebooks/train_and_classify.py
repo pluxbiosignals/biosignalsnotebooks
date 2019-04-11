@@ -25,7 +25,7 @@ None
 import numpy as np
 
 
-def windowing(signal, sampling_rate=1000, time_window=.25):
+def windowing(signal, sampling_rate=1000, time_window=.25, overlap=0):
     """
     -----
     Brief
@@ -50,20 +50,26 @@ def windowing(signal, sampling_rate=1000, time_window=.25):
         Sampling rate of the input signal.
     time_window : float or int
         Time in seconds of each window.
+	overlap : float
+		Percentage of overlap relative to the time window.
 
     Returns
     -------
         Windowed signal
 
     """
-    # TODO: Add overlap
+    if  overlap < 0 or overlap >= 1:
+        raise ValueError("overlap should be a float in [0, 1)")
+    over = 1 - overlap
+    
     app_window = int(sampling_rate * time_window)
 
-    num_windows = len(signal) // app_window
+    num_windows = int(len(signal) / (app_window*over))
     signal_windows = np.zeros(shape=(num_windows, app_window))
 
-    for i in range(num_windows):
-        signal_windows[i] = signal[i * app_window:(i + 1) * app_window]
+    for i, win in enumerate(range(0, len(signal), int(over*app_window))):
+        if win + app_window < len(signal) and i < num_windows:
+            signal_windows[i] = signal[win:win + app_window]
     return signal_windows
 
 
