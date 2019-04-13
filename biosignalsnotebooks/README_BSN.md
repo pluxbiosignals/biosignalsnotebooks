@@ -33,17 +33,15 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
         <td width="80%"></td>
     </tr>
 	<tr>
-		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/YPbCnzD/Load.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_h5_rev.php' target='_blank'>Load acquired data from .h5 file</a> </td>
+		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/4fBR4Q3/Install.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_anaconda_rev.php' target='_blank'> Download, Install and Execute Anaconda </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_signals_after_acquisition_rev.php'> Load Signals after Acquisition [OpenSignals] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_jupyter_rev.php'> Download, Install and Execute Jypyter Notebook Environment </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_txt_rev.php'>Load acquired data from .txt file</a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/3yDZpxC/Connect.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Connect/pairing_device_rev.php' target='_blank'> Pairing a Device at Windows 10 [biosignalsplux] </a> </td>
 	</tr>
 	<tr>
 		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/d2jZH1s/Record.png' width='50%' align='center'></p></td>
@@ -57,6 +55,19 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Record/store_signals_after_acquisition_rev.php'> Store Files after Acquisition [OpenSignals] </a> </td>
+	</tr>
+	<tr>
+		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/YPbCnzD/Load.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_h5_rev.php' target='_blank'>Load acquired data from .h5 file</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_signals_after_acquisition_rev.php'> Load Signals after Acquisition [OpenSignals] </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/open_txt_rev.php'>Load acquired data from .txt file</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
 		<td rowspan='7'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
@@ -108,17 +119,6 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/yfwcy2M/Evaluate.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_4_rev.php' target='_blank'> Stone, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
 	</tr>
-	<tr>
-		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/4fBR4Q3/Install.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_anaconda_rev.php' target='_blank'> Download, Install and Execute Anaconda </a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_jupyter_rev.php'> Download, Install and Execute Jypyter Notebook Environment </a> </td>
-	</tr>
-	<tr>
-		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/3yDZpxC/Connect.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Connect/pairing_device_rev.php' target='_blank'> Pairing a Device at Windows 10 [biosignalsplux] </a> </td>
-	</tr>
 </table>
 
 ## What is **PLUX**
@@ -130,7 +130,7 @@ We have been perusing the mission of making biosignals as accessible as possible
 
 ## Plux's Software and Hardware Environment
 
-[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *Plux* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
+[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *Plux* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected from other devices.
 
 In some cases **OpenSignals** provides [*plugins*](http://biosignalsplux.com/en/software/add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
 

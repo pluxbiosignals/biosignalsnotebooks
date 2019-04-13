@@ -25,9 +25,9 @@ from .notebook_files.cell_content_strings import DESCRIPTION_GROUP_BY, DESCRIPTI
 
 SIGNAL_TYPE_LIST = ["emg", "ecg"]
 
-NOTEBOOK_KEYS = {"Load": 1, "Record": 2, "Visualise": 3, "Pre-Process": 4, "Detect": 5,
+NOTEBOOK_KEYS = {"Install": 13, "Connect": 14, "Record": 2, "Load": 1, "Visualise": 3, "Pre-Process": 4, "Detect": 5,
                  "Extract": 6, "Train_and_Classify": 7, "Understand": 8, "Evaluate": 12,
-                 "Install": 13, "Connect": 14, "Other": 15, "MainFiles": 0}
+                 "Other": 15, "MainFiles": 0}
 
 # ==================================================================================================
 # ======================================= notebook Class ===========================================

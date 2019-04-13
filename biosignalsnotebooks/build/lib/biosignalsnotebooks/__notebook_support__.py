@@ -54,6 +54,8 @@ None
 from os.path import exists as pathexist
 
 import numpy
+import requests
+import os
 # import novainstrumentation as ni
 from .process import smooth, plotfft, lowpass
 from .visualise import plot, opensignals_kwargs, opensignals_color_pallet, opensignals_style
@@ -528,7 +530,7 @@ def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_va
             list_figures[-1].circle(find_time_max, max_sample_value, radius = 0.5, fill_color=opensignals_color_pallet(),
                                     legend=parameter + " EMG")
         elif parameter == "Minimum":
-            list_figures[-1].circle(find_time_min, max_sample_value, radius=0.5, fill_color=opensignals_color_pallet(),
+            list_figures[-1].circle(find_time_min, min_sample_value, radius=0.5, fill_color=opensignals_color_pallet(),
                                     legend=parameter + " EMG")
         elif parameter == "Average":
             list_figures[-1].line([0, time[-1]], [avg_sample_value, avg_sample_value],
@@ -1491,6 +1493,28 @@ def plot_resp_diff(signal, rect_signal, sample_rate):
 
     show(grid_plot_ref)
 
+def download(link, out):
+    """
+    Downloading data from websites, such as previously acquired physiological signals, is an extremely relevant task,
+    taking into consideration that, without data, processing cannot take place.
+
+    With the current function a file can be easily downloaded through the "link" input.
+
+    ----------
+    Parameters
+    ----------
+    link : str
+        String with the url that contains the file to be downloaded.
+
+    out : str
+        Name of the downloaded file (with extension). A destination path can also be included.
+
+    """
+
+    # [Source: https://stackoverflow.com/questions/7243750/download-file-from-web-in-python-3]
+    r = requests.get(link)
+    with open(out, 'wb') as outfile:
+        outfile.write(r.content)
 
 def _inhal_exhal_segments(fig, time, signal, inhal_begin, inhal_end, exhal_begin, exhal_end):
     """

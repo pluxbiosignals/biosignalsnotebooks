@@ -1,4 +1,5 @@
 MANIFEST.in
+README.md
 README_BSN.md
 setup.py
 setup_linux.py
@@ -12,6 +13,8 @@ biosignalsnotebooks/factory.py
 biosignalsnotebooks/load.py
 biosignalsnotebooks/process.py
 biosignalsnotebooks/signal_samples.py
+biosignalsnotebooks/synchronisation.py
+biosignalsnotebooks/train_and_classify.py
 biosignalsnotebooks/visualise.py
 biosignalsnotebooks.egg-info/PKG-INFO
 biosignalsnotebooks.egg-info/SOURCES.txt

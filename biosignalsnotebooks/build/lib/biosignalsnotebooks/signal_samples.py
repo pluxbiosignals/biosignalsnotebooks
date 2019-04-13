@@ -32,13 +32,26 @@ from .aux_functions import _generate_download_google_link
 
 SIGNAL_PATH = (os.path.abspath(__file__).split(os.path.basename(__file__))[0] + \
               "notebook_files\\osf_files\\signal_samples\\").replace("\\", "/")
+# TODO Substitute \\ by os.sep to work on all operative systems
 FILE_EXTENSION = ".h5"
 
 
 def load_signal(signal_handler, get_header=False):
     """
+    -----
+    Brief
+    -----
     Function that returns a dictionary with the data contained inside 'signal_name' file (stored in
-    the biosignalsnotebooks signal samples directory.
+    the biosignalsnotebooks signal samples directory).
+
+    -----------
+    Description
+    -----------
+    Biosignalsnotebooks library provides data samples in order to the users that are new to biosignals data handling to
+    have a place to start without the need to acquire new data. This sample files are stored in the folder
+    _signal_samples inside the library.
+
+    This function returns the data from the selected sample.
 
     ----------
     Parameters
@@ -150,7 +163,7 @@ def load_signal(signal_handler, get_header=False):
         =================   ==============
 
     get_header : boolean
-        If true the file header will be returned as one of the function outputs.
+        If True the file header will be returned as one of the function outputs.
 
     Returns
     -------
@@ -158,7 +171,7 @@ def load_signal(signal_handler, get_header=False):
         A dictionary with the data stored inside the file specified in the input 'signal_name'.
 
     header : dict
-        Metadata of the acquisition file (includes sampling rate, resolution, used device...
+        Metadata of the acquisition file (includes sampling rate, resolution, used device...)
     """
 
     available_signals = ["ecg_4000_Hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",

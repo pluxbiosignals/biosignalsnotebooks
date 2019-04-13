@@ -94,7 +94,7 @@ def _is_instance(type_to_check, element, condition="any", deep=False):
         specified type.
 
     deep : bool
-        Flag that identifies when element is in a matrix format and each of his elements should be
+        Flag that identifies when element is in a matrix format and each of its elements should be
         verified iteratively.
 
     Returns
@@ -135,7 +135,7 @@ def _butter_bandpass_filter(signal, low_cutoff, high_cutoff, sample_rate, order=
     -----------
     Description
     -----------
-    In signal processing knowledge can be extracted from different domains, the most common is the
+    In signal processing, knowledge can be extracted from different domains, the most common is the
     time-domain, where statistical parameters are taken by analysing the acquired samples of
     a time series.
 
@@ -274,6 +274,12 @@ def _filter_keywords(function, kwargs_dict, is_class=False, warn_print=True):
     kwargs_dict : dict
         Variable keyword arguments.
 
+    is_class : bool
+        Flag to specify if the function input is in fact a Class.
+
+    warn_print : bool
+        Flag to specify if a warning should be printed in case a key argunment is invalid.
+
     Returns
     -------
     kwargs_final : dict
@@ -319,7 +325,7 @@ def _inv_key(list_keys, valid_keys):
     -----------
     Description
     -----------
-    Function used for identification when a list of keywords contain invalid keywords not present
+    Function used for identification when a list of keywords contains invalid keywords not present
     in the valid list.
 
     ----------
@@ -347,6 +353,7 @@ def _inv_key(list_keys, valid_keys):
             inv_keys.append(i)
 
     return bool_out, inv_keys
+
 
 def _generate_bokeh_file(file_name):
     """
@@ -397,13 +404,13 @@ def _is_a_url(input_element):
     -----
     Brief
     -----
-    Auxiliary function responsible for checking if the input is a string that contains a url.
+    Auxiliary function responsible for checking if the input is a string that contains an url.
 
     -----------
     Description
     -----------
     Some biosignalsnotebooks functions support a remote access to files. In this situation it is
-    important to understand if the input is a url, which can be easily achieved by checking if some
+    important to understand if the input is an url, which can be easily achieved by checking if some
     key-markers are present.
 
     The key-markers that will be searched are "http://", "https://", "www.", ".pt", ".com", ".org",
@@ -430,6 +437,7 @@ def _is_a_url(input_element):
             return False
     else:
         return False
+
 
 def _generate_download_google_link(link):
     """

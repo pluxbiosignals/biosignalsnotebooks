@@ -73,5 +73,6 @@ from .visualise import *
 from .signal_samples import *
 from .factory import *
 from .__notebook_support__ import *
+from .synchronisation import *
 
 # 11/10/2018 16h45m :)
