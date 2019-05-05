@@ -162,6 +162,20 @@ def load_signal(signal_handler, get_header=False):
         Conditions                 At Rest
         =================   ==============
 
+        [eeg_sample_closed_open_eyes]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           04:02.0
+        Sample Rate                1000 Hz
+        Number of Channels               2
+        Conditions           Detection of
+                             neuronal alpha
+                             waves while
+                             eyes are
+                             opened or
+                             closed
+        =================   ==============
+
     get_header : boolean
         If True the file header will be returned as one of the function outputs.
 
@@ -176,7 +190,7 @@ def load_signal(signal_handler, get_header=False):
 
     available_signals = ["ecg_4000_Hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",
                          "ecg_20_sec_100_Hz", "ecg_20_sec_1000_Hz", "emg_bursts", "emg_fatigue",
-                         "temp_res_8_16", "bvp_sample"]
+                         "temp_res_8_16", "bvp_sample", "eeg_sample_closed_open_eyes"]
 
     # Check if signal_handler is a url.
     # [Statements to be executed if signal_handler is a url]

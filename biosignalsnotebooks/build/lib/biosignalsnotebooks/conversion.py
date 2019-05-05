@@ -90,7 +90,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
     raw_signal = numpy.array(raw_signal)
 
     # Check if resolution has the correct data format.
-    if not isinstance(resolution, int):
+    if not isinstance(resolution, int) and not isinstance(resolution, numpy.int32):
         raise RuntimeError("The specified resolution needs to be an integer.")
 
     out = None
@@ -131,14 +131,16 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         available_dev_2 = ["bitalino"]
         available_dev_3 = ["bitalino_rev", "bitalino_riot"]
         if option == "mV":
-            vcc = 3.0
             if device in available_dev_1:
+                vcc = 3.0
                 offset = 0.5
                 gain = 1
             elif device in available_dev_2:
+                vcc = 3.3
                 offset = 0.5
                 gain = 1.008
             elif device in available_dev_3:
+                vcc = 3.3
                 offset = 0.5
                 gain = 1.009
             else:
@@ -150,16 +152,20 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
                                          option="mV")) / 1000
 
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
+
     elif sensor == "ECG":
         available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller",
                            "swifter", "ddme_openbanplux"]
         available_dev_2 = ["bitalino", "bitalino_rev", "bitalino_riot"]
         if option == "mV":
-            vcc = 3.0
             if device in available_dev_1:
+                vcc = 3.0
                 offset = 0.5
                 gain = 1.019
             elif device in available_dev_2:
+                vcc = 3.3
                 offset = 0.5
                 gain = 1.1
             else:
@@ -170,6 +176,9 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         elif option == "V":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
                                          option="mV")) / 1000
+
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
 
     elif sensor == "BVP":
         available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller",
@@ -187,6 +196,9 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         elif option == "A":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
                                          option="uA")) * 1e-6
+
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
 
     elif sensor in ["SpO2.ARM", "SpO2.HEAD", "SpO2.FING"]:
         available_dev_1 = ["channeller", "biosignalsplux", "swifter"]
@@ -208,6 +220,9 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
                                          option="uA")) * 1e-6
 
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
+
     elif sensor == "ACC":
         available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller",
                            "swifter", "ddme_openbanplux"]
@@ -220,6 +235,34 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
                                    "function for the used device.")
 
             out = 2.0*((2**(16.0 - resolution) * raw_signal - Cm) / (CM - Cm)) - 1.0
+
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
+
+    elif sensor == "EEG":
+        available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller", "swifter",
+                           "ddme_openbanplux"]
+        available_dev_2 = ["bitalino_rev", "bitalino_riot"]
+        if option == "uV":
+            if device in available_dev_1:
+                vcc = 3.0
+                offset = 0.5
+                gain = 0.041990
+            elif device in available_dev_2:
+                vcc = 3.3
+                offset = 0.5
+                gain = 0.040000
+            else:
+                raise RuntimeError("The output specified unit does not have a defined transfer "
+                                   "function for the used device.")
+            out = ((raw_signal * vcc / (2 ** resolution)) - vcc * offset) / gain
+
+        elif option == "V":
+            out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
+                                         option="uV")) * 1e6
+
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
 
     else:
         raise RuntimeError("The specified sensor is not valid or for now is not available for unit "
