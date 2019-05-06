@@ -72,6 +72,8 @@ from .process import *
 from .visualise import *
 from .signal_samples import *
 from .factory import *
+from .synchronisation import *
+from .train_and_classify import *
 from .__notebook_support__ import *
 from .synchronisation import *
 
