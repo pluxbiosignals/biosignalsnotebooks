@@ -657,6 +657,171 @@ def plot_emg_spect_freq(freq_axis, power_axis, max_freq, median_freq):
     opensignals_style(list_figures)
     show(list_figures[-1])
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% eeg_extract_alphaband.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_windows_evt_2,
+                         y_axis_label="Electric Voltage"):
+    """
+    -----
+    Brief
+    -----
+    Function intended to generate a single Bokeh figure that presents a graphical representation of an EEG
+    signal, highlighting a set of time-windows (segments).
+
+    -----------
+    Description
+    -----------
+    The current function was mainly created to support "eeg_extract_alphaband" Jupyter Notebook, ensuring
+    a graphical representation of an EEG signal segmented into time windows (of two types: eyes opened and
+    eyes closed).
+
+    Applied in the Notebook titled "EEG - Alpha Band Extraction".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        List containing the time-axis linked to the acquired EEG data samples.
+
+    signal : list
+        List containing the acquired data samples.
+
+    time_range : list
+        A tuple containing the start and ending times of the visualisation window (start, end).
+
+    time_windows_evt_1 : list tuples
+        Each entry of this list will contain a tuple (start, end) identifying the start and ending points
+        of the temporal segment under analysis [Event 1 - Eyes Opened].
+
+    time_windows_evt_2 : list tuples
+        Each entry of this list will contain a tuple (start, end) identifying the start and ending points
+        of the temporal segment under analysis [Event 2 - Eyes Closed].
+
+    y_axis_label : str
+        A string where it is specified the label of the y axis.
+    """
+
+    # Range of the visualisation window.
+    x_range = (time_range[0], time_range[1])
+
+    # Get the list of beginning and ending points of the time windows [Eyes Opened]
+    eyes_open_begin = []
+    eyes_open_end = []
+    for tuple in time_windows_evt_1:
+        eyes_open_begin.append(tuple[0])
+        eyes_open_end.append(tuple[1])
+
+    # Get the list of beginning and ending points of the time windows [Eyes Closed]
+    eyes_closed_begin = []
+    eyes_closed_end = []
+    for tuple in time_windows_evt_2:
+        eyes_closed_begin.append(tuple[0])
+        eyes_closed_end.append(tuple[1])
+
+    list_figures = plot(time, signal, y_axis_label=y_axis_label, get_fig_list=True, show_plot=False, x_range=x_range)
+
+    # Highlighting "Eyes Opened" and "Eyes Closed" bands.
+    color_open_eyes = opensignals_color_pallet()
+    color_closed_eyes = opensignals_color_pallet()
+
+    # ["Eyes Opened"]
+    box_annotations = []
+    for i in range(0, len(eyes_open_begin)):
+        box_annotations.append(BoxAnnotation(left=eyes_open_begin[i], right=eyes_open_end[i],
+                                             fill_color=color_open_eyes, fill_alpha=0.1))
+        list_figures[-1].add_layout(box_annotations[-1])
+    list_figures[-1].circle([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend="Eyes Opened")
+
+    # ["Eyes Closed"]
+    for i in range(0, len(eyes_closed_begin)):
+        box_annotations.append(
+            BoxAnnotation(left=eyes_closed_begin[i], right=eyes_closed_end[i], fill_color=color_closed_eyes,
+                          fill_alpha=0.1))
+        list_figures[-1].add_layout(box_annotations[-1])
+    list_figures[-1].circle([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend="Eyes Closed")
+
+    # Show figure.
+    show(list_figures[-1])
+
+
+def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_axis_evt2, freq_range):
+    """
+    -----
+    Brief
+    -----
+    Function intended to generate a single Bokeh figure graphically describing and identifying
+    the alpha band linked with EEG researches and studies.
+
+    -----------
+    Description
+    -----------
+    The current function was mainly created to support "eeg_extract_alphaband" Jupyter Notebook, ensuring
+    a graphical representation of an EEG signal segmented into time windows (of two types) and also the
+    generation of the power spectrum where the alpha bands are highlighted.
+
+    Applied in the Notebook titled "EEG - Alpha Band Extraction".
+
+    ----------
+    Parameters
+    ----------
+    freq_axis_evt1 : list
+        Frequency axis of the power spectrum belonging to a "Eyes Opened" time window.
+
+    power_axis_evt1 : list
+        Power axis of the power spectrum belonging to a "Eyes Opened" time window.
+
+    freq_axis_evt2 : list
+        Frequency axis of the power spectrum belonging to a "Eyes Closed" time window.
+
+    power_axis_evt2 : list
+        Power axis of the power spectrum belonging to a "Eyes Closed" time window.
+
+    freq_range : list
+        List defining the range of frequencies to be presented on the visualisation window of our spectrum.
+    """
+
+    # Rename variables.
+    freq_axis_eyes_closed = freq_axis_evt2
+    freq_axis_eyes_opened = freq_axis_evt1
+    power_spect_eyes_closed = power_axis_evt2
+    power_spect_eyes_opened = power_axis_evt1
+
+    # List that store the figure handler
+    list_figures = plot([freq_axis_eyes_closed, freq_axis_eyes_opened],
+                        [power_spect_eyes_closed, power_spect_eyes_opened],
+                        title=["Estimated Power Spectral Density - Closed Eyes",
+                               "Estimated Power Spectral Density - Opened Eyes"],
+                        legend=["Bandpass Filtered Freq. Band", "Bandpass Filtered Freq. Band"],
+                        x_axis_label="Frequency (Hz)", y_axis_label="PSD (uV^2/Hz)", grid_plot=True, grid_lines=1,
+                        grid_columns=2, x_range=freq_range, show_plot=False, get_fig_list=True)
+
+    # Indexes of Alpha Band.
+    alpha_band_indexes_eyes_closed = numpy.where((numpy.array(freq_axis_eyes_closed) >= 8) &
+                                                 (numpy.array(freq_axis_eyes_closed) <= 12))[0]
+    alpha_band_indexes_eyes_opened = numpy.where((numpy.array(freq_axis_eyes_opened) >= 8) &
+                                                 (numpy.array(freq_axis_eyes_opened) <= 12))[0]
+
+    # Plotting of Alpha Band [Eyes Closed]
+    list_figures[0].patch(list(freq_axis_eyes_closed[alpha_band_indexes_eyes_closed]) + list(
+        freq_axis_eyes_closed[alpha_band_indexes_eyes_closed])[::-1],
+                          list(power_spect_eyes_closed[alpha_band_indexes_eyes_closed]) + list(
+                              numpy.zeros(len(power_spect_eyes_closed[alpha_band_indexes_eyes_closed]))),
+                          fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
+                          legend="Alpha Band 8-12 Hz")
+
+    # Plotting of Alpha Band [Eyes Opened]
+    list_figures[1].patch(list(freq_axis_eyes_opened[alpha_band_indexes_eyes_opened]) + list(
+        freq_axis_eyes_opened[alpha_band_indexes_eyes_opened])[::-1],
+                          list(power_spect_eyes_opened[alpha_band_indexes_eyes_opened]) + list(
+                              numpy.zeros(len(power_spect_eyes_opened[alpha_band_indexes_eyes_opened]))),
+                          fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
+                          legend="Alpha Band 8-12 Hz")
+
+    # Show figure.
+    grid_plot_ref = gridplot([[list_figures[0], list_figures[1]]], **opensignals_kwargs("gridplot"))
+    show(grid_plot_ref)
+
 # =================================================================================================
 # ================================ Pre-Process Category ===========================================
 # =================================================================================================
