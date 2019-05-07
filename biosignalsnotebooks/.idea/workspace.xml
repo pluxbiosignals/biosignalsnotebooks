@@ -83,7 +83,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/signal_samples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="954">
               <caret line="190" column="39" lean-forward="true" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="39" />
               <folding>
                 <element signature="e#929#938#0" expanded="true" />
@@ -402,7 +402,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2676801" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -680,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/signal_samples.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="954">
           <caret line="190" column="39" lean-forward="true" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="39" />
           <folding>
             <element signature="e#929#938#0" expanded="true" />
