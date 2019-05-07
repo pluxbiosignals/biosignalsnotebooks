@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_closed_open_eyes_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_closed_open_eyes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/biosignalsnotebooks-0.4.13-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/biosignalsnotebooks-0.4.13-py3.7.egg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Extract/eeg_extract_alphaband.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Extract/eeg_extract_alphaband.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Train_and_Classify/.ipynb_checkpoints/biosignal_classification-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Train_and_Classify/.ipynb_checkpoints/biosignal_classification-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Train_and_Classify/biosignal_classification.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Train_and_Classify/biosignal_classification.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="746" selection-start-line="746" selection-end-line="746" />
+            <state relative-caret-position="308">
+              <caret line="805" column="37" selection-start-line="805" selection-start-column="37" selection-end-line="805" selection-end-column="37" />
               <folding>
                 <element signature="e#1934#1973#0" expanded="true" />
               </folding>
@@ -71,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
+            <state relative-caret-position="935">
               <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
               <folding>
                 <element signature="e#3166#3191#0" expanded="true" />
@@ -80,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/signal_samples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="954">
-              <caret line="190" column="39" lean-forward="true" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="39" />
+            <state relative-caret-position="624">
+              <caret line="190" column="39" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="39" />
               <folding>
                 <element signature="e#929#938#0" expanded="true" />
               </folding>
@@ -255,14 +252,14 @@
         <option value="$PROJECT_DIR$/biosignalsnotebooks/factory.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/signal_samples.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/conversion.py" />
-        <option value="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/__init__.py" />
+        <option value="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
@@ -402,6 +399,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2676801" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -633,6 +631,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+          <folding>
+            <element signature="e#3166#3191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/conversion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
@@ -657,32 +665,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="746" selection-start-line="746" selection-end-line="746" />
-          <folding>
-            <element signature="e#1934#1973#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
-          <folding>
-            <element signature="e#3166#3191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/signal_samples.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="190" column="39" lean-forward="true" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="39" />
+        <state relative-caret-position="624">
+          <caret line="190" column="39" selection-start-line="190" selection-start-column="25" selection-end-line="190" selection-end-column="39" />
           <folding>
             <element signature="e#929#938#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="805" column="37" selection-start-line="805" selection-start-column="37" selection-end-line="805" selection-end-column="37" />
+          <folding>
+            <element signature="e#1934#1973#0" expanded="true" />
           </folding>
         </state>
       </provider>

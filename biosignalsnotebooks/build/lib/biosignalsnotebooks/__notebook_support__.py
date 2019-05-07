@@ -802,7 +802,11 @@ def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_a
     alpha_band_indexes_eyes_opened = numpy.where((numpy.array(freq_axis_eyes_opened) >= 8) &
                                                  (numpy.array(freq_axis_eyes_opened) <= 12))[0]
 
+    # Maximum Spectrum value.
+    maxPower = numpy.max((numpy.max(power_spect_eyes_closed), numpy.max(power_spect_eyes_opened)))
+
     # Plotting of Alpha Band [Eyes Closed]
+    list_figures[0].y_range = Range1d(0, 1.2 * maxPower)
     list_figures[0].patch(list(freq_axis_eyes_closed[alpha_band_indexes_eyes_closed]) + list(
         freq_axis_eyes_closed[alpha_band_indexes_eyes_closed])[::-1],
                           list(power_spect_eyes_closed[alpha_band_indexes_eyes_closed]) + list(
@@ -811,6 +815,7 @@ def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_a
                           legend="Alpha Band 8-12 Hz")
 
     # Plotting of Alpha Band [Eyes Opened]
+    list_figures[1].y_range = Range1d(0, 1.2 * maxPower)
     list_figures[1].patch(list(freq_axis_eyes_opened[alpha_band_indexes_eyes_opened]) + list(
         freq_axis_eyes_opened[alpha_band_indexes_eyes_opened])[::-1],
                           list(power_spect_eyes_opened[alpha_band_indexes_eyes_opened]) + list(
