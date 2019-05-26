@@ -368,7 +368,7 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
 
     # Data conversion for ensuring that the function only works with lists.
     if len(args) == 1:
-        time = numpy.linspace(1, len(args[0]) + 1, len(args[0]))
+        time = [list(numpy.linspace(1, len(args[0][0]) + 1, len(args[0][0])))] * len(args[0])
         data = args[0]
     elif len(args) == 2:
         time = list(args[0])

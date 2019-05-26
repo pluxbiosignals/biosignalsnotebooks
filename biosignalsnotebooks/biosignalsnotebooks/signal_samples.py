@@ -176,6 +176,191 @@ def load_signal(signal_handler, get_header=False):
                              closed
         =================   ==============
 
+        [eeg_sample_artefacts_seg1]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           02:08.5
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           An EEG acqui-
+                             sition which
+                             contains
+                             movement
+                             artefacts
+                             [Segment 1]
+        =================   ==============
+
+        [eeg_sample_artefacts_seg2]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           01:49.2
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           An EEG acqui-
+                             sition which
+                             contains
+                             movement
+                             artefacts
+                             [Segment 2]
+        =================   ==============
+
+        [eeg_sample_artefacts_seg3]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           01:30.6
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           An EEG acqui-
+                             sition which
+                             contains
+                             noisy data
+                             with electro-
+                             magnetic origin
+                             Segment 3]
+        =================   ==============
+
+        [eeg_sample_0cm_h]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           03:59.7
+        Sample Rate                1000 Hz
+        Number of Channels               2
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed at the
+                             Occipital line
+                             connecting O1
+                             and O2 positions
+                             [Space between
+                             electrodes = 0 cm]
+        =================   ==============
+
+        [eeg_sample_1cm_h]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           04:02.6
+        Sample Rate                1000 Hz
+        Number of Channels               2
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed at the
+                             Occipital line
+                             connecting O1
+                             and O2 positions
+                             [Space between
+                             electrodes = 1 cm]
+        =================   ==============
+
+        [eeg_sample_2cm_h]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           04:17.9
+        Sample Rate                1000 Hz
+        Number of Channels               2
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed at the
+                             Occipital line
+                             connecting O1
+                             and O2 positions
+                             [Space between
+                             electrodes = 2 cm]
+        =================   ==============
+
+        [eeg_sample_0cm_v]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           04:03.4
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed perpen-
+                             dicularly to
+                             the Occipital
+                             line connecting
+                             O1 and O2
+                             positions
+                             [Space between
+                             electrodes = 0 cm]
+        =================   ==============
+
+        [eeg_sample_1cm_v]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           04:01.8
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed perpen-
+                             dicularly to
+                             the Occipital
+                             line connecting
+                             O1 and O2
+                             positions
+                             [Space between
+                             electrodes = 1 cm]
+        =================   ==============
+
+        [eeg_sample_2cm_v]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           05:02.5
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed perpen-
+                             dicularly to
+                             the Occipital
+                             line connecting
+                             O1 and O2
+                             positions
+                             [Space between
+                             electrodes = 2 cm]
+        =================   ==============
+
+        [eeg_sample_o]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           03:59.3
+        Sample Rate                1000 Hz
+        Number of Channels               2
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed at O1
+                             and O2 positions
+        =================   ==============
+
+        [eeg_sample_p]
+        =================   ==============
+        Signal Type                    EEG
+        Acquisition Time           04:02.3
+        Sample Rate                1000 Hz
+        Number of Channels               2
+        Conditions           An EEG acquis-
+                             ition with the
+                             exploratory
+                             electrodes
+                             placed at P3
+                             and P4 positions
+        =================   ==============
+
     get_header : boolean
         If True the file header will be returned as one of the function outputs.
 
@@ -190,7 +375,10 @@ def load_signal(signal_handler, get_header=False):
 
     available_signals = ["ecg_4000_Hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",
                          "ecg_20_sec_100_Hz", "ecg_20_sec_1000_Hz", "emg_bursts", "emg_fatigue",
-                         "temp_res_8_16", "bvp_sample", "eeg_sample_closed_open_eyes"]
+                         "temp_res_8_16", "bvp_sample", "eeg_sample_closed_open_eyes",
+                         "eeg_sample_artefacts_seg1", "eeg_sample_artefacts_seg2", "eeg_sample_artefacts_seg3",
+                         "eeg_sample_0cm_h", "eeg_sample_1cm_h", "eeg_sample_2cm_h", "eeg_sample_0cm_v",
+                         "eeg_sample_1cm_v", "eeg_sample_2cm_v", "eeg_sample_o", "eeg_sample_p"]
 
     # Check if signal_handler is a url.
     # [Statements to be executed if signal_handler is a url]

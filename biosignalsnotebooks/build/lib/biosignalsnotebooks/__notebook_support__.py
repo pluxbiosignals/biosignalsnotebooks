@@ -661,7 +661,7 @@ def plot_emg_spect_freq(freq_axis, power_axis, max_freq, median_freq):
 
 
 def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_windows_evt_2,
-                         y_axis_label="Electric Voltage"):
+                         y_axis_label="Electric Voltage", legend=["Eyes Opened", "Eyes Closed"]):
     """
     -----
     Brief
@@ -731,15 +731,16 @@ def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_wind
         box_annotations.append(BoxAnnotation(left=eyes_open_begin[i], right=eyes_open_end[i],
                                              fill_color=color_open_eyes, fill_alpha=0.1))
         list_figures[-1].add_layout(box_annotations[-1])
-    list_figures[-1].circle([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend="Eyes Opened")
+    list_figures[-1].circle([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend=legend[0])
 
-    # ["Eyes Closed"]
-    for i in range(0, len(eyes_closed_begin)):
-        box_annotations.append(
-            BoxAnnotation(left=eyes_closed_begin[i], right=eyes_closed_end[i], fill_color=color_closed_eyes,
-                          fill_alpha=0.1))
-        list_figures[-1].add_layout(box_annotations[-1])
-    list_figures[-1].circle([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend="Eyes Closed")
+    if len(time_windows_evt_2) != 0:
+        # ["Eyes Closed"]
+        for i in range(0, len(eyes_closed_begin)):
+            box_annotations.append(
+                BoxAnnotation(left=eyes_closed_begin[i], right=eyes_closed_end[i], fill_color=color_closed_eyes,
+                              fill_alpha=0.1))
+            list_figures[-1].add_layout(box_annotations[-1])
+        list_figures[-1].circle([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend=legend[1])
 
     # Show figure.
     show(list_figures[-1])
