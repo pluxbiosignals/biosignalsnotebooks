@@ -18,4 +18,4 @@ In the particular case of the folder **biosignalsnotebooks**, it includes all **
 + ***load*** &#x0219D; all functions responsible for reading data from .txt and .h5 files are defined in this module;
 + ***process*** &#x0219D; processing tasks such as generation of Poincaré plot or smoothing a signal can take place with process module;
 + ***signal_samples*** &#x0219D; *biosignalsnotebooks* project uses different signals in the Notebooks, being this module very useful for managing *biosignalsnotebooks* signal library;
-+ ***visualise*** &#x0219D; responsible for ensuring some graphical tasks, like plotting data acquired with *Plux* devices;
++ ***visualise*** &#x0219D; responsible for ensuring some graphical tasks, like plotting data acquired with *PLUX* devices;

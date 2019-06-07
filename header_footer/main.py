@@ -72,7 +72,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"]):
 
                 # Update or Insertion of header and footer.
                 # [Header]
-                header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".dwipynb")
+                header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".zip")
                 header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/biosignalsnotebooks_binder?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
 
                 if header_cell is None:

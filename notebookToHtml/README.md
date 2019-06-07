@@ -1,5 +1,5 @@
 ## Description
-In order to **biosignalsnotebooks** be massively disseminated and accessible for all users of *Plux's* devices, **.ipynb** are converted to **.html** format.
+In order to **biosignalsnotebooks** be massively disseminated and accessible for all users of *PLUX's* devices, **.ipynb** are converted to **.html** format.
 
 After the conversion process is done, the **.html** Notebooks can easily be published online like a normal website.
 

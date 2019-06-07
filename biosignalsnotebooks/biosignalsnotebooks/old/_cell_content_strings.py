@@ -35,7 +35,7 @@ FOOTER = """<hr>
             <img src="../../images/ost_logo.png">
         </td>
         <td width="35%" style="text-align:left">
-            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
+            <a href="https://github.com/biosignalsplux/biosignalsnotebooks">&#9740; GitHub Repository</a>
             <br>
             <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
             <br>
@@ -55,7 +55,7 @@ FOOTER = """<hr>
     </tr>
 </table>"""
 
-DESCRIPTION_SIGNAL_SAMPLES = """With *Plux* acquisition systems, a vast set of physiological signals can be acquired.
+DESCRIPTION_SIGNAL_SAMPLES = """With *PLUX* acquisition systems, a vast set of physiological signals can be acquired.
 
 All the signals that were used in **<span style="color:#009EE3">biosignalsnotebooks</span>** notebooks have been collected with **bitalino** or **biosignalsplux**, being this page a resource where relevant characteristics of each acquisition are presented, together with a temporal segment of the signal."""
 
@@ -167,7 +167,7 @@ FOOTER = """<hr>
             <img src="../../images/ost_logo.png">
         </td>
         <td width="35%" style="text-align:left">
-            <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks">&#9740; GitHub Repository</a>
+            <a href="https://github.com/biosignalsplux/biosignalsnotebooks">&#9740; GitHub Repository</a>
             <br>
             <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
             <br>

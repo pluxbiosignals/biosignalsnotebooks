@@ -13116,7 +13116,7 @@ div#notebook {
        <table width="100%">
         <tr style="border-bottom:solid 2pt #009EE3">
          <td style="text-align:left" width="10%">
-          <a download="" href="classification_game_volume_4.ipynb">
+          <a download="" href="classification_game_volume_4.zip">
            <img src="../../images/icons/download.png"/>
           </a>
          </td>
@@ -13138,7 +13138,7 @@ div#notebook {
           </a>
          </td>
          <td style="text-align:left" width="5%">
-          <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks" target="_blank">
+          <a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
            <img src="../../images/icons/github.png"/>
           </a>
          </td>
@@ -13167,7 +13167,7 @@ div#notebook {
           </div>
          </td>
          <td class="header_text">
-          Stone, Paper or Scissor Game - Train and Classify [Volume 4]
+          Rock, Paper or Scissor Game - Train and Classify [Volume 4]
          </td>
         </tr>
        </table>
@@ -13222,7 +13222,7 @@ div#notebook {
        <p>
         <span class="color4">
          <strong>
-          Previous Notebooks that are part of "Stone, Paper or Scissor Game - Train and Classify" module
+          Previous Notebooks that are part of "Rock, Paper or Scissor Game - Train and Classify" module
          </strong>
         </span>
        </p>
@@ -13230,7 +13230,7 @@ div#notebook {
         <li>
          <a href="../Train_and_Classify/classification_game_volume_1_rev.php">
           <strong>
-           Stone, Paper or Scissor Game - Train and Classify [Volume 1] | Experimental Setup
+           Rock, Paper or Scissor Game - Train and Classify [Volume 1] | Experimental Setup
            <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
           </strong>
          </a>
@@ -13238,7 +13238,7 @@ div#notebook {
         <li>
          <a href="../Train_and_Classify/classification_game_volume_2_rev.php">
           <strong>
-           Stone, Paper or Scissor Game - Train and Classify [Volume 2] | Feature Extraction
+           Rock, Paper or Scissor Game - Train and Classify [Volume 2] | Feature Extraction
            <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
           </strong>
          </a>
@@ -13246,7 +13246,7 @@ div#notebook {
         <li>
          <a href="../Train_and_Classify/classification_game_volume_3_rev.php">
           <strong>
-           Stone, Paper or Scissor Game - Train and Classify [Volume 3] | Training a Classifier
+           Rock, Paper or Scissor Game - Train and Classify [Volume 3] | Training a Classifier
            <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
           </strong>
          </a>
@@ -13324,18 +13324,27 @@ To estimate the quality of the implemented system, there were different methods 
         </span>
         the training set is divided into $N$ subsets with approximately the same number of examples. Using
         <i>
-         Nâˆ’1
+         N−1
         </i>
         iterations, each of the $N$ subsets acquires the role of testing set, while the remaining
         <i>
-         Nâˆ’1
+         N−1
         </i>
-        subsets are used to train a "partial" classifier. Finally, an estimate of the error of the
-original classifier is obtained through the partial errors of the
+        subsets are used to train a "partial" classifier. Finally, an estimate of the error of the original classifier is obtained through the partial errors of the
         <i>
-         Nâˆ’1
+         N−1
         </i>
         partial classifiers.
+       </p>
+       <p>
+        One particular cross-validation strategy is:
+        <strong>
+         <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation">
+          k-fold Cross-Validation
+          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+         </a>
+        </strong>
+        .
        </p>
        <p>
         Relatively to the
@@ -13345,6 +13354,9 @@ original classifier is obtained through the partial errors of the
          </strong>
         </span>
         method, it is a particular case of cross-layer estimation. It involves creating a number of partial classifiers which is equal to the number of training examples. In each iteration, one training example assumes the role of testing example, while the rest are used to train the "partial" classifier.
+       </p>
+       <p>
+        This last methodology is particularly useful when the training set is small, taking into consideration that it will be very expensive on big training sets.
        </p>
        <p>
         Fortunately there are built-in function on
@@ -13405,11 +13417,11 @@ original classifier is obtained through the partial errors of the
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="ff3e59bc-e3d1-4a6a-962a-eb829bfeb4cb">
+         <div id="352e9beb-a104-4e8b-a6ac-dc9a7833852d">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#ff3e59bc-e3d1-4a6a-962a-eb829bfeb4cb');
+           var element = $('#352e9beb-a104-4e8b-a6ac-dc9a7833852d');
 
 (function(root) {
   function now() {
@@ -13678,11 +13690,11 @@ original classifier is obtained through the partial errors of the
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="6789e54e-e15b-486a-bf64-f263199fea58">
+         <div id="2618e1d9-ee94-4f81-a7a9-b4eb4cb0c59d">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#6789e54e-e15b-486a-bf64-f263199fea58');
+           var element = $('#2618e1d9-ee94-4f81-a7a9-b4eb4cb0c59d');
 
 (function(root) {
   function now() {
@@ -14221,7 +14233,8 @@ original classifier is obtained through the partial errors of the
        <div class="input_area">
         <div class="highlight hl-ipython3">
          <pre><span></span><span class="c1"># Access each training example and exclude meaningless entries.</span>
-<span class="n">acception_labels_b</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="c1"># Entries that we want to keep are marked with "True" flag.</span>
+<span class="c1"># Entries that we want to keep are marked with "True" flag.</span>
+<span class="n">acception_labels_b</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
 <span class="n">training_examples_b</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">example_nbr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">features_list</span><span class="p">)):</span>
     <span class="n">training_examples_b</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">features_list</span><span class="p">[</span><span class="n">example_nbr</span><span class="p">])[</span><span class="n">array</span><span class="p">(</span><span class="n">acception_labels_b</span><span class="p">)])]</span>
@@ -14470,7 +14483,8 @@ original classifier is obtained through the partial errors of the
       <div class="inner_cell">
        <div class="input_area">
         <div class="highlight hl-ipython3">
-         <pre><span></span><span class="n">leave_one_out_score_b</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn_classifier_b</span><span class="p">,</span> <span class="n">training_examples_b</span><span class="p">,</span> <span class="n">class_training_examples</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">())</span>
+         <pre><span></span><span class="n">leave_one_out_score_b</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn_classifier_b</span><span class="p">,</span> <span class="n">training_examples_b</span><span class="p">,</span> <span class="n">class_training_examples</span><span class="p">,</span> 
+                                        <span class="n">scoring</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">LeaveOneOut</span><span class="p">())</span>
 
 <span class="c1"># Average accuracy of classifier.</span>
 <span class="n">mean_l1o_score_b</span> <span class="o">=</span> <span class="n">leave_one_out_score_b</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -14588,7 +14602,7 @@ original classifier is obtained through the partial errors of the
            ☌ Project Presentation
           </a>
           <br/>
-          <a href="https://github.com/biosignalsnotebooks/biosignalsnotebooks" target="_blank">
+          <a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
            ☌ GitHub Repository
           </a>
           <br/>
@@ -14757,7 +14771,7 @@ color: black !important;
 background-color: rgba(98,195,238,0.20) !important;
 }
 .color1_top{
-border-top:solid 3px #62C3EE !important;
+border-top:solid 3px #FDC400 !important;
 }
 .gradient_color1 {
 /*background-image: linear-gradient(to right, rgba(98,195,238,0.20) , white) !important;*/
@@ -15394,7 +15408,7 @@ border-bottom: solid 1px #F1F1F1 !important;
 
 .group_by_header {
 text-align:left !important;
-border-bottom:solid 3px #62C3EE !important;
+border-bottom:solid 3px #FDC400 !important;
 }
 
 .group_by_header_grey {

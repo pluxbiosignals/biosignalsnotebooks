@@ -235,9 +235,9 @@ def acquire_subsamples_gp1(input_data, file_name=None):
     data_orig = data_interp["4000"]["data"]
 
     # ============ Interpolation of data accordingly to the desired sampling frequency ============
-    # sample_rate in [3000, 1000, 500, 200, 100] - Some of the available sample frequencies at Plux
+    # sample_rate in [3000, 1000, 500, 200, 100] - Some of the available sample frequencies at PLUX
     # acquisition systems
-    # sample_rate in [50, 20] - Non-functional sampling frequencies (Not available at Plux devices
+    # sample_rate in [50, 20] - Non-functional sampling frequencies (Not available at PLUX devices
     # because of their limited application)
     for sample_rate in [3000, 1000, 500, 200, 100, 50, 20]:
         fs_str = str(sample_rate)

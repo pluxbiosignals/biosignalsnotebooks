@@ -104,20 +104,20 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_orange_rev.php' target='_blank'> Stone, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_orange_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_1_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 1] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_1_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 1] </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_2_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 2] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_2_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 2] </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_3_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 3] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_and_Classify/classification_game_volume_3_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 3] </a> </td>
 	</tr>
 	<tr>
 		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/yfwcy2M/Evaluate.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_4_rev.php' target='_blank'> Stone, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_4_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
 	</tr>
 </table>
 
@@ -128,9 +128,9 @@ that integrate wearable body sensors combined with wireless connectivity, algori
 
 We have been perusing the mission of making biosignals as accessible as possible to researchers and students in many areas of application, ranging from biomedical engineering, computer science, human computer interaction, sport sciences, psychology, clinical research among other fields.
 
-## Plux's Software and Hardware Environment
+## PLUX's Software and Hardware Environment
 
-[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *Plux* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
+[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *PLUX* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
 
 In some cases **OpenSignals** provides [*plugins*](http://biosignalsplux.com/en/software/add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
 

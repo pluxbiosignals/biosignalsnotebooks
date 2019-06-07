@@ -19,13 +19,13 @@ with open(path.join(this_directory, 'README_BSNB.md'), encoding='utf-8') as f:
 
 
 setup(name='biosignalsnotebooks',
-      version='0.4.13',#major.minor.build_nbr
+      version='0.5.0',#major.minor.build_nbr
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      url='https://github.com/biosignalsnotebooks/biosignalsnotebooks',
-      author='Plux Wireless Biosignals',
+      url='https://github.com/biosignalsplux/biosignalsnotebooks',
+      author='PLUX Wireless Biosignals',
       author_email='gramos@plux.info',
       license='MIT',
       packages=['biosignalsnotebooks'],

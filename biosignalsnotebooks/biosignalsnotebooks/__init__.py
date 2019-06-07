@@ -1,7 +1,7 @@
 """
 OPENSIGNALSFACTORY PACKAGE INITIALISATION FILE (WITH IMPORT STATEMENTS)
 
-The main purpose of biosignalsnotebooks package is to support the users of Plux acquisition
+The main purpose of biosignalsnotebooks package is to support the users of PLUX acquisition
 devices, such as biosgnalsplux or bitalino, in some processing tasks that can be applied to the
 acquired electrophysiological signals, namely ECG, EMG...
 
@@ -29,7 +29,7 @@ OpenSignals Tools Project Repository
 ------------------------------------
 More information's about the project and the respective files are available at:
 
-https://github.com/biosignalsnotebooks/biosignalsnotebooks
+https://github.com/biosignalsplux/biosignalsnotebooks
 
 Available Modules
 -----------------

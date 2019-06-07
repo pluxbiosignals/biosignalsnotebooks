@@ -348,7 +348,7 @@ def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", r
         When True "device" and "resolution" inputs became mandatory.
 
     device : str
-        Plux device label:
+        PLUX device label:
         - "bioplux"
         - "bioplux_exp"
         - "biosignalsplux"
@@ -471,7 +471,7 @@ def fatigue_eval_med_freq(data, sample_rate, time_units=True, raw_to_mv=True,
         results will be in mV. When True "device" and "resolution" inputs became mandatory.
 
     device : str
-        Plux device label:
+        PLUX device label:
         - "bioplux"
         - "bioplux_exp"
         - "biosignalsplux"

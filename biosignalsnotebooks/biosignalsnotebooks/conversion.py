@@ -56,7 +56,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         - "SpO2.ARM"
 
     device : str
-        Plux device label:
+        PLUX device label:
         - "bioplux"
         - "bioplux_exp"
         - "biosignalsplux"

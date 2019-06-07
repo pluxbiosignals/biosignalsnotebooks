@@ -10,6 +10,7 @@ import subprocess
 import pylab as plt
 import time
 import shutil
+import zipfile
 
 def run(apply_to_biosignalsplux_website=False):
     # ======================================================================================================================
@@ -210,6 +211,46 @@ def run(apply_to_biosignalsplux_website=False):
                     with open(path_temp + "\\" + notebook.split(".")[0] + "_rev" + ".html", "wb") as file:
                         file.write(html)
                     time.sleep(5)
+
+                    # Generation of a zip archive intended to create a downloadable version of each Notebook
+                    # with all the styles and minimal size.
+                    zipf = zipfile.ZipFile(path_temp + "\\" + notebook.split(".")[0] + "_rev" + ".zip", 'w',
+                                           zipfile.ZIP_DEFLATED)
+
+                    # Populating the .zip file with the images and styles folders.
+                    print("Creating a zip file with the Notebook and style elements")
+                    os.chdir(projectAbsPath)
+                    for folder in ["images", "styles"]:
+                        # Images and styles folders.
+                        # Adapt filepath to the type of folder under analysis.
+                        if folder is "images":
+                            path_for_zip = ost_dir + "\\" + folder + "\\" + category + "\\" + notebook.split(".")[0]
+
+                            # Icons folder.
+                            for root, dirs, files in os.walk(ost_dir + "\\" + folder + "\\icons"):
+                                for file in files:
+                                    zipf.write(os.path.relpath(os.path.join(root, file), os.path.join(folder, "..")))
+
+                            # General images.
+                            for file in os.listdir(ost_dir + "\\" + folder):
+                                if not os.path.isdir(ost_dir + "\\" + folder + "\\" + file):
+                                    zipf.write(os.path.relpath(os.path.abspath(ost_dir + "\\" + folder + "\\" + file), os.path.join(folder, "..")))
+                        else:
+                            path_for_zip = ost_dir + "\\" + folder
+
+                        # Continue to the next Notebook if the current Notebook does not have images.
+                        if not os.path.exists(path_for_zip):
+                            continue
+
+                        # Filling the zip file.
+                        for root, dirs, files in os.walk(path_for_zip):
+                            for file in files:
+                                zipf.write(os.path.relpath(os.path.join(root, file), os.path.join(folder, "..")))
+
+                    # Notebook file.
+                    zipf.write(os.path.relpath(os.path.join(path_temp, notebook), os.path.join(folder, "..")))
+
+                    zipf.close()
 
                     # Delete original Notebook HTML file.
                     htmlFile.close()

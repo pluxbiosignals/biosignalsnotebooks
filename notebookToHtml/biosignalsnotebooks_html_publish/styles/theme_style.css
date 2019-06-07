@@ -102,7 +102,7 @@ color: black !important;
 background-color: rgba(98,195,238,0.20) !important;
 }
 .color1_top{
-border-top:solid 3px #62C3EE !important;
+border-top:solid 3px #FDC400 !important;
 }
 .gradient_color1 {
 /*background-image: linear-gradient(to right, rgba(98,195,238,0.20) , white) !important;*/
@@ -739,7 +739,7 @@ border-bottom: solid 1px #F1F1F1 !important;
 
 .group_by_header {
 text-align:left !important;
-border-bottom:solid 3px #62C3EE !important;
+border-bottom:solid 3px #FDC400 !important;
 }
 
 .group_by_header_grey {

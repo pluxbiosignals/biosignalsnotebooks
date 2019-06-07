@@ -1,7 +1,960 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3eee533-b8af-4587-8ec4-b196991b8c6f" name="Default" comment="" />
+    <list default="true" id="a3eee533-b8af-4587-8ec4-b196991b8c6f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_0cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_0cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_0cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_0cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_1cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_1cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_1cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_1cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_2cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_2cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_2cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_2cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_artefacts_seg1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_artefacts_seg1_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_artefacts_seg2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_artefacts_seg2_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_artefacts_seg3.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_artefacts_seg3_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_closed_open_eyes.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_closed_open_eyes_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_o.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_o_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_p.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/eeg_sample_p_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acc_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acc_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acc_1_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acc_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acc_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acc_2_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acoustic_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acoustic_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acoustic_1_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acoustic_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acoustic_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_acoustic_2_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_cable_acoustic.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_cable_acoustic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_cable_acoustic_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_cable_light.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_cable_light.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_cable_light_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_light_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_light_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_light_1_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_light_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_light_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/sync_light_2_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/create_notebook_part1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/create_notebook_part2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/open_jupyter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_signals_after_acquisition/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/opensignals_dev_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_signals_after_acquisition/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_evaluate_accuracy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_2/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_2/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_2/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_3/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_3/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_3/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessorIndex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/opensignals_dev.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/opensignals_dev_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/opensignals_dev_search.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_act_bt.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_act_bt_on.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_bt_add.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_bt_biosignalsplux.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_bt_option.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_mac.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_password.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_ready.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/connect/pairing_device/pair_device_turn_on.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_download.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_download_install_steps.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_download_installer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_download_location.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_download_os.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_download_version.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/anaconda_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/create_notebook_part1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/create_notebook_part2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_anaconda/open_jupyter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/create_notebook_part1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/create_notebook_part2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/install_python.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/jupyter_install_cmd.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/jupyter_install_cmd_final.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/jupyter_install_page.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/jupyter_install_page_step3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/jupyter_notebook_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/open_jupyter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/python_download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/python_download_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/python_executable_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/install/prepare_jupyter/python_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_h5/hdf_view_crop_video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_signals_after_acquisition/load_sig_opensignals_file.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_signals_after_acquisition/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_signals_after_acquisition/load_sig_opensignals_play.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_signals_after_acquisition/load_sig_opensignals_play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_signals_after_acquisition/load_sig_opensignals_signal.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_signals_after_acquisition/load_sig_opensignals_vis_env_signal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_txt/biosignalsplux_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_txt/copy_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_txt/file_header_columns.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_txt/file_header_sampling_rate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_txt/signal_samples_file_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/open_txt/signal_samples_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/load/signal_loading_preparatory_steps/file_header_second_line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/new_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/vid_1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/vid_10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/vid_11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/vid_6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/PhysioNet/vid_9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/O2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/P1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/P2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/generation_of_time_axis/sensors_section.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/h11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/h22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/h33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/v11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/v22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/v33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/biosignalsplux_acc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/opensignals_dev_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/signal_acquisition_rec.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/signal_acquisition_sel_chn.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/signal_acquisition_sel_res.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/signal_acquisition_sel_sr.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/signal_acquisition_sel_type.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/record_data/signal_acquisition_video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/resolution/resolutions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/sampling_rate_and_aliasing/sampling_freqs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/sampling_rate_and_aliasing/signal_bandwidth.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_signals_after_acquisition/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_signals_after_acquisition/store_file_dir.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_signals_after_acquisition/store_file_explorer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_signals_after_acquisition/store_file_metadata.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_signals_after_acquisition/store_file_types.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_signals_after_acquisition/store_files_final.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_evaluate_accuracy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_evaluate_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_evaluate_drag.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_evaluate_results.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_import_file.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_import_file_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_import_file_confirm.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_install_button.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_install_finish.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_install_launch.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_link_data_model_to_test.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_link_elements.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_link_file_model.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_model_knn.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_model_knn_settings.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_model_tab_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_new_project.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_rename_features.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_scatter_select.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_target_variable.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_visualise_pairs.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_orange/orange_visualise_tab.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_acc_thumb_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_emg_arm_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_emg_clavicle_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_emg_hand_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_1/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_2/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_2/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_2/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_3/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_3/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_3/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_volume_3/nn_concepts.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/S001R02.edf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_0cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_0cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_0cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_0cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_1cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_1cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_1cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_1cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_2cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_2cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_2cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_2cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_artefacts_seg1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_artefacts_seg1_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_artefacts_seg2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_artefacts_seg2_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_artefacts_seg3.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_artefacts_seg3_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_closed_open_eyes.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_o.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_o_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_p.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/eeg_sample_p_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acc_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acc_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acc_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acc_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acoustic_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acoustic_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acoustic_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_acoustic_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_cable_acoustic.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_cable_acoustic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_cable_light.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_cable_light.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_cable_single_pc.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_light_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_light_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_light_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/signal_samples/sync_light_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Connect/pairing_device_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/detect_bursts_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/r_peaks_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Extract/emg_parameters_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_anaconda_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_jupyter_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_h5_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_signals_after_acquisition_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_txt_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/signal_loading_preparatory_steps_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/signal_samples_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Other/hands_on_biostec_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Other/hands_on_biostec_solutions_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/digital_filtering_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/generation_of_time_axis_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_ecg_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_eeg_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_emg_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_fNIRS_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/record_data_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/sampling_rate_and_aliasing_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/store_signals_after_acquisition_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_orange_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_1_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_2_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_3_rev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/opensignals_dev.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/opensignals_dev_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/opensignals_dev_search.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_act_bt.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_act_bt_on.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_bt_add.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_bt_biosignalsplux.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_bt_option.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_mac.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_password.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_ready.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/connect/pairing_device/pair_device_turn_on.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_download.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_download_install_steps.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_download_installer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_download_location.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_download_os.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_download_version.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/anaconda_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/create_notebook_part1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/create_notebook_part2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_anaconda/open_jupyter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/create_notebook_part1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/create_notebook_part2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/install_python.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/jupyter_install_cmd.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/jupyter_install_cmd_final.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/jupyter_install_page.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/jupyter_install_page_step3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/jupyter_notebook_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/open_jupyter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/python_download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/python_download_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/python_executable_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/install/prepare_jupyter/python_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_h5/hdf_view_crop_video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_signals_after_acquisition/load_sig_opensignals_file.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_signals_after_acquisition/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_signals_after_acquisition/load_sig_opensignals_play.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_signals_after_acquisition/load_sig_opensignals_play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_signals_after_acquisition/load_sig_opensignals_signal.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_signals_after_acquisition/load_sig_opensignals_vis_env_signal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_txt/biosignalsplux_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_txt/copy_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_txt/file_header_columns.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_txt/file_header_sampling_rate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_txt/signal_samples_file_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/open_txt/signal_samples_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/load/signal_loading_preparatory_steps/file_header_second_line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/new_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/vid_1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/vid_10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/vid_11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/vid_6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/PhysioNet/vid_9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/O2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/P1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/P2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/generation_of_time_axis/sensors_section.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/h11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/h22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/h33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/v11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/v22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/v33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/biosignalsplux_acc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/opensignals_dev_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/signal_acquisition_rec.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/signal_acquisition_sel_chn.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/signal_acquisition_sel_res.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/signal_acquisition_sel_sr.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/signal_acquisition_sel_type.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/record_data/signal_acquisition_video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/resolution/resolutions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/sampling_rate_and_aliasing/sampling_freqs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/sampling_rate_and_aliasing/signal_bandwidth.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_signals_after_acquisition/load_sig_opensignals_main.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_signals_after_acquisition/store_file_dir.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_signals_after_acquisition/store_file_explorer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_signals_after_acquisition/store_file_metadata.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_signals_after_acquisition/store_file_types.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_signals_after_acquisition/store_files_final.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_evaluate_accuracy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_evaluate_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_evaluate_drag.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_evaluate_results.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_import_file.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_import_file_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_import_file_confirm.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_install_button.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_install_finish.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_install_launch.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_link_data_model_to_test.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_link_elements.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_link_file_model.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_model_knn.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_model_knn_settings.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_model_tab_click.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_new_project.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_rename_features.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_scatter_select.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_target_variable.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_visualise_pairs.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_orange/orange_visualise_tab.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_acc_thumb_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_emg_arm_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_emg_clavicle_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_emg_hand_model.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_1/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_2/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_2/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_2/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_3/classification_game_paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_3/classification_game_scissor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_3/classification_game_stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_3/nn_concepts.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/S001R02.edf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_0cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_0cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_0cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_0cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_1cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_1cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_1cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_1cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_2cm_h.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_2cm_h_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_2cm_v.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_2cm_v_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_artefacts_seg1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_artefacts_seg1_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_artefacts_seg2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_artefacts_seg2_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_artefacts_seg3.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_artefacts_seg3_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_o.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_o_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_p.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/eeg_sample_p_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acc_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acc_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acc_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acc_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acoustic_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acoustic_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acoustic_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_acoustic_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_cable_acoustic.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_cable_acoustic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_cable_light.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_cable_light.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_cable_single_pc.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_light_1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_light_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_light_2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/sync_light_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSNB.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSNB.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/cell_content_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/cell_content_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/old/_cell_content_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/old/_cell_content_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/cell_content_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/cell_content_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/dist/biosignalsnotebooks-0.4.13-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/dist/biosignalsnotebooks-0.4.13-py3.7.egg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/setup_linux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/setup_linux.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Connect/.ipynb_checkpoints/pairing_device-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Connect/.ipynb_checkpoints/pairing_device-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Connect/pairing_device.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Connect/pairing_device.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/.ipynb_checkpoints/detect_bursts-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/.ipynb_checkpoints/detect_bursts-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/.ipynb_checkpoints/r_peaks-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/.ipynb_checkpoints/r_peaks-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/detect_bursts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/detect_bursts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/r_peaks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Detect/r_peaks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Evaluate/.ipynb_checkpoints/classification_game_volume_4-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Evaluate/.ipynb_checkpoints/classification_game_volume_4-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Evaluate/classification_game_volume_4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Evaluate/classification_game_volume_4.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/.ipynb_checkpoints/emg_parameters-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/.ipynb_checkpoints/emg_parameters-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/emg_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/emg_parameters.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/.ipynb_checkpoints/prepare_anaconda-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/.ipynb_checkpoints/prepare_anaconda-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/.ipynb_checkpoints/prepare_jupyter-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/.ipynb_checkpoints/prepare_jupyter-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/prepare_anaconda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/prepare_anaconda.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/prepare_jupyter.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Install/prepare_jupyter.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/open_h5-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/open_h5-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/open_signals_after_acquisition-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/open_signals_after_acquisition-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/signal_loading_preparatory_steps-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/.ipynb_checkpoints/signal_loading_preparatory_steps-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/open_h5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/open_h5.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/open_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/open_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/open_txt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/open_txt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/signal_loading_preparatory_steps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/signal_loading_preparatory_steps.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/MainFiles/.ipynb_checkpoints/contacts-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/MainFiles/.ipynb_checkpoints/contacts-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/MainFiles/contacts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/MainFiles/contacts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/digital_filtering-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/digital_filtering-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/emg_fatigue_evaluation_median_freq-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/emg_fatigue_evaluation_median_freq-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/generation_of_time_axis-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/generation_of_time_axis-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_ecg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_ecg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_eeg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_eeg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_emg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_emg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_fNIRS-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/.ipynb_checkpoints/unit_conversion_fNIRS-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/digital_filtering.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/digital_filtering.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.h5" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/generation_of_time_axis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/generation_of_time_axis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_ecg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_ecg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_eeg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_eeg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_emg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_emg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_fNIRS.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_fNIRS.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/record_data-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/record_data-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/resolution-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/resolution-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/sampling_rate_and_aliasing-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/sampling_rate_and_aliasing-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/store_signals_after_acquisition-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/.ipynb_checkpoints/store_signals_after_acquisition-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/record_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/record_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/resolution.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/sampling_rate_and_aliasing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/sampling_rate_and_aliasing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/store_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/store_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_orange.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_orange.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_3.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/acquire/resolutions.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/acquire/resolutions.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/resolution/resolutions.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/acquire/sampling_freqs.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/acquire/sampling_freqs.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/sampling_rate_and_aliasing/sampling_freqs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/acquire/signal_bandwidth.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/sampling_rate_and_aliasing/signal_bandwidth.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/biosignalsplux_link.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_txt/biosignalsplux_link.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/copy_link.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_txt/copy_link.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/file_header_columns.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_txt/file_header_columns.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/file_header_sampling_rate.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_txt/file_header_sampling_rate.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/file_header_second_line.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/signal_loading_preparatory_steps/file_header_second_line.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/hdf_view.wlmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/hdf_view_crop_video.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_h5/hdf_view_crop_video.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/load_sig_opensignals_file.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_signals_after_acquisition/load_sig_opensignals_file.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/load_sig_opensignals_main.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/load_sig_opensignals_main.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/load_sig_opensignals_play.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_signals_after_acquisition/load_sig_opensignals_play.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/load_sig_opensignals_play.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_signals_after_acquisition/load_sig_opensignals_play.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/load_sig_opensignals_signal.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_signals_after_acquisition/load_sig_opensignals_signal.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/load_sig_opensignals_vis_env_signal.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_signals_after_acquisition/load_sig_opensignals_vis_env_signal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/signal_samples_file_link.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_txt/signal_samples_file_link.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/signal_samples_link.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/load/open_txt/signal_samples_link.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/open/~PIEBD3.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_download.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_download.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_download_install_steps.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_download_install_steps.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_download_installer.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_download_installer.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_download_location.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_download_location.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_download_os.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_download_os.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_download_version.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_download_version.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/anaconda_page.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/anaconda_page.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/create_notebook_part1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/create_notebook_part1.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/create_notebook_part2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/create_notebook_part2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/install_python.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/install_python.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/jupyter_install_cmd.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/jupyter_install_cmd.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/jupyter_install_cmd_final.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/jupyter_install_cmd_final.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/jupyter_install_page.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/jupyter_install_page.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/jupyter_install_page_step3.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/jupyter_install_page_step3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/jupyter_notebook_page.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/jupyter_notebook_page.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/open_jupyter.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_anaconda/open_jupyter.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/opensignals_dev.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/opensignals_dev.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/opensignals_dev_click.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/opensignals_dev_click.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/opensignals_dev_search.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/opensignals_dev_search.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_evaluate_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_evaluate_click.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_evaluate_click.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_evaluate_drag.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_evaluate_drag.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_evaluate_results.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_evaluate_results.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_import_file.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_import_file.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_import_file_click.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_import_file_click.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_import_file_confirm.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_import_file_confirm.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_install_button.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_install_button.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_install_finish.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_install_finish.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_install_launch.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_install_launch.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_link_data_model_to_test.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_link_data_model_to_test.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_link_elements.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_link_elements.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_link_file_model.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_link_file_model.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_model_knn.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_model_knn.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_model_knn_settings.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_model_knn_settings.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_model_tab_click.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_model_tab_click.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_new_project.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_new_project.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_rename_features.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_rename_features.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_scatter_select.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_scatter_select.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_target_variable.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_target_variable.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_visualise_pairs.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_visualise_pairs.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/orange_visualise_tab.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_orange/orange_visualise_tab.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_act_bt.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_act_bt.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_act_bt_on.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_act_bt_on.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_bt_add.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_bt_add.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_bt_biosignalsplux.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_bt_biosignalsplux.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_bt_option.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_bt_option.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_mac.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_mac.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_password.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_password.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_ready.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_ready.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/pair_device_turn_on.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/connect/pairing_device/pair_device_turn_on.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/python_download.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/python_download.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/python_download_page.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/python_download_page.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/python_executable_click.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/python_executable_click.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/other/python_page.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/install/prepare_jupyter/python_page.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/pre-process/sensors_section.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/pre-process/generation_of_time_axis/sensors_section.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/biosignalsplux_acc.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/biosignalsplux_acc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/signal_acquisition_rec.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/signal_acquisition_rec.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/signal_acquisition_sel_chn.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/signal_acquisition_sel_chn.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/signal_acquisition_sel_res.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/signal_acquisition_sel_res.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/signal_acquisition_sel_sr.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/signal_acquisition_sel_sr.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/signal_acquisition_sel_type.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/signal_acquisition_sel_type.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/signal_acquisition_video.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/record_data/signal_acquisition_video.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_file_dir.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_signals_after_acquisition/store_file_dir.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_file_explorer.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_signals_after_acquisition/store_file_explorer.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_file_metadata.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_signals_after_acquisition/store_file_metadata.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_file_types.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_signals_after_acquisition/store_file_types.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_files_final.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/record/store_signals_after_acquisition/store_files_final.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_acc_thumb_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_acc_thumb_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_emg_arm_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_emg_arm_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_emg_clavicle_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_emg_clavicle_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_emg_hand_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_emg_hand_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_paper.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_paper.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_scissor.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_scissor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_stone.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_1/classification_game_stone.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/nn_concepts.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_3/nn_concepts.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Connect/.ipynb_checkpoints/pairing_device-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Connect/.ipynb_checkpoints/pairing_device-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Connect/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Connect/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Connect/pairing_device.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Connect/pairing_device.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/.ipynb_checkpoints/detect_bursts-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/.ipynb_checkpoints/detect_bursts-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/.ipynb_checkpoints/r_peaks-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/.ipynb_checkpoints/r_peaks-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Evaluate/.ipynb_checkpoints/classification_game_volume_4-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Evaluate/.ipynb_checkpoints/classification_game_volume_4-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Evaluate/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Evaluate/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints/emg_parameters-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints/emg_parameters-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Extract/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Extract/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/.ipynb_checkpoints/prepare_anaconda-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/.ipynb_checkpoints/prepare_anaconda-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/.ipynb_checkpoints/prepare_jupyter-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/.ipynb_checkpoints/prepare_jupyter-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/prepare_jupyter.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Install/prepare_jupyter.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_h5-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_h5-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_signals_after_acquisition-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_signals_after_acquisition-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/signal_loading_preparatory_steps-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/signal_loading_preparatory_steps-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/download_file_name.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/download_file_name.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/open_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/open_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/signal_loading_preparatory_steps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Load/signal_loading_preparatory_steps.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/biosignalsnotebooks-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/biosignalsnotebooks-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/signal_samples-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/signal_samples-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/signal_samples.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/MainFiles/signal_samples.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Other/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Other/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/digital_filtering-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/digital_filtering-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/emg_fatigue_evaluation_median_freq-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/emg_fatigue_evaluation_median_freq-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/generation_of_time_axis-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/generation_of_time_axis-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_ecg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_ecg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_eeg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_eeg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_emg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_emg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_fNIRS-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_fNIRS-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/record_data-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/record_data-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/resolution-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/resolution-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/sampling_rate_and_aliasing-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/sampling_rate_and_aliasing-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/store_signals_after_acquisition-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/store_signals_after_acquisition-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/record_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/record_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/resolution.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_orange.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_orange.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_3.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Understand/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Understand/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Visualise/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/categories/Visualise/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/acquire/resolutions.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/acquire/resolutions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/acquire/sampling_freqs.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/acquire/sampling_freqs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/acquire/signal_bandwidth.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/biosignalsplux_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/copy_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/file_header_columns.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/file_header_sampling_rate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/file_header_second_line.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/hdf_view.wlmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/hdf_view_crop_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/load_sig_opensignals_file.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/load_sig_opensignals_main.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/load_sig_opensignals_play.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/load_sig_opensignals_play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/load_sig_opensignals_signal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/load_sig_opensignals_vis_env_signal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/signal_samples_file_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/signal_samples_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/open/~PIEBD3.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_download.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_download_install_steps.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_download_installer.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_download_location.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_download_os.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_download_version.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/anaconda_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/create_notebook_part1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/create_notebook_part2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/install_python.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/jupyter_install_cmd.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/jupyter_install_cmd_final.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/jupyter_install_page.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/jupyter_install_page_step3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/jupyter_notebook_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/open_jupyter.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/opensignals_dev.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/opensignals_dev_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/opensignals_dev_search.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_evaluate_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_evaluate_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_evaluate_drag.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_evaluate_results.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_import_file.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_import_file_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_import_file_confirm.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_install_button.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_install_finish.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_install_launch.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_link_data_model_to_test.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_link_elements.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_link_file_model.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_model_knn.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_model_knn_settings.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_model_tab_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_new_project.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_rename_features.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_scatter_select.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_target_variable.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_visualise_pairs.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/orange_visualise_tab.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_act_bt.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_act_bt_on.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_bt_add.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_bt_biosignalsplux.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_bt_option.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_mac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_password.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_ready.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/pair_device_turn_on.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/python_download.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/python_download_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/python_executable_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/other/python_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/pre-process/sensors_section.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/biosignalsplux_acc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/signal_acquisition_rec.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/signal_acquisition_sel_chn.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/signal_acquisition_sel_res.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/signal_acquisition_sel_sr.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/signal_acquisition_sel_type.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/signal_acquisition_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_file_dir.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_file_explorer.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_file_metadata.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_file_types.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/record/store_files_final.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_acc_thumb_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_emg_arm_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_emg_clavicle_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_emg_hand_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_paper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_scissor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/classification_game_stone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/images/train_and_classify/nn_concepts.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/biosignalsnotebooks_environment/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Connect/pairing_device.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Connect/pairing_device.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Connect/pairing_device_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Connect/pairing_device_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/detect_bursts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/detect_bursts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/detect_bursts_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/detect_bursts_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/r_peaks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/r_peaks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/r_peaks_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Detect/r_peaks_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Extract/emg_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Extract/emg_parameters.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Extract/emg_parameters_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Extract/emg_parameters_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_anaconda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_anaconda.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_anaconda_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_anaconda_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_jupyter.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_jupyter.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_jupyter_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Install/prepare_jupyter_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_h5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_h5.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_h5_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_h5_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_signals_after_acquisition_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_signals_after_acquisition_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_txt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_txt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_txt_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/open_txt_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/signal_loading_preparatory_steps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/signal_loading_preparatory_steps.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/signal_loading_preparatory_steps_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Load/signal_loading_preparatory_steps_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/signal_samples.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/signal_samples.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/signal_samples_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/signal_samples_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Other/hands_on_biostec_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Other/hands_on_biostec_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Other/hands_on_biostec_solutions_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Other/hands_on_biostec_solutions_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/digital_filtering.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/digital_filtering.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/digital_filtering_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/digital_filtering_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/generation_of_time_axis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/generation_of_time_axis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/generation_of_time_axis_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/generation_of_time_axis_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_ecg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_ecg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_ecg_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_ecg_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_eeg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_eeg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_eeg_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_eeg_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_emg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_emg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_emg_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_emg_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_fNIRS.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_fNIRS.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_fNIRS_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Pre-Process/unit_conversion_fNIRS_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/record_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/record_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/record_data_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/record_data_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/resolution.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/sampling_rate_and_aliasing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/sampling_rate_and_aliasing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/sampling_rate_and_aliasing_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/sampling_rate_and_aliasing_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/store_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/store_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/store_signals_after_acquisition_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Record/store_signals_after_acquisition_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_orange.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_orange.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_orange_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_orange_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_1_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_1_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_2_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_2_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_3.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_3_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/Train_and_Classify/classification_game_volume_3_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/acquire/resolutions.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/acquire/resolutions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/acquire/sampling_freqs.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/acquire/sampling_freqs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/acquire/signal_bandwidth.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/biosignalsplux_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/copy_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/file_header_columns.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/file_header_sampling_rate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/file_header_second_line.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/hdf_view.wlmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/hdf_view_crop_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/load_sig_opensignals_file.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/load_sig_opensignals_main.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/load_sig_opensignals_play.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/load_sig_opensignals_play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/load_sig_opensignals_signal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/load_sig_opensignals_vis_env_signal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/signal_samples_file_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/signal_samples_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/open/~PIEBD3.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_download.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_download_install_steps.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_download_installer.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_download_location.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_download_os.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_download_version.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/anaconda_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/create_notebook_part1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/create_notebook_part2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/install_python.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/jupyter_install_cmd.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/jupyter_install_cmd_final.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/jupyter_install_page.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/jupyter_install_page_step3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/jupyter_notebook_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/open_jupyter.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/opensignals_dev.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/opensignals_dev_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/opensignals_dev_search.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_evaluate_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_evaluate_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_evaluate_drag.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_evaluate_results.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_import_file.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_import_file_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_import_file_confirm.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_install_button.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_install_finish.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_install_launch.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_link_data_model_to_test.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_link_elements.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_link_file_model.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_model_knn.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_model_knn_settings.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_model_tab_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_new_project.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_rename_features.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_scatter_select.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_target_variable.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_visualise_pairs.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/orange_visualise_tab.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_act_bt.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_act_bt_on.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_bt_add.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_bt_biosignalsplux.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_bt_option.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_mac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_password.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_ready.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/pair_device_turn_on.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/python_download.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/python_download_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/python_executable_click.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/other/python_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/pre-process/sensors_section.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/biosignalsplux_acc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/signal_acquisition_rec.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/signal_acquisition_sel_chn.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/signal_acquisition_sel_res.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/signal_acquisition_sel_sr.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/signal_acquisition_sel_type.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/signal_acquisition_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_file_dir.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_file_explorer.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_file_metadata.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_file_types.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/record/store_files_final.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_acc_thumb_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_emg_arm_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_emg_clavicle_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_emg_hand_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_paper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_scissor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_stone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/images/train_and_classify/nn_concepts.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/signal_sample_single_hub_hSpO2_2018_7_6.h5" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/signal_sample_single_hub_hSpO2_2018_7_6.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +969,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="260">
+              <caret line="151" column="53" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
               <folding>
                 <element signature="e#365#386#0" expanded="true" />
               </folding>
@@ -107,14 +1060,18 @@
       <find>opensignalsfactory</find>
       <find>cssText</find>
       <find>css_in</find>
-      <find>path_temp</find>
-      <find>ost_dir</find>
       <find>UA-38036509-2</find>
       <find>nbconvert_config_inde</find>
+      <find>ost_dir</find>
+      <find>path_temp</find>
+      <find>Outubro</find>
     </findStrings>
     <replaceStrings>
       <replace>biosignalsnotebooks</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -132,18 +1089,30 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
+    <option name="y" value="-277" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="notebookToHtml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="notebookToHtml" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,22 +1187,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1928" y="-277" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21348314" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08377239" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4976867" visible="true" weight="0.3243626" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4976867" visible="true" weight="0.32394367" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39959705" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32848644" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32719547" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50231326" side_tool="true" weight="0.3243626" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -253,10 +1221,17 @@
     <entry file="file://$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Load/CustomPreprocessor.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/zipfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="1469" selection-start-line="1469" selection-end-line="1469" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="260">
+          <caret line="151" column="53" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
           <folding>
             <element signature="e#365#386#0" expanded="true" />
           </folding>
