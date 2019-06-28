@@ -13115,35 +13115,35 @@ div#notebook {
       <div class="text_cell_render border-box-sizing rendered_html">
        <table width="100%">
         <tr style="border-bottom:solid 2pt #009EE3">
-         <td style="text-align:left" width="10%">
+         <td class="header_buttons">
           <a download="" href="by_diff.zip">
-           <img src="../../images/icons/download.png"/>
+           <img alt="biosignalsnotebooks | download button" src="../../images/icons/download.png"/>
           </a>
          </td>
-         <td style="text-align:left" width="10%">
+         <td class="header_buttons">
           <a href="https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/biosignalsnotebooks_binder?filepath=biosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fby_diff.ipynb" target="_blank">
-           <img src="../../images/icons/program.png" title="Be creative and test your solutions !"/>
+           <img alt="biosignalsnotebooks | binder server" src="../../images/icons/program.png" title="Be creative and test your solutions !"/>
           </a>
          </td>
          <td>
          </td>
-         <td style="text-align:left" width="5%">
+         <td class="header_icons">
           <a href="../MainFiles/biosignalsnotebooks_rev.php">
-           <img src="../../images/icons/home.png"/>
+           <img alt="biosignalsnotebooks | home button" src="../../images/icons/home.png"/>
           </a>
          </td>
-         <td style="text-align:left" width="5%">
+         <td class="header_icons">
           <a href="../MainFiles/contacts_rev.php">
-           <img src="../../images/icons/contacts.png"/>
+           <img alt="biosignalsnotebooks | contacts button" src="../../images/icons/contacts.png"/>
           </a>
          </td>
-         <td style="text-align:left" width="5%">
+         <td class="header_icons">
           <a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
-           <img src="../../images/icons/github.png"/>
+           <img alt="biosignalsnotebooks | github button" src="../../images/icons/github.png"/>
           </a>
          </td>
-         <td style="border-left:solid 2pt #009EE3" width="15%">
-          <img src="../../images/ost_logo.png"/>
+         <td class="header_logo">
+          <img alt="biosignalsnotebooks | project logo" src="../../images/ost_logo.png"/>
          </td>
         </tr>
        </table>
@@ -13162,8 +13162,8 @@ div#notebook {
        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
        <table width="100%">
         <tr>
-         <td class="header_image_color_2" id="image_td" width="20%">
-          <img id="image_img" src="../../images/ost_logo.png"/>
+         <td class="header_image_color_2 header_main_files" id="image_td">
+          <img alt="biosignalsnotebooks | project logo [main files]" id="image_img" src="../../images/ost_logo.png"/>
          </td>
          <td class="header_text">
           Notebooks Grouped by Difficulty
@@ -13663,8 +13663,8 @@ div#notebook {
        </p>
        <table width="100%">
         <tr>
-         <td style="border-right:solid 3px #009EE3" width="20%">
-          <img src="../../images/ost_logo.png"/>
+         <td class="footer_logo">
+          <img alt="biosignalsnotebooks | project logo [footer]" src="../../images/ost_logo.png"/>
          </td>
          <td style="text-align:left" width="40%">
           <a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">
@@ -13713,8 +13713,10 @@ div#notebook {
        <div class="text_cell_render border-box-sizing rendered_html">
         <p>
          <span class="color6">
-          **Auxiliary Code Segment (should not be replicated by
-the user)**
+          <strong>
+           Auxiliary Code Segment (should not be replicated by
+the user)
+          </strong>
          </span>
         </p>
        </div>
@@ -13742,11 +13744,11 @@ the user)**
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="a43d3b92-8e5e-4cb0-b9b2-9cca4eda0011">
+         <div id="61db2666-3ef3-4732-83c6-8026604429b2">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#a43d3b92-8e5e-4cb0-b9b2-9cca4eda0011');
+           var element = $('#61db2666-3ef3-4732-83c6-8026604429b2');
 
 (function(root) {
   function now() {
@@ -14015,11 +14017,11 @@ the user)**
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="5d9af11f-d552-4d88-9365-8c3c89efbef6">
+         <div id="b95ddfe3-38f2-4c06-90e8-dd01da0d0aad">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#5d9af11f-d552-4d88-9365-8c3c89efbef6');
+           var element = $('#b95ddfe3-38f2-4c06-90e8-dd01da0d0aad');
 
 (function(root) {
   function now() {
@@ -14908,7 +14910,7 @@ border-right: 2pt solid #E84D0E !important;
 }
 
 .header_image_7{
-background: url("../../images/icons/Train_and_Classify.png") !important;
+background: url("../../images/icons/Train_And_Classify.png") !important;
 background-repeat: no-repeat !important;
 background-size: 60% !important;
 background-position: center !important;
@@ -15129,6 +15131,30 @@ color: black !important;
 
 .not_active_img {
 opacity: 0.30 !important;
+}
+
+.header_buttons{
+text-align: left !important; 
+width: 10% !important;
+}
+
+.header_icons{
+text-align:left !important;
+width: 5% !important;
+}
+
+.header_logo{
+border-left: solid 2pt #009EE3 !important;
+width: 15% !important;
+}
+
+.footer_logo{
+border-right: solid 3px #009EE3 !important; 
+width: 20% !important;
+}
+
+.header_main_files{
+width: 20% !important;
 }
           </style>
           <div id="style_import">

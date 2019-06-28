@@ -608,7 +608,7 @@ border-right: 2pt solid #E84D0E !important;
 }
 
 .header_image_7{
-background: url("../../images/icons/Train_and_Classify.png") !important;
+background: url("../../images/icons/Train_And_Classify.png") !important;
 background-repeat: no-repeat !important;
 background-size: 60% !important;
 background-position: center !important;
@@ -829,6 +829,30 @@ color: black !important;
 
 .not_active_img {
 opacity: 0.30 !important;
+}
+
+.header_buttons{
+text-align: left !important; 
+width: 10% !important;
+}
+
+.header_icons{
+text-align:left !important;
+width: 5% !important;
+}
+
+.header_logo{
+border-left: solid 2pt #009EE3 !important;
+width: 15% !important;
+}
+
+.footer_logo{
+border-right: solid 3px #009EE3 !important; 
+width: 20% !important;
+}
+
+.header_main_files{
+width: 20% !important;
 }
 
 <style>

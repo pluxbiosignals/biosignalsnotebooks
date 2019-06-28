@@ -26,7 +26,7 @@ from .notebook_files.cell_content_strings import DESCRIPTION_GROUP_BY, DESCRIPTI
 SIGNAL_TYPE_LIST = ["emg", "ecg"]
 
 NOTEBOOK_KEYS = {"Install": 13, "Connect": 14, "Record": 2, "Load": 1, "Visualise": 3, "Pre-Process": 4, "Detect": 5,
-                 "Extract": 6, "Train_and_Classify": 7, "Understand": 8, "Evaluate": 12,
+                 "Extract": 6, "Train_And_Classify": 7, "Understand": 8, "Evaluate": 12,
                  "Other": 15, "MainFiles": 0}
 
 # ==================================================================================================
@@ -73,7 +73,7 @@ class notebook:
                            - "Process"
                            - "Detect"
                            - "Extract"
-                           - "Train_and_Classify"
+                           - "Train_And_Classify"
                            - "Explain"
 
         notebook_title : None or str
@@ -84,7 +84,7 @@ class notebook:
            - "Process"
            - "Detect"
            - "Extract"
-           - "Train_and_Classify"
+           - "Train_And_Classify"
            - "Explain"
 
         tags : str
@@ -120,7 +120,7 @@ class notebook:
                           "the " + notebook_type + " notebook type !")
 
         if notebook_type in ["Load", "Record", "Visualise", "Pre-Process", "Detect",
-                             "Extract", "Train_and_Classify", "Understand", "Evaluate", "Other", "Install", "Connect"]:
+                             "Extract", "Train_And_Classify", "Understand", "Evaluate", "Other", "Install", "Connect"]:
             self.notebook_type = notebook_type
             _generate_header(self.notebook, self.notebook_type, notebook_file)
             _generate_notebook_header(self.notebook, notebook_type, notebook_title, tags,
@@ -434,7 +434,7 @@ def _generate_notebook_header(notebook_object, notebook_type, notebook_title="No
                        - "Process"
                        - "Detect"
                        - "Extract"
-                       - "Train_and_Classify"
+                       - "Train_And_Classify"
                        - "Explain"
 
     notebook_title : None or str
@@ -445,7 +445,7 @@ def _generate_notebook_header(notebook_object, notebook_type, notebook_title="No
        - "Process"
        - "Detect"
        - "Extract"
-       - "Train_and_Classify"
+       - "Train_And_Classify"
        - "Explain"
 
     tags : str
@@ -543,7 +543,7 @@ def _generate_footer(notebook_object, notebook_type):
                        - "Process"
                        - "Detect"
                        - "Extract"
-                       - "Train_and_Classify"
+                       - "Train_And_Classify"
                        - "Explain"
 
     """
@@ -582,7 +582,7 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
                        - "Process"
                        - "Detect"
                        - "Extract"
-                       - "Train_and_Classify"
+                       - "Train_And_Classify"
                        - "Explain"
                        - "Other"
                        - "Install"
@@ -819,8 +819,8 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
 
                 nbr_notebooks = len(dict_by_tag[category.lower()])
                 markdown_cell += "\n\t<tr>" \
-                                 "\n\t\t<td rowspan='" + str(nbr_notebooks + 1) + "' class='center_cell open_cell_border_" + str(NOTEBOOK_KEYS[category]) + "'><span style='float:center'><img src='../../images/icons/" + category + ".png' class='icon' style='vertical-align:middle'></span> <span style='float:center' class='color" + str(NOTEBOOK_KEYS[category]) + "'>" + category + "</span></td>" \
-                                 "\n\t\t<td class='center_cell color" + str(NOTEBOOK_KEYS[category]) + "_cell " + first_border + "'><span style='float:center'>" + category +  "</span></td>" \
+                                 "\n\t\t<td rowspan='" + str(nbr_notebooks + 1) + "' class='center_cell open_cell_border_" + str(NOTEBOOK_KEYS[category]) + "'><span style='float:center'><img src='../../images/icons/" + category + ".png' class='icon' style='vertical-align:middle' alt='biosignalsnotebooks | " + category + " icon'></span> <span style='float:center' class='color" + str(NOTEBOOK_KEYS[category]) + "'>" + category + "</span></td>" \
+                                 "\n\t\t<td class='center_cell color" + str(NOTEBOOK_KEYS[category]) + "_cell " + first_border + "'><span style='float:center'>" + category.replace("_", " ").replace("And", "and") + "</span></td>" \
                                  "\n\t\t<td class='center_cell gradient_color" + str(NOTEBOOK_KEYS[category]) + "'></td>" \
                                  "\n\t</tr>"
 
@@ -871,7 +871,7 @@ def _generate_github_readme(notebook_object, dict_by_tag):
              "Load": "https://i.ibb.co/YPbCnzD/Load.png",
              "Pre-Process": "https://i.ibb.co/1rKWccX/Pre-Process.png",
              "Record": "https://i.ibb.co/d2jZH1s/Record.png",
-             "Train_and_Classify": "https://i.ibb.co/CQ4cyGb/Train-and-Classify.png",
+             "Train_And_Classify": "https://i.ibb.co/CQ4cyGb/Train-and-Classify.png",
              "Understand": "https://i.ibb.co/MnhRRQT/Understand.png",
              "Visualise": "https://i.ibb.co/wh4HKzf/Visualise.png",
              "Other": "https://i.ibb.co/ry9BzhV/Other.png",

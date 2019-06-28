@@ -2,8 +2,95 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8294bb59-4283-4264-87e9-828ec463c7ed" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/eeg_sample_closed_open_eyes.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/eeg_sample_closed_open_eyes_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_1.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/signal_samples/eeg_sample_closed_open_eyes_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/cell_content_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/cell_content_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/cell_content_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/cell_content_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/.ipynb_checkpoints/feature_selection-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/.ipynb_checkpoints/feature_selection-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_orange.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_orange.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_3.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_and_Classify/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/icons/Train_and_Classify.png" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/icons/Train_And_Classify.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/.ipynb_checkpoints/pairing_device-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/.ipynb_checkpoints/pairing_device-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/pairing_device.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/pairing_device.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Evaluate/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Evaluate/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/prepare_jupyter.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/prepare_jupyter.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/.ipynb_checkpoints/open_txt-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/signal_loading_preparatory_steps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/signal_loading_preparatory_steps.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/biosignalsnotebooks-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/biosignalsnotebooks-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/contacts-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/contacts-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/signal_samples-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/.ipynb_checkpoints/signal_samples-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessorIndex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/signal_samples.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/signal_samples.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Other/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Other/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_ecg-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/.ipynb_checkpoints/unit_conversion_ecg-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/record_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/record_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/resolution.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints/classification_game_orange-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints/classification_game_volume_1-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints/classification_game_volume_2-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints/classification_game_volume_3-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/.ipynb_checkpoints/feature_selection-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints/feature_selection-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_orange.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_and_Classify/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Understand/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Understand/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Visualise/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Visualise/CustomPreprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/signal_samples/eeg_sample_closed_open_eyes.h5" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/signal_samples/eeg_sample_closed_open_eyes.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/styles/theme_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebookToHtml/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,20 +111,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/biosignalsnotebooks-0.4.13-py3.7.egg/biosignalsnotebooks/factory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="12818">
               <caret line="771" column="47" selection-start-line="771" selection-start-column="47" selection-end-line="771" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="402">
+              <caret line="198" column="28" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/biosignalsnotebooks-0.5.0-py3.7.egg/biosignalsnotebooks/factory.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="643" column="43" selection-start-line="643" selection-start-column="43" selection-end-line="643" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -53,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dict_by_tag</find>
       <find>&quot;DIR&quot;</find>
       <find>contacts</find>
       <find>DIR</find>
@@ -83,6 +178,7 @@
       <find>dwk</find>
       <find>dwipynb</find>
       <find>Outubr</find>
+      <find>Main_Files_Signal_Samples</find>
     </findStrings>
     <replaceStrings>
       <replace>new_dir</replace>
@@ -136,6 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,11 +240,15 @@
               <item name="header_footer" type="b2602c69:ProjectViewProjectNode" />
               <item name="header_footer" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="header_footer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="header_footer" type="462c0819:PsiDirectoryNode" />
+              <item name="biosignalsnotebooks_environment" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,12 +326,12 @@
     <frame x="-1928" y="-277" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.098524764" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.098524764" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32980832" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32394367" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32394367" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40581626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -298,13 +399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/biosignalsnotebooks-0.4.13-py3.7.egg/biosignalsnotebooks/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="771" column="47" selection-start-line="771" selection-start-column="47" selection-end-line="771" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -312,13 +406,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/biosignalsnotebooks-0.4.13-py3.7.egg/biosignalsnotebooks/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12818">
+          <caret line="771" column="47" selection-start-line="771" selection-start-column="47" selection-end-line="771" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="402">
+          <caret line="198" column="28" selection-start-line="198" selection-start-column="28" selection-end-line="198" selection-end-column="28" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/biosignalsnotebooks-0.5.0-py3.7.egg/biosignalsnotebooks/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="643" column="43" selection-start-line="643" selection-start-column="43" selection-end-line="643" selection-end-column="43" />
         </state>
       </provider>
     </entry>

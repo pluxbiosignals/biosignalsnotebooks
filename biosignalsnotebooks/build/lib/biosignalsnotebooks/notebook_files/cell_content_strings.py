@@ -6,24 +6,24 @@ in the notebooks.
 
 HEADER = """<table width="100%">
     <tr style="border-bottom:solid 2pt #009EE3">
-        <td style="text-align:left" width="10%">
-            <a href="FILENAME" download><img src="../../images/icons/download.png"></a>
+        <td class="header_buttons">
+            <a href="FILENAME" download><img src="../../images/icons/download.png" alt="biosignalsnotebooks | download button"></a>
         </td>
-        <td style="text-align:left" width="10%">
-            <a href="SOURCE" target="_blank"><img src="../../images/icons/program.png" title="Be creative and test your solutions !"></a>
+        <td class="header_buttons">
+            <a href="SOURCE" target="_blank"><img src="../../images/icons/program.png" alt="biosignalsnotebooks | binder server" title="Be creative and test your solutions !"></a>
         </td>
         <td></td>
-        <td style="text-align:left" width="5%">
-            <a href="../MainFiles/biosignalsnotebooks.ipynb"><img src="../../images/icons/home.png"></a>
+        <td class="header_icons">
+            <a href="../MainFiles/biosignalsnotebooks.ipynb"><img src="../../images/icons/home.png" alt="biosignalsnotebooks | home button"></a>
         </td>
-        <td style="text-align:left" width="5%">
-            <a href="../MainFiles/contacts.ipynb"><img src="../../images/icons/contacts.png"></a>
+        <td class="header_icons">
+            <a href="../MainFiles/contacts.ipynb"><img src="../../images/icons/contacts.png" alt="biosignalsnotebooks | contacts button"></a>
         </td>
-        <td style="text-align:left" width="5%">
-            <a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank"><img src="../../images/icons/github.png"></a>
+        <td class="header_icons">
+            <a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank"><img src="../../images/icons/github.png" alt="biosignalsnotebooks | github button"></a>
         </td>
-        <td style="border-left:solid 2pt #009EE3" width="15%">
-            <img src="../../images/ost_logo.png">
+        <td class="header_logo">
+            <img src="../../images/ost_logo.png" alt="biosignalsnotebooks | project logo">
         </td>
     </tr>
 </table>"""
@@ -82,14 +82,14 @@ HEADER_MAIN_FILES = """<link rel="stylesheet" href="../../styles/theme_style.css
 
 <table width="100%">
     <tr>
-        <td id="image_td" width="20%" class="header_image_color_2">
-            <img id="image_img" src="../../images/ost_logo.png"></td>
+        <td id="image_td" class="header_image_color_2 header_main_files">
+            <img id="image_img" src="../../images/ost_logo.png" alt="biosignalsnotebooks | project logo [main files]"></td>
         <td class="header_text"> Notebook Title </td>
     </tr>
 </table>"""
 
 OPEN_IMAGE = """<link rel="stylesheet" href="../../styles/theme_style.css">
-<img src="../../images/OS_logo_title_slim.png">
+<img src="../../images/OS_logo_title_slim.png" alt="biosignalsnotebooks | project welcome figure">
 <div class="title"><h2 class="color11"> Available Notebooks </h2></div>"""
 
 DESCRIPTION_CATEGORY = """<br><strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a <strong><span class="color1">Python</span></strong> library to provide programming examples in the form of <strong><span class="color5">Jupyter Notebooks</span></strong>, as companion to the <strong><span style="color:#009EE3">OpenSignals</span></strong> biosignals acquisition tools.
@@ -159,8 +159,8 @@ JS_CODE_AUTO_PLAY = """%%html
 FOOTER = """<hr>
 <table width="100%">
     <tr>
-        <td style="border-right:solid 3px #009EE3" width="20%">
-            <img src="../../images/ost_logo.png">
+        <td class="footer_logo">
+            <img src="../../images/ost_logo.png" alt="biosignalsnotebooks | project logo [footer]">
         </td>
         <td width="40%" style="text-align:left">
             <a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">&#9740; Project Presentation</a>

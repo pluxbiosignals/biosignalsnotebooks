@@ -214,7 +214,7 @@ def run(apply_to_biosignalsplux_website=False):
 
                     # Generation of a zip archive intended to create a downloadable version of each Notebook
                     # with all the styles and minimal size.
-                    zipf = zipfile.ZipFile(path_temp + "\\" + notebook.split(".")[0] + "_rev" + ".zip", 'w',
+                    zipf = zipfile.ZipFile(path_temp + "\\" + notebook.split(".")[0] + ".zip", 'w',
                                            zipfile.ZIP_DEFLATED)
 
                     # Populating the .zip file with the images and styles folders.
