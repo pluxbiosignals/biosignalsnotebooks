@@ -169,16 +169,16 @@ FOOTER = """<hr>
             <br>
             <a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">&#9740; How to install biosignalsnotebooks Python package ?</a>
             <br>
-            <a href="../MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
+            <a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/signal_samples.ipynb">&#9740; Signal Library</a>
         </td>
         <td width="40%" style="text-align:left">
-            <a href="../MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
+            <a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks.ipynb">&#9740; Notebook Categories</a>
             <br>
-            <a href="../MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
+            <a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_diff.ipynb">&#9740; Notebooks by Difficulty</a>
             <br>
-            <a href="../MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
+            <a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type.ipynb">&#9740; Notebooks by Signal Type</a>
             <br>
-            <a href="../MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
+            <a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_tag.ipynb">&#9740; Notebooks by Tag</a>
         </td>
     </tr>
 </table>"""
