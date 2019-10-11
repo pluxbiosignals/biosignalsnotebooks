@@ -54,6 +54,8 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         - "SpO2.HEAD"
         - "SpO2.FING"
         - "SpO2.ARM"
+        - "EEG"
+        - "EDA"
 
     device : str
         PLUX device label:
@@ -260,6 +262,34 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         elif option == "V":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
                                          option="uV")) * 1e6
+
+        else:
+            raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
+
+    elif sensor == "EDA":
+        available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller", "swifter",
+                           "biosignalspluxsolo"]
+        available_dev_2 = ["bitalino"]
+        available_dev_3 = ["bitalino_rev", "bitalino_riot"]
+        if option == "uS":
+            if device in available_dev_1:
+                vcc = 3.0
+                offset = 0
+                gain = 0.12
+            elif device in available_dev_2:
+                return 1.0 / (1.0 - (raw_signal / (2 ** resolution)))
+            elif device in available_dev_3:
+                vcc = 3.3
+                offset = 0
+                gain = 0.132
+            else:
+                raise RuntimeError("The output specified unit does not have a defined transfer "
+                                   "function for the used device.")
+            out = ((raw_signal * vcc / (2 ** resolution)) - vcc * offset) / gain
+
+        elif option == "S":
+            out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
+                                         option="uS")) * 1e6
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")

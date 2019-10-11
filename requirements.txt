@@ -8,3 +8,4 @@ jupyter_contrib_nbextensions
 nbconvert
 sty
 novainstrumentation
+pywt

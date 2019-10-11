@@ -243,10 +243,11 @@ def remove_ectopy(tachogram_data, tachogram_time):
         max_thresh = signal[beat - 1] + remove_margin * signal[beat - 1]
         min_thresh = signal[beat - 1] - remove_margin * signal[beat - 1]
         if signal[beat] > max_thresh or signal[beat] < min_thresh:
-            signal.pop(beat)
-            signal.pop(beat)
-            time.pop(beat)
-            time.pop(beat)
+            if beat <= len(signal) - 2:
+                signal.pop(beat)
+                signal.pop(beat)
+                time.pop(beat)
+                time.pop(beat)
             # To remove the influence of the ectopic beat we need to exclude the RR
             # intervals "before" and "after" the ectopic beat.
             # [NB <RRi> NB <RRi+1> EB <RRi+2> NB <RRi+3> NB...] -->
