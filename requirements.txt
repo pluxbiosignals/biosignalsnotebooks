@@ -9,3 +9,4 @@ nbconvert
 sty
 novainstrumentation
 pywt
+scikit-learn
