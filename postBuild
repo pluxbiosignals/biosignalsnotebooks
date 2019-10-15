@@ -63,6 +63,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_fo
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/bvp_analysis.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/eda_analysis.ipynb
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/eda_analysis.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb
