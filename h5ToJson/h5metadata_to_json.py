@@ -74,5 +74,5 @@ def write_json_info(path, observations=""):
     with open(splitext(path)[0]+'_info.json', 'w') as file:
         json.dump(dic, file)
 
-path = "C:/Users/gui_s/Documents/Trabalho_na_Plux/opensignalstools/biosignalsnotebooks/marvelous_collaborations/Katrin/#3/signal_samples/eeg_sample_p.h5"
-write_json_info(path, "An EEG acquisition with the exploratory electrodes placed at P3 and P4 positions")
+path = "C:/Users/gui_s/Documents/biosignalsnotebooks_org/biosignalsnotebooks_notebooks/signal_samples/loft_time_subject_1.h5"
+write_json_info(path, "Acquisition with accelerometer and force platform data to evaluate time of flight (subject 1)")
