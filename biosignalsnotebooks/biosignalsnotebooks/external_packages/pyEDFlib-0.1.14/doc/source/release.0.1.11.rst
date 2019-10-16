@@ -1,1 +1,0 @@
-.. include:: ../release/0.1.11-notes.rst
