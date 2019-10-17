@@ -91,5 +91,3 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_fo
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Visualise/.ipynb_checkpoints
-jupyter trust header_footer/biosignalsnotebooks_environment/categories/Visualise/.ipynb_checkpoints
