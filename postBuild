@@ -79,3 +79,15 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_fo
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/.ipynb_checkpoints
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_1.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_1.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_2.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_2.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Visualise/.ipynb_checkpoints
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Visualise/.ipynb_checkpoints
