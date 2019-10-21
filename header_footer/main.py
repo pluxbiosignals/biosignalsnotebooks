@@ -225,7 +225,7 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-#run(list_notebooks=["open_h5"])
+#run(list_notebooks=["eeg_extract_alphaband"])
 run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"])
 #run()
 

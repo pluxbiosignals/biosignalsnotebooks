@@ -15,6 +15,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_fo
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb
+jupyter trust header_footer/biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb
 jupyter trust header_footer/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 header_footer/biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb
