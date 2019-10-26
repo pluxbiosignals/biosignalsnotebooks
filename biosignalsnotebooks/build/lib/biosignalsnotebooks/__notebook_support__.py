@@ -476,7 +476,7 @@ def plot_emg_graphical_durations(max_time, min_time, avg_time, std_time):
 
 
 def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_value, avg_sample_value,
-                                   std_sample_value):
+                                   std_sample_value, y_range=[-1.10, 1]):
     """
     -----
     Brief
@@ -512,13 +512,16 @@ def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_va
 
     std_sample_value : int
         Standard deviation of the acquired EMG sample values relatively to avg_sample_value.
+
+    y_range : list
+        Two elements list defining the start and ending points of the y axis range.
     """
 
     # List that store the figure handler
     list_figures = []
 
     # Plotting of EMG.
-    list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Electric Tension (mV)', x_range=(0, time[-1] + 0.50 * time[-1]), y_range=[-1.10, 1], **opensignals_kwargs("figure")))
+    list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Electric Tension (mV)', x_range=(0, time[-1] + 0.50 * time[-1]), y_range=y_range, **opensignals_kwargs("figure")))
     list_figures[-1].line(time, signal, legend="EMG Signal", **opensignals_kwargs("line"))
 
     # Representation of EMG and the determined parameters
@@ -1403,7 +1406,8 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% resolution.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-def plot_compare_resolutions(time, signal_res_1, signal_res_2, sampling_rate):
+def plot_compare_resolutions(time, signal_res_1, signal_res_2, sampling_rate, y_axis_label="Temperature (ºC)",
+                             time_start=110, time_end=150, y_range=[38, 40.5]):
     """
     -----
     Brief
@@ -1438,25 +1442,37 @@ def plot_compare_resolutions(time, signal_res_1, signal_res_2, sampling_rate):
 
     sampling_rate : int
         Sampling rate of the acquisition.
+
+    y_axis_label : str
+        Descriptive text about the meaning behind the y axis.
+
+    time_start : float
+        Time-instant (in seconds) where the zoomed visualization window starts.
+
+    time_end: float
+        Time-instant (in seconds) where the zoomed visualization window ends.
+
+    y_range : list
+        A list with two elements, containing the delimiting values of the y axis range.
     """
 
     # Figure with the two plots
-    figure_8_16 = figure(x_axis_label='Time (s)', y_axis_label="Temperature (ºC)", **opensignals_kwargs("figure"))
+    figure_8_16 = figure(x_axis_label='Time (s)', y_axis_label=y_axis_label, **opensignals_kwargs("figure"))
     figure_8_16.line(time, signal_res_1, legend="8 Bits Acquisition", **opensignals_kwargs("line"))
     figure_8_16.line(time, signal_res_2, legend="16 Bits Acquisition", **opensignals_kwargs("line"))
 
     # Zoom window
-    wind_start = sampling_rate * 110  # 110 seconds
-    wind_end = sampling_rate * 150  # 150 seconds
+    wind_start = int(sampling_rate * time_start)  # time_start seconds
+    wind_end = int(sampling_rate * time_end)  # time_end seconds
 
     # Figure with 8 bits zoom
-    figure_8 = figure(x_axis_label='Time (s)', y_axis_label="Temperature (ºC)", title="8 Bits Acquisition",
-                      y_range=[38, 40.5], **opensignals_kwargs("figure"))
+    figure_8 = figure(x_axis_label='Time (s)', y_axis_label=y_axis_label, title="8 Bits Acquisition",
+                      y_range=y_range, **opensignals_kwargs("figure"))
     figure_8.line(time[wind_start:wind_end], signal_res_1[wind_start:wind_end], **opensignals_kwargs("line"))
 
     # Figure with 16 bits zoom
-    figure_16 = figure(x_axis_label='Time (s)', y_axis_label="Temperature (ºC)", title="16 Bits Acquisition",
-                       y_range=[38, 40.5], **opensignals_kwargs("figure"))
+    figure_16 = figure(x_axis_label='Time (s)', y_axis_label=y_axis_label, title="16 Bits Acquisition",
+                       y_range=y_range, **opensignals_kwargs("figure"))
     figure_16.line(time[wind_start:wind_end], signal_res_2[wind_start:wind_end],
                    **opensignals_kwargs("line"))
 
@@ -1663,6 +1679,90 @@ def plot_resp_diff(signal, rect_signal, sample_rate):
                              **opensignals_kwargs("gridplot"))
 
     show(grid_plot_ref)
+
+
+# =================================================================================================
+# ====================================== Other Category ===========================================
+# =================================================================================================
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% emg_overview.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+def plot_simple_threshold_algorithm(time, signal_smooth, binary_signal, sr, thresh_1, thresh_2):
+    """
+    -----
+    Brief
+    -----
+    Figure intended to represent a muscular activation envelope and the two thresholds of a double-threshold algorithm
+    used to detect the onset and offset of the muscular activation.
+
+    -----------
+    Description
+    -----------
+    Function design to generate a Bokeh figure containing the graphical explanation of the double-threshold muscular
+    activation detection algorithm, presenting the smooth version of a muscular activation and the two thresholds of the
+    detection algorithm.
+
+    The intesection points between the smoothed signal and the thresholds will define the onset and offset of the
+    muscular activation period.
+
+    Applied in the Notebook "EMG - Overview".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        List with the time axis values of the smoothed signal.
+
+    signal_smooth : list
+        List with the smooth version of the acquired EMG signal.
+
+    binary_signal : list
+        Binary signal data samples which graphically illustrates the delimiting intervals of a muscular activation
+        period.
+
+    sr : int
+        Data acquisition sampling rate in Hz.
+
+    thresh_1 : int
+        Threshold 1 intended to detect the onset of the muscular activation periods.
+
+    thresh_2 : int
+        Threshold 2 intended to detect the offset of the muscular activation periods.
+    """
+    # create list for thresholds to add them in the legend of the next plot
+    thresh1 = []
+    thresh2 = []
+
+    for n in range(len(time)):
+        thresh1.append(thresh_1)
+        thresh2.append(thresh_2)
+
+    # find intersection of onset and offset signal with thresholds
+    intersect_on = []
+    intersect_index_on = []
+    intersect_off = []
+    intersect_index_off = []
+    for index, i in enumerate(signal_smooth):
+        # return thres_1 value if signal meets thresh_1 for onset
+        if i >= thresh_1 and signal_smooth[index - 1] < thresh_1:
+            intersect_on.append(thresh_1)
+            intersect_index_on.append(index)
+        # return thres_2 value if signal meets thresh_2 for offset
+        elif i <= thresh_2 and signal_smooth[index - 1] > thresh_2:
+            intersect_off.append(thresh_2)
+            intersect_index_off.append(index)
+
+    # plot of binary and smooth signal to visualize the activation and inactivation periods
+    fig_list = plot([list(time), list(time), list(time), list(time)],
+                     [list(numpy.array(binary_signal) * max(signal_smooth)), list(signal_smooth), list(thresh1),
+                      list(thresh2)], legend=["Activation Signal", "Smoothed Signal", "Threshold 1", "Threshold 2"],
+                      grid_plot=False, opensignals_style=True, x_axis_label="Time (s)", y_axis_label="RAW Data Samples",
+                      x_range=(11, 13), get_fig_list=True, show_plot=False)
+    fig_list[0].circle(numpy.array(intersect_index_on) / sr, intersect_on, size=10, color="yellowgreen",
+                       legend="Onset")
+    fig_list[0].circle(numpy.array(intersect_index_off) / sr, intersect_off, size=10, color="darkorange",
+                       legend="Offset")
+    show(fig_list[0])
+
 
 def download(link, out):
     """

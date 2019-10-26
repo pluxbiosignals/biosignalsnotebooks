@@ -361,6 +361,32 @@ def load_signal(signal_handler, get_header=False):
                              and P4 positions
         =================   ==============
 
+        [emg_1000_hz_16_bits_solo]
+        =================   ==============
+        Signal Type                    EMG
+        Acquisition Time           01:27.6
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           EMG acquisition
+                             from Adductor
+                             pollicis muscle
+                             (1000 Hz and
+                             16 bits)
+        =================   ==============
+
+        [emg_1000_hz_16_bits_solo]
+        =================   ==============
+        Signal Type                    EMG
+        Acquisition Time           01:27.6
+        Sample Rate                1000 Hz
+        Number of Channels               1
+        Conditions           EMG acquisition
+                             from Adductor
+                             pollicis muscle
+                             (1000 Hz and
+                             16 bits)
+        =================   ==============
+
     get_header : boolean
         If True the file header will be returned as one of the function outputs.
 
@@ -373,12 +399,12 @@ def load_signal(signal_handler, get_header=False):
         Metadata of the acquisition file (includes sampling rate, resolution, used device...)
     """
 
-    available_signals = ["ecg_4000_Hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",
-                         "ecg_20_sec_100_Hz", "ecg_20_sec_1000_Hz", "emg_bursts", "emg_fatigue",
-                         "temp_res_8_16", "bvp_sample", "eeg_sample_closed_open_eyes",
-                         "eeg_sample_artefacts_seg1", "eeg_sample_artefacts_seg2", "eeg_sample_artefacts_seg3",
-                         "eeg_sample_0cm_h", "eeg_sample_1cm_h", "eeg_sample_2cm_h", "eeg_sample_0cm_v",
-                         "eeg_sample_1cm_v", "eeg_sample_2cm_v", "eeg_sample_o", "eeg_sample_p"]
+    primordial_list_signals = ["ecg_4000_Hz", "ecg_5_min", "ecg_sample", "ecg_20_sec_10_Hz",
+                               "ecg_20_sec_100_Hz", "ecg_20_sec_1000_Hz", "emg_bursts", "emg_fatigue",
+                               "temp_res_8_16", "bvp_sample", "eeg_sample_closed_open_eyes",
+                               "eeg_sample_artefacts_seg1", "eeg_sample_artefacts_seg2", "eeg_sample_artefacts_seg3",
+                               "eeg_sample_0cm_h", "eeg_sample_1cm_h", "eeg_sample_2cm_h", "eeg_sample_0cm_v",
+                               "eeg_sample_1cm_v", "eeg_sample_2cm_v", "eeg_sample_o", "eeg_sample_p"]
 
     # Check if signal_handler is a url.
     # [Statements to be executed if signal_handler is a url]
@@ -393,7 +419,8 @@ def load_signal(signal_handler, get_header=False):
 
     # [Statements to be executed if signal_handler is an identifier of the signal]
     else:
-        if signal_handler in available_signals:
+        list_files = list_signal_samples()
+        if signal_handler in primordial_list_signals or signal_handler in list_files:
             out, header = load(SIGNAL_PATH + signal_handler + FILE_EXTENSION, get_header=True, signal_sample=True)
         else:
             raise RuntimeError("The signal name defined as input does not correspond to any of the "
@@ -403,5 +430,33 @@ def load_signal(signal_handler, get_header=False):
         return out, header
     else:
         return out
+
+def list_signal_samples():
+    """
+    -----
+    Brief
+    -----
+    A "getter" that returns all signal samples filenames.
+
+    -----------
+    Description
+    -----------
+    The current function is a simpler "getter" returning the list of files inside SIGNALS_PATH with .h5 extension, i.e.,
+    the files containing physiological data.
+
+    Returns
+    -------
+    out : list
+        A list containing all valid .h5 files.
+    """
+
+    # Get the complete list of files inside SIGNALS_PATH.
+    list_files = os.listdir(SIGNAL_PATH)
+    valid_files = []
+    for file in list_files:
+        if ".h5" in file:
+            valid_files.append(file.split('.h5')[0])
+
+    return valid_files
 
 # 11/10/2018 16h45m :)

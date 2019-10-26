@@ -365,9 +365,9 @@ def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", r
     -------
     out : dict
         Dictionary with EMG parameters values, with keys:
-            Maximum Burst Duration : Duration of the longest activation in the EMG signal
-            Minimum Burst Duration : Duration of the shortest activation in the EMG signal
-            Average Burst Duration : Average duration of the activations in the EMG signal
+            Maximum Muscular Activation Duration : Duration of the longest activation in the EMG signal
+            Minimum Muscular Activation Duration : Duration of the shortest activation in the EMG signal
+            Average Muscular Activation Duration : Average duration of the activations in the EMG signal
             Standard Deviation of Burst Duration : Standard Deviation duration of the activations in the EMG signal
             Maximum Sample Value : Maximum value of the EMG signal
             Minimum Sample Value : Minimum value of the EMG signal
@@ -392,17 +392,17 @@ def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", r
                                                     threshold_level=10, time_units=True)[:2]
 
     # --------------------------- Number of activation periods. -----------------------------------
-    out_dict["Number of Bursts"] = len(burst_begin)
+    out_dict["Number of Muscular Activations"] = len(burst_begin)
 
     # ----------- Maximum, Minimum and Average duration of muscular activations. ------------------
     # Bursts Duration.
     bursts_time = burst_end - burst_begin
 
     # Parameter extraction.
-    out_dict["Maximum Burst Duration"] = numpy.max(bursts_time)
-    out_dict["Minimum Burst Duration"] = numpy.min(bursts_time)
-    out_dict["Average Burst Duration"] = numpy.average(bursts_time)
-    out_dict["Standard Deviation of Burst Duration"] = numpy.std(bursts_time)
+    out_dict["Maximum Muscular Activation Duration"] = numpy.max(bursts_time)
+    out_dict["Minimum Muscular Activation Duration"] = numpy.min(bursts_time)
+    out_dict["Average Muscular Activation Duration"] = numpy.average(bursts_time)
+    out_dict["Standard Deviation of Muscular Activation Duration"] = numpy.std(bursts_time)
 
     # --------- Maximum, Minimum, Average and Standard Deviation of EMG sample values -------------
     # Maximum.
