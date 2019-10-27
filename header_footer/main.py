@@ -195,10 +195,11 @@ def _generate_group_by_pages(signal_samples=True):
                               notebook_file=filename)
     by_signal_type.write_to_file(file_path, filename)
 
-    filename = "signal_samples"
-    signal_samples = notebook("Main_Files_Signal_Samples", "Signal Samples Library",
-                              notebook_file=filename)
-    signal_samples.write_to_file(file_path, filename)
+    if signal_samples is True:
+        filename = "signal_samples"
+        signal_samples = notebook("Main_Files_Signal_Samples", "Signal Samples Library",
+                                  notebook_file=filename)
+        signal_samples.write_to_file(file_path, filename)
 
 def _generate_post_build_files():
     # Constant Values
