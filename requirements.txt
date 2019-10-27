@@ -10,3 +10,4 @@ sty
 novainstrumentation
 PyWavelets
 scikit-learn
+seaborn
