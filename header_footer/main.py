@@ -73,7 +73,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
                 # Update or Insertion of header and footer.
                 # [Header]
                 header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".zip")
-                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/biosignalsnotebooks_binder?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
+                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
 
                 if header_cell is None:
                     notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
@@ -202,7 +202,7 @@ def _generate_group_by_pages(signal_samples=True):
 
 def _generate_post_build_files():
     # Constant Values
-    relative_path_for_binder = "header_footer/biosignalsnotebooks_environment/categories/"
+    relative_path_for_binder = "biosignalsnotebooks_environment/categories/"
     source_path = "biosignalsnotebooks_environment/categories/"
 
     # Dynamic string
@@ -215,7 +215,7 @@ def _generate_post_build_files():
             current_file_path = source_path + category + "/"
             list_files = os.listdir(current_file_path)
             for file in list_files:
-                if ".ipynb" in file:
+                if ".ipynb" in file and ".ipynb_checkpoints" not in file:
                     post_build_str += "jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 " + relative_path_for_binder + category + "/" + file + "\n"
                     post_build_str += "jupyter trust " + relative_path_for_binder + category + "/" + file + "\n"
 
