@@ -627,7 +627,7 @@ def _generate_signal_samples_body(notebook_object):
     signal_samples_dir_project = os.path.abspath(__file__).split(os.path.basename(__file__))[0].replace("\\", "/") + "notebook_files/osf_files/signal_samples"
     list_of_files = os.listdir(signal_samples_dir_project)
     for file in list_of_files:
-        if ".json" not in file:
+        if ".json" not in file and ".h5" in file:
             file_name = file.split(".")[0]
             with open(signal_samples_dir_project + "/" + file_name + '_info.json') as json_data:
                 signal_info = json.load(json_data)

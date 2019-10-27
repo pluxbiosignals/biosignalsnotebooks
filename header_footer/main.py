@@ -24,7 +24,7 @@ DICT_GROUP_BY_TAG = {}
 # ===================== Inclusion of Header and Footer in each Notebook ============================
 # ==================================================================================================
 
-def run(list_notebooks=["All"], exclude_notebooks=["None"]):
+def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True):
     # Storage of the current directory path.
     root = os.getcwd()
 
@@ -111,7 +111,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"]):
     # ==============================================================================================
     # ============================ Generate "Group by ..." Pages ===================================
     # ==============================================================================================
-    _generate_group_by_pages()
+    _generate_group_by_pages(signal_samples=signal_samples_flag)
 
     # ==============================================================================================
     # ======================== Generate a Post-Build File for Binder ===============================
@@ -168,7 +168,7 @@ def _get_metadata(notebook, filename, category):
     return header_cell, footer_cell, title, nbr_stars, tags
 
 
-def _generate_group_by_pages():
+def _generate_group_by_pages(signal_samples=True):
     file_path = os.getcwd() + "\\biosignalsnotebooks_environment"
 
     # Generation of biosignalsnotebooks environment main files.
@@ -226,7 +226,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["eeg_extract_alphaband"])
-run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"])
+run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
 #run()
 
 # 29/11/2018  17h18m :)
