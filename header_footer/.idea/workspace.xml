@@ -1,80 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8294bb59-4283-4264-87e9-828ec463c7ed" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_environment/images/icons/Train_And_Classify.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/dependency_links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/requires.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/github/README_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/github/README_TEMPLATE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/github/README_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/notebook_files/github/README_TEMPLATE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/dist/biosignalsnotebooks-0.5.3-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/dist/biosignalsnotebooks-0.5.3-py3.7.egg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/setup_linux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/setup_linux.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/.ipynb_checkpoints/center_of_pressure-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/.ipynb_checkpoints/center_of_pressure-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/center_of_pressure.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/center_of_pressure.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/time_of_flight.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/time_of_flight.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Connect/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Evaluate/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Evaluate/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints/center_of_pressure-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints/center_of_pressure-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints/time_of_flight-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/.ipynb_checkpoints/time_of_flight-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/center_of_pressure.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/center_of_pressure.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/time_of_flight.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Extract/time_of_flight.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Install/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/dataload_eeg_physionet.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/dataload_eeg_physionet.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/download_file_name.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/download_file_name.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_h5.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/open_txt.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/signal_loading_preparatory_steps.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Load/signal_loading_preparatory_steps.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/CustomPreprocessorIndex.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_diff.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Other/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Other/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Other/emg_overview.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Other/emg_overview.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/bvp_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/bvp_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/eda_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/eda_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/eeg_electrode_placement-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/.ipynb_checkpoints/eeg_electrode_placement-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/download_file_name.h5" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/download_file_name.h5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/eeg_electrode_placement.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/eeg_electrode_placement.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/resolution.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Understand/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Understand/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Visualise/CustomPreprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_environment/categories/Visualise/CustomPreprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8294bb59-4283-4264-87e9-828ec463c7ed" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-472">
-              <caret line="170" column="4" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
+            <state relative-caret-position="17">
+              <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -197,6 +124,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,11 +141,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Trabalho_na_Plux/egg_research/protein_process" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -409,8 +336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-472">
-          <caret line="170" column="4" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
+        <state relative-caret-position="17">
+          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
           </folding>
