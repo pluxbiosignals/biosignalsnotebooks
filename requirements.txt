@@ -11,4 +11,3 @@ novainstrumentation
 PyWavelets
 scikit-learn
 seaborn
-pyEDFlib
