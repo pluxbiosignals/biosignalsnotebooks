@@ -3,7 +3,7 @@
 
 [![Python](https://img.shields.io/badge/python-3.6-blue.svg)]()
 [![html5](https://img.shields.io/badge/html-5-green.svg)]()
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fbiosignalsnotebooks.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fbiosignalsnotebooks.ipynb)
 
 ## Description
 
@@ -76,7 +76,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='11'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='10'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/bvp_analysis_rev.php' target='_blank'> BVP Signal Analysis - A Complete Tour </a> </td>
 	</tr>
 	<tr>
@@ -107,9 +107,6 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_fNIRS_rev.php'>fNIRS Sensor - Unit Conversion </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/time_of_flight_rev.php'> Calculate Time of Flight </a> </td>
-	</tr>
-	<tr>
 		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/rymrvFL/Detect.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/detect_bursts_rev.php' target='_blank'> Event Detection - Muscular Activations (EMG) </a> </td>
 	</tr>
@@ -117,8 +114,11 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/r_peaks_rev.php'> Event Detection - R Peaks (ECG) </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/eeg_extract_alphaband_rev.php' target='_blank'> EEG - Alpha Band Extraction </a> </td>
+		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/center_of_pressure_rev.php' target='_blank'> Force Platform - Center of Pressure Estimation </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/eeg_extract_alphaband_rev.php'> EEG - Alpha Band Extraction </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php'> EMG Analysis - Time and Frequency Parameters </a> </td>
