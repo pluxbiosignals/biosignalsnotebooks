@@ -3,7 +3,7 @@
 
 [![Python](https://img.shields.io/badge/python-3.6-blue.svg)]()
 [![html5](https://img.shields.io/badge/html-5-green.svg)]()
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/biosignalsnotebooks/biosignalsnotebooks/master?filepath=header_footer%2Fbiosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fbiosignalsnotebooks.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2FMainFiles%2Fbiosignalsnotebooks.ipynb)
 
 ## Description
 
