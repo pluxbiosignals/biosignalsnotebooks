@@ -177,18 +177,18 @@ def detect_r_peaks(ecg_signal, sample_rate, time_units=False, volts=False, resol
                      **opensignals_kwargs("figure"))
         fig.line(time_int, integrated, **opensignals_kwargs("line"))
         fig.circle(time_int[definitive_peaks], integrated[definitive_peaks], size=30,
-                   color="#00893E", legend="Definitive Peaks")
+                   color="#00893E", legend_label="Definitive Peaks")
         fig.circle(time_int[probable_peaks], integrated[probable_peaks], size=20, color="#009EE3",
-                   legend="Probable Peaks")
+                   legend_label="Probable Peaks")
         fig.circle(time_int[possible_peaks], integrated[possible_peaks], size=10, color="#302683",
-                   legend="Possible Peaks")
+                   legend_label="Possible Peaks")
 
         fig2 = figure(x_axis_label='Time (s)', y_axis_label='Raw Data',
                       **opensignals_kwargs("figure"))
         fig2.line(time, ecg_signal, **opensignals_kwargs("line"))
         fig2.circle(time[definitive_peaks_rephase],
                     numpy.array(ecg_signal)[definitive_peaks_rephase],
-                    size=30, color=opensignals_color_pallet(), legend="Definitive Peaks")
+                    size=30, color=opensignals_color_pallet(), legend_label="Definitive Peaks")
 
         opensignals_style([fig, fig2])
 
@@ -352,7 +352,7 @@ def detect_emg_activations(emg_signal, sample_rate, smooth_level=20, threshold_l
         plot([list(time), list(time)], [list(emg_signal), list(numpy.array(binary_signal) *
                                                                numpy.max(emg_signal))],
              yAxisLabel=["Data Samples (" + units + ")"] * 2,
-             x_axis_label=time_units_str, legend=["EMG Signal", "Activation Signal"])
+             x_axis_label=time_units_str, legend_label=["EMG Signal", "Activation Signal"])
 
     return time_begin, time_end, smooth_signal, threshold_level
 

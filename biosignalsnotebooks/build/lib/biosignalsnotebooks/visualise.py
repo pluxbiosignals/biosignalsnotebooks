@@ -49,7 +49,7 @@ from .aux_functions import _filter_keywords, _is_instance, _generate_bokeh_file
 COLOR_LIST = itertools.cycle(("#009EE3", "#302683", "#00893E", "#94C11E", "#FDC400", "#E84D0E",
                               "#CF0272", "#F199C1"))
 
-def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lines=None,
+def _plot_future(time, data, legend_label=None, title=None, y_axis_label=None, hor_lines=None,
                 hor_lines_leg=None, vert_lines=None, vert_lines_leg=None,
                 apply_opensignals_style=True, show_plot=True, warn_print=False, **kwargs):
     """
@@ -73,7 +73,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
         cell_row_n_column_m can contain a set of lists. Each one of these lists contains give
         rise to a different plot at the figure located in row n and column m of the grid structure.
 
-    legend : list
+    legend_label : list
         Input where the legend of each plot is specified. Should have the same shape of data.
 
     title : list
@@ -144,7 +144,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
 
     # ------------ Verification if the input arguments (title and legend) are valid ---------------
     # [legend]
-    legend = _check_validity_of_inputs(data, legend, "legend", grid_plot, dimension=3)
+    legend_label = _check_validity_of_inputs(data, legend_label, "legend", grid_plot, dimension=3)
 
     # [title]
     title = _check_validity_of_inputs(data, title, "title", grid_plot, dimension=2)
@@ -170,7 +170,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
     if grid_plot is True:
         # Each element inside "data", "time", "title", "legend" ... matrix cell must be a list.
         if all(_is_instance(list, el, condition="all", deep=True) for el in [time, data, title,
-                                                                         legend, y_axis_label,
+                                                                         legend_label, y_axis_label,
                                                                          hor_lines, vert_lines,
                                                                          hor_lines_leg,
                                                                          vert_lines_leg]):
@@ -192,7 +192,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
                                                            **style_figure))
 
                             fig_list[-1][-1][-1].line(time[row][column][0], data[row][column][plt],
-                                                      legend=legend[row][column][plt], **style_line)
+                                                      legend_label=legend_label[row][column][plt], **style_line)
                         else:
                             raise RuntimeError("At least one of the list elements, specified in "
                                                "data or time, is not numeric.")
@@ -204,7 +204,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
                                 fig_list[-1][-1][-1].line([time[row][column][0],
                                                            time[row][column][-1]],
                                                           [hor_line, hor_line],
-                                                          legend=hor_lines_leg[row][hor_line_nbr],
+                                                          legend_label=hor_lines_leg[row][hor_line_nbr],
                                                           **opensignals_kwargs("line"))
                             else:
                                 fig_list[-1][-1][-1].line([time[row][column][0],
@@ -219,7 +219,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
                                 fig_list[-1][-1][-1].line([vert_line, vert_line],
                                                           [numpy.min(data[row][column][0]),
                                                            numpy.max(data[row][column][0])],
-                                                          legend=vert_lines_leg[row][vert_line_nbr],
+                                                          legend_label=vert_lines_leg[row][vert_line_nbr],
                                                           **opensignals_kwargs("line"))
                             else:
                                 fig_list[-1][-1][-1].line([vert_line, vert_line],
@@ -245,7 +245,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
                 and _is_instance(Number, time, condition="all")\
                 and not _is_instance(bool, time, condition="any"):
             fig_list.append(figure(title=title, y_axis_label=y_axis_label[0], **style_figure))
-            fig_list[-1].line(time, data, legend=legend, **style_line)
+            fig_list[-1].line(time, data, legend_label=legend_label, **style_line)
         else:
             raise RuntimeError("At least one of the list elements, specified in data or time, is "
                                "not numeric.")
@@ -272,7 +272,7 @@ def _plot_future(time, data, legend=None, title=None, y_axis_label=None, hor_lin
     return fig_list
 
 
-def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=None,
+def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_label=None,
          grid_plot=False, grid_lines=None, grid_columns=None, hor_lines=None, hor_lines_leg=None,
          vert_lines=None, vert_lines_leg=None, apply_opensignals_style=True, show_plot=True,
          save_plot=False, warn_print=False, get_fig_list=False, file_name=None, **kwargs):
@@ -299,7 +299,7 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
         Variable number of arguments with the purpose of giving the user the possibility of
         defining as an input only the "data" axis or both "time" and "data" axes.
 
-    legend : list
+    legend_label : list
         Input where the legend of each plot is specified. Should have the same shape of time.
 
     title : list
@@ -406,8 +406,8 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
             vert_lines_leg = [vert_lines_leg]
         if title is not None:
             title = [title]
-        if legend is not None:
-            legend = [legend]
+        if legend_label is not None:
+            legend_label = [legend_label]
     elif _is_instance(numpy.ndarray, data, condition="any") \
             or _is_instance(numpy.ndarray, time, condition="any"):
         time = list(map(list, time))
@@ -428,15 +428,15 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
         style_gridplot = _filter_keywords(gridplot, kwargs, warn_print=warn_print)
 
     # ------------------------ Verification if the input arguments are valid ----------------------
-    if legend is not None:
-        if isinstance(legend, list):
-            if len(legend) != len(time) or len(legend) != len(data):
+    if legend_label is not None:
+        if isinstance(legend_label, list):
+            if len(legend_label) != len(time) or len(legend_label) != len(data):
                 raise RuntimeError("The shape of legend does not match with time input.")
         else:
             raise RuntimeError("The specified data type of legend field is not valid. Input must "
                                "be a list.")
-    else:
-        legend = [None] * len(time)
+    #else:
+    #    legend_label = [None] * len(time)
 
     if title is not None:
         if isinstance(title, list):
@@ -544,8 +544,11 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
                                                sizing_mode='scale_both',
                                                **style_figure))
 
-                    fig_list[-1].line(time[list_entry], data[list_entry], legend=legend[list_entry],
-                                      **style_line)
+                    if legend_label is not None:
+                        fig_list[-1].line(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
+                                          **style_line)
+                    else:
+                        fig_list[-1].line(time[list_entry], data[list_entry], **style_line)
 
                     # Representation of horizontal lines.
                     if hor_lines is not None:
@@ -553,7 +556,7 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
                             if hor_lines_leg is not None:
                                 fig_list[-1].line([time[list_entry][0], time[list_entry][-1]],
                                                   [hor_line, hor_line],
-                                                  legend=hor_lines_leg[list_entry][hor_line_nbr],
+                                                  legend_label=hor_lines_leg[list_entry][hor_line_nbr],
                                                   **opensignals_kwargs("line"))
                             else:
                                 fig_list[-1].line([time[list_entry][0], time[list_entry][-1]],
@@ -567,7 +570,7 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
                                 fig_list[-1].line([vert_line, vert_line],
                                                   [numpy.min(data[list_entry]),
                                                    numpy.max(data[list_entry])],
-                                                  legend=vert_lines_leg[list_entry][vert_line_nbr],
+                                                  legend_label=vert_lines_leg[list_entry][vert_line_nbr],
                                                   **opensignals_kwargs("line"))
                             else:
                                 fig_list[-1].line([vert_line, vert_line],
@@ -604,7 +607,10 @@ def plot(*args, legend=None, title=None, x_axis_label="Time (s)", y_axis_label=N
             if len(time) == len(data):  # Shape verification
                 fig_list.append(figure(title=title[0], y_axis_label=y_axis_label[0],
                                        x_axis_label=x_axis_label, **style_figure))
-                fig_list[-1].line(time, data, legend=legend[0], **style_line)
+                if legend_label is not None:
+                    fig_list[-1].line(time, data, legend_label=legend_label[0], **style_line)
+                else:
+                    fig_list[-1].line(time, data, **style_line)
             else:
                 raise RuntimeError("The shape of time and data inputs does not match.")
         else:

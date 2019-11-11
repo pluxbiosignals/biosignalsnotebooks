@@ -397,9 +397,9 @@ def plot_ecg_pan_tompkins_peaks(time, orig_ecg, integrated_ecg, sampling_rate, p
 
     list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Raw Data', **opensignals_kwargs("figure")))
     list_figures[-1].line(segment_time, segment_int, **opensignals_kwargs("line"))
-    list_figures[-1].circle(segment_time[definitive_peaks_wind], segment_int[definitive_peaks_wind], size=30, color="#00893E", legend="Definitive Peaks")
-    list_figures[-1].circle(segment_time[probable_peaks_wind], segment_int[probable_peaks_wind], size=20, color="#009EE3", legend="Probable Peaks")
-    list_figures[-1].circle(segment_time[possible_peaks_wind], segment_int[possible_peaks_wind], size=10, color="#302683", legend="Possible Peaks")
+    list_figures[-1].circle(segment_time[definitive_peaks_wind], segment_int[definitive_peaks_wind], size=30, color="#00893E", legend_label="Definitive Peaks")
+    list_figures[-1].circle(segment_time[probable_peaks_wind], segment_int[probable_peaks_wind], size=20, color="#009EE3", legend_label="Probable Peaks")
+    list_figures[-1].circle(segment_time[possible_peaks_wind], segment_int[possible_peaks_wind], size=10, color="#302683", legend_label="Possible Peaks")
 
     # Show figure.
     opensignals_style(list_figures)
@@ -455,19 +455,19 @@ def plot_emg_graphical_durations(max_time, min_time, avg_time, std_time):
     # Plotting of Burst duration distribution
     list_figures_1.append(figure(x_axis_label='Time (s)', **opensignals_kwargs("figure"), x_range=[0, max_time], y_range=[0, 1]))
     box_annotation_max = BoxAnnotation(left=0, right=max_time, top=0.33, bottom=0, fill_color=color_1, fill_alpha=0.5)
-    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_1, fill_alpha=0.5, legend="Maximum Burst Time")
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_1, fill_alpha=0.5, legend_label="Maximum Burst Time")
     list_figures_1[-1].add_layout(box_annotation_max)
 
     box_annotation_avg = BoxAnnotation(left=0, right=avg_time, top=0.66, bottom=0.33, fill_color=color_2, fill_alpha=0.5)
-    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_2, fill_alpha=0.5, legend="Average Burst Time")
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_2, fill_alpha=0.5, legend_label="Average Burst Time")
     list_figures_1[-1].add_layout(box_annotation_avg)
 
     box_annotation_min = BoxAnnotation(left=0, right=min_time, top=1, bottom=0.66, fill_color=color_3, fill_alpha=0.5)
-    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_3, fill_alpha=0.5, legend="Minimum Burst Time")
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_3, fill_alpha=0.5, legend_label="Minimum Burst Time")
     list_figures_1[-1].add_layout(box_annotation_min)
 
     box_annotation_std = BoxAnnotation(left=avg_time, right=avg_time + std_time, top=0.55, bottom=0.44, fill_color=color_4, fill_alpha=0.5)
-    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_4, fill_alpha=0.5, legend="Average + Standard Deviation Time")
+    list_figures_1[-1].rect(0, 0, width=0, height=0, fill_color=color_4, fill_alpha=0.5, legend_label="Average + Standard Deviation Time")
     list_figures_1[-1].add_layout(box_annotation_std)
 
     # Show figure.
@@ -522,7 +522,7 @@ def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_va
 
     # Plotting of EMG.
     list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Electric Tension (mV)', x_range=(0, time[-1] + 0.50 * time[-1]), y_range=y_range, **opensignals_kwargs("figure")))
-    list_figures[-1].line(time, signal, legend="EMG Signal", **opensignals_kwargs("line"))
+    list_figures[-1].line(time, signal, legend_label="EMG Signal", **opensignals_kwargs("line"))
 
     # Representation of EMG and the determined parameters
     parameter_list = ["Maximum", "Minimum", "Average", "Standard Deviation"]
@@ -531,19 +531,19 @@ def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_va
         find_time_min = numpy.array(time)[numpy.where(numpy.array(signal) == min_sample_value)]
         if parameter == "Maximum":
             list_figures[-1].circle(find_time_max, max_sample_value, radius = 0.5, fill_color=opensignals_color_pallet(),
-                                    legend=parameter + " EMG")
+                                    legend_label=parameter + " EMG")
         elif parameter == "Minimum":
             list_figures[-1].circle(find_time_min, min_sample_value, radius=0.5, fill_color=opensignals_color_pallet(),
-                                    legend=parameter + " EMG")
+                                    legend_label=parameter + " EMG")
         elif parameter == "Average":
             list_figures[-1].line([0, time[-1]], [avg_sample_value, avg_sample_value],
-                                  legend=parameter + " EMG Sample", **opensignals_kwargs("line"))
+                                  legend_label=parameter + " EMG Sample", **opensignals_kwargs("line"))
         elif parameter == "Standard Deviation":
             box_annotation = BoxAnnotation(left=0, right=time[-1], top=avg_sample_value + std_sample_value,
                                            bottom=avg_sample_value - std_sample_value, fill_color="black",
                                            fill_alpha=0.3)
             list_figures[-1].rect(find_time_min, std_sample_value, width=0, height=0, fill_color="black", fill_alpha=0.3,
-                                  legend="Average + Standard Deviation Zone")
+                                  legend_label="Average + Standard Deviation Zone")
             list_figures[-1].add_layout(box_annotation)
 
     # Show figure.
@@ -592,14 +592,14 @@ def plot_emg_rms_area(time, signal, rms, area):
         figure(x_axis_label='Frequency (Hz)', y_axis_label='Electric Tension (mV)', x_range=[0, time[-1]],
                y_range=[-1, 1], **opensignals_kwargs("figure")))
     list_figures[-1].line(time, signal, **opensignals_kwargs("line"))
-    list_figures[-1].line([time[0], time[-1]], [rms, rms], legend="RMS Value", **opensignals_kwargs("line"))
+    list_figures[-1].line([time[0], time[-1]], [rms, rms], legend_label="RMS Value", **opensignals_kwargs("line"))
 
     # Setting the second y axis range name and range
     list_figures[-1].extra_y_ranges = {"Area": Range1d(start=0, end=area[-1])}
 
     # Adding the second axis to the plot
     list_figures[-1].add_layout(LinearAxis(y_range_name="Area", axis_label='Area (mV.s)'), 'right')
-    list_figures[-1].line(time[1:], area, legend="Area along time (cumulative)", y_range_name="Area",
+    list_figures[-1].line(time[1:], area, legend_label="Area along time (cumulative)", y_range_name="Area",
                             **opensignals_kwargs("line"))
 
     # Show figure.
@@ -647,14 +647,14 @@ def plot_emg_spect_freq(freq_axis, power_axis, max_freq, median_freq):
     # Plotting of EMG Power Spectrum
     list_figures.append(
         figure(x_axis_label='Frequency (Hz)', y_axis_label='Relative Power (a.u.)', **opensignals_kwargs("figure")))
-    list_figures[-1].line(freq_axis, power_axis, legend="Power Spectrum", **opensignals_kwargs("line"))
+    list_figures[-1].line(freq_axis, power_axis, legend_label="Power Spectrum", **opensignals_kwargs("line"))
     list_figures[-1].patch(list(freq_axis) + list(freq_axis)[::-1], list(power_axis) + list(numpy.zeros(len(power_axis))),
                            fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
-                           legend="Area Under Curve")
+                           legend_label="Area Under Curve")
     list_figures[-1].line([median_freq, median_freq], [0, power_axis[numpy.where(freq_axis == median_freq)[0][0]]],
-                          legend="Median Frequency", **opensignals_kwargs("line"))
+                          legend_label="Median Frequency", **opensignals_kwargs("line"))
     list_figures[-1].line([max_freq, max_freq], [0, power_axis[numpy.where(freq_axis == max_freq)[0][0]]],
-                          legend="Maximum Power Frequency", **opensignals_kwargs("line"))
+                          legend_label="Maximum Power Frequency", **opensignals_kwargs("line"))
 
     # Show figure.
     opensignals_style(list_figures)
@@ -703,7 +703,13 @@ def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_wind
 
     y_axis_label : str
         A string where it is specified the label of the y axis.
+
+    legend : list
+        A list of strings containing the legends of the plots.
     """
+
+    # Retrocompatibility.
+    legend_label = legend
 
     # Range of the visualisation window.
     x_range = (time_range[0], time_range[1])
@@ -734,7 +740,7 @@ def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_wind
         box_annotations.append(BoxAnnotation(left=eyes_open_begin[i], right=eyes_open_end[i],
                                              fill_color=color_open_eyes, fill_alpha=0.1))
         list_figures[-1].add_layout(box_annotations[-1])
-    list_figures[-1].circle([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend=legend[0])
+    list_figures[-1].circle([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend_label=legend_label[0])
 
     if len(time_windows_evt_2) != 0:
         # ["Eyes Closed"]
@@ -743,7 +749,7 @@ def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_wind
                 BoxAnnotation(left=eyes_closed_begin[i], right=eyes_closed_end[i], fill_color=color_closed_eyes,
                               fill_alpha=0.1))
             list_figures[-1].add_layout(box_annotations[-1])
-        list_figures[-1].circle([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend=legend[1])
+        list_figures[-1].circle([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend_label=legend_label[1])
 
     # Show figure.
     show(list_figures[-1])
@@ -796,7 +802,7 @@ def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_a
                         [power_spect_eyes_closed, power_spect_eyes_opened],
                         title=["Estimated Power Spectral Density - Closed Eyes",
                                "Estimated Power Spectral Density - Opened Eyes"],
-                        legend=["Bandpass Filtered Freq. Band", "Bandpass Filtered Freq. Band"],
+                        legend_label=["Bandpass Filtered Freq. Band", "Bandpass Filtered Freq. Band"],
                         x_axis_label="Frequency (Hz)", y_axis_label="PSD (uV^2/Hz)", grid_plot=True, grid_lines=1,
                         grid_columns=2, x_range=freq_range, show_plot=False, get_fig_list=True)
 
@@ -816,7 +822,7 @@ def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_a
                           list(power_spect_eyes_closed[alpha_band_indexes_eyes_closed]) + list(
                               numpy.zeros(len(power_spect_eyes_closed[alpha_band_indexes_eyes_closed]))),
                           fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
-                          legend="Alpha Band 8-12 Hz")
+                          legend_label="Alpha Band 8-12 Hz")
 
     # Plotting of Alpha Band [Eyes Opened]
     list_figures[1].y_range = Range1d(0, 1.2 * maxPower)
@@ -825,7 +831,7 @@ def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_a
                           list(power_spect_eyes_opened[alpha_band_indexes_eyes_opened]) + list(
                               numpy.zeros(len(power_spect_eyes_opened[alpha_band_indexes_eyes_opened]))),
                           fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
-                          legend="Alpha Band 8-12 Hz")
+                          legend_label="Alpha Band 8-12 Hz")
 
     # Show figure.
     grid_plot_ref = gridplot([[list_figures[0], list_figures[1]]], **opensignals_kwargs("gridplot"))
@@ -1127,6 +1133,9 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
         Bokeh figure presenting the signal power spectrum and highlighting the informational band.
     """
 
+    # Retrocompatibility.
+    legend_label = legend
+
     # Generation of the HTML file where the plot will be stored.
     #file_name = _generate_bokeh_file(file_name)
 
@@ -1152,7 +1161,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     # Plotting of power spectrum
     list_figures.append(figure(x_axis_label='Frequency (Hz)', y_axis_label='Relative Weight', x_range=(x_lim[0], x_lim[-1]),
                                  y_range=(y_lim[0], y_lim[1]), **opensignals_kwargs("figure")))
-    list_figures[-1].line(freqs, power, legend=legend,
+    list_figures[-1].line(freqs, power, legend_label=legend_label,
                             **opensignals_kwargs("line"))
 
     # Highlighting of informational band
@@ -1160,7 +1169,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     box_annotation = BoxAnnotation(left=band_begin, right=band_end, fill_color=color,
                                    fill_alpha=0.1)
     list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1,
-                              legend="Informational Band")
+                              legend_label="Informational Band")
     list_figures[-1].add_layout(box_annotation)
 
     # # Determination of the maximum frequency
@@ -1172,7 +1181,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     #                                 fill_alpha=0.1)
     #
     # # Show of the plots with the rejection band
-    # list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1, legend="Rejected Band")
+    # list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1, legend_label="Rejected Band")
     # list_figures[-1].add_layout(box_annotations)
     # list_figures[-1].add_layout(Arrow(end=VeeHead(size=15, line_color=color, fill_color=color,
     #                                                 fill_alpha=0.1), line_color=color,
@@ -1297,7 +1306,7 @@ def plot_before_after_filter(signal, sr, band_begin, band_end, order=1, x_lim=[]
                 elif orientation == "vert":
                     list_figures.append([figure_after])
             else:
-                list_figures[-1][0].line(freqs_after, power_after, legend="Filtered FFT (Order " + str(i) + ")",
+                list_figures[-1][0].line(freqs_after, power_after, legend_label="Filtered FFT (Order " + str(i) + ")",
                                          **opensignals_kwargs("line"))
 
     # Show gridplot.
@@ -1380,7 +1389,7 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
 
 
     # Generation of a Bokeh figure with the opensignals style.
-    fig_list = plot([freqs / cutoff_freq]*len(gain_functions), gain_functions, legend=legend_strs,
+    fig_list = plot([freqs / cutoff_freq]*len(gain_functions), gain_functions, legend_label=legend_strs,
                     title="Filter Response", x_axis_label="Normalized Frequency",
                     y_axis_label="Gain (dB)", x_axis_type="log", x_range=(0.1, 40),
                     y_range=(-120, 5), show_plot=True, get_fig_list=True)
@@ -1390,7 +1399,7 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
     box_annotation = BoxAnnotation(left=0.1, right=1, top=0, bottom=-120,
                                    fill_color=color,
                                    fill_alpha=0.3)
-    fig_list[0].circle([-100], [0], fill_color=color, fill_alpha=0.3, legend="Ideal Filter Response")
+    fig_list[0].circle([-100], [0], fill_color=color, fill_alpha=0.3, legend_label="Ideal Filter Response")
     fig_list[0].add_layout(box_annotation)
 
     # Show figure.
@@ -1458,8 +1467,8 @@ def plot_compare_resolutions(time, signal_res_1, signal_res_2, sampling_rate, y_
 
     # Figure with the two plots
     figure_8_16 = figure(x_axis_label='Time (s)', y_axis_label=y_axis_label, **opensignals_kwargs("figure"))
-    figure_8_16.line(time, signal_res_1, legend="8 Bits Acquisition", **opensignals_kwargs("line"))
-    figure_8_16.line(time, signal_res_2, legend="16 Bits Acquisition", **opensignals_kwargs("line"))
+    figure_8_16.line(time, signal_res_1, legend_label="8 Bits Acquisition", **opensignals_kwargs("line"))
+    figure_8_16.line(time, signal_res_2, legend_label="16 Bits Acquisition", **opensignals_kwargs("line"))
 
     # Zoom window
     wind_start = int(sampling_rate * time_start)  # time_start seconds
@@ -1553,21 +1562,21 @@ def plot_resp_slow(signal, rect_signal, sample_rate):
     exhal_color = opensignals_color_pallet()
     for inhal_exhal in range(0, len(inhal_begin)):
         if inhal_exhal == 0:
-            legend = ["Inhalation", "Exhalation"]
+            legend_label = ["Inhalation", "Exhalation"]
         else:
-            legend = [None, None]
+            legend_label = [None, None]
 
         plot_aux.line(time[inhal_begin[inhal_exhal]:inhal_end[inhal_exhal]],
                   rect_signal_rev[inhal_begin[inhal_exhal]:inhal_end[inhal_exhal]],
-                  line_width=2, line_color=inhal_color, legend=legend[0])
+                  line_width=2, line_color=inhal_color, legend_label=legend_label[0])
 
         if inhal_exhal != len(inhal_begin) - 1:
             plot_aux.line(time[exhal_begin[inhal_exhal]:exhal_end[inhal_exhal]],
                       rect_signal_rev[exhal_begin[inhal_exhal]:exhal_end[inhal_exhal]],
-                      line_width=2, line_color=exhal_color, legend=legend[1])
+                      line_width=2, line_color=exhal_color, legend_label=legend_label[1])
         else:
             plot_aux.line(time[exhal_begin[inhal_exhal]:], rect_signal_rev[exhal_begin[inhal_exhal]:],
-                      line_width=2, line_color=exhal_color, legend=legend[1])
+                      line_width=2, line_color=exhal_color, legend_label=legend_label[1])
 
     # [axes labels]
     plot_aux.xaxis.axis_label = "Time (s)"
@@ -1667,7 +1676,7 @@ def plot_resp_diff(signal, rect_signal, sample_rate):
     figure_list[2].title = title
 
     figure_list[2].line(time, norm_signal, **opensignals_kwargs("line"))
-    figure_list[2].line(time[1:], smooth_norm_diff, legend="RIP 1st Derivative", **opensignals_kwargs("line"))
+    figure_list[2].line(time[1:], smooth_norm_diff, legend_label="RIP 1st Derivative", **opensignals_kwargs("line"))
 
     # [Plot of inhalation and exhalation segments]
     _inhal_exhal_segments(figure_list[2], list(time), list(norm_rect_signal), inhal_begin,
@@ -1754,13 +1763,13 @@ def plot_simple_threshold_algorithm(time, signal_smooth, binary_signal, sr, thre
     # plot of binary and smooth signal to visualize the activation and inactivation periods
     fig_list = plot([list(time), list(time), list(time), list(time)],
                      [list(numpy.array(binary_signal) * max(signal_smooth)), list(signal_smooth), list(thresh1),
-                      list(thresh2)], legend=["Activation Signal", "Smoothed Signal", "Threshold 1", "Threshold 2"],
+                      list(thresh2)], legend_label=["Activation Signal", "Smoothed Signal", "Threshold 1", "Threshold 2"],
                       grid_plot=False, opensignals_style=True, x_axis_label="Time (s)", y_axis_label="RAW Data Samples",
                       x_range=(11, 13), get_fig_list=True, show_plot=False)
     fig_list[0].circle(numpy.array(intersect_index_on) / sr, intersect_on, size=10, color="yellowgreen",
-                       legend="Onset")
+                       legend_label="Onset")
     fig_list[0].circle(numpy.array(intersect_index_off) / sr, intersect_off, size=10, color="darkorange",
-                       legend="Offset")
+                       legend_label="Offset")
     show(fig_list[0])
 
 
@@ -1820,24 +1829,24 @@ def _inhal_exhal_segments(fig, time, signal, inhal_begin, inhal_end, exhal_begin
     exhal_color = opensignals_color_pallet()
     for inhal_exhal in range(0, len(inhal_begin)):
         if inhal_exhal == 0:
-            legend = ["Respiration Suspension", "Normal Breath"]
+            legend_label = ["Respiration Suspension", "Normal Breath"]
         else:
-            legend = [None, None]
+            legend_label = [None, None]
 
         fig.line(time[inhal_begin[inhal_exhal]:inhal_end[inhal_exhal]],
                  signal[inhal_begin[inhal_exhal]:inhal_end[inhal_exhal]], line_width=2,
-                 line_color=inhal_color, legend=legend[0])
+                 line_color=inhal_color, legend_label=legend_label[0])
 
         if inhal_exhal != len(inhal_begin) - 1:
             fig.line(time[exhal_begin[inhal_exhal]:exhal_end[inhal_exhal]],
                      signal[exhal_begin[inhal_exhal]:exhal_end[inhal_exhal]], line_width=2,
-                     line_color=exhal_color, legend=legend[1])
+                     line_color=exhal_color, legend_label=legend_label[1])
             if inhal_exhal == 0:
                 fig.line(time[:inhal_begin[inhal_exhal]], signal[:inhal_begin[inhal_exhal]],
-                         line_width=2, line_color=exhal_color, legend=legend[1])
+                         line_width=2, line_color=exhal_color, legend_label=legend_label[1])
         else:
             fig.line(time[exhal_begin[inhal_exhal]:], signal[exhal_begin[inhal_exhal]:],
-                     line_width=2, line_color=exhal_color, legend=legend[1])
+                     line_width=2, line_color=exhal_color, legend_label=legend_label[1])
 
 
 # 07/11/2018  00h02m :)
