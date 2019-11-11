@@ -7,6 +7,7 @@ Jupyter Notebook.
 import os
 import shutil
 import nbformat
+import json
 
 from biosignalsnotebooks.notebook_files.cell_content_strings import HEADER, FOOTER, \
     DESCRIPTION_SIGNAL_SAMPLES, DESCRIPTION_GROUP_BY
@@ -24,7 +25,7 @@ DICT_GROUP_BY_TAG = {}
 # ===================== Inclusion of Header and Footer in each Notebook ============================
 # ==================================================================================================
 
-def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True):
+def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True, delete_old_files=False):
     # Storage of the current directory path.
     root = os.getcwd()
 
@@ -40,17 +41,18 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
         new_dir = current_dir + "\\" + var
 
         # Delete of old files if the directory was previously created.
-        if os.path.isdir(new_dir):
-            shutil.rmtree(new_dir)
+        if delete_old_files is True:
+            if os.path.isdir(new_dir):
+                shutil.rmtree(new_dir)
 
-        # Definition of the "source" folder to copy.
-        src = "..\\biosignalsnotebooks_notebooks\\" + var
+            # Definition of the "source" folder to copy.
+            src = "..\\biosignalsnotebooks_notebooks\\" + var
 
-        # Definition of the "destination" folder where the files will be stored after copying.
-        destination = new_dir
+            # Definition of the "destination" folder where the files will be stored after copying.
+            destination = new_dir
 
-        # Clone directory.
-        shutil.copytree(src, destination)
+            # Clone directory.
+            shutil.copytree(src, destination)
 
     # ======================== Copy of the original versions of Notebooks ==========================
     current_dir = os.getcwd() + "\\biosignalsnotebooks_environment\\categories"
@@ -58,10 +60,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
         list_files = os.listdir(current_dir + "\\" + category)
         for file in list_files:
             # Access to all Notebook files (with the extension .ipynb)
-            if file.endswith(".ipynb") and (file.split(".ipynb")[0] in list_notebooks or
-                                            "All" in list_notebooks) \
-                    and (file.split(".ipynb")[0] not in exclude_notebooks
-                         or "None" in exclude_notebooks):
+            if file.endswith(".ipynb") and (file.split(".ipynb")[0] not in exclude_notebooks or "None" in exclude_notebooks):
                 # Read of the current Notebook.
                 file_dir = current_dir + "\\" + category + "\\" + file
                 notebook = nbformat.read(file_dir, nbformat.NO_CONVERT)
@@ -70,31 +69,32 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
                 header_cell, footer_cell, title, nbr_stars, tags = _get_metadata(notebook, file,
                                                                                  category)
 
-                # Update or Insertion of header and footer.
-                # [Header]
-                header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".zip")
-                header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
+                if file.split(".ipynb")[0] in list_notebooks or "All" in list_notebooks:
+                    # Update or Insertion of header and footer.
+                    # [Header]
+                    header_rev = HEADER.replace("FILENAME", file.split(".")[0] + ".zip")
+                    header_rev = header_rev.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + category + "%2F" + file.split(".")[0] + ".dwipynb")
 
-                if header_cell is None:
-                    notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
-                    if footer_cell is not None:
-                        footer_cell += 1
-                else:
-                    notebook["cells"][header_cell] = nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}})
+                    if header_cell is None:
+                        notebook["cells"].insert(0, nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}}))
+                        if footer_cell is not None:
+                            footer_cell += 1
+                    else:
+                        notebook["cells"][header_cell] = nbformat.v4.new_markdown_cell(header_rev, **{"metadata": {"tags": ["header"]}})
 
-                # [Footer]
-                if footer_cell is None:
-                    notebook["cells"].append(nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}}))
-                else:
-                    notebook["cells"][footer_cell] = nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}})
+                    # [Footer]
+                    if footer_cell is None:
+                        notebook["cells"].append(nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}}))
+                    else:
+                        notebook["cells"][footer_cell] = nbformat.v4.new_markdown_cell(FOOTER, **{"metadata": {"tags": ["footer"]}})
 
-                # Generation of the Notebook with the header and footer.
-                nbformat.write(notebook, file_dir)
+                    # Generation of the Notebook with the header and footer.
+                    nbformat.write(notebook, file_dir)
 
-                # Run Notebook.
-                os.system("jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 "
-                          + file_dir)
-                os.system("jupyter trust " + file_dir)
+                    # Run Notebook.
+                    os.system("jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 "
+                              + file_dir)
+                    os.system("jupyter trust " + file_dir)
 
                 # Storage of Notebook metadata in global dictionaries.
                 if category != "MainFiles":
@@ -117,6 +117,12 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
     # ======================== Generate a Post-Build File for Binder ===============================
     # ==============================================================================================
     _generate_post_build_files()
+
+    # ==============================================================================================
+    # ========= Store the list of updated Notebooks (for the HTML generation script) ===============
+    # ==============================================================================================
+    with open(os.getcwd() + "\\biosignalsnotebooks_environment\\last_updated_nbs.json", 'w') as outfile:
+        json.dump({"updated_notebooks": list_notebooks}, outfile)
 
 # ==================================================================================================
 # ================================== Private Functions =============================================
@@ -227,7 +233,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["eeg_extract_alphaband"])
-run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
+run(list_notebooks=["unit_conversion_ACC", "synchronisation"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False)
 #run()
 
 # 29/11/2018  17h18m :)
