@@ -819,7 +819,7 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
 
                 nbr_notebooks = len(dict_by_tag[category.lower()])
                 markdown_cell += "\n\t<tr>" \
-                                 "\n\t\t<td rowspan='" + str(nbr_notebooks + 1) + "' class='center_cell open_cell_border_" + str(NOTEBOOK_KEYS[category]) + "'><span style='float:center'><img src='../../images/icons/" + category + ".png' class='icon' style='vertical-align:middle' alt='biosignalsnotebooks | " + category + " icon'></span> <span style='float:center' class='color" + str(NOTEBOOK_KEYS[category]) + "'>" + category + "</span></td>" \
+                                 "\n\t\t<td rowspan='" + str(nbr_notebooks + 1) + "' class='center_cell open_cell_border_" + str(NOTEBOOK_KEYS[category]) + "'><span style='float:center'><img src='../../images/icons/" + category + ".png' class='icon' style='vertical-align:middle' alt='biosignalsnotebooks | " + category + " icon'></span> <span style='float:center' class='color" + str(NOTEBOOK_KEYS[category]) + "'>" + category.replace("_", " ").replace("And", "and") + "</span></td>" \
                                  "\n\t\t<td class='center_cell color" + str(NOTEBOOK_KEYS[category]) + "_cell " + first_border + "'><span style='float:center'>" + category.replace("_", " ").replace("And", "and") + "</span></td>" \
                                  "\n\t\t<td class='center_cell gradient_color" + str(NOTEBOOK_KEYS[category]) + "'></td>" \
                                  "\n\t</tr>"
@@ -875,8 +875,8 @@ def _generate_github_readme(notebook_object, dict_by_tag):
              "Understand": "https://i.ibb.co/MnhRRQT/Understand.png",
              "Visualise": "https://i.ibb.co/wh4HKzf/Visualise.png",
              "Other": "https://i.ibb.co/ry9BzhV/Other.png",
-             "Install": "https://i.ibb.co/4fBR4Q3/Install.png",
-             "Connect": "https://i.ibb.co/3yDZpxC/Connect.png"}
+             "Install": "https://i.ibb.co/LgrhTz9/Install.png",
+             "Connect": "https://i.ibb.co/8cNpQFM/Connect.png"}
 
     # =========================== biosignalsnotebooks website ======================================
     biosignalsnotebooks_web = "http://www.biosignalsplux.com/notebooks/Categories/"

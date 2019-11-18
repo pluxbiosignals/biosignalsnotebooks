@@ -10,3 +10,4 @@ sty
 novainstrumentation
 pywt
 scikit-learn
+statsmodels
