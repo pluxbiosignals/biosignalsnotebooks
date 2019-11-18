@@ -57,10 +57,14 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
     # ======================== Copy of the original versions of Notebooks ==========================
     current_dir = os.getcwd() + "\\biosignalsnotebooks_environment\\categories"
     for category in list(NOTEBOOK_KEYS.keys()):
-        list_files = os.listdir(current_dir + "\\" + category)
+        src = "..\\biosignalsnotebooks_notebooks\\categories\\" + category
+        list_files = os.listdir(src)
         for file in list_files:
             # Access to all Notebook files (with the extension .ipynb)
             if file.endswith(".ipynb") and (file.split(".ipynb")[0] not in exclude_notebooks or "None" in exclude_notebooks):
+                # Copy file if it is not already in the destination folder.
+                shutil.copyfile(src + "\\" + file, current_dir + "\\" + category + "\\" + file)
+
                 # Read of the current Notebook.
                 file_dir = current_dir + "\\" + category + "\\" + file
                 notebook = nbformat.read(file_dir, nbformat.NO_CONVERT)
@@ -233,7 +237,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["eeg_extract_alphaband"])
-run(list_notebooks=["unit_conversion_ACC", "synchronisation"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False)
+run(list_notebooks=["biosignal_classification"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False)
 #run()
 
 # 29/11/2018  17h18m :)

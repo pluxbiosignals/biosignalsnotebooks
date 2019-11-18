@@ -121,8 +121,11 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php'> EMG Analysis - Time and Frequency Parameters </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_orange_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
+		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/biosignal_classification_rev.php' target='_blank'> Signal Classifier - Distinguish between EMG and ECG </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_orange_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_volume_1_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 1] </a> </td>
