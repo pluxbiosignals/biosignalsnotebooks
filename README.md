@@ -33,7 +33,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
         <td width="80%"></td>
     </tr>
 	<tr>
-		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/yWPZjs0/Install.png' width='50%' align='center'></p></td>
+		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/LgrhTz9/Install.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_anaconda_rev.php' target='_blank'> Download, Install and Execute Anaconda </a> </td>
 	</tr>
 	<tr>
