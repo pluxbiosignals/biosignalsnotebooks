@@ -69,6 +69,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Record/sampling_rate_and_aliasing.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Record/store_signals_after_acquisition.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Train_And_Classify/biosignal_classification.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Train_And_Classify/biosignal_classification.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_orange.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_1.ipynb
