@@ -57,9 +57,9 @@ HEADER = """<table width="100%">
 
 DESCRIPTION_SIGNAL_SAMPLES = """With <strong>PLUX</strong> acquisition systems, a vast set of physiological signals can be acquired.
 
-All the signals that were used in <strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> notebooks have been collected with <strong>bitalino</strong> or <strong>biosignalsplux</strong>, being this page a resource where relevant characteristics of each acquisition are presented, together with a temporal segment of the signal."""
+All the signals that were used in <strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> notebooks have been collected with <strong>BITalino</strong> or <strong>biosignalsplux</strong>, being this page a resource where relevant characteristics of each acquisition are presented, together with a temporal segment of the signal."""
 
-DESCRIPTION_GROUP_BY = """Each Notebook content is summarized in his header through a quantitative scale ('"Difficulty" between 1 and 5 stars) and some keywords (Group of "tags").
+DESCRIPTION_GROUP_BY = """Each Notebook content is summarized in his header through a quantitative scale ("Difficulty" between 1 and 5 stars) and some keywords (Group of "tags").
 
 Grouping Notebooks by difficulty level, by signal type to which it applies or by tags is an extremelly important task, in order to ensure that the <strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> user could navigate efficiently in this learning environment.
 """
@@ -94,7 +94,7 @@ OPEN_IMAGE = """<link rel="stylesheet" href="../../styles/theme_style.css">
 
 DESCRIPTION_CATEGORY = """<br><strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> (<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf">see project presentation<img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>) is a set of documents and a <strong><span class="color1">Python</span></strong> library to provide programming examples in the form of <strong><span class="color5">Jupyter Notebooks</span></strong>, as companion to the <strong><span style="color:#009EE3">OpenSignals</span></strong> biosignals acquisition tools.
 
-This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as <strong>bitalino</strong> or <strong>biosignalsplux</strong>, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
+This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as <strong>BITalino</strong> or <strong>biosignalsplux</strong>, and to the researcher or student interested on recording, processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
 
 A <strong><span class="color1">Python</span></strong> library (entitled <strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> ) is the base toolbox to support the notebooks and to provide some useful functionalities. It can be installed through pip command, like demonstrated in a <a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">PyPI <img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a> dedicated page.
 
@@ -105,7 +105,7 @@ The notebooks will cover the full topics pipeline of working with biosignals, su
 These examples are carried in a multitude of biosignals , from ECG, EDA, EMG, Accelerometer, Respiration among many others.
 The notebooks have a set of labels to help navigate among topics <a href="../MainFiles/by_tag.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="../MainFiles/by_signal_type.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="../MainFiles/biosignalsnotebooks.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="../MainFiles/by_diff.ipynb"><img src="../../images/icons/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
 
-We encourage you to share new example ideas, to pose questions info@plux.info, and to make improvements or suggestion to this set of notebooks.
+We encourage you to share new example ideas, to pose questions <a href="mailto:biosignalsnotebooks@plux.info">biosignalsnotebooks@plux.info</a>, and to make improvements or suggestion to this set of notebooks.
 
 <strong>Be inspired on how to make the most of your biosignals!</strong>
 
