@@ -6,7 +6,7 @@ python-magic
 wget
 datetime
 libmagic
-bokeh
+bokeh>=1.4.0
 scipy
 IPython
 pandas

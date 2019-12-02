@@ -9,7 +9,7 @@
 
 **<span style="color:#009EE3">biosignalsnotebooks</span>** is a set of documents and a **<span style="color: #62C3EE">Python</span>** library to provide programming examples in the form of **<span style="color:#72BE94">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
 
-This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **BITalino** or **biosignalsplux**, and to the researcher or student interested on recording, processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
+This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **bitalino** or **biosignalsplux**, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
 
 A **<span style="color: #62C3EE">Python</span>** library (entitled **<span style="color:#009EE3">biosignalsnotebooks</span>** ) is the base toolbox to support the notebooks and to provide some useful functionalities. It can be installed through pip command, like demonstrated in a [PyPI <img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline">](https://pypi.org/project/biosignalsnotebooks/) dedicated page.
 
@@ -20,7 +20,7 @@ The notebooks will cover the full topics pipeline of working with biosignals, su
 These examples are carried in a multitude of biosignals , from ECG, EDA, EMG, Accelerometer, Respiration among many others.
 The notebooks have a set of labels to help navigate among topics <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_tag_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_diff_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
 
-We encourage you to share new example ideas, to pose questions <a href="mailto:biosignalsnotebooks@plux.info">biosignalsnotebooks@plux.info</a>, and to make improvements or suggestion to this set of notebooks.
+We encourage you to share new example ideas, to pose questions info@plux.info, and to make improvements or suggestion to this set of notebooks.
 
 **Be inspired on how to make the most of your biosignals!**
 
@@ -76,7 +76,7 @@ We encourage you to share new example ideas, to pose questions <a href="mailto:b
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='11'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='12'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
@@ -90,6 +90,9 @@ We encourage you to share new example ideas, to pose questions <a href="mailto:b
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchronisation_rev.php'> Device Synchronisation - Cable, Light and Sound Approaches </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchrony_acc_rev.php'> Synchrony - Accelerometer Signal </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ACC_rev.php'>ACC Sensor - Unit Conversion </a> </td>

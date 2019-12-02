@@ -9,7 +9,7 @@ from sys import platform
 
 # Adjust requirements accordingly to the operating system.
 requirements = ['numpy', 'matplotlib', 'scipy', 'h5py', 'python-magic', 'wget', 'datetime',
-      'libmagic', 'bokeh', 'scipy', 'IPython', 'pandas', 'nbformat', 'ipython',
+      'libmagic', 'bokeh>=1.4.0', 'scipy', 'IPython', 'pandas', 'nbformat', 'ipython',
       'python-magic-bin;platform_system!="Linux"', 'requests']
 
 # read the contents of your README file
@@ -19,7 +19,7 @@ with open(path.join(this_directory, 'README_BSNB.md'), encoding='utf-8') as f:
 
 
 setup(name='biosignalsnotebooks',
-      version='0.5.8',#major.minor.build_nbr
+      version='0.5.10',#major.minor.build_nbr
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,
