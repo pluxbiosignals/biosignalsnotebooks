@@ -33,14 +33,14 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
         <td width="80%"></td>
     </tr>
 	<tr>
-		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/4fBR4Q3/Install.png' width='50%' align='center'></p></td>
+		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/LgrhTz9/Install.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_anaconda_rev.php' target='_blank'> Download, Install and Execute Anaconda </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Install/prepare_jupyter_rev.php'> Download, Install and Execute Jupyter Notebook Environment </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/3yDZpxC/Connect.png' width='50%' align='center'></p></td>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/8cNpQFM/Connect.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Connect/pairing_device_rev.php' target='_blank'> Pairing a Device at Windows 10 [biosignalsplux] </a> </td>
 	</tr>
 	<tr>
@@ -76,23 +76,26 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='11'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/bvp_analysis_rev.php' target='_blank'> BVP Signal Analysis - A Complete Tour </a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
+		<td rowspan='12'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_eeg_rev.php'> Digital Filtering - EEG </a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/eda_analysis_rev.php'> EDA Signal Analysis - A Complete Tour </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.php'>Fatigue Evaluation - Evolution of Median Power Frequency</a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/generation_of_time_axis_rev.php'> Generation of a time axis (conversion of samples into seconds) </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchronisation_rev.php'> Device Synchronisation - Cable, Light and Sound Approaches </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchrony_acc_rev.php'> Synchrony - Accelerometer Signal </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ACC_rev.php'>ACC Sensor - Unit Conversion </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ecg_rev.php'>ECG Sensor - Unit Conversion </a> </td>
@@ -107,7 +110,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_fNIRS_rev.php'>fNIRS Sensor - Unit Conversion </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/time_of_flight_rev.php'> Calculate Time of Flight </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_SpO2_rev.php'>SpO2 Sensor - Unit Conversion </a> </td>
 	</tr>
 	<tr>
 		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/rymrvFL/Detect.png' width='50%' align='center'></p></td>
@@ -117,18 +120,18 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/r_peaks_rev.php'> Event Detection - R Peaks (ECG) </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
+		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/eeg_extract_alphaband_rev.php' target='_blank'> EEG - Alpha Band Extraction </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php'> EMG Analysis - Time and Frequency Parameters </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/time_of_flight_rev.php'> Calculate Time of Flight </a> </td>
+		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/biosignal_classification_rev.php' target='_blank'> Signal Classifier - Distinguish between EMG and ECG </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_orange_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_orange_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Orange] </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_volume_1_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 1] </a> </td>
@@ -142,10 +145,6 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	<tr>
 		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/yfwcy2M/Evaluate.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_4_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
-	</tr>
-	<tr>
-		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/emg_overview_rev.php' target='_blank'> EMG - Overview </a> </td>
 	</tr>
 </table>
 
