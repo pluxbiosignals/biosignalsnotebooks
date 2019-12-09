@@ -25,7 +25,7 @@ DICT_GROUP_BY_TAG = {}
 # ===================== Inclusion of Header and Footer in each Notebook ============================
 # ==================================================================================================
 
-def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True, delete_old_files=False):
+def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True, delete_old_files=False, new_notebooks_list=[]):
     # Storage of the current directory path.
     root = os.getcwd()
 
@@ -115,7 +115,7 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
     # ==============================================================================================
     # ============================ Generate "Group by ..." Pages ===================================
     # ==============================================================================================
-    _generate_group_by_pages(signal_samples=signal_samples_flag)
+    _generate_group_by_pages(signal_samples=signal_samples_flag, new_notebooks_list=new_notebooks_list)
 
     # ==============================================================================================
     # ======================== Generate a Post-Build File for Binder ===============================
@@ -178,13 +178,13 @@ def _get_metadata(notebook, filename, category):
     return header_cell, footer_cell, title, nbr_stars, tags
 
 
-def _generate_group_by_pages(signal_samples=True):
+def _generate_group_by_pages(signal_samples=True, new_notebooks_list=[]):
     file_path = os.getcwd() + "\\biosignalsnotebooks_environment"
 
     # Generation of biosignalsnotebooks environment main files.
     filename = "biosignalsnotebooks"
     main_page = notebook("Main_Files_By_Category", dict_by_difficulty=DICT_GROUP_BY_DIFF,
-                         dict_by_tag=DICT_GROUP_BY_TAG, notebook_file=filename)
+                         dict_by_tag=DICT_GROUP_BY_TAG, notebook_file=filename, new_notebooks=new_notebooks_list)
     main_page.write_to_file(file_path, filename)
 
     filename = "by_diff"
@@ -237,7 +237,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["eeg_extract_alphaband"])
-#run(list_notebooks=["eeg_detect_erp"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False)
-run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
+run(list_notebooks=["resolution"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["resolution"])
+#run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
 
 # 29/11/2018  17h18m :)

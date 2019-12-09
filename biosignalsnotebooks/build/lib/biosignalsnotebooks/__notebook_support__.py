@@ -65,7 +65,7 @@ from IPython.core.display import HTML
 from bokeh.plotting import figure, show, save
 from bokeh.models.annotations import Title
 from bokeh.io import output_notebook
-from bokeh.layouts import gridplot
+from bokeh.layouts import gridplot, layout
 from bokeh.models import BoxAnnotation, Arrow, VeeHead, Range1d, LinearAxis
 output_notebook(hide_banner=True)
 
@@ -1487,7 +1487,8 @@ def plot_compare_resolutions(time, signal_res_1, signal_res_2, sampling_rate, y_
 
     # Show gridplot.
     opensignals_style([figure_8, figure_16, figure_8_16])
-    grid_plot = gridplot([[figure_8_16], [figure_8, figure_16]], **opensignals_kwargs("gridplot"))
+    #grid_plot = gridplot([[figure_8_16], [figure_8, figure_16]], **opensignals_kwargs("gridplot"))
+    grid_plot = layout(children=[[figure_8_16], [figure_8, figure_16]], sizing_mode="scale_width")
     show(grid_plot)
 
 

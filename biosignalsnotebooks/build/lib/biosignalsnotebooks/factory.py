@@ -37,7 +37,7 @@ NOTEBOOK_KEYS = {"Install": 13, "Connect": 14, "Record": 2, "Load": 1, "Visualis
 class notebook:
     def __init__(self, notebook_type=None, notebook_title="Notebook Title", tags="tags",
                  difficulty_stars=1, notebook_description="Notebook Description",
-                 dict_by_difficulty=None, dict_by_tag=None, notebook_file=None):
+                 dict_by_difficulty=None, dict_by_tag=None, notebook_file=None, new_notebooks=[]):
         """
         -----
         Brief
@@ -105,6 +105,9 @@ class notebook:
 
         notebook_file : str
             Notebook filename.
+
+        new_notebooks : list
+            List containing the set of NEW notebooks where the "NEW" tag will be added.
         """
 
         # ========================= Initialisation of Object variables =============================
@@ -129,7 +132,7 @@ class notebook:
         elif notebook_type == "Main_Files_By_Category":
             self.notebook_type = "MainFiles"
             _generate_header(self.notebook, self.notebook_type, notebook_file)
-            _generate_notebooks_by_category(self.notebook, dict_by_tag)
+            _generate_notebooks_by_category(self.notebook, dict_by_tag, new_notebooks=new_notebooks)
             if os.path.exists("../biosignalsnotebooks_notebooks"):
                 _generate_github_readme(self.notebook, dict_by_tag)
 
@@ -778,7 +781,7 @@ def _generate_notebook_by_tag_body(notebook_object, dict_by_tag):
             notebook_object["cells"].append(nb.v4.new_markdown_cell(markdown_cell))
 
 
-def _generate_notebooks_by_category(notebook_object, dict_by_tag):
+def _generate_notebooks_by_category(notebook_object, dict_by_tag, new_notebooks=[]):
     """
     Internal function that is used for generation of the page "Notebooks by Category".
 
@@ -792,6 +795,9 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
         Dictionary where each key is a tag and the respective value will be a list containing the
         Notebooks (title and filename) that include this tag.
 
+    new_notebooks : list
+        List containing the set of NEW notebooks where the "NEW" tag will be added.
+
     """
 
     # ============================ Insertion of an opening text ====================================
@@ -804,7 +810,8 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
     markdown_cell += """\n<table id="notebook_list" width="100%">
     <tr>
         <td width="20%" class="center_cell group_by_header_grey"> Category </td>
-        <td width="60%" class="center_cell group_by_header"></td>
+        <td width="55%" class="center_cell group_by_header"></td>
+        <td width="5%"></td>
         <td width="20%" class="center_cell"></td>
     </tr>"""
 
@@ -820,7 +827,7 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
                 nbr_notebooks = len(dict_by_tag[category.lower()])
                 markdown_cell += "\n\t<tr>" \
                                  "\n\t\t<td rowspan='" + str(nbr_notebooks + 1) + "' class='center_cell open_cell_border_" + str(NOTEBOOK_KEYS[category]) + "'><span style='float:center'><img src='../../images/icons/" + category + ".png' class='icon' style='vertical-align:middle' alt='biosignalsnotebooks | " + category + " icon'></span> <span style='float:center' class='color" + str(NOTEBOOK_KEYS[category]) + "'>" + category.replace("_", " ").replace("And", "and") + "</span></td>" \
-                                 "\n\t\t<td class='center_cell color" + str(NOTEBOOK_KEYS[category]) + "_cell " + first_border + "'><span style='float:center'>" + category.replace("_", " ").replace("And", "and") + "</span></td>" \
+                                 "\n\t\t<td colspan='2' class='center_cell color" + str(NOTEBOOK_KEYS[category]) + "_cell " + first_border + "'><span style='float:center'>" + category.replace("_", " ").replace("And", "and") + "</span></td>" \
                                  "\n\t\t<td class='center_cell gradient_color" + str(NOTEBOOK_KEYS[category]) + "'></td>" \
                                  "\n\t</tr>"
 
@@ -835,8 +842,12 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag):
                     notebook_name = split_path[-1].split("&")[0]
                     notebook_title = split_path[-1].split("&")[1]
                     markdown_cell += "\n\t<tr " + last_border + ">" \
-                                     "\n\t\t<td class='center_cell open_cell_light'> <a href='../" + category + "/" + notebook_name + "'>" + notebook_title + "</a> </td>" \
-                                     "\n\t\t<td class='center_cell'> <a href='../" + category + "/" + notebook_name + "'><div class='file_icon'></div></a> </td>" \
+                                     "\n\t\t<td class='center_cell open_cell_light' style='padding-left:5%'> <a href='../" + category + "/" + notebook_name + "'>" + notebook_title + "</a> </td>"
+                    if notebook_name.split(".")[0] in new_notebooks:
+                        markdown_cell += "\n\t\t<td class='center_cell back_color_" + str(NOTEBOOK_KEYS[category]) + "'>NEW</td>"
+                    else:
+                        markdown_cell += "\n\t\t<td class='center_cell open_cell_light'></td>"
+                    markdown_cell += "\n\t\t<td class='center_cell open_cell_light'> <a href='../" + category + "/" + notebook_name + "'><div class='file_icon'></div></a> </td>" \
                                      "\n\t</tr>"
 
     markdown_cell += "\n</table>"
