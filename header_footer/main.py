@@ -237,7 +237,7 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["eeg_extract_alphaband"])
-run(list_notebooks=["synchrony_acc"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False)
-#run()
+#run(list_notebooks=["eeg_detect_erp"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False, delete_old_files=False)
+run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
 
 # 29/11/2018  17h18m :)

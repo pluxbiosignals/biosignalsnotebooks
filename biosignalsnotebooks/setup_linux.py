@@ -18,7 +18,7 @@ with open(path.join(this_directory, 'README_BSN.md')) as f:
 
 
 setup(name='biosignalsnotebooks',
-      version='0.5.10',#major.minor.build_nbr
+      version='0.5.12',#major.minor.build_nbr
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,

@@ -44,6 +44,7 @@ None
 
 import numpy
 from scipy.signal import filtfilt, butter, lfilter
+from .aux_functions import _interpolated_segments
 from .detect import tachogram
 from .visualise import plot
 
@@ -422,4 +423,10 @@ def bandpass(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
     return lfilter(b, a, s)
 
 
+def mean_wave(segments):
+    segments = _interpolated_segments(segments)
+    organized_segment = segments.copy().T
+    mean_wave = [numpy.mean(seg) for seg in organized_segment]
+
+    return mean_wave
 # 25/09/2018 18h58m :)

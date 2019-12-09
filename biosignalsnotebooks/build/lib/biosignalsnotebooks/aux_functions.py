@@ -40,6 +40,7 @@ import numpy
 import scipy.signal as scisign
 from inspect import signature
 from warnings import warn
+from scipy.interpolate import interp1d
 import time as time_package
 import os
 from bokeh.plotting import output_file
@@ -483,5 +484,34 @@ def _generate_download_google_link(link):
         file_id = split_link[-1]
 
     return "https://drive.google.com/uc?export=download&id=" + file_id
+
+
+def _interpolate(segment, segment1):
+    if len(segment) > len(segment1):
+        new_array = segment1
+        original_array = segment
+    elif len(segment) < len(segment1):
+        new_array = segment
+        original_array = segment1
+    else:
+        return segment, segment1
+
+    x = range(len(new_array))
+    y = new_array
+    xnew = numpy.linspace(0, x[-1], num=len(original_array), endpoint=True)
+    new_array = interp1d(x, y, kind='linear')(xnew)
+
+    return new_array, original_array
+
+
+def _interpolated_segments(segments):
+    index = numpy.array([len(i) for i in segments]).argmax()
+    interpolated_segments = segments.copy()
+    for i, seg in enumerate(segments):
+        interpolated_segments[i] = _interpolate(seg, segments[index].copy())[0]
+
+    interpolated_segments = numpy.vstack(interpolated_segments)
+
+    return interpolated_segments
 
 # 01/10/2018 19h19m :)

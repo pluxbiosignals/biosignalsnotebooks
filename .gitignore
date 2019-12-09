@@ -1,3 +1,11 @@
 /header_footer/biosignalsnotebooks_environment
 .ipynb_checkpoints
 /biosignalsnotebooks_notebooks/unpublished_notebooks/Other/root
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Other/eda_analysis.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Other/bvp_analysis.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/dataload_eeg_physionet.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_eeg.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_emg.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_fNIRS.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_SpO2.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Detect/eeg_detect_erp.ipynb

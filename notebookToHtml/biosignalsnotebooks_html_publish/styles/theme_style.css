@@ -105,8 +105,8 @@ background-color: rgba(98,195,238,0.20) !important;
 border-top:solid 3px #FDC400 !important;
 }
 .gradient_color1 {
-/*background-image: linear-gradient(to right, rgba(98,195,238,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #62C3EE inset !important;
+background-image: linear-gradient(to right, rgba(98,195,238,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #62C3EE inset !important;*/
 }
 
 .color2{
@@ -121,8 +121,8 @@ color: black !important;
 background-color: rgba(0,158,227,0.20) !important;
 }
 .gradient_color2 {
-/*background-image: linear-gradient(to right, rgba(0,158,227,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #009EE3 inset !important;
+background-image: linear-gradient(to right, rgba(0,158,227,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #009EE3 inset !important;*/
 }
 
 .color3{
@@ -137,8 +137,8 @@ color: black !important;
 background-color: rgba(175,225,246,0.20) !important;
 }
 .gradient_color3 {
-/*background-image: linear-gradient(to right, rgba(175,225,246,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #AFE1F6 inset !important;
+background-image: linear-gradient(to right, rgba(175,225,246,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #AFE1F6 inset !important;*/
 }
 
 .color4{
@@ -153,8 +153,8 @@ color: black !important;
 background-color: rgba(148,193,30,0.20) !important;
 }
 .gradient_color4 {
-/*background-image: linear-gradient(to right, rgba(148,193,30,0.20), white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #94C11E inset !important;
+background-image: linear-gradient(to right, rgba(148,193,30,0.50), white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #94C11E inset !important;*/
 }
 
 .color5{
@@ -169,8 +169,8 @@ color: black !important;
 background-color: rgba(180,212,99,0.20) !important;
 }
 .gradient_color5 {
-/*background-image: linear-gradient(to right, rgba(180,212,99,0.20), white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #B4D463 inset !important;
+background-image: linear-gradient(to right, rgba(180,212,99,0.50), white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #B4D463 inset !important;*/
 }
 
 .color6{
@@ -185,8 +185,8 @@ color: black !important;
 background-color: rgba(222,235,185,0.20) !important;
 }
 .gradient_color6 {
-/*background-image: linear-gradient(to right, rgba(222,235,185,0.20), white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #DEEBB9 inset !important;
+background-image: linear-gradient(to right, rgba(222,235,185,0.50), white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #DEEBB9 inset !important;*/
 }
 
 .color7{
@@ -201,8 +201,8 @@ color: black !important;
 background-color: rgba(232,77,14,0.20) !important;
 }
 .gradient_color7 {
-/*background-image: linear-gradient(to right, rgba(232,77,14,0.20), white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #E84D0E inset !important;
+background-image: linear-gradient(to right, rgba(232,77,14,0.50), white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #E84D0E inset !important;*/
 }
 
 .color8{
@@ -217,8 +217,8 @@ color: black !important;
 background-color: rgba(241,143,105,0.20) !important;
 }
 .gradient_color8 {
-/*background-image: linear-gradient(to right, rgba(241,143,105,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #F18F69 inset !important;
+background-image: linear-gradient(to right, rgba(241,143,105,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #F18F69 inset !important;*/
 }
 
 .color9{
@@ -245,8 +245,8 @@ color: black !important;
 background-color: rgba(248,208,190,0.20) !important;
 }
 .gradient_color12 {
-/*background-image: linear-gradient(to right, rgba(248,208,190,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #F8D0BE inset !important;
+background-image: linear-gradient(to right, rgba(248,208,190,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #F8D0BE inset !important;*/
 }
 
 .color13{
@@ -261,8 +261,8 @@ color: black !important;
 background-color: rgba(253,196,0,0.20) !important;
 }
 .gradient_color13 {
-/*background-image: linear-gradient(to right, rgba(253,196,0,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #FDC400 inset !important;
+background-image: linear-gradient(to right, rgba(253,196,0,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #FDC400 inset !important;*/
 }
 
 .color14{
@@ -277,8 +277,8 @@ color: black !important;
 background-color: rgba(253,220,105,0.20) !important;
 }
 .gradient_color14 {
-/*background-image: linear-gradient(to right, rgba(253,220,105,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #FDDC69 inset !important;
+background-image: linear-gradient(to right, rgba(253,220,105,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #FDDC69 inset !important;*/
 }
 
 .color15{
@@ -293,8 +293,8 @@ color: black !important;
 background-color: rgba(232,77,14,0.20) !important;
 }
 .gradient_color15 {
-/*background-image: linear-gradient(to right, rgba(232,77,14,0.20) , white) !important;*/
-box-shadow:0pt -2pt 0pt 0pt #BFBFBF inset !important;
+background-image: linear-gradient(to right, rgba(232,77,14,0.50) , white) !important;
+/*box-shadow:0pt -2pt 0pt 0pt #BFBFBF inset !important;*/
 }
 
 .open_cell_light{
