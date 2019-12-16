@@ -9,7 +9,7 @@
 
 **<span style="color:#009EE3">biosignalsnotebooks</span>** is a set of documents and a **<span style="color: #62C3EE">Python</span>** library to provide programming examples in the form of **<span style="color:#72BE94">Jupyter Notebooks</span>**, as companion to the **<span style="color:#009EE3">OpenSignals</span>** biosignals acquisition tools.
 
-This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **bitalino** or **biosignalsplux**, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
+This collection of code samples has the purpose to help users of PLUX Wireless Biosignals systems, such as **BITalino** or **biosignalsplux**, and to the researcher or student interested on recording processing and classifying biosignals. The examples are set on a level of complexity to inspire the users and programmers on how easy some tasks are and that more complex ones can also be achieved, by reusing and recreating some of the examples presented here.
 
 A **<span style="color: #62C3EE">Python</span>** library (entitled **<span style="color:#009EE3">biosignalsnotebooks</span>** ) is the base toolbox to support the notebooks and to provide some useful functionalities. It can be installed through pip command, like demonstrated in a [PyPI <img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline">](https://pypi.org/project/biosignalsnotebooks/) dedicated page.
 
@@ -76,7 +76,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.php'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='12'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='13'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
@@ -93,6 +93,9 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchrony_acc_rev.php'> Synchrony - Accelerometer Signal </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchrony_light_rev.php'> Synchrony - Light Signal </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_ACC_rev.php'>ACC Sensor - Unit Conversion </a> </td>
@@ -155,9 +158,9 @@ that integrate wearable body sensors combined with wireless connectivity, algori
 
 We have been perusing the mission of making biosignals as accessible as possible to researchers and students in many areas of application, ranging from biomedical engineering, computer science, human computer interaction, sport sciences, psychology, clinical research among other fields.
 
-## Plux's Software and Hardware Environment
+## PLUX's Software and Hardware Environment
 
-[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *Plux* devices ([**bitalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
+[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to **PLUX** devices ([**BITalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected form other devices.
 
 In some cases **OpenSignals** provides [*plugins*](http://biosignalsplux.com/en/software/add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
 
