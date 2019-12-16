@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/biosignalsnotebooks-0.5.12-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/biosignalsnotebooks-0.5.12-py3.7.egg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_SpO2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_SpO2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/download_file_name.h5" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/download_file_name.h5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/resolution.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/styles/theme_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../header_footer/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/aux_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="8177">
               <caret line="488" column="4" selection-start-line="488" selection-start-column="4" selection-end-line="488" selection-end-column="4" />
               <folding>
                 <element signature="e#1341#1353#0" expanded="true" />
@@ -75,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/visualise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="13498">
               <caret line="803" column="48" selection-start-line="803" selection-start-column="14" selection-end-line="803" selection-end-column="48" />
               <folding>
                 <element signature="e#1071#1087#0" expanded="true" />
@@ -84,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="1488" column="26" selection-start-line="1488" selection-start-column="26" selection-end-line="1488" selection-end-column="26" />
+            <state relative-caret-position="399">
+              <caret line="730" column="24" selection-start-line="730" selection-start-column="20" selection-end-line="730" selection-end-column="24" />
               <folding>
                 <element signature="e#1934#1973#0" expanded="true" />
               </folding>
@@ -96,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/factory.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="433">
@@ -344,7 +309,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../header_footer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -482,6 +447,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-276" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -704,6 +670,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/notebook_files/github/README_TEMPLATE.md">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="85">
@@ -712,7 +679,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/bokeh/plotting/figure.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -739,10 +705,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setup_linux.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/aux_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8177">
+          <caret line="488" column="4" selection-start-line="488" selection-start-column="4" selection-end-line="488" selection-end-column="4" />
+          <folding>
+            <element signature="e#1341#1353#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/visualise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13498">
+          <caret line="803" column="48" selection-start-line="803" selection-start-column="14" selection-end-line="803" selection-end-column="48" />
+          <folding>
+            <element signature="e#1071#1087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/__setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding>
+            <element signature="e#103#131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -773,59 +776,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/aux_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="488" column="4" selection-start-line="488" selection-start-column="4" selection-end-line="488" selection-end-column="4" />
-          <folding>
-            <element signature="e#1341#1353#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup_linux.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding>
-            <element signature="e#103#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/visualise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="803" column="48" selection-start-line="803" selection-start-column="14" selection-end-line="803" selection-end-column="48" />
-          <folding>
-            <element signature="e#1071#1087#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="1488" column="26" selection-start-line="1488" selection-start-column="26" selection-end-line="1488" selection-end-column="26" />
-          <folding>
-            <element signature="e#1934#1973#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/factory.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
           <caret line="848" column="86" selection-start-line="848" selection-start-column="86" selection-end-line="848" selection-end-column="86" />
           <folding>
             <element signature="e#117#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="730" column="24" selection-start-line="730" selection-start-column="20" selection-end-line="730" selection-end-column="24" />
+          <folding>
+            <element signature="e#1934#1973#0" expanded="true" />
           </folding>
         </state>
       </provider>

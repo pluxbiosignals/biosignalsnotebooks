@@ -115,7 +115,7 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
             for notebook in nbList:
                 os.chdir(projectAbsPath)
                 if notebook.endswith(".ipynb") and "Template" not in notebook: # Only .ipynb files will be processed.
-                    if (use_json_update_list is True and notebook.split(".ipynb")[0] in list_updated_notebooks) or use_json_update_list is False or category == "MainFiles":
+                    if (use_json_update_list is True and notebook.split(".ipynb")[0] in list_updated_notebooks) or use_json_update_list is False or category == "MainFiles" or "All" in list_updated_notebooks:
                         # Copy of .ipynb file to the output file hierarchy.
                         copyfile(filePath + "/" + category + "/" + notebook,
                                  path_temp + "\\" + notebook)
