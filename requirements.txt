@@ -8,6 +8,7 @@ jupyter_contrib_nbextensions
 nbconvert
 sty
 novainstrumentation
-pywt
+PyWavelets
 scikit-learn
+seaborn
 statsmodels
