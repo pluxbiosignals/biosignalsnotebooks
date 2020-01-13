@@ -363,7 +363,7 @@ def opensignals_hierarchy(root=None, update=False, clone=False):
             os.makedirs(current_dir + "/" + category)
             if category == "MainFiles":
                 # Copy aux folder.
-                src = "../biosignalsnotebooks_notebooks/Categories/MainFiles/aux_files"
+                src = package_path + "notebook_files/osf_files/aux_folders/" + category + "/aux_files"
                 shutil.copytree(src, current_dir + "/" + category + "/aux_files")
 
     # if clone is True:

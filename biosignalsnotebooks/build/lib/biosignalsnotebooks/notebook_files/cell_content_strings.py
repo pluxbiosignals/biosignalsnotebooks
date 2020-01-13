@@ -59,7 +59,7 @@ DESCRIPTION_SIGNAL_SAMPLES = """With <strong>PLUX</strong> acquisition systems, 
 
 All the signals that were used in <strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> notebooks have been collected with <strong>BITalino</strong> or <strong>biosignalsplux</strong>, being this page a resource where relevant characteristics of each acquisition are presented, together with a temporal segment of the signal."""
 
-DESCRIPTION_GROUP_BY = """Each Notebook content is summarized in his header through a quantitative scale ('"Difficulty" between 1 and 5 stars) and some keywords (Group of "tags").
+DESCRIPTION_GROUP_BY = """Each Notebook content is summarized in his header through a quantitative scale ("Difficulty" between 1 and 5 stars) and some keywords (Group of "tags").
 
 Grouping Notebooks by difficulty level, by signal type to which it applies or by tags is an extremelly important task, in order to ensure that the <strong><span style="color:#009EE3">biosignalsnotebooks</span></strong> user could navigate efficiently in this learning environment.
 """

@@ -39,6 +39,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Other/hands_on_biostec.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/hands_on_biostec_solutions.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/hands_on_biostec_solutions.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/quick_start_guide.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Other/quick_start_guide.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb
@@ -59,6 +61,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ACC.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eda.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eda.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_eeg.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_emg.ipynb

@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="" />
+    <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/MANIFEST.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/classification_game/features/classification_game_features_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/classification_game/features/classification_game_features_final.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4.h5" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_ECG_2018_7_5_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_ECG_2018_7_5_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_EEG_2018_7_4_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_EEG_2018_7_4_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_fspo2_2018_9_3_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_fspo2_2018_9_3_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_hSpO2_2018_7_6.h5" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_hSpO2_2018_7_6.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/__update_content__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/__update_content__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/cell_content_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/cell_content_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4.h5" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_BVP_2018_7_4_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_ECG_2018_7_5_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_ECG_2018_7_5_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_EEG_2018_7_4_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_EEG_2018_7_4_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_fspo2_2018_9_3_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_fspo2_2018_9_3_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_hSpO2_2018_7_6.h5" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/signal_samples/signal_sample_single_hub_hSpO2_2018_7_6.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/notebook_files/osf_files/styles/theme_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/biosignalsnotebooks-0.5.12-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/biosignalsnotebooks-0.5.12-py3.7.egg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.h5" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/synchronisation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/synchronisation.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_ecg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_ecg.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Other/quick_start_guide.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_EDA.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,15 +50,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup_linux.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/aux_functions.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="12155">
               <caret line="730" column="24" selection-start-line="730" selection-start-column="20" selection-end-line="730" selection-end-column="24" />
               <folding>
                 <element signature="e#1934#1973#0" expanded="true" />
@@ -61,14 +86,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/factory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="848" column="86" selection-start-line="848" selection-start-column="86" selection-end-line="848" selection-end-column="86" />
+            <state relative-caret-position="17">
+              <caret line="165" column="21" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="21" />
               <folding>
                 <element signature="e#117#128#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -138,8 +172,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>smooth</find>
-      <find>Number</find>
       <find>digital</find>
       <find>hrv_para</find>
       <find>save</find>
@@ -168,6 +200,8 @@
       <find>Main_Files_By_Category</find>
       <find>first_border</find>
       <find>resolution.</find>
+      <find>def notebook</find>
+      <find>write_to_file</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
@@ -235,7 +269,6 @@
         <option value="C:/Python362/Lib/site-packages/biosignalsnotebooks-0.2.2-py3.6.egg/biosignalsnotebooks/factory.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/MainFiles/group_by_tag.py" />
         <option value="$PROJECT_DIR$/setup.cfg" />
-        <option value="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py" />
         <option value="C:/Python362/Lib/site-packages/biosignalsnotebooks-0.3.1-py3.6.egg/biosignalsnotebooks/load.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/external_packages/novainstrumentation/filter.py" />
         <option value="C:/Python362/Lib/site-packages/novainstrumentation/filter.py" />
@@ -262,14 +295,15 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" />
         <option value="$PROJECT_DIR$/biosignalsnotebooks/factory.py" />
+        <option value="$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-276" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -302,6 +336,21 @@
               <item name="notebook_files" type="462c0819:PsiDirectoryNode" />
               <item name="github" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="biosignalsnotebooks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="biosignalsnotebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="biosignalsnotebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="notebook_files" type="462c0819:PsiDirectoryNode" />
+              <item name="osf_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="biosignalsnotebooks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="biosignalsnotebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="biosignalsnotebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="notebook_files" type="462c0819:PsiDirectoryNode" />
+              <item name="osf_files" type="462c0819:PsiDirectoryNode" />
+              <item name="aux_folders" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -309,7 +358,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../header_footer" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -446,10 +495,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-276" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18241903" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -462,7 +511,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5096582" side_tool="true" weight="0.33994335" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.49034175" visible="true" weight="0.27843988" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49034175" weight="0.2776204" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -646,13 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Trabalho_na_Plux/opensignalstools/biosignalsnotebooks/generate_readme/mybinder_remote.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-286">
@@ -732,6 +774,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12155">
+          <caret line="730" column="24" selection-start-line="730" selection-start-column="20" selection-end-line="730" selection-end-column="24" />
+          <folding>
+            <element signature="e#1934#1973#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/notebook_files/__update_content__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="39" column="67" selection-start-line="39" selection-start-column="67" selection-end-line="39" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/__setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -778,20 +837,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/factory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="848" column="86" selection-start-line="848" selection-start-column="86" selection-end-line="848" selection-end-column="86" />
+        <state relative-caret-position="17">
+          <caret line="165" column="21" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="21" />
           <folding>
             <element signature="e#117#128#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="730" column="24" selection-start-line="730" selection-start-column="20" selection-end-line="730" selection-end-column="24" />
-          <folding>
-            <element signature="e#1934#1973#0" expanded="true" />
           </folding>
         </state>
       </provider>
