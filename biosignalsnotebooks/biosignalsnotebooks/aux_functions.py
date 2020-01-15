@@ -486,7 +486,38 @@ def _generate_download_google_link(link):
     return "https://drive.google.com/uc?export=download&id=" + file_id
 
 
-def _interpolate(segment, segment1):
+def _interpolate(segment, segment1, kind='linear'):
+    """
+    -----
+    Brief
+    -----
+    Given two input signals, interpolates the shortest to the length of the longest.
+
+    -----------
+    Description
+    -----------
+    Interpolation is a technique that allows to fill in missing values of a signal in order to extend it. In this case,
+    interpolation is intended to equalize the length of the input signals/segments to the length of the longest one.
+    The method of interpolation may be of any kind accepted by scipy.interpolate.interp1d.
+
+    This function allows to interpolate the input segments to the length of the longest one.
+
+    ----------
+    Parameters
+    ----------
+    segment: array-like
+        first segment
+    segment1: array-like
+        second segment
+    kind: string
+        kind of interpolation to be applied to the set of segments. Default: 'linear'.
+
+    Returns
+    -------
+    new_array, original_array: array-like
+        interpolated segments/signals
+    """
+
     if len(segment) > len(segment1):
         new_array = segment1
         original_array = segment
@@ -499,16 +530,45 @@ def _interpolate(segment, segment1):
     x = range(len(new_array))
     y = new_array
     xnew = numpy.linspace(0, x[-1], num=len(original_array), endpoint=True)
-    new_array = interp1d(x, y, kind='linear')(xnew)
+    new_array = interp1d(x, y, kind=kind)(xnew)
 
     return new_array, original_array
 
 
-def _interpolated_segments(segments):
+def _interpolated_segments(segments, kind='linear'):
+    """
+    -----
+    Brief
+    -----
+    Given a set of segments, interpolates all to the length of the longest segment.
+
+    -----------
+    Description
+    -----------
+    Interpolation is a technique that allows to fill in missing values of a signal in order to extend its length. In
+    this case, interpolation is intended to equalize the length of the input signals/segments to the length of the
+    longest one. The method of interpolation may be of any kind accepted by scipy.interpolate.interp1d.
+
+    This function allows to interpolate the input segments to the length of the longest one.
+
+    ----------
+    Parameters
+    ----------
+    segments: array-like
+        set of segments
+    kind: string
+        kind of interpolation to be applied to the set of segments. Default: 'linear'.
+
+    Returns
+    -------
+    interpolated_segments: array-like
+        interpolated segments/signals
+    """
+    
     index = numpy.array([len(i) for i in segments]).argmax()
     interpolated_segments = segments.copy()
     for i, seg in enumerate(segments):
-        interpolated_segments[i] = _interpolate(seg, segments[index].copy())[0]
+        interpolated_segments[i] = _interpolate(seg, segments[index].copy(), kind)[0]
 
     interpolated_segments = numpy.vstack(interpolated_segments)
 
