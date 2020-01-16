@@ -138,6 +138,9 @@ def features_extraction(windowed_signal, functions):
         fea = []
         for f in functions:
             fea.append(f(window))
-        features[i] = fea
+        try:
+            features[i] = np.concatenate(fea)
+        except ValueError:
+            features[i] = fea
 
     return features
