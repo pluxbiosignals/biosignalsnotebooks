@@ -7,6 +7,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_5.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_5.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb
@@ -93,3 +95,5 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_2.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_3.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_4.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Train_And_Classify/classification_game_volume_4.ipynb

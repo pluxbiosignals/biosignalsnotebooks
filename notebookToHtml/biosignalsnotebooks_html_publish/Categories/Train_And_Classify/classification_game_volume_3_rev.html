@@ -13167,7 +13167,7 @@ div#notebook {
           </div>
          </td>
          <td class="header_text">
-          Rock, Paper or Scissor Game - Train and Classify [Volume 3]
+          Stone, Paper or Scissor Game - Train and Classify [Volume 3]
          </td>
         </tr>
        </table>
@@ -13203,7 +13203,7 @@ div#notebook {
              Tags
             </td>
             <td class="shield_right" id="tags">
-             train_and_classify☁machine-learning☁features☁train☁nearest-neighbour
+             train_and_classify☁machine-learning☁features☁selection
             </td>
            </tr>
           </table>
@@ -13253,61 +13253,63 @@ div#notebook {
        </p>
        <ul>
         <li>
-         <a href="../Evaluate/classification_game_volume_4_rev.php">
+         <a href="classification_game_volume_4_rev.php">
           <strong>
-           Rock, Paper or Scissor Game - Train and Classify [Volume 4] | Performance Evaluation
+           Rock, Paper or Scissor Game - Train and Classify [Volume 4] | Training a Classifier
+           <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+          </strong>
+         </a>
+        </li>
+        <li>
+         <a href="../Evaluate/classification_game_volume_5_rev.php">
+          <strong>
+           Rock, Paper or Scissor Game - Train and Classify [Volume 5] | Performance Evaluation
            <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
           </strong>
          </a>
         </li>
        </ul>
-       <p>
-        <table width="100%">
-         <tr>
-          <td style="text-align:left;font-size:12pt;border-top:dotted 2px #62C3EE">
-           <span class="color1">
-            ☌
-           </span>
-           After the previous two volumes of the
-           <span class="color4">
-            <strong>
-             Jupyter Notebook
-            </strong>
-           </span>
-           dedicated to our "Classification Game", we are reaching a decisive stage: Training of Classifier.
-           <br/>
-           Currently, as demonstrated in the previous
-           <a href="classification_game_volume_2_rev.php">
-            volume
-            <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-           </a>
-           , all the training data (examples and respective features) are ready to be applied to a classification algorithm.
-           <br/>
-           The choice of classification algorithm resulted in the selection of
-           <span class="color13">
-            <strong>
-             k-Nearest Neighbour
-            </strong>
-           </span>
-           classifier.
-           <br/>
-           On current
-           <span class="color4">
-            <strong>
-             Jupyter Notebook
-            </strong>
-           </span>
-           it will be described relevant steps to achieve our goal of training a
-           <span class="color13">
-            <strong>
-             k-Nearest Neighbour
-            </strong>
-           </span>
-           classifier.
-          </td>
-         </tr>
-        </table>
-       </p>
+       <table width="100%">
+        <tr>
+         <td style="text-align:left;font-size:12pt;border-top:dotted 2px #62C3EE">
+          <span class="color1">
+           ☌
+          </span>
+          Currently we are in possession of a file containing the feature values for all training examples, as demonstrated on a previously created
+          <a href="classification_game_volume_2_rev.php">
+           Jupyter Notebook
+           <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+          </a>
+          .
+          <br/>
+          However, there is a high risk that some of the extracted features are not useful for our classification system. Remember, a good feature is a parameter that has the ability to separate the different classes of our classification system, i.e, a parameter with a characteristic range of values for each available class.
+          <br/>
+          In order to ensure that the training process of our classifier happens in the most efficient way, these redundant or invariant features should be removed.
+          <br/>
+          The implicit logic of the last two paragraphs is called
+          <span class="color7">
+           <strong>
+            Feature Selection
+           </strong>
+          </span>
+          , which will be focused at this
+          <span class="color4">
+           <strong>
+            Jupyter Notebook
+           </strong>
+          </span>
+          !
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
        <hr/>
       </div>
      </div>
@@ -13347,10 +13349,10 @@ div#notebook {
          <li>
           <span class="color7">
            <strong>
-            "Rock"
+            "Stone"
            </strong>
           </span>
-          [All fingers are flexed]
+          [All fingers are bent]
          </li>
          <li>
           <span class="color13">
@@ -13358,7 +13360,7 @@ div#notebook {
             "Scissor"
            </strong>
           </span>
-          [Forefinger and middle finger are extended and the remaining ones are flexed]
+          [Forefinger and middle finger are extended and the remaining ones are bent]
          </li>
         </ol>
        </p>
@@ -13382,7 +13384,7 @@ div#notebook {
          </td>
          <td style="text-align:center">
           <strong>
-           Rock
+           Stone
           </strong>
          </td>
          <td style="text-align:center">
@@ -13516,214 +13518,6 @@ div#notebook {
       </div>
      </div>
     </div>
-    <div class="hide_mark hide">
-     <div class="cell border-box-sizing text_cell rendered">
-      <div class="prompt input_prompt">
-      </div>
-      <div class="inner_cell">
-       <div class="text_cell_render border-box-sizing rendered_html">
-        <p>
-         <p style="font-size:20pt;color:#62C3EE;padding-bottom:5pt">
-          Feature Selection
-         </p>
-         <strong>
-          Intro
-         </strong>
-         <br/>
-         With
-         <span class="color7">
-          <strong>
-           Feature Selection
-          </strong>
-         </span>
-         we will start to use the resources contained inside an extremely useful
-         <span class="color1">
-          <strong>
-           Python
-          </strong>
-         </span>
-         package:
-         <a href="https://scikit-learn.org/stable/index.html">
-          scikit-learn
-          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-         </a>
-        </p>
-        <p>
-         Like described before,
-         <span class="color7">
-          <strong>
-           Feature Selection
-          </strong>
-         </span>
-         is intended to remove redundant or meaningless parameters which would increase the complexity of the classifier and not always translate into an improved performance. Without this step, the risk of overfitting to the training examples increases, making the classifier less able to categorize a new testing example.
-        </p>
-        <p>
-         There are different approaches to feature selection such as
-         <span class="color4">
-          <strong>
-           filter methods
-          </strong>
-         </span>
-         or
-         <span class="color1">
-          <strong>
-           wrapper methods
-          </strong>
-         </span>
-         .
-        </p>
-        <p>
-         In the first method (
-         <span class="color4">
-          <strong>
-           filter methods
-          </strong>
-         </span>
-         ), a ranking will be attributed to the features, using the
-         <strong>
-          Pearson correlation coefficient
-         </strong>
-         to evaluate the impact that the feature under analysis has on the target class of the training example, or the
-         <strong>
-          Mutual Information parameter
-         </strong>
-         which defines whether two variables convey shared information.
-        </p>
-        <p>
-         The least relevant features will be excluded and the classifier will be trained later (for a deeper explanation, please, visit the article of Girish Chandrashekar and Ferat Sahin at
-         <a href="https://www.sciencedirect.com/science/article/pii/S0045790613003066">
-          <strong>
-           ScienceDirect
-           <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-          </strong>
-         </a>
-         ).
-        </p>
-        <p>
-         The second methodology (
-         <span class="color1">
-          <strong>
-           wrapper methods
-          </strong>
-         </span>
-         ) is characterised by the fact that the selection phase includes a classification algorithm, and features will be excluded or selected according to the quality of the trained classifier.
-        </p>
-        <p>
-         There are also a third major methodology applicable on
-         <span class="color7">
-          <strong>
-           Feature Selection
-          </strong>
-         </span>
-         , including the so called
-         <span class="color1">
-          <strong>
-           embedded methods
-          </strong>
-         </span>
-         . Essentially this methods are a combination of
-         <span class="color4">
-          <strong>
-           filter
-          </strong>
-         </span>
-         and
-         <span class="color1">
-          <strong>
-           wrapper
-          </strong>
-         </span>
-         , being characterised by the simultaneous execution of
-         <span class="color7">
-          <strong>
-           Feature Selection
-          </strong>
-         </span>
-         and
-         <span class="color13">
-          <strong>
-           Training
-          </strong>
-         </span>
-         stages.
-        </p>
-        <p>
-         One of the most intuitive
-         <span class="color7">
-          <strong>
-           Feature Selection
-          </strong>
-         </span>
-         methods is
-         <span class="color1">
-          <strong>
-           Recursive Feature Elimination
-          </strong>
-         </span>
-         , which will be used in the current
-         <span class="color4">
-          <strong>
-           Jupyter Notebook
-          </strong>
-         </span>
-         .
-        </p>
-        <p>
-         Essentially the steps of this method consists in:
-        </p>
-        <ol>
-         <li>
-          Original set of training examples is segmented into multiple ($K$) subsets of training examples and test examples
-         </li>
-         For each one of the $K$ subsets of training/test examples:
-         <ol>
-          <li>
-           The training examples are used for training a "virtual" classifier (for example a
-           <a href="https://en.wikipedia.org/wiki/Support-vector_machine">
-            <strong>
-             Support Vector Machine
-             <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-            </strong>
-           </a>
-           )
-          </li>
-          <li>
-           The test examples are given as inputs of the trained classifier and the "virtual" classifier quality is estimated
-          </li>
-         </ol>
-         <li>
-          At this point we can estimate the average quality of the $K$ "virtual" classifiers and know the weight of each feature on the training stage
-         </li>
-         <li>
-          The feature with a smaller weight is excluded
-         </li>
-         <li>
-          Repetition of steps
-          <strong>
-           1
-          </strong>
-          ,
-          <strong>
-           2
-          </strong>
-          and
-          <strong>
-           3
-          </strong>
-          until only remains one feature
-         </li>
-         <li>
-          Finally, when the "feature elimination" procedure ends, the set of features that provide a "virtual" classifier with the best average quality (step
-          <strong>
-           2
-          </strong>
-          ) define the relevant features to be used during our final training stage
-         </li>
-        </ol>
-       </div>
-      </div>
-     </div>
-    </div>
     <div class="cell border-box-sizing text_cell rendered">
      <div class="prompt input_prompt">
      </div>
@@ -13731,60 +13525,202 @@ div#notebook {
       <div class="text_cell_render border-box-sizing rendered_html">
        <p>
         <p style="font-size:20pt;color:#62C3EE;padding-bottom:5pt">
-         k-Nearest Neighbour Classifier
+         Feature Selection
         </p>
         <strong>
-         Brief Intro
+         Intro
         </strong>
         <br/>
-        Following a "Cartesian Logic" each training example is formed by a set of features (in our case we have 20 training examples and each training example is composed by 8 features). Each feature can be viewed as a dimension, so, the training example would be reduced to a 8th dimensional point on the
-        <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">
+        With
+        <span class="color7">
          <strong>
-          Cartesian Coordinate System
+          Feature Selection
+         </strong>
+        </span>
+        we will start to use the resources contained inside an extremely useful
+        <span class="color1">
+         <strong>
+          Python
+         </strong>
+        </span>
+        package:
+        <a href="https://scikit-learn.org/stable/index.html">
+         scikit-learn
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+        </a>
+       </p>
+       <p>
+        Like described before,
+        <span class="color7">
+         <strong>
+          Feature Selection
+         </strong>
+        </span>
+        is intended to remove redundant or meaningless parameters which would increase the complexity of the classifier and not always translate into an improved performance. Without this step, the risk of overfitting to the training examples increases, making the classifier less able to categorize a new testing example.
+       </p>
+       <p>
+        There are different approaches to feature selection such as
+        <span class="color4">
+         <strong>
+          filter methods
+         </strong>
+        </span>
+        or
+        <span class="color1">
+         <strong>
+          wrapper methods
+         </strong>
+        </span>
+        .
+       </p>
+       <p>
+        In the first method (
+        <span class="color4">
+         <strong>
+          filter methods
+         </strong>
+        </span>
+        ), a ranking will be attributed to the features, using, for example, the
+        <strong>
+         Pearson correlation coefficient
+        </strong>
+        to evaluate the impact that the feature under analysis has on the target class of the training example, or the
+        <strong>
+         Mutual Information parameter
+        </strong>
+        which defines whether two variables convey shared information.
+       </p>
+       <p>
+        The least relevant features will be excluded and the classifier will be trained later (for a deeper explanation, please, visit the article of Girish Chandrashekar and Ferat Sahin at
+        <a href="https://www.sciencedirect.com/science/article/pii/S0045790613003066">
+         <strong>
+          ScienceDirect
           <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
          </strong>
         </a>
-        .
-        <br/>
-        Thus, the training stage of a
+        ).
+       </p>
+       <p>
+        The second methodology (
+        <span class="color1">
+         <strong>
+          wrapper methods
+         </strong>
+        </span>
+        ) is characterised by the fact that the selection phase includes a classification algorithm, and features will be excluded or selected according to the quality of the trained classifier.
+       </p>
+       <p>
+        There are also a third major methodology applicable on
+        <span class="color7">
+         <strong>
+          Feature Selection
+         </strong>
+        </span>
+        , including the so called
+        <span class="color13">
+         <strong>
+          embedded methods
+         </strong>
+        </span>
+        . Essentially this methods are a combination of
+        <span class="color4">
+         <strong>
+          filter
+         </strong>
+        </span>
+        and
+        <span class="color1">
+         <strong>
+          wrapper
+         </strong>
+        </span>
+        , being characterised by the simultaneous execution of
+        <span class="color7">
+         <strong>
+          Feature Selection
+         </strong>
+        </span>
+        and
+        <span class="color13">
+         <strong>
+          Training
+         </strong>
+        </span>
+        stages.
+       </p>
+       <p>
+        One of the most intuitive
+        <span class="color7">
+         <strong>
+          Feature Selection
+         </strong>
+        </span>
+        methods is
+        <span class="color1">
+         <strong>
+          Recursive Feature Elimination
+         </strong>
+        </span>
+        , which will be used in the current
         <span class="color4">
          <strong>
           Jupyter Notebook
          </strong>
         </span>
-        classifier is really simple, consisting in filling the Cartesian Coordinate System with all the training examples/training points.
-        <br/>
-        For the standard
-        <strong>
-         Nearest Neighbour
-        </strong>
-        , when a test example is given as input of the classifier, the returned result/class will be the class of the training example nearest to our new test example.
-        <br/>
-        On the improved
-        <span class="color13">
-         <strong>
-          k-Nearest Neighbour
-         </strong>
-        </span>
-        classifier will be selected the $k$ nearest training points of test example. By a voting mechanism the returned class will be the one that has more training examples inside the $k$ set.
-        <br/>
-        The distance between training points can be estimated through the
-        <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm">
-         <strong>
-          Euclidean Norm
-          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-         </strong>
-        </a>
-        :
-        <br/>
+        .
        </p>
        <p>
-        <div style="text-align:center">
-         $||xy|| = \sqrt{\sum_{i=1}^N (x_{dim\,i} - y_{dim\,i})^2}$
-        </div>
-        ... being $||xy||$ the Euclidean distance between two $N$ dimensional points, $x_{dim\,i}$ is the value of coordinate $dim\,i$ of point $x$ while $y_{dim\,i}$ is the value of coordinate $dim\,i$ of point $y$.
-        <img src="../../images/train_and_classify/classification_game_volume_3/nn_concepts.gif" width="50%"/>
+        Essentially the steps of this method consists in:
        </p>
+       <ol>
+        <li>
+         Original set of training examples is segmented into multiple ($K$) subsets of training examples and test examples
+        </li>
+        For each one of the $K$ subsets of training/test examples:
+        <ol>
+         <li>
+          The training examples are used for training a "virtual" classifier (for example a
+          <a href="https://en.wikipedia.org/wiki/Support-vector_machine">
+           <strong>
+            Support Vector Machine
+            <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+           </strong>
+          </a>
+          )
+         </li>
+         <li>
+          The test examples are given as inputs of the trained classifier and the "virtual" classifier quality is estimated
+         </li>
+        </ol>
+        <li>
+         At this point we can estimate the average quality of the $K$ "virtual" classifiers and know the weight of each feature on the training stage
+        </li>
+        <li>
+         The feature with a smaller weight is excluded
+        </li>
+        <li>
+         Repetition of steps
+         <strong>
+          1
+         </strong>
+         ,
+         <strong>
+          2
+         </strong>
+         and
+         <strong>
+          3
+         </strong>
+         until only one feature remains
+        </li>
+        <li>
+         Finally, when the "feature elimination" procedure ends, the set of features that provide a "virtual" classifier with the best average quality (step
+         <strong>
+          2
+         </strong>
+         ) define the relevant features to be used during our final training stage
+        </li>
+       </ol>
       </div>
      </div>
     </div>
@@ -13812,14 +13748,19 @@ div#notebook {
         <div class="input_area">
          <div class="highlight hl-ipython3">
           <pre><span></span><span class="c1"># Python package that contains functions specialized on "Machine Learning" tasks.</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">RFECV</span><span class="p">,</span> <span class="n">RFE</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">normalize</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="k">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="c1"># Package dedicated to the manipulation of json files.</span>
+<span class="kn">from</span> <span class="nn">json</span> <span class="k">import</span> <span class="n">loads</span><span class="p">,</span> <span class="n">dump</span>
+
+<span class="c1"># Package containing a diversified set of function for statistical processing and also provide support to array operations.</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="nb">max</span><span class="p">,</span> <span class="n">array</span>
 
 <span class="c1"># biosignalsnotebooks own package that supports some functionalities used on the Jupyter Notebooks.</span>
 <span class="kn">import</span> <span class="nn">biosignalsnotebooks</span> <span class="k">as</span> <span class="nn">bsnb</span>
-
-<span class="c1"># Package containing a diversified set of function for statistical processing and also provide support to array operations.</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
 </pre>
          </div>
         </div>
@@ -13830,11 +13771,11 @@ div#notebook {
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="944c2ab8-cdbc-48b2-a7ab-2acb64346b9c">
+         <div id="add6b87a-f31d-4139-9e3a-c363d707946c">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#944c2ab8-cdbc-48b2-a7ab-2acb64346b9c');
+           var element = $('#add6b87a-f31d-4139-9e3a-c363d707946c');
 
 (function(root) {
   function now() {
@@ -14128,11 +14069,11 @@ div#notebook {
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="6b46ec9d-13e3-4f9b-af10-f92a7635708d">
+         <div id="db35bbe1-0a98-4b61-93e6-9f3a0781686d">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#6b46ec9d-13e3-4f9b-af10-f92a7635708d');
+           var element = $('#db35bbe1-0a98-4b61-93e6-9f3a0781686d');
 
 (function(root) {
   function now() {
@@ -14433,12 +14374,6 @@ div#notebook {
      <div class="inner_cell">
       <div class="text_cell_render border-box-sizing rendered_html">
        <p>
-        <span class="color13" style="font-size:30px">
-         ⚠
-        </span>
-        This step was done internally !!! For now don"t be worried about that.
-       </p>
-       <p>
         <p class="steps">
          1 - Loading of the dictionary created on
          <a href="classification_game_volume_2_rev.php">
@@ -14446,61 +14381,20 @@ div#notebook {
           <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
          </a>
         </p>
-        This dictionary is formed by two levels:
-       </p>
-       <ul>
-        <li>
-         <span class="color1">
-          <strong>
-           Level 1 | Class Number ($class_i$)
-          </strong>
-         </span>
-        </li>
-        [4 available keys - 1/training class]
-        <li>
-         <span class="color7">
-          <strong>
-           Level 2 | Trial Number ($trial_j$)
-          </strong>
-         </span>
-        </li>
-        [5 available keys - 1/trial]
-       </ul>
-       <p>
-        A list containing the extracted features values for a training example belonging to
-        <span class="color1">
-         <strong>
-          $class_i$
-         </strong>
-        </span>
-        and collected at
-        <span class="color7">
-         <strong>
-          $trial_j$
-         </strong>
-        </span>
-        is stored on the
-        <strong>
-         Level 2
-        </strong>
-        of our dictionary
+        This dictionary contains all the features extracted from our training examples.
        </p>
       </div>
      </div>
     </div>
-    <div class="hide_in">
-     <div class="cell border-box-sizing code_cell rendered">
-      <div class="input hide">
-       <div class="prompt input_prompt">
-        In [2]:
-       </div>
-       <div class="inner_cell">
-        <div class="input_area">
-         <div class="highlight hl-ipython3">
-          <pre><span></span><span class="c1"># Package dedicated to the manipulation of json files.</span>
-<span class="kn">from</span> <span class="nn">json</span> <span class="k">import</span> <span class="n">loads</span>
-
-<span class="c1"># Specification of filename and relative path.</span>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [2]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="c1"># Specification of filename and relative path.</span>
 <span class="n">relative_path</span> <span class="o">=</span> <span class="s2">"../../signal_samples/classification_game/features"</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">"classification_game_features.json"</span>
 
@@ -14508,7 +14402,6 @@ div#notebook {
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">relative_path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">features_dict</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre>
-         </div>
         </div>
        </div>
       </div>
@@ -14650,9 +14543,8 @@ div#notebook {
       <div class="inner_cell">
        <div class="input_area">
         <div class="highlight hl-ipython3">
-         <pre><span></span><span class="n">features_list</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">features_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">"max"</span><span class="p">)</span> 
-<span class="c1"># axis=0 specifies that each feature is normalised independently from the others </span>
-<span class="c1"># and norm="max" defines that the normalization reference value will be the feature maximum value.</span>
+         <pre><span></span><span class="n">features_list</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">features_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">"max"</span><span class="p">)</span> <span class="c1"># axis=0 specifies that each feature is normalised independently from the others </span>
+                                                             <span class="c1"># and norm="max" defines that the normalization reference value will be the feature maximum value.</span>
 </pre>
         </div>
        </div>
@@ -14669,16 +14561,6 @@ div#notebook {
         <div class="input_area">
          <div class="highlight hl-ipython3">
           <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">features_list</span><span class="p">)</span>
-
-<span class="c1"># Store features_list inside a .json file.</span>
-<span class="kn">from</span> <span class="nn">json</span> <span class="k">import</span> <span class="n">dump</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">"classification_game_features_final.json"</span>
-
-<span class="c1"># Generation of .json file in our previously mentioned "relative_path".</span>
-<span class="c1"># [Generation of new file]</span>
-<span class="n">features_list_json</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">features_list</span><span class="p">))</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">relative_path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">dump</span><span class="p">({</span><span class="s2">"features_list_final"</span><span class="p">:</span> <span class="n">features_list_json</span><span class="p">,</span> <span class="s2">"class_labels"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">class_training_examples</span><span class="p">)},</span> <span class="n">file</span><span class="p">)</span>
 </pre>
          </div>
         </div>
@@ -14763,29 +14645,525 @@ div#notebook {
      <div class="inner_cell">
       <div class="text_cell_render border-box-sizing rendered_html">
        <p>
+        <p class="steps">
+         3 - Selection of a classification algorithm to wrap in our
+         <span class="color7">
+          <strong>
+           Feature Selection
+          </strong>
+         </span>
+         methodology
+        </p>
+        A
+        <a href="https://en.wikipedia.org/wiki/Support-vector_machine">
+         <strong>
+          Support Vector Machine
+          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+         </strong>
+        </a>
+        shares some principles with
+        <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">
+         <strong>
+          k-Nearest Neighbour Classifiers
+          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+         </strong>
+        </a>
+        (which we want to use on
+        <a href="../Train_and_Classify/classification_game_volume_4_rev.php">
+         Jupyter Notebook [volume 4]
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+        </a>
+        ), namely the Cartesian logic, given that each example corresponds to a point with a number $N$ of coordinates equivalent to the number of features analysed (13 for our original problem), that is, each feature defines a dimension of the space.
+        <br/>
+        Because of this "contact point" our "wrapped" classifier will be a Support Vector Machine.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [8]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="c1"># Creation of a "Support Vector Classifier" supposing that  our classes are linearly separable.</span>
+<span class="n">svc</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">)</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p>
+        <p class="steps">
+         4 - Configuration of the
+         <span class="color4">
+          Recursive Feature Elimination
+         </span>
+         procedure given as an input our previously created "svc" object
+        </p>
+        Some inputs need to be given:
+       </p>
+       <ul>
+        <li>
+         <strong>
+          estimator
+         </strong>
+         - our previously created
+         <i>
+          "Support Vector Classifier"
+         </i>
+         object
+        </li>
+        <li>
+         <strong>
+          step
+         </strong>
+         - number of features eliminated on each iteration of the recursive algorithm
+        </li>
+        <li>
+         <strong>
+          cv
+         </strong>
+         - cross-validation method for estimating the quality of the "virtual" classifiers and dividing the original training set into $K$ subsets of training/test examples. The choice result in a
+         <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html">
+          <strong>
+           Stratified K-Fold Strategy
+           <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+          </strong>
+         </a>
+         ("The folds are made by preserving the percentage of samples for each class")
+        </li>
+        <li>
+         <strong>
+          scoring
+         </strong>
+         - definition of criteria for qualifying a classifier. For us the best classifier will be the one that achieve a great accuracy on classifying the test examples
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [9]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="n">rfecv</span> <span class="o">=</span> <span class="n">RFECV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svc</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">StratifiedKFold</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p class="steps">
+        5 - Execution of the
+        <span class="color4">
+         Recursive Feature Elimination
+        </span>
+        procedure
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [10]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="c1"># Fit data to the model.</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">rfecv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_list</span><span class="p">,</span> <span class="n">class_training_examples</span><span class="p">)</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="hide_in">
+     <div class="cell border-box-sizing code_cell rendered">
+      <div class="input hide">
+       <div class="prompt input_prompt">
+        In [11]:
+       </div>
+       <div class="inner_cell">
+        <div class="input_area">
+         <div class="highlight hl-ipython3">
+          <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="output_wrapper">
+       <div class="output">
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div class="output_subarea output_stream output_stdout output_text">
+          <pre>RFECV(cv=StratifiedKFold(n_splits=5, random_state=None, shuffle=False),
+   estimator=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto_deprecated',
+  kernel='linear', max_iter=-1, probability=False, random_state=None,
+  shrinking=True, tol=0.001, verbose=False),
+   min_features_to_select=1, n_jobs=None, scoring='accuracy', step=1,
+   verbose=0)
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p>
+        <p class="steps">
+         6 - Get the optimal number of features
+        </p>
+        It will be the smallest number that provides the possibility to obtain a highest cross-validation score.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p>
+        <p class="steps">
+         6.1 - Get the list of average score of each virtual classifier (1 per Recursive Feature Elimination iteration)
+        </p>
+        The first element of the list refers to the average score of the trained classifiers when the set of features is 1, while the last one corresponds to the case where all features are taken into consideration.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [12]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="c1"># Get list of average score of the virtual classifier</span>
+<span class="n">avg_scores</span> <span class="o">=</span> <span class="n">rfecv</span><span class="o">.</span><span class="n">grid_scores_</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="hide_in">
+     <div class="cell border-box-sizing code_cell rendered">
+      <div class="input hide">
+       <div class="prompt input_prompt">
+        In [13]:
+       </div>
+       <div class="inner_cell">
+        <div class="input_area">
+         <div class="highlight hl-ipython3">
+          <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">avg_scores</span><span class="p">)</span>
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="output_wrapper">
+       <div class="output">
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div class="output_subarea output_stream output_stdout output_text">
+          <pre>[0.4  0.7  0.75 0.8  0.85 0.85 0.9  0.95 0.95 0.95 0.95 0.95 0.95]
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p class="steps">
+        6.2 - Identification of the maximum score
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [14]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="n">max_score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">avg_scores</span><span class="p">)</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="hide_in">
+     <div class="cell border-box-sizing code_cell rendered">
+      <div class="input hide">
+       <div class="prompt input_prompt">
+        In [15]:
+       </div>
+       <div class="inner_cell">
+        <div class="input_area">
+         <div class="highlight hl-ipython3">
+          <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fg</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[1mMaximum Average Score:</span><span class="se">\033</span><span class="s2">[0m "</span> <span class="o">+</span> <span class="n">fg</span><span class="o">.</span><span class="n">rs</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_score</span><span class="p">))</span>
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="output_wrapper">
+       <div class="output">
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div class="output_subarea output_stream output_stdout output_text">
+          <pre><span class="ansi-bold" style="color: rgb(98,195,238)">Maximum Average Score:</span> 0.95
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p class="steps">
+        6.3 - Identification of the smallest feature set that achieve the maximum score
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [16]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="k">for</span> <span class="n">nbr_features</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">avg_scores</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">avg_scores</span><span class="p">[</span><span class="n">nbr_features</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_score</span><span class="p">:</span>
+        <span class="n">optimal_nbr_features</span> <span class="o">=</span> <span class="n">nbr_features</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">break</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="hide_in">
+     <div class="cell border-box-sizing code_cell rendered">
+      <div class="input hide">
+       <div class="prompt input_prompt">
+        In [17]:
+       </div>
+       <div class="inner_cell">
+        <div class="input_area">
+         <div class="highlight hl-ipython3">
+          <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fg</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[1mOptimal Number of Features:</span><span class="se">\033</span><span class="s2">[0m "</span> <span class="o">+</span> <span class="n">fg</span><span class="o">.</span><span class="n">rs</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">optimal_nbr_features</span><span class="p">))</span>
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="output_wrapper">
+       <div class="output">
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div class="output_subarea output_stream output_stdout output_text">
+          <pre><span class="ansi-bold" style="color: rgb(98,195,238)">Optimal Number of Features:</span> 8
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="hide_in">
+     <div class="cell border-box-sizing code_cell rendered">
+      <div class="input hide">
+       <div class="prompt input_prompt">
+        In [18]:
+       </div>
+       <div class="inner_cell">
+        <div class="input_area">
+         <div class="highlight hl-ipython3">
+          <pre><span></span><span class="n">bsnb</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rfecv</span><span class="o">.</span><span class="n">grid_scores_</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="p">[</span><span class="n">avg_scores</span><span class="p">],</span> 
+          <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">"Cross validation score (nb of correct classifications)"</span><span class="p">,</span> <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">"Number of features selected"</span><span class="p">)</span>
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="output_wrapper">
+       <div class="output">
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div class="output_html rendered_html output_subarea">
+          <div class="bk-root" data-root-id="1001" id="ea990d3c-d4ef-46d1-a026-fe21424be0fb">
+          </div>
+         </div>
+        </div>
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div id="6bd4b9ee-228c-4104-990d-24ed89affd5f">
+         </div>
+         <div class="output_subarea output_javascript">
+          <script type="text/javascript">
+           var element = $('#6bd4b9ee-228c-4104-990d-24ed89affd5f');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"d9c9f497-138b-4d3d-a11a-0610c7e9a54f":{"roots":{"references":[{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1011","type":"LinearAxis"}],"center":[{"id":"1015","type":"Grid"},{"id":"1020","type":"Grid"}],"height":200,"left":[{"id":"1016","type":"LinearAxis"}],"renderers":[{"id":"1037","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":null,"toolbar":{"id":"1027","type":"Toolbar"},"x_range":{"id":"1003","type":"DataRange1d"},"x_scale":{"id":"1007","type":"LinearScale"},"y_range":{"id":"1005","type":"DataRange1d"},"y_scale":{"id":"1009","type":"LinearScale"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Line"},{"attributes":{},"id":"1045","type":"Selection"},{"attributes":{},"id":"1007","type":"LinearScale"},{"attributes":{"callback":null},"id":"1003","type":"DataRange1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1022","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1021","type":"PanTool"},{"id":"1022","type":"WheelZoomTool"},{"id":"1023","type":"BoxZoomTool"},{"id":"1025","type":"ResetTool"}]},"id":"1027","type":"Toolbar"},{"attributes":{},"id":"1042","type":"BasicTickFormatter"},{"attributes":{},"id":"1044","type":"UnionRenderers"},{"attributes":{"callback":null},"id":"1005","type":"DataRange1d"},{"attributes":{},"id":"1009","type":"LinearScale"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1046","type":"BoxAnnotation"},{"attributes":{"axis_label":"Number of features selected","axis_line_color":{"value":"white"},"formatter":{"id":"1040","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1012","type":"BasicTicker"}},"id":"1011","type":"LinearAxis"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1017","type":"BasicTicker"}},"id":"1020","type":"Grid"},{"attributes":{},"id":"1012","type":"BasicTicker"},{"attributes":{"callback":null,"data":{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13],"y":[0.4,0.7,0.75,0.8,0.85,0.85,0.9,0.95,0.95,0.95,0.95,0.95,0.95]},"selected":{"id":"1045","type":"Selection"},"selection_policy":{"id":"1044","type":"UnionRenderers"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1012","type":"BasicTicker"}},"id":"1015","type":"Grid"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{"axis_label":"Cross validation score (nb of correct classifications)","axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1042","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1017","type":"BasicTicker"}},"id":"1016","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1034","type":"ColumnDataSource"},"glyph":{"id":"1035","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1036","type":"Line"},"selection_glyph":null,"view":{"id":"1038","type":"CDSView"}},"id":"1037","type":"GlyphRenderer"},{"attributes":{},"id":"1040","type":"BasicTickFormatter"},{"attributes":{},"id":"1021","type":"PanTool"},{"attributes":{"source":{"id":"1034","type":"ColumnDataSource"}},"id":"1038","type":"CDSView"},{"attributes":{},"id":"1022","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1046","type":"BoxAnnotation"}},"id":"1023","type":"BoxZoomTool"},{"attributes":{},"id":"1025","type":"ResetTool"},{"attributes":{"line_color":"#009EE3","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"}],"root_ids":["1001"]},"title":"Bokeh Application","version":"1.4.0"}};
+  var render_items = [{"docid":"d9c9f497-138b-4d3d-a11a-0610c7e9a54f","roots":{"1001":"ea990d3c-d4ef-46d1-a026-fe21424be0fb"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+          </script>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p>
+        <p class="steps">
+         7 - Identification of the set of relevant features, taking into consideration the previously determined optimal number
+        </p>
+        It should be repeated the Recursive Feature Elimination procedure with "RFE" scikit-learn function, specifying the desired number of target features.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [19]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="n">rfe</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svc</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="n">optimal_nbr_features</span><span class="p">)</span>
+
+<span class="c1"># Fit data to the model.</span>
+<span class="n">final_selector</span> <span class="o">=</span> <span class="n">rfe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_list</span><span class="p">,</span> <span class="n">class_training_examples</span><span class="p">)</span>
+
+<span class="c1"># Acception/Rejection Label attributed to each feature.</span>
+<span class="n">acception_labels</span> <span class="o">=</span> <span class="n">final_selector</span><span class="o">.</span><span class="n">support_</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="hide_in">
+     <div class="cell border-box-sizing code_cell rendered">
+      <div class="input hide">
+       <div class="prompt input_prompt">
+        In [20]:
+       </div>
+       <div class="inner_cell">
+        <div class="input_area">
+         <div class="highlight hl-ipython3">
+          <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fg</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[1mRelevant Features (True):</span><span class="se">\033</span><span class="s2">[0m "</span> <span class="o">+</span> <span class="n">fg</span><span class="o">.</span><span class="n">rs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">acception_labels</span><span class="p">)</span>
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="output_wrapper">
+       <div class="output">
+        <div class="output_area">
+         <div class="prompt">
+         </div>
+         <div class="output_subarea output_stream output_stdout output_text">
+          <pre><span class="ansi-bold" style="color: rgb(98,195,238)">Relevant Features (True):</span> 
+[ True False  True  True  True False False  True False  True  True False
+  True]
+</pre>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p>
         Each training array has the following structure/content:
         <br/>
         [$\sigma_{emg\,flexor}$, $max_{emg\,flexor}$, $zcr_{emg\,flexor}$, $\sigma_{emg\,flexor}^{abs}$, $\sigma_{emg\,adductor}$, $max_{emg\,adductor}$, $zcr_{emg\,adductor}$, $\sigma_{emg\,adductor}^{abs}$, $\mu_{acc\,z}$, $\sigma_{acc\,z}$, $max_{acc\,z}$, $zcr_{acc\,z}$, $m_{acc\,z}$]
        </p>
        <p>
-        Selecting a good set of features is a really important stage for training an effective classification system. For now we will simply select a set of features without explaining the real reason for choosing them.
-       </p>
-       <p>
-        In order to understand the relevance of selecting a valuable set of features (and how this choice can affect the performance of our classifier), our last volume of "Classification Game" (
-        <a href="../Evaluate/classification_game_volume_4_rev.php">
-         <strong>
-          Rock, Paper or Scissor Game - Train and Classify [Volume 4] | Performance Evaluation
-          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-         </strong>
-        </a>
-        ) can be a useful resource to go deeper into this question !
-       </p>
-       <p>
-        <span class="color1">
-         <strong>
-          Set of Features A
-         </strong>
-        </span>
+        So, the relevant features are:
        </p>
        <ul>
         <li>
@@ -14822,24 +15200,7 @@ div#notebook {
      <div class="inner_cell">
       <div class="text_cell_render border-box-sizing rendered_html">
        <p class="steps">
-        3 - Removal of meaningless features from our "features_list" list
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing text_cell rendered">
-     <div class="prompt input_prompt">
-     </div>
-     <div class="inner_cell">
-      <div class="text_cell_render border-box-sizing rendered_html">
-       <p>
-        [$\sigma_{emg\,flexor}$, $max_{emg\,flexor}$, $zcr_{emg\,flexor}$, $\sigma_{emg\,flexor}^{abs}$, $\sigma_{emg\,adductor}$, $max_{emg\,adductor}$, $zcr_{emg\,adductor}$, $\sigma_{emg\,adductor}^{abs}$, $\mu_{acc\,z}$, $\sigma_{acc\,z}$, $max_{acc\,z}$, $zcr_{acc\,z}$, $m_{acc\,z}$]
-       </p>
-       <p>
-        = [True, False, True, True, True, False, False, True, False, True, True, False, True]
-        <span class="color1">
-         (List of entries that contain relevant features are flagged with "True")
-        </span>
+        8 - Removal of meaningless features from our "features_list" list
        </p>
       </div>
      </div>
@@ -14847,18 +15208,50 @@ div#notebook {
     <div class="cell border-box-sizing code_cell rendered">
      <div class="input">
       <div class="prompt input_prompt">
-       In [8]:
+       In [21]:
       </div>
       <div class="inner_cell">
        <div class="input_area">
         <div class="highlight hl-ipython3">
          <pre><span></span><span class="c1"># Access each training example and exclude meaningless entries.</span>
-<span class="c1"># Entries that we want to keep are marked with "True" flag.</span>
-<span class="n">acception_labels</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> 
-                    <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
-<span class="n">training_examples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">final_features_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">example_nbr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">features_list</span><span class="p">)):</span>
-    <span class="n">training_examples</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">features_list</span><span class="p">[</span><span class="n">example_nbr</span><span class="p">])[</span><span class="n">array</span><span class="p">(</span><span class="n">acception_labels</span><span class="p">)])]</span>
+    <span class="n">final_features_list</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">features_list</span><span class="p">[</span><span class="n">example_nbr</span><span class="p">])[</span><span class="n">array</span><span class="p">(</span><span class="n">acception_labels</span><span class="p">)])]</span>
+</pre>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+     <div class="prompt input_prompt">
+     </div>
+     <div class="inner_cell">
+      <div class="text_cell_render border-box-sizing rendered_html">
+       <p class="steps">
+        9 - Storage of the final list of features (after
+        <i>
+         Recursive Feature Elimination
+        </i>
+        ) inside a .json file
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+     <div class="input">
+      <div class="prompt input_prompt">
+       In [22]:
+      </div>
+      <div class="inner_cell">
+       <div class="input_area">
+        <div class="highlight hl-ipython3">
+         <pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"classification_game_features_final.json"</span>
+
+<span class="c1"># Generation of .json file in our previously mentioned "relative_path".</span>
+<span class="c1"># [Generation of new file]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">relative_path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">dump</span><span class="p">({</span><span class="s2">"features_list_final"</span><span class="p">:</span> <span class="n">final_features_list</span><span class="p">,</span> <span class="s2">"class_labels"</span><span class="p">:</span> <span class="n">class_training_examples</span><span class="p">},</span> <span class="n">file</span><span class="p">)</span>
 </pre>
         </div>
        </div>
@@ -14871,369 +15264,20 @@ div#notebook {
      <div class="inner_cell">
       <div class="text_cell_render border-box-sizing rendered_html">
        <p>
+        We reach the end of the "Classification Game" third volume. After
         <span class="color7">
-         Checkpoint !!!
+         <strong>
+          Feature Selection
+         </strong>
         </span>
-        Currently all the information needed for training our classifier is stored on the following variables:
+        all training examples are ready to be delivered to our classification algorithm in order to participate on the training process.
        </p>
        <p>
-        <ul>
-         <li>
-          <strong>
-           training_examples
-          </strong>
-          (list where each entry is a sublist representative of a training example, containing the respective feature values for
-          <span class="color1">
-           set A
-          </span>
-          )
-         </li>
-         <li>
-          <strong>
-           class_training_examples
-          </strong>
-          (list where each entry contains the class label linked to each training example)
-         </li>
-        </ul>
-       </p>
-       <p>
-        <p class="steps">
-         4 - Creation of a "k-Nearest Neighbour"
-         <a href="https://scikit-learn.org/stable/index.html">
-          scikit-learn
-          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
-         </a>
-         objects
-        </p>
-        We use the predefined $k$ (number of neighbours) which is 5.
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing code_cell rendered">
-     <div class="input">
-      <div class="prompt input_prompt">
-       In [9]:
-      </div>
-      <div class="inner_cell">
-       <div class="input_area">
-        <div class="highlight hl-ipython3">
-         <pre><span></span><span class="c1"># k-Nearest Neighbour object initialisation.</span>
-<span class="n">knn_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
-</pre>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing text_cell rendered">
-     <div class="prompt input_prompt">
-     </div>
-     <div class="inner_cell">
-      <div class="text_cell_render border-box-sizing rendered_html">
-       <p class="steps">
-        5 - Begin the training stage of classifier (fitting model to data)
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing code_cell rendered">
-     <div class="input">
-      <div class="prompt input_prompt">
-       In [10]:
-      </div>
-      <div class="inner_cell">
-       <div class="input_area">
-        <div class="highlight hl-ipython3">
-         <pre><span></span><span class="n">knn_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_examples</span><span class="p">,</span> <span class="n">class_training_examples</span><span class="p">)</span>
-</pre>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="output_wrapper">
-      <div class="output">
-       <div class="output_area">
-        <div class="prompt output_prompt">
-         Out[10]:
-        </div>
-        <div class="output_text output_subarea output_execute_result">
-         <pre>KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
-           metric_params=None, n_jobs=None, n_neighbors=5, p=2,
-           weights='uniform')</pre>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing text_cell rendered">
-     <div class="prompt input_prompt">
-     </div>
-     <div class="inner_cell">
-      <div class="text_cell_render border-box-sizing rendered_html">
-       <p>
-        The following interactive plot ensures a deep understanding about the class separation provided by each pair of dimensions/features.
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="hide_in">
-     <div class="cell border-box-sizing code_cell rendered">
-      <div class="input hide">
-       <div class="prompt input_prompt">
-        In [11]:
-       </div>
-       <div class="inner_cell">
-        <div class="input_area">
-         <div class="highlight hl-ipython3">
-          <pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
-
-<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="k">import</span> <span class="n">layout</span>
-<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="n">CustomJS</span><span class="p">,</span> <span class="n">Slider</span><span class="p">,</span> <span class="n">Select</span><span class="p">,</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">WidgetBox</span>
-<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
-
-<span class="n">tools</span> <span class="o">=</span> <span class="s1">'pan'</span>
-<span class="n">features_identifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"std_emg_flexor"</span><span class="p">,</span> <span class="s2">"zcr_emg_flexor"</span><span class="p">,</span> <span class="s2">"std_abs_emg_flexor"</span><span class="p">,</span> <span class="s2">"std_emg_adductor"</span><span class="p">,</span> <span class="s2">"std_abs_emg_adductor"</span><span class="p">,</span> <span class="s2">"std_acc_z"</span><span class="p">,</span> <span class="s2">"max_acc_z"</span><span class="p">,</span> <span class="s2">"m_acc_z"</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">slider</span><span class="p">():</span>
-    <span class="n">dict_features</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">feature_nbr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_examples</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
-        <span class="n">values_feature</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">training_examples</span><span class="p">)[:,</span> <span class="n">feature_nbr</span><span class="p">]</span>
-        
-        <span class="c1"># Fill of dict.</span>
-        <span class="k">for</span> <span class="n">class_of_example</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_training_examples</span><span class="p">)):</span>
-            <span class="n">current_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_features</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-            <span class="k">if</span> <span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">current_keys</span><span class="p">:</span>
-                <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
-            
-            <span class="n">current_sub_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-            <span class="k">if</span> <span class="n">features_identifiers</span><span class="p">[</span><span class="n">feature_nbr</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">current_sub_keys</span><span class="p">:</span>
-                <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]][</span><span class="n">features_identifiers</span><span class="p">[</span><span class="n">feature_nbr</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
-            
-            <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]][</span><span class="n">features_identifiers</span><span class="p">[</span><span class="n">feature_nbr</span><span class="p">]]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">values_feature</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]]</span>
-            
-            <span class="c1"># Add of two additional keys that will store the data currently being ploted.</span>
-            <span class="k">if</span> <span class="n">feature_nbr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s2">"x"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">current_sub_keys</span><span class="p">:</span>
-                    <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">values_feature</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]]</span>
-            <span class="k">elif</span> <span class="n">feature_nbr</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s2">"y"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">current_sub_keys</span><span class="p">:</span>
-                    <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">dict_features</span><span class="p">[</span><span class="n">class_training_examples</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">values_feature</span><span class="p">[</span><span class="n">class_of_example</span><span class="p">]]</span>
-        
-    <span class="n">source_class_0</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dict_features</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">source_class_1</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dict_features</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">source_class_2</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dict_features</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-    <span class="n">source_class_3</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dict_features</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-    <span class="n">plot</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">x_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">y_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">tools</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">toolbar_location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Pairing Classification Dimensions"</span><span class="p">)</span>
-    <span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">plot</span><span class="p">])</span>
-    
-    <span class="c1"># Define different colours for points of each class.</span>
-    <span class="c1"># [Class 0]</span>
-    <span class="n">plot</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source_class_0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
-    <span class="c1"># [Class 1]</span>
-    <span class="n">plot</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source_class_1</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"green"</span><span class="p">)</span>
-    <span class="c1"># [Class 2]</span>
-    <span class="n">plot</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source_class_2</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">)</span>
-    <span class="c1"># [Class 3]</span>
-    <span class="n">plot</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source_class_3</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">)</span>
-
-    <span class="n">callback</span> <span class="o">=</span> <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="p">[</span><span class="n">source_class_0</span><span class="p">,</span> <span class="n">source_class_1</span><span class="p">,</span> <span class="n">source_class_2</span><span class="p">,</span> <span class="n">source_class_3</span><span class="p">]),</span> <span class="n">code</span><span class="o">=</span><span class="s2">"""</span>
-<span class="s2">        // Each class has an independent data structure.</span>
-<span class="s2">        var data_0 = source[0].data;</span>
-<span class="s2">        var data_1 = source[1].data;</span>
-<span class="s2">        var data_2 = source[2].data;</span>
-<span class="s2">        var data_3 = source[3].data;</span>
-<span class="s2">        </span>
-<span class="s2">        // Selected values in the interface.</span>
-<span class="s2">        var feature_identifier_x = x_feature.value;</span>
-<span class="s2">        var feature_identifier_y = y_feature.value;</span>
-<span class="s2">        console.log("x_feature: " + feature_identifier_x);</span>
-<span class="s2">        console.log("y_feature: " + feature_identifier_y);</span>
-<span class="s2">        </span>
-<span class="s2">        // Update of values.</span>
-<span class="s2">        var x_0 = data_0["x"];</span>
-<span class="s2">        var y_0 = data_0["y"];</span>
-<span class="s2">        for (var i = 0; i &lt; x_0.length; i++) {</span>
-<span class="s2">            x_0[i] = data_0[feature_identifier_x][i];</span>
-<span class="s2">            y_0[i] = data_0[feature_identifier_y][i];</span>
-<span class="s2">        }</span>
-<span class="s2">        </span>
-<span class="s2">        var x_1 = data_1["x"];</span>
-<span class="s2">        var y_1 = data_1["y"];</span>
-<span class="s2">        for (var i = 0; i &lt; x_1.length; i++) {</span>
-<span class="s2">            x_1[i] = data_1[feature_identifier_x][i];</span>
-<span class="s2">            y_1[i] = data_1[feature_identifier_y][i];</span>
-<span class="s2">        }</span>
-<span class="s2">        </span>
-<span class="s2">        var x_2 = data_2["x"];</span>
-<span class="s2">        var y_2 = data_2["y"];</span>
-<span class="s2">        for (var i = 0; i &lt; x_2.length; i++) {</span>
-<span class="s2">            x_2[i] = data_2[feature_identifier_x][i];</span>
-<span class="s2">            y_2[i] = data_2[feature_identifier_y][i];</span>
-<span class="s2">        }</span>
-<span class="s2">        </span>
-<span class="s2">        var x_3 = data_3["x"];</span>
-<span class="s2">        var y_3 = data_3["y"];</span>
-<span class="s2">        for (var i = 0; i &lt; x_3.length; i++) {</span>
-<span class="s2">            x_3[i] = data_3[feature_identifier_x][i];</span>
-<span class="s2">            y_3[i] = data_3[feature_identifier_y][i];</span>
-<span class="s2">        }</span>
-<span class="s2">        </span>
-<span class="s2">        // Communicate update.</span>
-<span class="s2">        source[0].change.emit();</span>
-<span class="s2">        source[1].change.emit();</span>
-<span class="s2">        source[2].change.emit();</span>
-<span class="s2">        source[3].change.emit();</span>
-<span class="s2">    """</span><span class="p">)</span>
-
-    <span class="n">x_feature_select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Select the Feature of Axis x:"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"std_emg_flexor"</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">features_identifiers</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
-    <span class="n">callback</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"x_feature"</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_feature_select</span>
-    
-    <span class="n">y_feature_select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Select the Feature of Axis y:"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"zcr_emg_flexor"</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">features_identifiers</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
-    <span class="n">callback</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"y_feature"</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_feature_select</span>
-
-    <span class="n">widgets</span> <span class="o">=</span> <span class="n">WidgetBox</span><span class="p">(</span><span class="n">x_feature_select</span><span class="p">,</span> <span class="n">y_feature_select</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">widgets</span><span class="p">,</span> <span class="n">plot</span><span class="p">]</span>
-
-<span class="n">l</span> <span class="o">=</span> <span class="n">layout</span><span class="p">([</span><span class="n">slider</span><span class="p">(),],</span> <span class="n">sizing_mode</span><span class="o">=</span><span class="s1">'scale_width'</span><span class="p">)</span>
-
-<span class="n">show</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-</pre>
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="output_wrapper">
-       <div class="output">
-        <div class="output_area">
-         <div class="prompt">
-         </div>
-         <div class="output_html rendered_html output_subarea">
-          <div class="bk-root" data-root-id="1060" id="13fed90c-87e9-465a-95a0-a65d7d6330be">
-          </div>
-         </div>
-        </div>
-        <div class="output_area">
-         <div class="prompt">
-         </div>
-         <div id="5fc95676-7550-4e8a-b0a7-a8ff6d5c7197">
-         </div>
-         <div class="output_subarea output_javascript">
-          <script type="text/javascript">
-           var element = $('#5fc95676-7550-4e8a-b0a7-a8ff6d5c7197');
-(function(root) {
-  function embed_document(root) {
-    
-  var docs_json = {"5b6f19e0-fcfc-4f94-8d20-3594575dabfd":{"roots":{"references":[{"attributes":{"children":[{"id":"1059","type":"Row"}],"sizing_mode":"scale_width"},"id":"1060","type":"Column"},{"attributes":{},"id":"1012","type":"LinearScale"},{"attributes":{"args":{"source":[{"id":"1001","type":"ColumnDataSource"},{"id":"1002","type":"ColumnDataSource"},{"id":"1003","type":"ColumnDataSource"},{"id":"1004","type":"ColumnDataSource"}],"x_feature":{"id":"1056","type":"Select"},"y_feature":{"id":"1057","type":"Select"}},"code":"\n        // Each class has an independent data structure.\n        var data_0 = source[0].data;\n        var data_1 = source[1].data;\n        var data_2 = source[2].data;\n        var data_3 = source[3].data;\n        \n        // Selected values in the interface.\n        var feature_identifier_x = x_feature.value;\n        var feature_identifier_y = y_feature.value;\n        console.log(\"x_feature: \" + feature_identifier_x);\n        console.log(\"y_feature: \" + feature_identifier_y);\n        \n        // Update of values.\n        var x_0 = data_0[\"x\"];\n        var y_0 = data_0[\"y\"];\n        for (var i = 0; i < x_0.length; i++) {\n            x_0[i] = data_0[feature_identifier_x][i];\n            y_0[i] = data_0[feature_identifier_y][i];\n        }\n        \n        var x_1 = data_1[\"x\"];\n        var y_1 = data_1[\"y\"];\n        for (var i = 0; i < x_1.length; i++) {\n            x_1[i] = data_1[feature_identifier_x][i];\n            y_1[i] = data_1[feature_identifier_y][i];\n        }\n        \n        var x_2 = data_2[\"x\"];\n        var y_2 = data_2[\"y\"];\n        for (var i = 0; i < x_2.length; i++) {\n            x_2[i] = data_2[feature_identifier_x][i];\n            y_2[i] = data_2[feature_identifier_y][i];\n        }\n        \n        var x_3 = data_3[\"x\"];\n        var y_3 = data_3[\"y\"];\n        for (var i = 0; i < x_3.length; i++) {\n            x_3[i] = data_3[feature_identifier_x][i];\n            y_3[i] = data_3[feature_identifier_y][i];\n        }\n        \n        // Communicate update.\n        source[0].change.emit();\n        source[1].change.emit();\n        source[2].change.emit();\n        source[3].change.emit();\n    "},"id":"1055","type":"CustomJS"},{"attributes":{"source":{"id":"1004","type":"ColumnDataSource"}},"id":"1054","type":"CDSView"},{"attributes":{"callback":{"id":"1055","type":"CustomJS"},"options":["std_emg_flexor","zcr_emg_flexor","std_abs_emg_flexor","std_emg_adductor","std_abs_emg_adductor","std_acc_z","max_acc_z","m_acc_z"],"title":"Select the Feature of Axis x:","value":"std_emg_flexor"},"id":"1056","type":"Select"},{"attributes":{"callback":{"id":"1055","type":"CustomJS"},"options":["std_emg_flexor","zcr_emg_flexor","std_abs_emg_flexor","std_emg_adductor","std_abs_emg_adductor","std_acc_z","max_acc_z","m_acc_z"],"title":"Select the Feature of Axis y:","value":"zcr_emg_flexor"},"id":"1057","type":"Select"},{"attributes":{},"id":"1014","type":"LinearScale"},{"attributes":{"children":[{"id":"1056","type":"Select"},{"id":"1057","type":"Select"}],"sizing_mode":"scale_width"},"id":"1058","type":"WidgetBox"},{"attributes":{"axis_line_color":{"value":"white"},"formatter":{"id":"1030","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1017","type":"BasicTicker"}},"id":"1016","type":"LinearAxis"},{"attributes":{},"id":"1022","type":"BasicTicker"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{"children":[{"id":"1058","type":"WidgetBox"},{"id":"1005","subtype":"Figure","type":"Plot"}],"sizing_mode":"scale_width"},"id":"1059","type":"Row"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1017","type":"BasicTicker"}},"id":"1020","type":"Grid"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1022","type":"BasicTicker"}},"id":"1025","type":"Grid"},{"attributes":{"axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1028","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1022","type":"BasicTicker"}},"id":"1021","type":"LinearAxis"},{"attributes":{},"id":"1067","type":"Selection"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":null,"active_tap":"auto","logo":null},"id":"1026","type":"Toolbar"},{"attributes":{},"id":"1028","type":"BasicTickFormatter"},{"attributes":{},"id":"1068","type":"UnionRenderers"},{"attributes":{},"id":"1069","type":"Selection"},{"attributes":{},"id":"1070","type":"UnionRenderers"},{"attributes":{},"id":"1071","type":"Selection"},{"attributes":{},"id":"1030","type":"BasicTickFormatter"},{"attributes":{},"id":"1072","type":"UnionRenderers"},{"attributes":{"callback":null,"data":{"m_acc_z":[0.04658795189958139,0.05911564915857292,0.014193699889898955,0.017241822190301088,0.07601586401328263],"max_acc_z":[0.256449422946368,0.2620502376103191,0.4266802443991853,0.24066530889341478,0.1389171758316361],"std_abs_emg_adductor":[0.04452308179859323,0.04455255845830009,0.03056818341764522,0.06277207154998153,0.11950118923122219],"std_abs_emg_flexor":[0.025742998777144244,0.024902435415904818,0.0525447490181641,0.03663197053067692,0.0417334169911848],"std_acc_z":[0.011888115551701333,0.01332879957443708,0.021078178057380218,0.014735230567728103,0.028706180538483027],"std_emg_adductor":[0.054839376533556014,0.0444578577459767,0.027330949288138777,0.06907079457939581,0.15928362923271033],"std_emg_flexor":[0.031925374985616504,0.030444280899922307,0.07219342081806593,0.049330390130518584,0.05962416985215949],"x":[0.031925374985616504,0.030444280899922307,0.07219342081806593,0.049330390130518584,0.05962416985215949],"y":[0.9101009161769645,1.0,0.43362888324789295,0.6308965884168416,0.5471092077087795],"zcr_emg_flexor":[0.9101009161769645,1.0,0.43362888324789295,0.6308965884168416,0.5471092077087795]},"selected":{"id":"1067","type":"Selection"},"selection_policy":{"id":"1066","type":"UnionRenderers"}},"id":"1001","type":"ColumnDataSource"},{"attributes":{},"id":"1073","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1037","type":"Circle"},{"attributes":{"data_source":{"id":"1001","type":"ColumnDataSource"},"glyph":{"id":"1036","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1037","type":"Circle"},"selection_glyph":null,"view":{"id":"1039","type":"CDSView"}},"id":"1038","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"green"},"line_alpha":{"value":0.6},"line_color":{"value":"green"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1041","type":"Circle"},{"attributes":{"source":{"id":"1001","type":"ColumnDataSource"}},"id":"1039","type":"CDSView"},{"attributes":{"callback":null,"end":1.5,"start":-1.5},"id":"1010","type":"Range1d"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1042","type":"Circle"},{"attributes":{},"id":"1066","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"1002","type":"ColumnDataSource"},"glyph":{"id":"1041","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1042","type":"Circle"},"selection_glyph":null,"view":{"id":"1044","type":"CDSView"}},"id":"1043","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"orange"},"line_alpha":{"value":0.6},"line_color":{"value":"orange"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1046","type":"Circle"},{"attributes":{"source":{"id":"1002","type":"ColumnDataSource"}},"id":"1044","type":"CDSView"},{"attributes":{"callback":null,"data":{"m_acc_z":[-0.22257799297153125,1.0,0.0594084375961582,0.4093337110671792,-0.02479653404793693],"max_acc_z":[0.6768499660556688,1.0,0.5497284453496266,0.49660556687033264,0.9609640190088257],"std_abs_emg_adductor":[0.09052537250418409,0.07390201376193968,0.07065967813516462,0.06300485640464787,0.08311051186035512],"std_abs_emg_flexor":[0.24192313170044227,0.22984246159157856,0.19763530133345586,0.19542511721497244,0.2808597761551712],"std_acc_z":[0.3642577991681853,0.5624140713279896,0.224624625302545,0.19704118415436664,0.4707785081086301],"std_emg_adductor":[0.09170706335093463,0.07670354255394725,0.07290890413125423,0.06684530056106534,0.0907501566245056],"std_emg_flexor":[0.2619226105211863,0.23655239393059876,0.2525459324350966,0.24372718835484417,0.3001203575429692],"x":[0.2619226105211863,0.23655239393059876,0.2525459324350966,0.24372718835484417,0.3001203575429692],"y":[0.4817824905661847,0.5094019293944585,0.3579698150976626,0.3823923051979892,0.5020518158084821],"zcr_emg_flexor":[0.4817824905661847,0.5094019293944585,0.3579698150976626,0.3823923051979892,0.5020518158084821]},"selected":{"id":"1069","type":"Selection"},"selection_policy":{"id":"1068","type":"UnionRenderers"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1047","type":"Circle"},{"attributes":{"data_source":{"id":"1003","type":"ColumnDataSource"},"glyph":{"id":"1046","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1047","type":"Circle"},"selection_glyph":null,"view":{"id":"1049","type":"CDSView"}},"id":"1048","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"m_acc_z":[-5.875498790878059,-6.192625007957869,-4.699454612489869,-5.823050782917777,-3.4718829043892487],"max_acc_z":[0.47522063815342847,0.3257807196198235,0.7389680923285812,0.49083503054989824,0.4596062457569587],"std_abs_emg_adductor":[0.10481372414210045,0.25100820929950546,0.1880998358344729,0.1332285814188439,0.24182391903602055],"std_abs_emg_flexor":[0.5521894056376119,0.8846115707902636,0.6156717389467581,1.0,0.6756898556603982],"std_acc_z":[0.9699288006994162,1.0,0.8311405605498298,0.9472609610375593,0.6434080453743202],"std_emg_adductor":[0.10040795569413238,0.231985813932135,0.20032772053500805,0.14216353375190308,0.23916797748289673],"std_emg_flexor":[0.5553006478548456,0.8409626016807268,0.6505394508214833,0.9731833756113974,0.690898970043693],"x":[0.5553006478548456,0.8409626016807268,0.6505394508214833,0.9731833756113974,0.690898970043693],"y":[0.3963751209296349,0.4358363204164185,0.601481795709304,0.5771138422996525,0.6180282752202009],"zcr_emg_flexor":[0.3963751209296349,0.4358363204164185,0.601481795709304,0.5771138422996525,0.6180282752202009]},"selected":{"id":"1071","type":"Selection"},"selection_policy":{"id":"1070","type":"UnionRenderers"}},"id":"1003","type":"ColumnDataSource"},{"attributes":{"callback":null,"end":1.5,"start":-1.5},"id":"1008","type":"Range1d"},{"attributes":{"fill_color":{"value":"blue"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1051","type":"Circle"},{"attributes":{"source":{"id":"1003","type":"ColumnDataSource"}},"id":"1049","type":"CDSView"},{"attributes":{"callback":null,"data":{"m_acc_z":[-3.384593265268097,-3.8541223959564994,-3.6795196257542138,-3.8406012497506214,-3.1317440244841364],"max_acc_z":[0.22063815342837748,0.23073659198913787,0.2953156822810591,0.629327902240326,0.29540054310930075],"std_abs_emg_adductor":[1.0,0.6970773219883378,0.972623546810315,0.8801135542630651,0.6368920968150436],"std_abs_emg_flexor":[0.7352698337182155,0.35715988317299047,0.40686133317924583,0.46217606586597454,0.29106650687691266],"std_acc_z":[0.717685814283452,0.7165412725587308,0.8079452801773019,0.724292466824971,0.7519497818655793],"std_emg_adductor":[1.0,0.7201756668543021,0.9615354030688323,0.8603452736261372,0.666015158950817],"std_emg_flexor":[1.0,0.4260465701689263,0.4031192789075803,0.4837646506109135,0.36615487646488876],"x":[1.0,0.4260465701689263,0.4031192789075803,0.4837646506109135,0.36615487646488876],"y":[0.3398366858976391,0.34194867769632836,0.5538244403703657,0.42595341065640907,0.3605862142158899],"zcr_emg_flexor":[0.3398366858976391,0.34194867769632836,0.5538244403703657,0.42595341065640907,0.3605862142158899]},"selected":{"id":"1073","type":"Selection"},"selection_policy":{"id":"1072","type":"UnionRenderers"}},"id":"1004","type":"ColumnDataSource"},{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1016","type":"LinearAxis"}],"center":[{"id":"1020","type":"Grid"},{"id":"1025","type":"Grid"}],"height":200,"left":[{"id":"1021","type":"LinearAxis"}],"renderers":[{"id":"1038","type":"GlyphRenderer"},{"id":"1043","type":"GlyphRenderer"},{"id":"1048","type":"GlyphRenderer"},{"id":"1053","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1006","type":"Title"},"toolbar":{"id":"1026","type":"Toolbar"},"toolbar_location":"right","x_range":{"id":"1008","type":"Range1d"},"x_scale":{"id":"1012","type":"LinearScale"},"y_range":{"id":"1010","type":"Range1d"},"y_scale":{"id":"1014","type":"LinearScale"}},"id":"1005","subtype":"Figure","type":"Plot"},{"attributes":{"text":"Pairing Classification Dimensions"},"id":"1006","type":"Title"},{"attributes":{"fill_color":{"value":"red"},"line_alpha":{"value":0.6},"line_color":{"value":"red"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Circle"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":3},"x":{"field":"x"},"y":{"field":"y"}},"id":"1052","type":"Circle"},{"attributes":{"data_source":{"id":"1004","type":"ColumnDataSource"},"glyph":{"id":"1051","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1052","type":"Circle"},"selection_glyph":null,"view":{"id":"1054","type":"CDSView"}},"id":"1053","type":"GlyphRenderer"}],"root_ids":["1060"]},"title":"Bokeh Application","version":"1.4.0"}};
-  var render_items = [{"docid":"5b6f19e0-fcfc-4f94-8d20-3594575dabfd","roots":{"1060":"13fed90c-87e9-465a-95a0-a65d7d6330be"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-
-  }
-  if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);
-          </script>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing text_cell rendered">
-     <div class="prompt input_prompt">
-     </div>
-     <div class="inner_cell">
-      <div class="text_cell_render border-box-sizing rendered_html">
-       <p class="steps">
-        6 - For classifying a new "test" example (with unknown class) it will only be necessary to give an input to the classifier, i.e., a list with the features values of the "test" example
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing code_cell rendered">
-     <div class="input">
-      <div class="prompt input_prompt">
-       In [12]:
-      </div>
-      <div class="inner_cell">
-       <div class="input_area">
-        <div class="highlight hl-ipython3">
-         <pre><span></span><span class="c1"># A list with 8 arbitrary entries.</span>
-<span class="n">test_examples_features</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">]</span>
-
-<span class="c1"># Classification.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Returned Class: "</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">knn_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">test_examples_features</span><span class="p">]))</span>
-
-<span class="c1"># Probability of Accuracy.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Probability of each class:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">knn_classifier</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="n">test_examples_features</span><span class="p">]))</span>
-</pre>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="output_wrapper">
-      <div class="output">
-       <div class="output_area">
-        <div class="prompt">
-        </div>
-        <div class="output_subarea output_stream output_stdout output_text">
-         <pre>Returned Class: 
-[1]
-Probability of each class:
-[[0.4 0.6 0.  0. ]]
-</pre>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing text_cell rendered">
-     <div class="prompt input_prompt">
-     </div>
-     <div class="inner_cell">
-      <div class="text_cell_render border-box-sizing rendered_html">
-       <p>
-        There is a clear doubt between class "0" ("No Action") and class "1" ("Paper"), with 40 % and 60 % of accuracy probability, respectively.
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="cell border-box-sizing text_cell rendered">
-     <div class="prompt input_prompt">
-     </div>
-     <div class="inner_cell">
-      <div class="text_cell_render border-box-sizing rendered_html">
-       <p>
-        With the steps described on the current volume of "Classification Game", our classifier is trained and ready to receive new examples and classify them immediately.
-       </p>
-       <p>
-        There is only one remaining task, that will be briefly explained on the
-        <a href="../Evaluate/classification_game_volume_4_rev.php">
-         final volume
+        If your are feeling your interest increasing, please jump to the next
+        <a href="../Train_and_Classify/classification_game_volume_4_rev.php">
+         volume
          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
         </a>
-        , consisting in the objective evaluation of the classifier quality.
        </p>
        <p>
         <strong>
@@ -15312,7 +15356,7 @@ Probability of each class:
      <div class="cell border-box-sizing code_cell rendered">
       <div class="input hide">
        <div class="prompt input_prompt">
-        In [13]:
+        In [23]:
        </div>
        <div class="inner_cell">
         <div class="input_area">
@@ -15336,7 +15380,7 @@ Probability of each class:
         </div>
         <div class="output_area">
          <div class="prompt output_prompt">
-          Out[13]:
+          Out[23]:
          </div>
          <div class="output_html rendered_html output_subarea output_execute_result">
           <style>
