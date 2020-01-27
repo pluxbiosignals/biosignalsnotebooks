@@ -139,7 +139,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php'> EMG Analysis - Time and Frequency Parameters </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
+		<td rowspan='6'><p align='center'><img src='https://i.ibb.co/CQ4cyGb/Train-and-Classify.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/biosignal_classification_rev.php' target='_blank'> Signal Classifier - Distinguish between EMG and ECG </a> </td>
 	</tr>
 	<tr>
@@ -152,11 +152,14 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_volume_2_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 2] </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_volume_3_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 3] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_volume_3_rev.php'> Stone, Paper or Scissor Game - Train and Classify [Volume 3] </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Train_And_Classify/classification_game_volume_4_rev.php'> Rock, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
 	</tr>
 	<tr>
 		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/yfwcy2M/Evaluate.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_4_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_5_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 4] </a> </td>
 	</tr>
 </table>
 
