@@ -237,8 +237,8 @@ def _generate_post_build_files():
 
 # Execute Script.
 #run(list_notebooks=["eeg_extract_alphaband"])
-run(list_notebooks=["classification_game_volume_1", "classification_game_volume_2", "classification_game_volume_3", "classification_game_volume_4", "classification_game_volume_5"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions", "quick_start_guide"],
-    signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["synchrony_sound", "unit_conversion_eda", "unit_conversion_pzt", "classification_game_volume_3"])
+run(list_notebooks=["unit_conversion_rip"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions", "quick_start_guide"],
+    signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["unit_conversion_rip"])
 #run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
 
 # 29/11/2018  17h18m :)

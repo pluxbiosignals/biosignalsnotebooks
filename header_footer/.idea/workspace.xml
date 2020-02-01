@@ -2,29 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8294bb59-4283-4264-87e9-828ec463c7ed" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_4/classification_game_paper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_4/classification_game_scissor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_4/classification_game_stone.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Evaluate/classification_game_volume_4.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Other/quick_start_guide.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Other/quick_start_guide.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/download_file_name.h5" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/download_file_name.h5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/eeg_electrode_placement.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Record/eeg_electrode_placement.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/classification_game_volume_3.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Train_And_Classify/feature_selection.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_3/nn_concepts.gif" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/images/train_and_classify/classification_game_volume_4/nn_concepts.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/classification_game/features/classification_game_features_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/classification_game/features/classification_game_features_final.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_pzt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_pzt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_RIP.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_RIP.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4_rev.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4_rev.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Evaluate/classification_game_volume_4_rev.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" afterDir="false" />
@@ -38,17 +22,7 @@
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/contacts_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_1.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_1.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_1_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_1_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_2.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_2.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_2_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_2_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_3.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_3.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_3_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Train_And_Classify/classification_game_volume_3_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/images/train_and_classify/classification_game_volume_3/nn_concepts.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/signal_samples/classification_game/features/classification_game_features_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/signal_samples/classification_game/features/classification_game_features_final.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../postBuild" beforeDir="false" afterPath="$PROJECT_DIR$/../postBuild" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,8 +53,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="240" column="169" selection-start-line="240" selection-start-column="169" selection-end-line="240" selection-end-column="169" />
+            <state relative-caret-position="190">
+              <caret line="240" column="95" selection-start-line="240" selection-start-column="95" selection-end-line="240" selection-end-column="95" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -171,11 +145,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-276" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -269,15 +243,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-276" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09747102" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09715796" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32980832" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40303358" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4022663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40581626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,8 +329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="240" column="169" selection-start-line="240" selection-start-column="169" selection-end-line="240" selection-end-column="169" />
+        <state relative-caret-position="190">
+          <caret line="240" column="95" selection-start-line="240" selection-start-column="95" selection-end-line="240" selection-end-column="95" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
           </folding>
