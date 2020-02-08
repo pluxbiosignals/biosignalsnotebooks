@@ -367,7 +367,7 @@ def read_header(file):
             del header[mac]["label"]
 
     elif file_type in ["h5", "x-hdf", "a"]:
-        file_temp = h5py.File(file)
+        file_temp = h5py.File(file, mode="r")
         macs = file_temp.keys()
 
         header = {}
@@ -557,7 +557,7 @@ def _load_h5(file, devices, channels):
     """
 
     # %%%%%%%%%%%%%%%%%%%%%%%%%%%% Creation of h5py object %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    h5_object = h5py.File(file)
+    h5_object = h5py.File(file, mode="r")
 
     # %%%%%%%%%%%%%%%%%%%%%%%%% Data of the selected channels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     out_dict = {}
