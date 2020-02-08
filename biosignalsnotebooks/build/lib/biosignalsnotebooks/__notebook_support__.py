@@ -55,10 +55,11 @@ from os.path import exists as pathexist
 
 import numpy
 import requests
+import math
 import os
 # import novainstrumentation as ni
 from .process import smooth, plotfft, lowpass
-from .visualise import plot, opensignals_kwargs, opensignals_color_pallet, opensignals_style
+from .visualise import plot, opensignals_kwargs, opensignals_color_pallet, opensignals_style, dispersion
 from .detect import detect_emg_activations
 from .aux_functions import _generate_bokeh_file
 from IPython.core.display import HTML
@@ -1407,7 +1408,7 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
         show(fig_list[0])
         #HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
 
-# %%%%%%%%%%%%%%%%%%%%%%% emg_fatigue_evaluation_median_freq.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% tachogram.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 def plot_ecg_tachogram(time, signal, tachogram_time, tachogram, time_r_peaks, show_plot=True):
@@ -1503,6 +1504,97 @@ def plot_ecg_tachogram(time, signal, tachogram_time, tachogram, time_r_peaks, sh
         show(grid_plot_1)
 
     return list_figures_1
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% poincare_plot.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def plot_poincare(tachogram_data, show_plot=True):
+    """
+    -----
+    Brief
+    -----
+    Poincaré plot is an important non-linear analysis tool to explore and evaluate heart rate
+    variability.
+
+    -----------
+    Description
+    -----------
+    Using the tachogram, Poincaré plot is generating by creating groups of consecutive RR intervals,
+    i.e., two consecutive sample values of the tachogram will give origin to a Poincaré point.
+
+    As a practical example, being tach[t] the tachogram time-series, (tach[0], tach[1]), (tach[1], tach[2]), ...,
+    (tach[N-1], tach[N]) are the points of the Poincaré plot.
+
+    From this plot it is possible to extract SD1 and SD2 parameters correspondent to the standard deviation along
+    two specific axis.
+
+    This function ensures an easy way to present the Poincaré plot together with the axis needed to estimate SD1 and SD2.
+
+    Applied in the Notebook "Generation of Poincaré Plot from ECG Analysis".
+
+    ----------
+    Parameters
+    ----------
+    tachogram_data : list
+        List containing the data samples of the Tachogram.
+
+    show_plot : bool
+        If True then the generated figure/plot will be shown to the user.
+
+    Returns
+    -------
+    out : list
+        List of Bokeh figures that compose the generated gridplot.
+    """
+
+    # Poincaré axes.
+    rr_i = tachogram_data[:-1]
+    rr_i_plus_1 = tachogram_data[1:]
+
+    # Estimation of some relevant variables.
+    avg_rr = numpy.average(tachogram_data)
+    tachogram_diff = numpy.diff(tachogram_data)
+    SDSD = numpy.std(tachogram_diff)
+    SDNN = numpy.std(tachogram_data)
+
+    SD1 = numpy.sqrt(0.5 * numpy.power(SDSD, 2))
+    SD2 = numpy.sqrt(2 * numpy.power(SDNN, 2) - numpy.power(SD1, 2))
+
+    # Plotting of Tachogram
+    color_1 = "#CF0272"
+    color_2 = "#F199C1"
+    list_figures = dispersion(rr_i, rr_i_plus_1, 'RR\u1D62 (s)', 'RR\u1D62\u208A\u2081 (s)', show_plot=False)
+
+    list_figures[-1].line([numpy.min(rr_i), numpy.max(rr_i)], [numpy.min(rr_i_plus_1), numpy.max(rr_i_plus_1)],
+                            line_color="black", line_dash="dashed")
+    list_figures[-1].line([numpy.min(rr_i), numpy.max(rr_i)],
+                            [-numpy.min(rr_i) + 2 * avg_rr, -numpy.max(rr_i) + 2 * avg_rr], line_color="black",
+                            line_dash="dashed")
+    list_figures[-1].add_layout(Arrow(start=VeeHead(size=15, line_color=color_1, fill_color=color_1),
+                                        end=VeeHead(size=15, line_color=color_1, fill_color=color_1),
+                                        x_start=avg_rr - SD2 * math.cos(math.radians(45)),
+                                        y_start=avg_rr - SD2 * math.sin(math.radians(45)),
+                                        x_end=avg_rr + SD2 * math.cos(math.radians(45)),
+                                        y_end=avg_rr + SD2 * math.cos(math.radians(45)), line_color=color_1,
+                                        line_width=3))
+    list_figures[-1].add_layout(Arrow(start=VeeHead(size=15, line_color=color_2, fill_color=color_2),
+                                        end=VeeHead(size=15, line_color=color_2, fill_color=color_2),
+                                        x_start=avg_rr - SD1 * math.sin(math.radians(45)),
+                                        y_start=avg_rr + SD1 * math.cos(math.radians(45)),
+                                        x_end=avg_rr + SD1 * math.sin(math.radians(45)),
+                                        y_end=avg_rr - SD1 * math.cos(math.radians(45)), line_color=color_2,
+                                        line_width=3))
+    list_figures[-1].line([rr_i[0], rr_i[0]], [rr_i[0], rr_i[0]], legend_label="2 x SD1", line_color=color_2, line_width=2)
+    list_figures[-1].line([rr_i[0], rr_i[0]], [rr_i[0], rr_i[0]], legend_label="2 x SD2", line_color=color_1, line_width=2)
+
+    # Apply OpenSignals style.
+    opensignals_style(list_figures)
+
+    # Show plot.
+    if show_plot is True:
+        show(list_figures[-1])
+
+    return list_figures
 
 # =================================================================================================
 # ===================================== Record Category ===========================================

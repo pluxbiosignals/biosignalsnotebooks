@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/gui_s.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/visualise.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/visualise.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/tachogram.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/tachogram.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/visualise.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/visualise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/poincare_plot.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/poincare_plot.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528448882916</updated>
-      <workItem from="1581177545997" duration="3737000" />
+      <workItem from="1581177545997" duration="7406000" />
     </task>
     <servers />
   </component>

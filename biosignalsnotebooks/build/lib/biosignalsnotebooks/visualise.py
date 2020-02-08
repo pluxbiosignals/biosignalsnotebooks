@@ -669,6 +669,60 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
         return fig_list
 
 
+def dispersion(x_axis, y_axis, x_axis_label, y_axis_label, show_plot=True):
+    """
+    -----
+    Brief
+    -----
+    This auxiliary function ensures a graphical representation of a dispersion graph.
+
+    -----------
+    Description
+    -----------
+    Through Bokeh tools, a dispersion plot can be generated using circles to present each
+    point of the plot and removing the connection lines.
+
+    ----------
+    Parameters
+    ----------
+    x_axis : list
+        List containing the x axis samples of the dispersion plot.
+
+    y_axis : list
+        List containing the y axis samples of the dispersion plot.
+
+    x_axis_label : str
+        A string containing the text to be presented near the x axis.
+
+    y_axis_label : str
+        A string containing the text to be presented near the y axis.
+
+    show_plot : bool
+        If True then the generated figure/plot will be shown to the user.
+
+    Returns
+    -------
+    out : list
+        List of Bokeh figures that compose the generated gridplot.
+    """
+    # List that store the figure handler
+    list_figures_1 = []
+
+    # Plotting of Tachogram
+    list_figures_1.append(figure(x_axis_label=x_axis_label, y_axis_label=y_axis_label,
+                                 **opensignals_kwargs("figure")))
+    list_figures_1[-1].circle(x_axis, y_axis, **opensignals_kwargs("line"))
+
+    # Apply Opensignals style
+    opensignals_style(list_figures_1)
+
+    # Show plot
+    if show_plot is True:
+        show(list_figures_1[-1])
+
+    return list_figures_1
+
+
 def opensignals_style(figure_list, grid_plot=None, toolbar="right"):
     """
     -----
