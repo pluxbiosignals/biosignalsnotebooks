@@ -1407,6 +1407,102 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
         show(fig_list[0])
         #HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
 
+# %%%%%%%%%%%%%%%%%%%%%%% emg_fatigue_evaluation_median_freq.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+def plot_ecg_tachogram(time, signal, tachogram_time, tachogram, time_r_peaks, show_plot=True):
+    """
+    -----
+    Brief
+    -----
+    Electrocardiographic (ECG) signal is a periodical biosignal, where it is observable each electrical
+    event (depolarization/repolarization) responsible for the natural rhythmicity  of heart bump.
+    Tachogram is a time-series that illustrates how cardiac cycles duration changes along time.
+
+    -----------
+    Description
+    -----------
+    As a periodical signal, heart-rate analysis is an interesting path to achieve clinical information about
+    the heart functioning.
+
+    A healthy heart should denote variability between cycles, which is a desirable adaptive physiological
+    response, taking into consideration that human heart should adjust its functioning in accordance to
+    the activity/stress level of the subject.
+
+    R peaks are the most prominent structures in ECG signal, being typically used as a reference of each
+    cardiac cycle.
+
+    After detecting these peaks, RR intervals (cardiac cycle periods) can be determined and heart-rate
+    variability (HRV) studies take place.
+
+    Tachogram is the time-series that presents the evolution of cardiac cycle duration (in seconds) along time,
+    becoming the main source of information to extract multiple HRV parameters.
+
+    This function generates a 2x1 gridplot presenting the tachogram (top cell) and the respective ECG signal
+    (bottom cell), highlighting each cardiac cycle.
+
+    Applied in the Notebook "Generation of Tachogram from ECG".
+
+    ----------
+    Parameters
+    ----------
+    time : list
+        List containing the time-axis samples of the ECG plot.
+
+    signal : list
+        List containing the data samples of the ECG plot.
+
+    tachogram_time : list
+        List with the time-axis of the tachogram.
+
+    tachogram : list
+        List with the tachogram values (RR interval durations).
+
+    time_r_peaks : list
+        This list contains the time-instants where each R peak is located.
+
+    show_plot : bool
+        If True then the generated figure/plot will be shown to the user.
+
+    Returns
+    -------
+    out : list
+        List of Bokeh figures that compose the generated gridplot.
+    """
+
+    # List that store the figure handler
+    list_figures_1 = [[], []]
+
+    # Plotting of Tachogram
+    list_figures_1[0].append(
+        figure(x_axis_label='Time (s)', y_axis_label='Cardiac Cycle (s)', title="Tachogram", x_range=(0, time[-1]),
+               **opensignals_kwargs("figure")))
+    list_figures_1[0][-1].line(tachogram_time, tachogram, **opensignals_kwargs("line"))
+
+    # Plotting of ECG signal
+    list_figures_1[1].append(
+        figure(x_axis_label='Time (s)', y_axis_label='Raw Data', title="ECG Acquisition", x_range=(0, time[-1]),
+               **opensignals_kwargs("figure")))
+    list_figures_1[1][-1].line(time, signal, **opensignals_kwargs("line"))
+
+    # Highlighting of each cardiac cycle
+    for r_peak in range(0, len(time_r_peaks) - 1):
+        color = opensignals_color_pallet()
+        box_annotation = BoxAnnotation(left=time_r_peaks[r_peak], right=time_r_peaks[r_peak + 1], fill_color=color,
+                                       fill_alpha=0.1)
+        box_annotation_copy = BoxAnnotation(left=time_r_peaks[r_peak], right=time_r_peaks[r_peak + 1], fill_color=color,
+                                            fill_alpha=0.1)
+        list_figures_1[0][-1].add_layout(box_annotation)
+        list_figures_1[1][-1].add_layout(box_annotation_copy)
+
+    opensignals_style([item for sublist in list_figures_1 for item in sublist])
+
+    grid_plot_1 = gridplot(list_figures_1, **opensignals_kwargs("gridplot"))
+
+    if show_plot is True:
+        show(grid_plot_1)
+
+    return list_figures_1
 
 # =================================================================================================
 # ===================================== Record Category ===========================================

@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5236326-0122-4a25-96de-fa1c44decbeb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/opensignalstools.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/opensignalstools.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/gui_s.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/dependency_links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/requires.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks.egg-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/.ipynb_checkpoints/poincare_plot-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/.ipynb_checkpoints/poincare_plot-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/poincare_plot.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/poincare_plot.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/biosignalsnotebooks/__notebook_support__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/tachogram.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/tachogram.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +32,15 @@
   </component>
   <component name="ProjectId" id="1XX1HjDgZWVx8gFD0DQFNod9Xg7" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -168,7 +167,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528448882916</updated>
-      <workItem from="1581177545997" duration="1024000" />
+      <workItem from="1581177545997" duration="3737000" />
     </task>
     <servers />
   </component>
