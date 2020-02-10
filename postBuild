@@ -5,8 +5,6 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
-jupyter trust biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_5.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_5.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb
@@ -35,8 +33,6 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
-jupyter trust biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/hands_on_biostec.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/hands_on_biostec.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/hands_on_biostec_solutions.ipynb
@@ -51,6 +47,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/poincare_plot.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/poincare_plot.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/synchronisation.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/synchronisation.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/synchrony_acc.ipynb
@@ -73,8 +71,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_fNIRS.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_pzt.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_pzt.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_rip.ipynb
-jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_rip.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_RIP.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_RIP.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_SpO2.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_SpO2.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Record/eeg_electrode_placement.ipynb
