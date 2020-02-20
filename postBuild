@@ -57,6 +57,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/synchrony_light.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/synchrony_sound.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/synchrony_sound.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/tachogram.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/tachogram.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ACC.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ACC.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/unit_conversion_ecg.ipynb
