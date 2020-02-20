@@ -19,7 +19,7 @@ with open(path.join(this_directory, 'README_BSNB.md'), encoding='utf-8') as f:
 
 
 setup(name='biosignalsnotebooks',
-      version='0.5.12',#major.minor.build_nbr
+      version='0.5.13',#major.minor.build_nbr
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,

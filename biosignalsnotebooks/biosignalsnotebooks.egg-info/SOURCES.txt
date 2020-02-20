@@ -145,7 +145,6 @@ biosignalsnotebooks/notebook_files/osf_files/images/icons/Notebook.png
 biosignalsnotebooks/notebook_files/osf_files/images/icons/Other.png
 biosignalsnotebooks/notebook_files/osf_files/images/icons/Pre-Process.png
 biosignalsnotebooks/notebook_files/osf_files/images/icons/Record.png
-biosignalsnotebooks/notebook_files/osf_files/images/icons/Train_And_Classify.png
 biosignalsnotebooks/notebook_files/osf_files/images/icons/Train_and_Classify.png
 biosignalsnotebooks/notebook_files/osf_files/images/icons/Understand.png
 biosignalsnotebooks/notebook_files/osf_files/images/icons/Visualise.png
