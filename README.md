@@ -80,7 +80,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Visualise/plot_acquired_data_single_rev.php' target='_blank'> Plotting of Acquired Data using Bokeh </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='19'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='20'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
@@ -127,6 +127,9 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_fNIRS_rev.php'>fNIRS Sensor - Unit Conversion </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_gon_rev.php'>Goniometer Sensor - Unit Conversion </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_pzt_rev.php'>PZT Sensor - Unit Conversion </a> </td>
