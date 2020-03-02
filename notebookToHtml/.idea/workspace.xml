@@ -2,12 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3eee533-b8af-4587-8ec4-b196991b8c6f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/gonio_arm_flex.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/gonio_arm_flex_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/README_BSN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/osf_files/images/train_and_classify/classification_game_volume_3/nn_concepts.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/osf_files/signal_samples/classification_game/features/classification_game_features_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/biosignalsnotebooks/notebook_files/osf_files/signal_samples/classification_game/features/classification_game_features_final.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/build/lib/biosignalsnotebooks/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks/setup_linux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks/setup_linux.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.h5" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.h5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/download_file_name.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_ACC.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_ACC.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Visualise/plot_acquired_data_single.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Visualise/plot_acquired_data_single.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_RIP.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_RIP.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_goniometer.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_pzt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Pre-Process/unit_conversion_pzt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../h5ToJson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../h5ToJson/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../h5ToJson/h5metadata_to_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/../h5ToJson/h5metadata_to_json.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../header_footer/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../header_footer/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -22,6 +40,7 @@
       <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.zip" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/biosignalsnotebooks_html_publish/signal_samples/signal_sample_single_hub_RESPIRATION_2018_7_5_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../postBuild" beforeDir="false" afterPath="$PROJECT_DIR$/../postBuild" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -173,6 +192,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,7 +204,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">

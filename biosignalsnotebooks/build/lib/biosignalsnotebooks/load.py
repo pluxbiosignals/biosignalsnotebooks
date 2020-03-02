@@ -181,7 +181,7 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, out_
             if extension == None:
                 extension = ".txt"
                 remote_file_path = "download_file_name" + extension
-    elif file_type in ["h5", "x-hdf", "a"]:
+    elif file_type in ["h5", "x-hdf", "a", "bin"]:
         data = _load_h5(file, dev_list_standard, chn_list_standard)
         if remote is True:
             if extension == None:
@@ -366,7 +366,7 @@ def read_header(file):
             del header[mac]["column"]
             del header[mac]["label"]
 
-    elif file_type in ["h5", "x-hdf", "a"]:
+    elif file_type in ["h5", "x-hdf", "a", "bin"]:
         file_temp = h5py.File(file, mode="r")
         macs = file_temp.keys()
 
