@@ -162,27 +162,33 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
                         cellIn = htmlObject.find_all("div", attrs={"class": "hide_in"})
                         for cell in cellIn:
                             # Add class "hide" to the current div.
-                            inputContainer = cell.find_next(attrs={"class": "input"})
-                            inputContainer["class"] = inputContainer.get('class', []) + ['hide']
+                            inputContainer = cell.find_all("div", attrs={"class": "input"})
+
+                            # Remove extra space if none output field exists.
+                            outputContainer = cell.find_all("div", attrs={"class": "output"}, recursive=True)
+                            if len(outputContainer) == 0:
+                                cell["class"] = cell.get('class', []) + ['hide']
+                            else:
+                                inputContainer[0]["class"] = inputContainer[0].get('class', []) + ['hide']
 
                         # Hide all tagged outputs.
                         cellOut = htmlObject.find_all("div", attrs={"class": "hide_out"})
                         for cell in cellOut:
                             # Add class "hide" to the current div.
-                            outputContainer = cell.find_next(attrs={"class": "output"})
-                            outputContainer["class"] = outputContainer.get('class', []) + ['hide']
+                            outputContainer = cell.find_all(attrs={"class": "output"})
+                            outputContainer[0]["class"] = outputContainer[0].get('class', []) + ['hide']
 
                         # Hide all tagged containers.
                         cellBoth = htmlObject.find_all("div", attrs={"class": "hide_both"})
                         for cell in cellBoth:
                             # Add class "hide" to the input div.
-                            bothContainer = cell.find_next(attrs={"class": "input"})
-                            bothContainer["class"] = bothContainer.get('class', []) + ['hide']
+                            bothContainer = cell.find_all(attrs={"class": "input"})
+                            bothContainer[0]["class"] = bothContainer[0].get('class', []) + ['hide']
 
                             # Add class "hide" to the output div.
-                            bothContainer = cell.find_next(attrs={"class": "output"})
-                            if bothContainer != None:
-                                bothContainer["class"] = bothContainer.get('class', []) + ['hide']
+                            bothContainer = cell.find_all(attrs={"class": "output"})
+                            if bothContainer[0] != None:
+                                bothContainer[0]["class"] = bothContainer[0].get('class', []) + ['hide']
 
                         # Hide all tagged markdown cells.
                         cellMark = htmlObject.find_all("div", attrs={"class": "hide_mark"})
