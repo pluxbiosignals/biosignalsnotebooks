@@ -272,6 +272,5 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
                         os.remove(path_temp + "\\" + notebook.split(".")[0] + ".html")
 
 run(apply_to_biosignalsplux_website=True, use_json_update_list=True)
-#run(apply_to_biosignalsplux_website=True)
 
 # 29/11/2018  17h18m :)

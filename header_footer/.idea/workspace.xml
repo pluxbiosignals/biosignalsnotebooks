@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8294bb59-4283-4264-87e9-828ec463c7ed" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/unpublished_notebooks/Extract/hrv_parameters.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../biosignalsnotebooks_notebooks/Categories/Extract/hrv_parameters.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/biosignalsnotebooks_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_diff_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_signal_type_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/MainFiles/by_tag_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.html" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/biosignalsnotebooks_html_publish/Categories/Record/resolution_rev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notebookToHtml/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../notebookToHtml/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="240" column="118" selection-start-line="240" selection-start-column="118" selection-end-line="240" selection-end-column="118" />
+            <state relative-caret-position="408">
+              <caret line="27" column="131" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="131" />
               <folding>
                 <element signature="e#122#131#0" expanded="true" />
               </folding>
@@ -138,17 +129,20 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-276" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -225,7 +219,7 @@
     <frame x="-1928" y="-276" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.07744995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07744995" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -334,8 +328,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="240" column="118" selection-start-line="240" selection-start-column="118" selection-end-line="240" selection-end-column="118" />
+        <state relative-caret-position="408">
+          <caret line="27" column="131" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="131" />
           <folding>
             <element signature="e#122#131#0" expanded="true" />
           </folding>

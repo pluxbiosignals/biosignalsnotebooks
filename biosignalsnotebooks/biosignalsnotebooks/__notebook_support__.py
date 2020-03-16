@@ -57,6 +57,7 @@ import numpy
 import requests
 import math
 import os
+import scipy.integrate as integrate
 # import novainstrumentation as ni
 from .process import smooth, plotfft, lowpass
 from .visualise import plot, opensignals_kwargs, opensignals_color_pallet, opensignals_style, dispersion
@@ -837,6 +838,242 @@ def plot_eeg_alpha_band(freq_axis_evt1, power_axis_evt1, freq_axis_evt2, power_a
     # Show figure.
     grid_plot_ref = gridplot([[list_figures[0], list_figures[1]]], **opensignals_kwargs("gridplot"))
     show(grid_plot_ref)
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% hrv_parameters.ipynb %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def plot_post_ecto_rem_tachogram(tachogram_time, tachogram_data, tachogram_time_nn, tachogram_data_nn):
+    """
+    -----
+    Brief
+    -----
+    Function intended to generate a single Bokeh figure containing the tachogram before and after
+    removing the influence of ectopic heart beats.
+
+    -----------
+    Description
+    -----------
+    The current function was mainly created to support "hrv_parameters" Jupyter Notebook, ensuring
+    a graphical representation of a tachogram (time-series presenting the evolution of RR interval duration
+    along a trial) before and after applying an algorithm for removal of ectopic beats (abnormal cardiac periods/
+    events).
+
+    Applied in the Notebook titled "ECG Analysis - Heart Rate Variability Parameters".
+
+    ----------
+    Parameters
+    ----------
+    tachogram_time : list
+        Time axis of the original tachogram (before ectopic beats removal).
+
+    tachogram_data : list
+        RR interval duration values linked to each entry of tachogram_time.
+
+    tachogram_time_nn : list
+        Time axis of the filtered tachogram (after ectopic beats removal).
+
+    tachogram_data_nn : list
+        RR interval duration values linked to each entry of tachogram_time_nn (including only normal RR intervals |
+        non-ectopic).
+    """
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Plotting of Tachogram
+    list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Cardiac Cycle (s)', x_range=(0, tachogram_time[-1]),
+                                 **opensignals_kwargs("figure")))
+    list_figures[-1].line(tachogram_time, tachogram_data, legend_label="Original Tachogram", **opensignals_kwargs("line"))
+    list_figures[-1].line(tachogram_time_nn, tachogram_data_nn, legend_label="Post Ectopy Removal Tachogram",
+                            line_dash="dashed", **opensignals_kwargs("line"))
+
+    # Apply OpenSignals style to the figure under analysis.
+    opensignals_style(list_figures)
+
+    # Show plot generated with the previous code instructions.
+    show(list_figures[-1])
+
+
+def plot_hrv_parameters(tachogram_time, tachogram_data, time_param_dict):
+    """
+    -----
+    Brief
+    -----
+    This method ensures the generation of an intuitive graphical representation of Heart Rate Variability (HRV)
+    parameters, extracted from the tachogram.
+
+    -----------
+    Description
+    -----------
+    The current function was mainly created to support "hrv_parameters" Jupyter Notebook, being responsible for
+    graphically translating statistical HRV parameters extracted from the tachogram time-series.
+
+    Applied in the Notebook titled "ECG Analysis - Heart Rate Variability Parameters".
+
+    ----------
+    Parameters
+    ----------
+    tachogram_time : list
+        Time axis of the original tachogram (before ectopic beats removal).
+
+    tachogram_data : list
+        RR interval duration values linked to each entry of tachogram_time.
+
+    time_param_dict : dict
+        Dictionary containing the numerical values of the parameters that will be graphically translated by this
+        function.
+        The following keys must be available:
+        >> "Maximum RR"
+        >> "Minimum RR"
+        >> "Average RR"
+        >> "Maximum BPM"
+        >> "Minimum BPM"
+        >> "Average BPM"
+        >> "SDNN"
+    """
+
+    # Check if all keys are available.
+    temp_dict_keys = list(time_param_dict.keys())
+    for dict_key in ["Maximum RR", "Minimum RR", "Average RR", "Maximum BPM", "Minimum BPM", "Average BPM", "SDNN"]:
+        if dict_key not in temp_dict_keys:
+            raise RuntimeError(dict_key + " key is not available in time_param_dict input")
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Conversion of RR interval duration to BPM.
+    bpm_data = (1 / numpy.array(tachogram_data)) * 60
+
+    # Plotting of Tachogram
+    list_figures.append(
+        figure(x_axis_label='Time (s)', y_axis_label='Cardiac Cycle (s)', x_range=(0, tachogram_time[-1] + 0.30 * tachogram_time[-1]),
+               y_range=(0.6, 1), **opensignals_kwargs("figure")))
+    list_figures[-1].line(tachogram_time, tachogram_data, legend_label="Original Tachogram", **opensignals_kwargs("line"))
+
+    # Setting the second y axis range name and range of values
+    list_figures[-1].extra_y_ranges = {"BPM": Range1d(start=60, end=95)}
+
+    # Addition of the second axis to the plot
+    list_figures[-1].add_layout(LinearAxis(y_range_name="BPM", axis_label='BPM'), 'right')
+
+    list_figures[-1].line(tachogram_time, bpm_data, legend_label="Heart Rate (BPM)", y_range_name="BPM",
+                            **opensignals_kwargs("line"))
+
+    # Representation of Maximum, Minimum and Average Points
+    dict_keys = time_param_dict.keys()
+    for key in dict_keys:
+        if ("Maximum" in key or "Minimum" in key) and "BPM" not in key:
+            find_time = tachogram_time[numpy.where(tachogram_data == time_param_dict[key])[0][0]]
+            list_figures[-1].circle(find_time, time_param_dict[key], radius=5,
+                                      fill_color=opensignals_color_pallet(), legend_label=key)
+
+        elif ("Maximum" in key or "Minimum" in key) and "BPM" in key:
+            find_time = tachogram_time[numpy.where(bpm_data == time_param_dict[key])[0][0]]
+            list_figures[-1].circle(find_time, time_param_dict[key], radius=5,
+                                      fill_color=opensignals_color_pallet(), legend_label=key, y_range_name="BPM")
+
+        elif "Average" in key and "BPM" not in key:
+            list_figures[-1].line([0, tachogram_time[-1]], [time_param_dict[key], time_param_dict[key]],
+                                    legend_label="Average RR", **opensignals_kwargs("line"))
+
+        elif "SDNN" in key:
+            box_annotation = BoxAnnotation(left=0, right=tachogram_time[-1], top=time_param_dict["Average RR"] + time_param_dict["SDNN"],
+                                           bottom=time_param_dict["Average RR"] - time_param_dict["SDNN"],
+                                           fill_color="black", fill_alpha=0.1)
+            list_figures[-1].rect(find_time, time_param_dict[key], width=0, height=0, fill_color="black",
+                                    fill_alpha=0.1, legend_label="SDNN")
+            list_figures[-1].add_layout(box_annotation)
+
+    # Apply OpenSignals style to the plot.
+    opensignals_style(list_figures, toolbar="above")
+
+    # Show plot.
+    show(list_figures[-1])
+
+
+def plot_hrv_power_bands(freqs, power_spect):
+    """
+    -----
+    Brief
+    -----
+    Analysing tachogram data in the Fourier/Frequency domain could be extremely useful, being the current function
+    dedicated to the graphical representation of the tachogram power spectrum together with meaningful frequency
+    bands.
+
+    -----------
+    Description
+    -----------
+    Tachogram power spectrum is quite helpful for analysing heart rate variability.
+
+    The obtained power spectrum should be segmented into multiple frequency bands:
+    "ulf_band": [0.00, 0.003], "vlf_band": [0.003, 0.04], "lf_band": [0.04, 0.15], "hf_band": [0.15, 0.40]
+
+    Each band reflects specific mechanisms, namely, thermoregulatory mechanisms (VLF), sympathetic modulation (LF)
+    and parasympathetic modulation (HF) of HRV.
+
+    Applied in the Notebook titled "ECG Analysis - Heart Rate Variability Parameters".
+
+    ----------
+    Parameters
+    ----------
+    freqs : list
+        Frequency axis of the power spectrum (x axis).
+
+    power_spect : list
+        Relative weight of each frequency component in the Fourier decomposition applied to the tachogram (y axis of
+        the power spectrum).
+    """
+
+    # Frequemcy Parameters
+    freq_bands = {"ulf_band": [0.00, 0.003], "vlf_band": [0.003, 0.04], "lf_band": [0.04, 0.15],
+                  "hf_band": [0.15, 0.40]}
+    power_band = {}
+    total_power = 0
+
+    band_keys = freq_bands.keys()
+    for band in band_keys:
+        freq_band = freq_bands[band]
+        freq_samples_inside_band = [freq for freq in freqs if freq >= freq_band[0] and freq <= freq_band[1]]
+        power_samples_inside_band = [p for p, freq in zip(power_spect, freqs) if
+                                     freq >= freq_band[0] and freq <= freq_band[1]]
+        power = numpy.round(integrate.simps(power_samples_inside_band, freq_samples_inside_band), 5)
+
+        # Storage of power inside each band
+        power_band[band] = {}
+        power_band[band]["Power Band"] = power
+        power_band[band]["Freqs"] = freq_samples_inside_band
+        power_band[band]["Power"] = power_samples_inside_band
+
+        # Total power update
+        total_power = total_power + power
+
+    # List that store the figure handler
+    list_figures = []
+
+    # Plotting of Tachogram
+    list_figures.append(figure(x_axis_label='Frequency (Hz)', y_axis_label='Power Spectral Density (s\u00B2 / Hz)',
+                                 **opensignals_kwargs("figure")))
+    list_figures[-1].line(freqs, power_spect, **opensignals_kwargs("line"))
+    list_figures[-1].patch(power_band["ulf_band"]["Freqs"] + power_band["ulf_band"]["Freqs"][::-1],
+                             power_band["ulf_band"]["Power"] + list(numpy.zeros(len(power_band["ulf_band"]["Power"]))),
+                             fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
+                             legend_label="ULF Band")
+    list_figures[-1].patch(power_band["vlf_band"]["Freqs"] + power_band["vlf_band"]["Freqs"][::-1],
+                             power_band["vlf_band"]["Power"] + list(numpy.zeros(len(power_band["vlf_band"]["Power"]))),
+                             fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0,
+                             legend_label="VLF Band")
+    list_figures[-1].patch(power_band["lf_band"]["Freqs"] + power_band["lf_band"]["Freqs"][::-1],
+                             power_band["lf_band"]["Power"] + list(numpy.zeros(len(power_band["lf_band"]["Power"]))),
+                             fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0, legend_label="LF Band")
+    list_figures[-1].patch(power_band["hf_band"]["Freqs"] + power_band["hf_band"]["Freqs"][::-1],
+                             power_band["hf_band"]["Power"] + list(numpy.zeros(len(power_band["hf_band"]["Power"]))),
+                             fill_color=opensignals_color_pallet(), fill_alpha=0.5, line_alpha=0, legend_label="HF Band")
+
+    # Apply OpenSignals style.
+    opensignals_style(list_figures)
+
+    # Show plots.
+    show(list_figures[-1])
 
 # =================================================================================================
 # ================================ Pre-Process Category ===========================================

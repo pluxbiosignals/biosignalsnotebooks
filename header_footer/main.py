@@ -236,9 +236,7 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-#run(list_notebooks=["eeg_extract_alphaband"])
 run(list_notebooks=["unit_conversion_bvp"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions", "quick_start_guide"],
     signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["unit_conversion_gon", "unit_conversion_bvp"])
-#run(exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"], signal_samples_flag=False)
 
 # 29/11/2018  17h18m :)
