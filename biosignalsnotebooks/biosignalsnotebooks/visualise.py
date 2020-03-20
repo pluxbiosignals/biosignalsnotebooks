@@ -275,7 +275,7 @@ def _plot_future(time, data, legend_label=None, title=None, y_axis_label=None, h
 def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_label=None,
          grid_plot=False, grid_lines=None, grid_columns=None, hor_lines=None, hor_lines_leg=None,
          vert_lines=None, vert_lines_leg=None, apply_opensignals_style=True, show_plot=True,
-         save_plot=False, warn_print=False, get_fig_list=False, file_name=None, **kwargs):
+         save_plot=False, warn_print=False, get_fig_list=False, file_name=None, scatter=False, **kwargs):
     """
     -----
     Brief
@@ -355,6 +355,9 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
 
     file_name : str
         Path containing the destination folder where the Bokeh figure will be stored.
+
+    scatter : bool (default: False)
+        If True, the plot will be a scatter plot, else, it will be a line plot.
 
     **kwargs : dict
         Keyword values for applying in bokeh figures, lines and gridplots.
@@ -545,10 +548,17 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
                                                **style_figure))
 
                     if legend_label is not None:
-                        fig_list[-1].line(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
+                        if not scatter:
+                            fig_list[-1].line(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
+                                          **style_line)
+                        else:
+                            fig_list[-1].circle(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
                                           **style_line)
                     else:
-                        fig_list[-1].line(time[list_entry], data[list_entry], **style_line)
+                        if not scatter:
+                            fig_list[-1].line(time[list_entry], data[list_entry], **style_line)
+                        else:
+                            fig_list[-1].circle(time[list_entry], data[list_entry], **style_line)
 
                     # Representation of horizontal lines.
                     if hor_lines is not None:
@@ -668,6 +678,42 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
     if get_fig_list is True:
         return fig_list
 
+
+def applyOpenSignalsStyle(graph):
+    graph.background_fill_color = (242, 242, 242)
+    toolbar = "right"
+    graph.toolbar.active_scroll = graph.select_one(WheelZoomTool)
+    graph.sizing_mode = 'scale_width'
+    graph.height = 200
+    graph.toolbar.logo = None
+    graph.toolbar_location = toolbar
+    graph.xaxis.axis_label = "Value"
+    graph.yaxis.axis_label = "# Points"
+
+    graph.xgrid.grid_line_color = (150, 150, 150)
+    graph.ygrid.grid_line_color = (150, 150, 150)
+
+    graph.xgrid.grid_line_dash = [2, 2]
+
+    graph.xaxis.major_tick_line_color = "white"
+    graph.xaxis.minor_tick_line_color = "white"
+    graph.xaxis.axis_line_color = "white"
+    graph.yaxis.major_tick_in = 0
+    graph.yaxis.major_tick_out = 0
+
+    graph.yaxis.major_tick_line_color = "white"
+    graph.yaxis.minor_tick_line_color = "white"
+    graph.yaxis.minor_tick_in = 0
+    graph.yaxis.minor_tick_out = 0
+    graph.yaxis.axis_line_color = (150, 150, 150)
+    graph.yaxis.axis_line_dash = [2, 2]
+
+    graph.yaxis.major_label_text_color = (88, 88, 88)
+    graph.xaxis.major_label_text_color = (88, 88, 88)
+
+    graph.ygrid.grid_line_dash = [2, 2]
+
+    return graph
 
 def dispersion(x_axis, y_axis, x_axis_label, y_axis_label, show_plot=True):
     """
