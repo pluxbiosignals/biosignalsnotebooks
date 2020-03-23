@@ -424,6 +424,32 @@ def bandpass(s, f1, f2, order=2, fs=1000.0, use_filtfilt=False):
 
 
 def mean_wave(segments):
+    """
+    -----
+    Brief
+    -----
+    Compute the mean wave of a set of waves/segments.
+
+    -----------
+    Description
+    -----------
+    Calculate the mean wave of a set of waves/segments, which consists on averaging all point corresponding to the same
+    point in time. The resulting points are then ordered in time to form the new mean wave. If the input waves have
+    different numbers of points, they are interpolated to the length of the largest wave before the computation.
+
+    This function allows to calculate the mean wave of the input segments.
+
+    ----------
+    Parameters
+    ----------
+    segments: array-like
+        Waves or segments considered to compute the mean wave.
+
+    Returns
+    -------
+    mean_wave: array-like
+        mean wave of the input waves/segments.
+    """
     segments = _interpolated_segments(segments)
     organized_segment = segments.copy().T
     mean_wave = [numpy.mean(seg) for seg in organized_segment]

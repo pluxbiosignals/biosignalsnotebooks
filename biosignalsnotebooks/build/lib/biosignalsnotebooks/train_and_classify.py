@@ -138,6 +138,50 @@ def features_extraction(windowed_signal, functions):
         fea = []
         for f in functions:
             fea.append(f(window))
-        features[i] = fea
+        try:
+            features[i] = np.concatenate(fea)
+        except ValueError:
+            features[i] = fea
 
+    return features
+
+
+def normalize_features(features, type="min_max"):
+    """
+    -----
+    Brief
+    -----
+    Function to normalize features.
+
+    -----------
+    Description
+    -----------
+    Normalization is the process to bring every feature to the same scale. If type is "min_max", every feature is
+    brought to the range of (0, 1). This assures that no feature will be more relevant than the others when given as
+    input for machine learning algorithms. If type is "stand", the features are standarized with mean 0 and standard
+    deviation 1. The default behavior is to normalize by min_max.
+
+    It is assumed that the input array has the shape (samples, features). This is the shape returned by the function
+    features_extraction from this module.
+
+    ----------
+    Parameters
+    ----------
+    features: numpy.array
+        Array containing the features with shape (samples, features). This array can be obtained with the function
+        features_extraction from this module.
+    type: str
+        Specifies the type of normalization.
+
+    Returns
+    -------
+        Array of normalized or standardized features.
+    """
+    for i, feature in enumerate(np.transpose(features)):
+        if type == "stand":
+            features[:, i] = feature - np.mean(feature)
+            features[:, i] = feature/np.std(feature)
+        else:
+            features[:, i] = (feature-np.min(feature))
+            features[:, i] =  feature / np.ptp(feature)
     return features
