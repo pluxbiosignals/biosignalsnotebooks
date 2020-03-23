@@ -5,8 +5,6 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Detect/detect_bursts.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Detect/r_peaks.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
-jupyter trust biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_4.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_5.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Evaluate/classification_game_volume_5.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/eeg_extract_alphaband.ipynb

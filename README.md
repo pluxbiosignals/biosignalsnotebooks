@@ -183,6 +183,10 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/yfwcy2M/Evaluate.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_5_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 5] </a> </td>
 	</tr>
+	<tr>
+		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/quick_start_guide_rev.php' target='_blank'> Quick-Start Guide </a> </td>
+	</tr>
 </table>
 
 ## What is **PLUX**
