@@ -105,12 +105,12 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
                     if str(nbr_stars) not in (DICT_GROUP_BY_DIFF.keys()):
                         DICT_GROUP_BY_DIFF[str(nbr_stars)] = []
 
-                    DICT_GROUP_BY_DIFF[str(nbr_stars)].append(file_dir + "&" + title)
+                    DICT_GROUP_BY_DIFF[str(nbr_stars)].append(file_dir + "&&" + title)
 
                     for tag in tags:
                         if tag not in (DICT_GROUP_BY_TAG.keys()):
                             DICT_GROUP_BY_TAG[str(tag)] = []
-                        DICT_GROUP_BY_TAG[str(tag)].append(file_dir + "&" + title)
+                        DICT_GROUP_BY_TAG[str(tag)].append(file_dir + "&&" + title)
 
     # ==============================================================================================
     # ============================ Generate "Group by ..." Pages ===================================
@@ -236,7 +236,7 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["open_txt"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
+run(list_notebooks=["poincare_plot"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
     signal_samples_flag=False, delete_old_files=True, new_notebooks_list=["unit_conversion_gon", "unit_conversion_bvp", "hrv_parameters", "quick_start_guide"])
 
 # 29/11/2018  17h18m :)

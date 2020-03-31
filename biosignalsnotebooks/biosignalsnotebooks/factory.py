@@ -688,8 +688,8 @@ def _generate_notebook_by_difficulty_body(notebook_object, dict_by_difficulty):
         for notebook_file in dict_by_difficulty[str(difficulty)]:
             split_path = notebook_file.replace("\\", "/").split("/")
             notebook_type = split_path[-2]
-            notebook_name = split_path[-1].split("&")[0]
-            notebook_title = split_path[-1].split("&")[1]
+            notebook_name = split_path[-1].split("&&")[0]
+            notebook_title = split_path[-1].split("&&")[1]
             markdown_cell += "\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
                              str(NOTEBOOK_KEYS[notebook_type]) + "'><img " \
                              "src='../../images/icons/" + notebook_type.title() +\
@@ -763,8 +763,8 @@ def _generate_notebook_by_tag_body(notebook_object, dict_by_tag):
             for notebook_file in dict_by_tag[tag]:
                 split_path = notebook_file.replace("\\", "/").split("/")
                 notebook_type = split_path[-2]
-                notebook_name = split_path[-1].split("&")[0]
-                notebook_title = split_path[-1].split("&")[1]
+                notebook_name = split_path[-1].split("&&")[0]
+                notebook_title = split_path[-1].split("&&")[1]
                 markdown_cell += "\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
                                  str(NOTEBOOK_KEYS[notebook_type]) + "'><img " \
                                  "src='../../images/icons/" + notebook_type.title() +\
@@ -839,8 +839,8 @@ def _generate_notebooks_by_category(notebook_object, dict_by_tag, new_notebooks=
                         last_border = ""
 
                     split_path = notebook_file.replace("\\", "/").split("/")
-                    notebook_name = split_path[-1].split("&")[0]
-                    notebook_title = split_path[-1].split("&")[1]
+                    notebook_name = split_path[-1].split("&&")[0]
+                    notebook_title = split_path[-1].split("&&")[1]
                     markdown_cell += "\n\t<tr " + last_border + ">" \
                                      "\n\t\t<td class='center_cell open_cell_light' style='padding-left:5%'> <a href='../" + category + "/" + notebook_name + "'>" + notebook_title + "</a> </td>"
                     if notebook_name.split(".")[0] in new_notebooks:
@@ -908,8 +908,8 @@ def _generate_github_readme(notebook_object, dict_by_tag):
                 nbr_notebooks = len(dict_by_tag[category.lower()])
                 notebook_list = dict_by_tag[category.lower()]
                 split_path = notebook_list[0].replace("\\", "/").split("/")
-                notebook_name = split_path[-1].split("&")[0]
-                notebook_title = split_path[-1].split("&")[1]
+                notebook_name = split_path[-1].split("&&")[0]
+                notebook_title = split_path[-1].split("&&")[1]
                 markdown_cell += "\n\t<tr>" \
                                  "\n\t\t<td rowspan='" + str(nbr_notebooks) + "'><p align='center'><img src='" + icons[category] + "' width='50%' align='center'></p></td>" \
                                  "\n\t\t<td align='center'> <a href='" + biosignalsnotebooks_web + category + "/" + notebook_name.replace(".ipynb", "_rev.php") + "' target='_blank'>" + notebook_title + "</a> </td>" \
@@ -917,8 +917,8 @@ def _generate_github_readme(notebook_object, dict_by_tag):
 
                 for j, notebook_file in enumerate(notebook_list[1:]):
                     split_path = notebook_file.replace("\\", "/").split("/")
-                    notebook_name = split_path[-1].split("&")[0]
-                    notebook_title = split_path[-1].split("&")[1]
+                    notebook_name = split_path[-1].split("&&")[0]
+                    notebook_title = split_path[-1].split("&&")[1]
                     markdown_cell += "\n\t<tr>" \
                                      "\n\t\t<td align='center'> <a href='" + biosignalsnotebooks_web + category + "/" + notebook_name.replace(".ipynb", "_rev.php") + "'>" + notebook_title + "</a> </td>" \
                                      "\n\t</tr>"
@@ -965,8 +965,8 @@ def _generate_notebook_by_signal_type_body(notebook_object, dict_by_tag):
             for notebook_file in dict_by_tag[tag]:
                 split_path = notebook_file.replace("\\", "/").split("/")
                 notebook_type = split_path[-2]
-                notebook_name = split_path[-1].split("&")[0]
-                notebook_title = split_path[-1].split("&")[1]
+                notebook_name = split_path[-1].split("&&")[0]
+                notebook_title = split_path[-1].split("&&")[1]
                 markdown_cell += "\t<tr>\n\t\t<td width='20%' class='header_image_color_" + \
                                  str(NOTEBOOK_KEYS[notebook_type]) + "'><img " \
                                                                      "src='../../images/icons/" + notebook_type.title() + \
@@ -1041,13 +1041,15 @@ def _search_in_notebooks(root):
                 if category != "MainFiles":
                     if str(nbr_stars) not in (dict_group_by_diff.keys()):
                         dict_group_by_diff[str(nbr_stars)] = []
-                    dict_group_by_diff[str(nbr_stars)].append(current_file_path + "&" + title)
+                    dict_group_by_diff[str(nbr_stars)].append(current_file_path + "&&" + title)
 
                     for tag in tags:
                         if tag not in (dict_group_by_tag.keys()):
                             dict_group_by_tag[str(tag)] = []
-                        dict_group_by_tag[str(tag)].append(current_file_path + "&" + title)
+                        dict_group_by_tag[str(tag)].append(current_file_path + "&&" + title)
 
+    print(dict_group_by_diff)
+    print(dict_group_by_tag)
     return dict_group_by_diff, dict_group_by_tag
 
 
