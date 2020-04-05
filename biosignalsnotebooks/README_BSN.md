@@ -93,7 +93,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/generation_of_time_axis_rev.php'> Generation of a time axis (conversion of samples into seconds) </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/poincare_plot_rev.php'> Generation of Poincare Plot from ECG Analysis</a> </td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/poincare_plot_rev.php'> Generation of Poincar&eacute; Plot from ECG Analysis</a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchronisation_rev.php'> Device Synchronisation - Cable, Light and Sound Approaches </a> </td>

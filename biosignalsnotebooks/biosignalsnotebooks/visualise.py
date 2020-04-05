@@ -275,7 +275,7 @@ def _plot_future(time, data, legend_label=None, title=None, y_axis_label=None, h
 def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_label=None,
          grid_plot=False, grid_lines=None, grid_columns=None, hor_lines=None, hor_lines_leg=None,
          vert_lines=None, vert_lines_leg=None, apply_opensignals_style=True, show_plot=True,
-         save_plot=False, warn_print=False, get_fig_list=False, file_name=None, scatter=False, **kwargs):
+         save_plot=False, warn_print=False, get_fig_list=False, file_name="plot", scatter=False, **kwargs):
     """
     -----
     Brief
@@ -661,8 +661,8 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
 
             if show_plot is True:
                 show(grid)
-            elif save_plot is True:
-                save(grid)
+            if save_plot is True:
+                save(grid, file_name + ".html")
                 #return HTML('<iframe width=100% height=350 src="generated_plots/' + file_name + '"></iframe>')
         else:
             raise RuntimeError("The specified number of lines and columns for the grid plot is not "
@@ -671,8 +671,8 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
     else:
         if show_plot is True:
             show(fig_list[-1])
-        elif save_plot is True:
-            save(fig_list[-1])
+        if save_plot is True:
+            save(fig_list[-1], file_name + ".html")
             #return HTML('<iframe width=100% height="' + str(fig_list[-1].plot_height) + '" src="generated_plots/' + file_name + '"></iframe>')
 
     if get_fig_list is True:
