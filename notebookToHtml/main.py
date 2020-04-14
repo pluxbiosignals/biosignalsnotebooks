@@ -187,8 +187,9 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
 
                             # Add class "hide" to the output div.
                             bothContainer = cell.find_all(attrs={"class": "output"})
-                            if bothContainer[0] != None:
-                                bothContainer[0]["class"] = bothContainer[0].get('class', []) + ['hide']
+                            if len(bothContainer) > 0:
+                                if bothContainer[0] != None:
+                                    bothContainer[0]["class"] = bothContainer[0].get('class', []) + ['hide']
 
                         # Hide all tagged markdown cells.
                         cellMark = htmlObject.find_all("div", attrs={"class": "hide_mark"})

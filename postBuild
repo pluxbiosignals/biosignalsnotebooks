@@ -15,6 +15,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/time_of_flight.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Extract/time_of_flight.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Install/prepare_jupyter.ipynb
@@ -37,8 +39,6 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
-jupyter trust biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/hands_on_biostec.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/hands_on_biostec.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/hands_on_biostec_solutions.ipynb
