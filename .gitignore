@@ -30,3 +30,7 @@
 /biosignalsnotebooks/biosignalsnotebooks.egg-info
 /biosignalsnotebooks_notebooks/unpublished_notebooks/Extract/time_of_flight_rev.ipynb
 /biosignalsnotebooks_notebooks/unpublished_notebooks/Extract/time_of_flight.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Pre-Process/unit_conversion_ACC.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/Other/samples_to_time.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/unit_conversion_bvp.ipynb
+/biosignalsnotebooks_notebooks/unpublished_notebooks/unit_conversion_emg.ipynb
