@@ -15,6 +15,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Extract/emg_parameters.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Extract/hrv_parameters.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Extract/time_of_flight.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Extract/time_of_flight.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Install/prepare_anaconda.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Install/prepare_jupyter.ipynb
@@ -49,6 +51,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering_eeg.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/eda_analysis.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/eda_analysis.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/emg_fatigue_evaluation_median_freq.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb
