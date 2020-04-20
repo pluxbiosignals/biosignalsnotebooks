@@ -80,11 +80,14 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Visualise/plot_acquired_data_single_rev.php' target='_blank'> Plotting of Acquired Data using Bokeh </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='21'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='22'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_eeg_rev.php'> Digital Filtering - EEG </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/eda_analysis_rev.php'> EDA Signal Analysis - A Complete Tour </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.php'>Fatigue Evaluation - Evolution of Median Power Frequency</a> </td>
