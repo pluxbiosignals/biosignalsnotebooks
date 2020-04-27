@@ -27,7 +27,7 @@ def plotfft(s, fmax, doplot=False):
     """
 
     fs = abs(np.fft.fft(s))
-    f = linspace(0, fmax / 2, len(s) / 2)
+    f = linspace(0, fmax / 2, int(len(s) / 2))
     if doplot:
         #pl.plot(f[1:int(len(s) / 2)], fs[1:int(len(s) / 2)])
         pass

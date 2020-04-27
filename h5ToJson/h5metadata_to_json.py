@@ -1,6 +1,6 @@
 from h5py import File
 import json
-from os.path import splitext
+from os.path import splitext, join
 from datetime import datetime
 
 HOUR = 3600
@@ -74,5 +74,7 @@ def write_json_info(path, observations=""):
     with open(splitext(path)[0]+'_info.json', 'w') as file:
         json.dump(dic, file)
 
-path = "C:/Users/gui_s/Documents/biosignalsnotebooks_org/biosignalsnotebooks_notebooks/signal_samples/bvp_rest.h5"
-write_json_info(path, "A conventional blood-volume pulse signal acquired with the subject under rest conditions")
+# path = "C:/Users/gui_s/Documents/biosignalsnotebooks_org/biosignalsnotebooks_notebooks/signal_samples/bvp_rest.h5"
+path = "../biosignalsnotebooks_notebooks/signal_samples/"  # Don't need to change this line
+file = "GON.h5"
+write_json_info(join(path, file), "A conventional goniometer signal acquisition with limb movement over time") # Only need to change the observations of the file
