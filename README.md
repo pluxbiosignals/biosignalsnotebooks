@@ -80,14 +80,11 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Visualise/plot_acquired_data_single_rev.php' target='_blank'> Plotting of Acquired Data using Bokeh </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='22'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='21'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_eeg_rev.php'> Digital Filtering - EEG </a> </td>
-	</tr>
-	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/eda_analysis_rev.php'> EDA Signal Analysis - A Complete Tour </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/emg_fatigue_evaluation_median_freq_rev.php'>Fatigue Evaluation - Evolution of Median Power Frequency</a> </td>
@@ -193,8 +190,14 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_5_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 5] </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='2'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/emg_overview_rev.php' target='_blank'> EMG - Overview </a> </td>
+		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/bvp_analysis_rev.php' target='_blank'> BVP Signal Analysis - A Complete Tour </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/eda_analysis_rev.php'> EDA Signal Analysis - A Complete Tour </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/emg_overview_rev.php'> EMG - Overview </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/quick_start_guide_rev.php'> Quick-Start Guide </a> </td>
