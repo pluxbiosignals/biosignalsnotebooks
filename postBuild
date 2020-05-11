@@ -39,8 +39,6 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
-jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
-jupyter trust biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/bvp_analysis.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/bvp_analysis.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/eda_analysis.ipynb
@@ -65,6 +63,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/generation_of_time_axis.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/poincare_plot.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/poincare_plot.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/snr_slow_signals.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/snr_slow_signals.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/synchronisation.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Pre-Process/synchronisation.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/synchrony_acc.ipynb
