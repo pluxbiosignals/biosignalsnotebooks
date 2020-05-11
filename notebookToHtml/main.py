@@ -176,7 +176,8 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
                         for cell in cellOut:
                             # Add class "hide" to the current div.
                             outputContainer = cell.find_all(attrs={"class": "output"})
-                            outputContainer[0]["class"] = outputContainer[0].get('class', []) + ['hide']
+                            if len(outputContainer) > 0:
+                                outputContainer[0]["class"] = outputContainer[0].get('class', []) + ['hide']
 
                         # Hide all tagged containers.
                         cellBoth = htmlObject.find_all("div", attrs={"class": "hide_both"})

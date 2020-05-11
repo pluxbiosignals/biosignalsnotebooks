@@ -236,7 +236,7 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["bvp_analysis", "eda_analysis"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
-    signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["bvp_analysis"])
+run(list_notebooks=["snr_slow_signals"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
+    signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["bvp_analysis", "snr_slow_signals"])
 
 # 29/11/2018  17h18m :)
