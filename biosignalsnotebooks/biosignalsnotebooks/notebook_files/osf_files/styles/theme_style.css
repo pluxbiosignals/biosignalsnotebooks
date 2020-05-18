@@ -290,10 +290,10 @@ background-color: #BFBFBF !important;
 }
 .color15_cell_transparency{
 color: black !important;
-background-color: rgba(232,77,14,0.20) !important;
+background-color: rgba(191,191,191,0.20) !important;
 }
 .gradient_color15 {
-background-image: linear-gradient(to right, rgba(232,77,14,0.50) , white) !important;
+background-image: linear-gradient(to right, rgba(191,191,191,0.50) , white) !important;
 /*box-shadow:0pt -2pt 0pt 0pt #BFBFBF inset !important;*/
 }
 

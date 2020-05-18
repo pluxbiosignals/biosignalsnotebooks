@@ -154,7 +154,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/r_peaks_rev.php'> Event Detection - R Peaks (ECG) </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
+		<td rowspan='6'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/center_of_pressure_rev.php' target='_blank'> Force Platform - Center of Pressure Estimation </a> </td>
 	</tr>
 	<tr>
@@ -162,6 +162,9 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php'> EMG Analysis - Time and Frequency Parameters </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/gon_angular_velocity_rev.php'> GON - Angular velocity estimation </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/hrv_parameters_rev.php'> ECG Analysis - Heart Rate Variability Parameters </a> </td>

@@ -25,7 +25,8 @@ DICT_GROUP_BY_TAG = {}
 # ===================== Inclusion of Header and Footer in each Notebook ============================
 # ==================================================================================================
 
-def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True, delete_old_files=False, new_notebooks_list=[]):
+def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=True, delete_old_files=False,
+        delete_base_files=False, new_notebooks_list=[]):
     # Storage of the current directory path.
     root = os.getcwd()
 
@@ -41,18 +42,19 @@ def run(list_notebooks=["All"], exclude_notebooks=["None"], signal_samples_flag=
         new_dir = current_dir + "\\" + var
 
         # Delete of old files if the directory was previously created.
-        if delete_old_files is True:
-            if os.path.isdir(new_dir):
-                shutil.rmtree(new_dir)
+        if delete_old_files is True or delete_base_files is True:
+            if delete_old_files or (delete_base_files and var != "categories"):
+                if os.path.isdir(new_dir):
+                    shutil.rmtree(new_dir)
 
-            # Definition of the "source" folder to copy.
-            src = "..\\biosignalsnotebooks_notebooks\\" + var
+                # Definition of the "source" folder to copy.
+                src = "..\\biosignalsnotebooks_notebooks\\" + var
 
-            # Definition of the "destination" folder where the files will be stored after copying.
-            destination = new_dir
+                # Definition of the "destination" folder where the files will be stored after copying.
+                destination = new_dir
 
-            # Clone directory.
-            shutil.copytree(src, destination)
+                # Clone directory.
+                shutil.copytree(src, destination)
 
     # ======================== Copy of the original versions of Notebooks ==========================
     current_dir = os.getcwd() + "\\biosignalsnotebooks_environment\\categories"
@@ -236,7 +238,8 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["snr_slow_signals"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
-    signal_samples_flag=False, delete_old_files=False, new_notebooks_list=["bvp_analysis", "snr_slow_signals"])
+run(list_notebooks=["gon_angular_velocity"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
+    signal_samples_flag=False, delete_old_files=False, delete_base_files=True,
+    new_notebooks_list=["bvp_analysis", "snr_slow_signals", "gon_angular_velocity"])
 
 # 29/11/2018  17h18m :)

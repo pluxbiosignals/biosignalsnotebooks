@@ -13018,6 +13018,43 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
   </style>
   <style type="text/css">
+   /* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+  </style>
+  <style type="text/css">
    /* Overrides of notebook CSS for static HTML export */
 body {
   overflow: visible;
@@ -13046,7 +13083,7 @@ div#notebook {
   <link href="custom.css" rel="stylesheet"/>
   <!-- Loading mathjax macro -->
   <!-- Load mathjax -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
   </script>
   <!-- MathJax configuration -->
   <script type="text/x-mathjax-config">
@@ -13071,7 +13108,7 @@ div#notebook {
  <body>
   <div class="border-box-sizing" id="notebook" tabindex="-1">
    <div class="container" id="notebook-container">
-    <div class="cell border-box-sizing text_cell rendered celltag_header">
+    <div class="cell border-box-sizing text_cell rendered">
      <div class="prompt input_prompt">
      </div>
      <div class="inner_cell">
@@ -13136,7 +13173,7 @@ div#notebook {
       </div>
      </div>
     </div>
-    <div class="cell border-box-sizing text_cell rendered celltag_test">
+    <div class="cell border-box-sizing text_cell rendered">
      <div class="prompt input_prompt">
      </div>
      <div class="inner_cell">
@@ -13368,7 +13405,7 @@ div#notebook {
       </div>
      </div>
     </div>
-    <div class="cell border-box-sizing text_cell rendered celltag_footer">
+    <div class="cell border-box-sizing text_cell rendered">
      <div class="prompt input_prompt">
      </div>
      <div class="inner_cell">
@@ -13421,7 +13458,7 @@ div#notebook {
      </div>
     </div>
     <div class="hide_mark hide">
-     <div class="cell border-box-sizing text_cell rendered celltag_hide_mark celltag_aux">
+     <div class="cell border-box-sizing text_cell rendered">
       <div class="prompt input_prompt">
       </div>
       <div class="inner_cell">
@@ -13439,7 +13476,7 @@ the user)
      </div>
     </div>
     <div class="hide_both">
-     <div class="cell border-box-sizing code_cell rendered celltag_hide_both">
+     <div class="cell border-box-sizing code_cell rendered">
       <div class="input hide">
        <div class="prompt input_prompt">
         In [1]:
@@ -13447,7 +13484,7 @@ the user)
        <div class="inner_cell">
         <div class="input_area">
          <div class="highlight hl-ipython3">
-          <pre><span></span><span class="kn">from</span> <span class="nn">biosignalsnotebooks.__notebook_support__</span> <span class="kn">import</span> <span class="n">css_style_apply</span>
+          <pre><span></span><span class="kn">from</span> <span class="nn">biosignalsnotebooks.__notebook_support__</span> <span class="k">import</span> <span class="n">css_style_apply</span>
 <span class="n">css_style_apply</span><span class="p">()</span>
 </pre>
          </div>
@@ -13459,11 +13496,11 @@ the user)
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="f9c8d730-a7b2-459a-84e6-28c9d21a3bb3">
+         <div id="c09cd52f-de4e-4429-b1ce-1ec08e04bed8">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#f9c8d730-a7b2-459a-84e6-28c9d21a3bb3');
+           var element = $('#c09cd52f-de4e-4429-b1ce-1ec08e04bed8');
 
 (function(root) {
   function now() {
@@ -13549,7 +13586,6 @@ the user)
       var script_attrs = bk_div.children[0].attributes;
       for (var i = 0; i < script_attrs.length; i++) {
         toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
-        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
       }
       // store reference to server id on output_area
       output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
@@ -13690,8 +13726,6 @@ the user)
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js": "JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.1.min.js": "xZlADit0Q04ISQEdKg2k3L4W9AwQBAuDs9nJL9fM/WwzL1tEU9VPNezOFX0nLEAz", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.1.min.js": "4BuPRZkdMKSnj3zoxiNrQ86XgNw0rYmBOxe7nshquXwwcauupgBF2DHLVG1WuZlV", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.0.1.min.js": "Dv1SQ87hmDqK6S5OhBf0bCuwAEvL5QYL0PuR/F1SPVhCS/r/abjkbpKDYL2zeM19"};
-
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
       var element = document.createElement('script');
@@ -13699,10 +13733,6 @@ the user)
       element.onerror = on_error;
       element.async = false;
       element.src = url;
-      if (url in hashes) {
-        element.crossOrigin = "anonymous";
-        element.integrity = "sha384-" + hashes[url];
-      }
       console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
       document.head.appendChild(element);
     }
@@ -13715,7 +13745,7 @@ the user)
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.0.1.min.js"];
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
   var css_urls = [];
   
 
@@ -13764,11 +13794,11 @@ the user)
         <div class="output_area">
          <div class="prompt">
          </div>
-         <div id="d9309805-c6a3-4739-bad4-595c2a5e3041">
+         <div id="76d5a737-d92f-4cfe-bfd1-ccb4822f3030">
          </div>
          <div class="output_subarea output_javascript">
           <script type="text/javascript">
-           var element = $('#d9309805-c6a3-4739-bad4-595c2a5e3041');
+           var element = $('#76d5a737-d92f-4cfe-bfd1-ccb4822f3030');
 
 (function(root) {
   function now() {
@@ -13854,7 +13884,6 @@ the user)
       var script_attrs = bk_div.children[0].attributes;
       for (var i = 0; i < script_attrs.length; i++) {
         toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
-        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
       }
       // store reference to server id on output_area
       output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
@@ -13995,8 +14024,6 @@ the user)
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js": "JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.1.min.js": "xZlADit0Q04ISQEdKg2k3L4W9AwQBAuDs9nJL9fM/WwzL1tEU9VPNezOFX0nLEAz", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.1.min.js": "4BuPRZkdMKSnj3zoxiNrQ86XgNw0rYmBOxe7nshquXwwcauupgBF2DHLVG1WuZlV", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.0.1.min.js": "Dv1SQ87hmDqK6S5OhBf0bCuwAEvL5QYL0PuR/F1SPVhCS/r/abjkbpKDYL2zeM19"};
-
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
       var element = document.createElement('script');
@@ -14004,10 +14031,6 @@ the user)
       element.onerror = on_error;
       element.async = false;
       element.src = url;
-      if (url in hashes) {
-        element.crossOrigin = "anonymous";
-        element.integrity = "sha384-" + hashes[url];
-      }
       console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
       document.head.appendChild(element);
     }
@@ -14020,7 +14043,7 @@ the user)
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.0.1.min.js"];
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
   var css_urls = [];
   
 
