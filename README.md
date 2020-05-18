@@ -80,7 +80,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Visualise/plot_acquired_data_single_rev.php' target='_blank'> Plotting of Acquired Data using Bokeh </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='21'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
+		<td rowspan='22'><p align='center'><img src='https://i.ibb.co/1rKWccX/Pre-Process.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/digital_filtering_rev.php' target='_blank'> Digital Filtering - A Fundamental Pre-Processing Step </a> </td>
 	</tr>
 	<tr>
@@ -94,6 +94,9 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/poincare_plot_rev.php'> Generation of Poincar&eacute; Plot from ECG Analysis</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/snr_slow_signals_rev.php'> Computing SNR for Slow Signals </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/synchronisation_rev.php'> Device Synchronisation - Cable, Light and Sound Approaches </a> </td>
@@ -151,7 +154,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/r_peaks_rev.php'> Event Detection - R Peaks (ECG) </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
+		<td rowspan='6'><p align='center'><img src='https://i.ibb.co/tchq7Cc/Extract.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/center_of_pressure_rev.php' target='_blank'> Force Platform - Center of Pressure Estimation </a> </td>
 	</tr>
 	<tr>
@@ -159,6 +162,9 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/emg_parameters_rev.php'> EMG Analysis - Time and Frequency Parameters </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/gon_angular_velocity_rev.php'> GON - Angular velocity estimation </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Extract/hrv_parameters_rev.php'> ECG Analysis - Heart Rate Variability Parameters </a> </td>
