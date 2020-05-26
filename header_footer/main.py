@@ -238,8 +238,8 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["gon_angular_velocity"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
+run(list_notebooks=["snr_ECG"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
     signal_samples_flag=False, delete_old_files=False, delete_base_files=True,
-    new_notebooks_list=["bvp_analysis", "snr_slow_signals", "gon_angular_velocity"])
+    new_notebooks_list=["bvp_analysis", "snr_slow_signals", "gon_angular_velocity", "snr_ECG"])
 
 # 29/11/2018  17h18m :)

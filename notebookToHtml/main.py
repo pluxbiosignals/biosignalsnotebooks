@@ -106,7 +106,7 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
 
             # Inclusion of a specialized "CustomPreprocessor.py" file, used during .ipynb to .html
             # conversion of main page.
-            if category == "MainFiles" and apply_to_biosignalsplux_website is True:
+            if category == "MainFiles" or apply_to_biosignalsplux_website is True:
                 copyfile("CustomPreprocessorIndex.py", filePath + "/" + category + "/CustomPreprocessorIndex.py")
                 time.sleep(2)
 
