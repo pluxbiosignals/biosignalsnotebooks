@@ -6,6 +6,7 @@
 import bs4 as htmlLib
 import os
 from shutil import copyfile
+from merge_styles import merge_styles
 import subprocess
 import pylab as plt
 import time
@@ -154,7 +155,8 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
 
                         # Read of the generated html file.
                         print("Creating HTML object...")
-                        htmlFile = open(path_temp + "\\" + notebook.split(".")[0] + ".html", "r")
+                        htmlFilePath = path_temp + "\\" + notebook.split(".")[0] + ".html"
+                        htmlFile = open(htmlFilePath, "r")
                         htmlObject = htmlLib.BeautifulSoup(htmlFile, "html.parser")
 
                         # Hide all tagged inputs.
@@ -225,9 +227,13 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
                         #print (htmlObject.original_encoding)
                         print("Storage of the final HTML version...")
                         html = htmlObject.prettify("utf-8")
-                        with open(path_temp + "\\" + notebook.split(".")[0] + "_rev" + ".html", "wb") as file:
+                        htmlFilePathRev = path_temp + "\\" + notebook.split(".")[0] + "_rev" + ".html"
+                        with open(htmlFilePathRev, "wb") as file:
                             file.write(html)
                         time.sleep(5)
+
+                        # Merge existing styles
+                        merge_styles(htmlFilePathRev)
 
                         # Generation of a zip archive intended to create a downloadable version of each Notebook
                         # with all the styles and minimal size.
@@ -273,6 +279,6 @@ def run(apply_to_biosignalsplux_website=False, use_json_update_list=False):
                         htmlFile.close()
                         os.remove(path_temp + "\\" + notebook.split(".")[0] + ".html")
 
-run(apply_to_biosignalsplux_website=True, use_json_update_list=True)
+run(apply_to_biosignalsplux_website=True, use_json_update_list=False)
 
 # 29/11/2018  17h18m :)
