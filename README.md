@@ -40,7 +40,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/learn/notebooks/Categories/Install/prepare_jupyter_rev.html'> Download, Install and Execute Jupyter Notebook Environment </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/8cNpQFM/Connect.png' width='50%' align='center'></p></td>
+		<td><p align='center'><img src='https://i.ibb.co/8cNpQFM/Connect.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/learn/notebooks/Categories/Connect/pairing_device_rev.html' target='_blank'> Pairing a Device at Windows 10 [biosignalsplux] </a> </td>
 	</tr>
 	<tr>
@@ -76,7 +76,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/learn/notebooks/Categories/Load/signal_loading_preparatory_steps_rev.html'>Signal Loading - Working with File Header </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='1'><p align='center'><img src='https://i.ibb.co/wh4HKzf/Visualise.png' width='50%' align='center'></p></td>
+		<td><p align='center'><img src='https://i.ibb.co/wh4HKzf/Visualise.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/learn/notebooks/Categories/Visualise/plot_acquired_data_single_rev.html' target='_blank'> Plotting of Acquired Data using Bokeh </a> </td>
 	</tr>
 	<tr>
