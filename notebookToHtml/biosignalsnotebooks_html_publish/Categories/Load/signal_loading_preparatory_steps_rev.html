@@ -43,6 +43,48 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<table width="100%">
+<tr style="border-bottom:solid 2pt #009EE3">
+<td class="header_buttons">
+<a download="" href="signal_loading_preparatory_steps.zip">
+<img alt="biosignalsnotebooks | download button" src="../../images/icons/download.png"/>
+</a>
+</td>
+<td class="header_buttons">
+<a href="https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2FLoad%2Fsignal_loading_preparatory_steps.ipynb" target="_blank">
+<img alt="biosignalsnotebooks | binder server" src="../../images/icons/program.png" title="Be creative and test your solutions !"/>
+</a>
+</td>
+<td>
+</td>
+<td class="header_icons">
+<a href="../MainFiles/biosignalsnotebooks_rev.php">
+<img alt="biosignalsnotebooks | home button" src="../../images/icons/home.png"/>
+</a>
+</td>
+<td class="header_icons">
+<a href="../MainFiles/contacts_rev.php">
+<img alt="biosignalsnotebooks | contacts button" src="../../images/icons/contacts.png"/>
+</a>
+</td>
+<td class="header_icons">
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
+<img alt="biosignalsnotebooks | github button" src="../../images/icons/github.png"/>
+</a>
+</td>
+<td class="header_logo">
+<img alt="biosignalsnotebooks | project logo" src="../../images/ost_logo.png"/>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>
 
 <!--link rel="stylesheet" href="../../styles/header_style.css"-->
@@ -186,11 +228,11 @@
 <div class="output_area">
 <div class="prompt">
 </div>
-<div id="5d58ed5c-a323-4bd1-ac3f-e5c0ec1f899b">
+<div id="4312e508-cf8d-4876-b33e-262c05d9678b">
 </div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-           var element = $('#5d58ed5c-a323-4bd1-ac3f-e5c0ec1f899b');
+           var element = $('#4312e508-cf8d-4876-b33e-262c05d9678b');
 
 (function(root) {
   function now() {
@@ -199,7 +241,7 @@
 
   var force = true;
 
-  if (typeof (root._bokeh_onload_callbacks) === "undefined" || force === true) {
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
     root._bokeh_onload_callbacks = [];
     root._bokeh_is_loading = undefined;
   }
@@ -366,72 +408,97 @@
 
   function run_callbacks() {
     try {
-      root._bokeh_onload_callbacks.forEach(function(callback) { callback() });
-    }
-    finally {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
       delete root._bokeh_onload_callbacks
     }
-    console.info("Bokeh: all callbacks have finished");
+    console.debug("Bokeh: all callbacks have finished");
   }
 
-  function load_libs(js_urls, callback) {
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
     root._bokeh_onload_callbacks.push(callback);
     if (root._bokeh_is_loading > 0) {
-      console.log("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
       return null;
     }
     if (js_urls == null || js_urls.length === 0) {
       run_callbacks();
       return null;
     }
-    console.log("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    root._bokeh_is_loading = js_urls.length;
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
-      var s = document.createElement('script');
-      s.src = url;
-      s.async = false;
-      s.onreadystatechange = s.onload = function() {
-        root._bokeh_is_loading--;
-        if (root._bokeh_is_loading === 0) {
-          console.log("Bokeh: all BokehJS libraries loaded");
-          run_callbacks()
-        }
-      };
-      s.onerror = function() {
-        console.warn("failed to load library " + url);
-      };
-      console.log("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.getElementsByTagName("head")[0].appendChild(s);
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
     }
   };
 
-  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.0.4.min.js"];
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var css_urls = [];
+  
 
   var inline_js = [
     function(Bokeh) {
       Bokeh.set_log_level("info");
     },
+    function(Bokeh) {
     
-    function(Bokeh) {
-      
-    },
-    function(Bokeh) {
-      console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css");
-      Bokeh.embed.inject_css("https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css");
-      console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css");
-      Bokeh.embed.inject_css("https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css");
-      console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css");
-      Bokeh.embed.inject_css("https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css");
+    
     }
   ];
 
   function run_inline_js() {
     
-    if ((root.Bokeh !== undefined) || (force === true)) {
-      for (var i = 0; i < inline_js.length; i++) {
-        inline_js[i].call(root, root.Bokeh);
-      }} else if (Date.now() < root._bokeh_timeout) {
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
       setTimeout(run_inline_js, 100);
     } else if (!root._bokeh_failed_load) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
@@ -444,11 +511,11 @@
   }
 
   if (root._bokeh_is_loading === 0) {
-    console.log("Bokeh: BokehJS loaded, going straight to plotting");
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
     run_inline_js();
   } else {
-    load_libs(js_urls, function() {
-      console.log("Bokeh: BokehJS plotting callback run at", now());
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
       run_inline_js();
     });
   }
@@ -459,11 +526,11 @@
 <div class="output_area">
 <div class="prompt">
 </div>
-<div id="e53d3749-0841-40e3-b6d6-ecb4ea5a0625">
+<div id="8176eb46-2cca-4d76-81f4-e72643b84b81">
 </div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-           var element = $('#e53d3749-0841-40e3-b6d6-ecb4ea5a0625');
+           var element = $('#8176eb46-2cca-4d76-81f4-e72643b84b81');
 
 (function(root) {
   function now() {
@@ -472,7 +539,7 @@
 
   var force = true;
 
-  if (typeof (root._bokeh_onload_callbacks) === "undefined" || force === true) {
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
     root._bokeh_onload_callbacks = [];
     root._bokeh_is_loading = undefined;
   }
@@ -639,72 +706,97 @@
 
   function run_callbacks() {
     try {
-      root._bokeh_onload_callbacks.forEach(function(callback) { callback() });
-    }
-    finally {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
       delete root._bokeh_onload_callbacks
     }
-    console.info("Bokeh: all callbacks have finished");
+    console.debug("Bokeh: all callbacks have finished");
   }
 
-  function load_libs(js_urls, callback) {
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
     root._bokeh_onload_callbacks.push(callback);
     if (root._bokeh_is_loading > 0) {
-      console.log("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
       return null;
     }
     if (js_urls == null || js_urls.length === 0) {
       run_callbacks();
       return null;
     }
-    console.log("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    root._bokeh_is_loading = js_urls.length;
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
-      var s = document.createElement('script');
-      s.src = url;
-      s.async = false;
-      s.onreadystatechange = s.onload = function() {
-        root._bokeh_is_loading--;
-        if (root._bokeh_is_loading === 0) {
-          console.log("Bokeh: all BokehJS libraries loaded");
-          run_callbacks()
-        }
-      };
-      s.onerror = function() {
-        console.warn("failed to load library " + url);
-      };
-      console.log("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.getElementsByTagName("head")[0].appendChild(s);
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
     }
   };
 
-  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.0.4.min.js"];
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var css_urls = [];
+  
 
   var inline_js = [
     function(Bokeh) {
       Bokeh.set_log_level("info");
     },
+    function(Bokeh) {
     
-    function(Bokeh) {
-      
-    },
-    function(Bokeh) {
-      console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css");
-      Bokeh.embed.inject_css("https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css");
-      console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css");
-      Bokeh.embed.inject_css("https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css");
-      console.log("Bokeh: injecting CSS: https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css");
-      Bokeh.embed.inject_css("https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css");
+    
     }
   ];
 
   function run_inline_js() {
     
-    if ((root.Bokeh !== undefined) || (force === true)) {
-      for (var i = 0; i < inline_js.length; i++) {
-        inline_js[i].call(root, root.Bokeh);
-      }} else if (Date.now() < root._bokeh_timeout) {
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
       setTimeout(run_inline_js, 100);
     } else if (!root._bokeh_failed_load) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
@@ -717,11 +809,11 @@
   }
 
   if (root._bokeh_is_loading === 0) {
-    console.log("Bokeh: BokehJS loaded, going straight to plotting");
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
     run_inline_js();
   } else {
-    load_libs(js_urls, function() {
-      console.log("Bokeh: BokehJS plotting callback run at", now());
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
       run_inline_js();
     });
   }
@@ -1228,7 +1320,7 @@ Available devices: ['00:07:80:D8:A7:F9']
 <div class="prompt">
 </div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>ItemsViewHDF5(&lt;Attributes of HDF5 object at 451809904&gt;)
+<pre>ItemsViewHDF5(&lt;Attributes of HDF5 object at 469359472&gt;)
 </pre>
 </div>
 </div>
@@ -1400,17 +1492,29 @@ Available devices: ['00:07:80:D8:A7:F9']
 </div>
 </div>
 </div>
-<div class="hide_in hide">
+<div class="hide_in">
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="input hide">
 <div class="prompt input_prompt">
-        In [ ]:
+        In [22]:
        </div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3">
 <pre><span></span><span class="kn">from</span> <span class="nn">sty</span> <span class="k">import</span> <span class="n">fg</span><span class="p">,</span> <span class="n">rs</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">header</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"device name"</span><span class="p">,</span> <span class="n">fg</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[1mdevice name</span><span class="se">\033</span><span class="s2">[0m"</span> <span class="o">+</span> <span class="n">fg</span><span class="o">.</span><span class="n">rs</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"sampling rate"</span><span class="p">,</span> <span class="n">fg</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[1msampling rate</span><span class="se">\033</span><span class="s2">[0m"</span> <span class="o">+</span> <span class="n">fg</span><span class="o">.</span><span class="n">rs</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"resolution"</span><span class="p">,</span> <span class="n">fg</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[1mresolution</span><span class="se">\033</span><span class="s2">[0m"</span> <span class="o">+</span> <span class="n">fg</span><span class="o">.</span><span class="n">rs</span><span class="p">))</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'channels': array([1]), 'comments': '', 'date': b'2018-9-28', 'device': 'biosignalsplux', 'device connection': b'BTH00:07:80:D8:A7:F9', '<span class="ansi-bold" style="color: rgb(98,195,238)">device name</span>': b'00:07:80:D8:A7:F9', 'digital IO': array([0, 1]), 'firmware version': 773, '<span class="ansi-bold" style="color: rgb(98,195,238)">resolution</span>': array([16]), '<span class="ansi-bold" style="color: rgb(98,195,238)">sampling rate</span>': 1000, 'sync interval': 2, 'time': b'14:39:43.518', 'sensor': [b'ECG'], 'column labels': {1: 'channel_1'}}
 </pre>
 </div>
 </div>
@@ -1459,18 +1563,55 @@ Available devices: ['00:07:80:D8:A7:F9']
 </div>
 </div>
 </div>
-<div class="hide_mark hide">
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-<span class="color6">
-          **Auxiliary Code Segment (should not be replicated by the user)**
-         </span>
+<hr/>
 </p>
-</div>
+<table width="100%">
+<tr>
+<td class="footer_logo">
+<img alt="biosignalsnotebooks | project logo [footer]" src="../../images/ost_logo.png"/>
+</td>
+<td style="text-align:left" width="40%">
+<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">
+           ☌ Project Presentation
+          </a>
+<br/>
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
+           ☌ GitHub Repository
+          </a>
+<br/>
+<a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">
+           ☌ How to install biosignalsnotebooks Python package ?
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/signal_samples_rev.php">
+           ☌ Signal Library
+          </a>
+</td>
+<td style="text-align:left" width="40%">
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php">
+           ☌ Notebook Categories
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_diff_rev.php">
+           ☌ Notebooks by Difficulty
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type_rev.php">
+           ☌ Notebooks by Signal Type
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_tag_rev.php">
+           ☌ Notebooks by Tag
+          </a>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1478,7 +1619,7 @@ Available devices: ['00:07:80:D8:A7:F9']
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input hide">
 <div class="prompt input_prompt">
-        In [ ]:
+        In [23]:
        </div>
 <div class="inner_cell">
 <div class="input_area">
@@ -1490,32 +1631,25 @@ Available devices: ['00:07:80:D8:A7:F9']
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output hide">
+<div class="output_area">
+<div class="prompt">
 </div>
-</div>
-<div class="hide_both">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input hide">
-<div class="prompt input_prompt">
-        In [ ]:
-       </div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3">
-<pre><span></span><span class="o">%%html</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="c1">// AUTORUN ALL CELLS ON NOTEBOOK-LOAD!</span>
-    <span class="nx">require</span><span class="p">(</span>
-        <span class="p">[</span><span class="s1">'base/js/namespace'</span><span class="p">,</span> <span class="s1">'jquery'</span><span class="p">],</span> 
-        <span class="kd">function</span><span class="p">(</span><span class="nx">jupyter</span><span class="p">,</span> <span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">$</span><span class="p">(</span><span class="nx">jupyter</span><span class="p">.</span><span class="nx">events</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"kernel_ready.Kernel"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Auto-running all cells-below..."</span><span class="p">);</span>
-                <span class="nx">jupyter</span><span class="p">.</span><span class="nx">actions</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">'jupyter-notebook:run-all-cells-below'</span><span class="p">);</span>
-                <span class="nx">jupyter</span><span class="p">.</span><span class="nx">actions</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">'jupyter-notebook:save-notebook'</span><span class="p">);</span>
-            <span class="p">});</span>
-        <span class="p">}</span>
-    <span class="p">);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>.................... CSS Style Applied to Jupyter Notebook .........................
 </pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt output_prompt">
+          Out[23]:
+         </div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="style_import">
+
+</div>
 </div>
 </div>
 </div>
