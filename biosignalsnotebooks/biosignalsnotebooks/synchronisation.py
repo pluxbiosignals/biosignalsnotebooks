@@ -18,6 +18,12 @@ generate_sync_h5_file
 create_synchronised_files
     This function creates .txt and .h5 files with synchronised signals.
 
+create_android_sync_header
+    function in order to creating a new header for a synchronized android sensor file
+
+pad_android_data
+    function in order to pad multiple android signals to the correct same start and end values
+
 Available Functions
 -------------------
 [Private]
@@ -43,7 +49,7 @@ None
 
 /\
 """
-
+import json
 import biosignalsnotebooks as bsnb
 import numpy as np
 from h5py import File
@@ -307,6 +313,264 @@ def create_synchronised_files(in_path=(('file1.txt', 'file2.txt'), ('file1.h5', 
     generate_sync_txt_file(in_path[0], channels=txt_channels, new_path=file_name + '.txt')
 
 
+def create_android_sync_header(in_path):
+
+    '''
+    function in order to creating a new header for a synchronized android sensor file
+    (i.e. multiple android sensor files into one single file)
+    Parameters
+    ----------
+    in_path (list of strings or string): list containing the paths to the files that are supposed to be synchronized
+
+    Returns
+    -------
+    header (string): the new header as a string
+    '''
+
+    # variable for the header
+    header = None
+
+    # cycle through the file list
+    for i, file in enumerate(in_path):
+
+        # check if it is the first file entry
+        if (i == 0):
+
+            # open the file
+            with open(file, encoding='latin-1') as opened_file:
+                # read the information from the header lines (omitting the begin and end tags of the header)
+                header_string = opened_file.readlines()[1][2:]  # omit "# " at the beginning of the sensor infromation
+
+                # convert the header into a dict
+                header = json.loads(header_string)
+
+        else:
+
+            # open the file
+            with open(file, encoding='latin-1') as opened_file:
+                header_string = opened_file.readlines()[1][2:]
+
+                # convert header into a dict
+                curr_header = json.loads(header_string)
+
+                # add the fields from the header of the current file
+                header['internal sensors']['sensor'].extend(curr_header['internal sensors']['sensor'])  # sensor field
+                header['internal sensors']['column'].extend(
+                    curr_header['internal sensors']['column'][1:])  # column field
+
+                # get the last channel from the channel field
+                num_channels = header['internal sensors']['channels'][-1]
+
+                # get the channels from the current sensor
+                new_channels = curr_header['internal sensors']['channels']
+
+                # adjust the channel number
+                new_channels = [ch + (num_channels + 1) for ch in new_channels]
+
+                header['internal sensors']['channels'].extend(new_channels)  # channels field
+                header['internal sensors']['label'].extend(
+                    curr_header['internal sensors']['label'])  # label field
+                header['internal sensors']['resolution'].extend(
+                    curr_header['internal sensors']['resolution'])  # resolution field
+                header['internal sensors']['special'].extend(
+                    curr_header['internal sensors']['special'])  # special field
+                header['internal sensors']['sleeve color'].extend(
+                    curr_header['internal sensors']['sleeve color'])  # sleeve color field
+
+    # create new header string
+    header_string = "# OpenSignals Text File Format\n# " + json.dumps(header) + '\n# EndOfHeader\n'
+
+    return header_string
+
+
+def pad_android_data(sensor_data, report, start_with=None, end_with=None, padding_type='same'):
+
+    """
+    function in order to pad multiple android signals to the correct same start and end values. This function is
+    needed in order to perform a synchronization of android sensors.
+    Instead of passing a sample number or a time to indicate where to start or end the synchronization the user passes
+    the sensor name instead.
+
+    example:
+    let's assume an acquistion was made with the following sensors Acc, GPS, Light, and Proximity.
+    The sensors start acquiring data in the following order: ['Proximity', 'Light', 'Acc', 'GPS']
+    The sensor stop acquiring data in the following order: ['Proximity', 'Light', 'GPS', 'Acc']
+
+    Then the user can specify where to start and end the synchronization by for example setting:
+    start_with='Proximity', and
+    stop_with='GPS'
+    In this case the signals are synchronized when the Proximity sensor starts recording until the GPS sensor stops
+    recording data. The other sensors are padded / cropped to the corresponding starting / stopping points.
+    At the beginning:The 'Light', 'Acc', and 'GPS' sensors are padded to the staring point of the Proximity sensor
+    At the end: The 'Proximity' and 'Light' sensors are padded until the stopping point of the 'GPS' sensor and the
+                'Acc' sensor is cropped to the stopping point of the GPS sensor.
+
+    Parameters
+    ----------
+    sensor_data (list): A list containing the data of the sensors to be synchronized.
+
+    report (dict): The report returned by the 'load_android_data' function.
+
+    start_with (string, optional): The sensor that indicates that indicates when the synchronization should be started.
+                              If not specified the sensor that started latest is chosen.
+
+    end_with (string, optional): The sensor that indicates when the synchronizing should be stopped.
+                            If not specified the sensor that stopped earliest is chosen
+
+    padding_type (string, optional): The padding type used for padding the signal. Options are either 'same' or 'zero'.
+                                     If not specified, 'same' is used.
+
+    Returns
+    -------
+
+    padded_sensor_data: the padded sensor data for each sensor in the sensor_data list
+    """
+
+    # list for holding the padded data
+    padded_sensor_data = []
+
+    # get the index of the sensor used for padding in the start (ssi = start sensor index)
+    # if none is provided (start == None) then the latest starting sensor is used
+    if (start_with == None):
+        ssi = report['starting times'].index(max(report['starting times']))
+
+    else:
+        ssi = report['names'].index(start_with)
+
+    # get the index of the sensor used for padding in the end (esi = end sensor index)
+    # if none is provided (end == None) then the sensor that stopped earliest is used
+    if (end_with == None):
+        esi = report['stopping times'].index(min(report['stopping times']))
+
+    else:
+        esi = report['names'].index(end_with)
+
+    # check if the starting and stopping times are equal (this can be the case when a significant motion sensor is used
+    # and only one significant motion was detected by the sensor)
+    # in that case we use the next sensor that stopped recording the earliest
+    if (report['starting times'][esi] == report['stopping times'][ssi]):
+        print('Warning: Start and end at same time...using next sensor that stopped earliest instead')
+        esi = report['stopping times'].index(np.sort(report['stopping times'])[1])
+
+    # get the starting value
+    start_time = report['starting times'][ssi]
+
+    # get the stopping value
+    end_time = report['stopping times'][esi]
+
+    # get time axis of the starting sensor and check for dimensionality of the data
+    time_axis_start = sensor_data[ssi][:1] if (sensor_data[ssi].ndim == 1) else sensor_data[ssi][:, 0]
+
+    # get the time axis of th ending sensor and check for dimensionality of the data
+    time_axis_end = sensor_data[esi][:1] if (sensor_data[esi].ndim == 1) else sensor_data[esi][:, 0]
+
+    # start padding: for loop over names (enumerated)
+    for i, name in enumerate(report['names']):
+
+        # get the data of the current signal
+        data = sensor_data[i]
+
+        # check for the dimensionality of the signal data (handling for significant motion sensor)
+        if (data.ndim == 1):  # 1D array
+
+            # get the time axis
+            time_axis = data[:1]
+
+            # get the signal data
+            signals = data[1:]
+
+            # expand the dimensionality of the data (in order to have the same dimensionality as all other data)
+            signals = np.expand_dims(signals, axis=1)
+
+        else:  # mutlidimensional array
+
+            # get the time_axis
+            time_axis = data[:, 0]
+
+            # get the signal data
+            signals = data[:, 1:]
+
+        # --- 1.) padding at the beginnging ---
+        if (start_time > time_axis[0]):  # start_time after current signal start (cropping of the signal needed)
+
+            # get the time_axis size before cropping
+            orig_size = time_axis.size
+
+            # crop the time axis
+            time_axis = time_axis[time_axis >= start_time]
+
+            # crop the signal data
+            signals = signals[(orig_size - time_axis.size):, :]
+
+        # get the values that need to be padded to the current time axis
+        start_pad = time_axis_start[time_axis_start < time_axis[0]]
+
+        # --- 2.) padding at the end ---
+        if (end_time < time_axis[-1]):  # end_time before current signal end (cropping of the signal needed
+
+            # crop the time axis
+            time_axis = time_axis[time_axis <= end_time]
+
+            # check if cropping leads to elimination of signal
+            if (time_axis.size == 0):
+                raise IOError(
+                    'The configuration you chose led to elimination of the {} sensor. Please choose another sensor for paremeter \'end\'.'.format(
+                        name))
+
+            # crop the signal data
+            signals = signals[:time_axis.size, :]
+
+        # get the values that need to be padded to the current time axis
+        end_pad = time_axis_end[time_axis_end > time_axis[-1]]
+
+        # pad the time axis
+        time_axis = np.concatenate((start_pad, time_axis, end_pad))
+
+        # for holing the new padded data
+        padded_data = time_axis
+
+        # cycle over the signal channels
+        for channel in np.arange(signals.shape[1]):
+
+            # get the signal channel
+            sig_channel = signals[:, channel]
+
+            # check for the sensor
+            if (name == 'GPS'):  # gps sensor (always use padding type 'same' to indicate that the phone has not moved)
+
+                # pad the channel
+                sig_channel = np.pad(sig_channel, (start_pad.size, end_pad.size), 'edge')
+
+            elif (name == 'SigMotion'):  # significant motion sensor (always pad zeros)
+
+                # pad the channel
+                sig_channel = np.pad(sig_channel, (start_pad.size, end_pad.size), 'constant', constant_values=(0, 0))
+
+            else:  # all other sensors
+
+                # check for setting of the user
+                if (padding_type == 'same'):
+
+                    # pad the channel
+                    sig_channel = np.pad(sig_channel, (start_pad.size, end_pad.size), 'edge')
+
+                elif (padding_type == 'zeros'):
+
+                    # pad the channel
+                    sig_channel = np.pad(sig_channel, (start_pad.size, end_pad.size), 'constant',
+                                         constant_values=(0, 0))
+
+            # concatenate the channel to the padded data
+            padded_data = np.vstack((padded_data, sig_channel))
+
+        # append the data to the padded_sensor_data list
+        # the data is transposed in order to have the correct shape (samples x number of channels)
+        padded_sensor_data.append(padded_data.T)
+
+    return padded_sensor_data
+
+
+    # TODO: android synchronization function that does basically everything, the user only has to give the file_list
 # ==================================================================================================
 # ================================= Private Functions ==============================================
 # ==================================================================================================
