@@ -25,6 +25,12 @@ def merge_styles(filepath):
     new_link.attrs["rel"] = "stylesheet"
     html_soup.html.head.append(new_link)
 
+    # ===================================== Add Google Analytics Script ================================================
+    #new_script = html_soup.new_tag('script')
+    #new_script.attrs["async"] = None
+    #new_script.attrs["src"] = "https://www.googletagmanager.com/gtag/js?id=UA-38036509-7"
+    #html_soup.html.head.append(new_script)
+
     # ========================================= Remove empty lines =====================================================
     head_obj = html_soup.find("head")
     pattern = re.compile("^\n$")

@@ -17,30 +17,13 @@
 
 <body onLoad="loadNotebook()">
 	<div id="wrap-me">
-		<div id="header-bio" class="clearHeader ">
-			<?php include "../../notebooks-hd.php";?></div>
 		<div id="main-bio">
-			<div id="notebook-loading" style="text-align:center"><img align="center" style="width:30%;margin-top:-100px" src="../../images/icons/loading_icon.gif"></div>
+			<div id="notebook-loading" style="text-align:center"><img align="center" src="../../images/icons/loading_icon.gif"></div>
 			<div id="notebook-include"></div>	
 		</div>
-		<div id="footer-bio">
-			<?php include "../../notebooks-ft.php"; ?></div>
 	</div>
 
 	<script>
-	/*header hide and show*/
-	$(function() {
-		var header = $("#header-bio");
-		$(window).scroll(function() {
-			var scroll = $(window).scrollTop();
-
-			if (scroll >= 200) {
-				header.removeClass('clearHeader').addClass("hideHeader");
-			} else {
-				header.removeClass("hideHeader").addClass('clearHeader');
-			}
-		});
-	});
 	/*notebook links related stuff*/
 	function loadNotebook(){
 		var loadLink = "synchrony_light_rev.html";
