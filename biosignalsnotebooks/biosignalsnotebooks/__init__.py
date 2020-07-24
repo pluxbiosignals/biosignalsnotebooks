@@ -76,5 +76,6 @@ from .synchronisation import *
 from .train_and_classify import *
 from .__notebook_support__ import *
 from .synchronisation import *
+from .android import *
 
 # 11/10/2018 16h45m :)

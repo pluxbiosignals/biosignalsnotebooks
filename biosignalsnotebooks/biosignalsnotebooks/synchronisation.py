@@ -420,7 +420,7 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
 
     report (dict): The report returned by the 'load_android_data' function.
 
-    start_with (string, optional): The sensor that indicates that indicates when the synchronization should be started.
+    start_with (string, optional): The sensor that indicates when the synchronization should be started.
                               If not specified the sensor that started latest is chosen.
 
     end_with (string, optional): The sensor that indicates when the synchronizing should be stopped.
@@ -604,7 +604,7 @@ def save_synchronised_android_data(time_axis, data, header, path, file_name='and
     save_path = os.path.join(path, file_name)
 
     # add the time axis for the final data array
-    # make the time axis a column vecotr
+    # make the time axis a column vector
     final_data_array = np.expand_dims(time_axis, 1)
 
     # write all the data into a single array
