@@ -155,16 +155,33 @@ def _calc_avg_sampling_rate(time_axis, unit=1):
     # 1e9 is used because the time axis is in nanoseconds
     avg_sampling_rate = unit / mean_dist
 
+    # round the sampling rate
+    avg_sampling_rate = _round_sampling_rate(avg_sampling_rate)
+
+    return avg_sampling_rate
+
+
+def _round_sampling_rate(sampling_rate):
+    """
+    Function for round the sampling rate to the nearest tens digit. Sampling rates below 5 Hz are set to 1 Hz
+
+    Parameters
+    ----------
+    sampling_rate: A sampling rate
+
+    Returns
+    -------
+    rounded_sampling rate: the sampling rounded to the next tens digit
+    """
     # check if sampling rate is below 5 Hz in that case always round to one
-    if avg_sampling_rate < 5:
+    if sampling_rate < 5:
 
         # set sampling rate to 1
-        avg_sampling_rate = 1
+        rounded_sampling_rate = 1
 
     else:
 
         # round to the nearest 10 digit
-        avg_sampling_rate = round(avg_sampling_rate/10) * 10
+        rounded_sampling_rate = round(sampling_rate/10) * 10
 
-    return avg_sampling_rate
-
+    return rounded_sampling_rate

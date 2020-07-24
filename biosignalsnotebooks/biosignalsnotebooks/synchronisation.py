@@ -19,10 +19,16 @@ create_synchronised_files
     This function creates .txt and .h5 files with synchronised signals.
 
 create_android_sync_header
-    function in order to creating a new header for a synchronized android sensor file
+    function in order to creating a new header for a synchronised android sensor file
 
 pad_android_data
     function in order to pad multiple android signals to the correct same start and end values
+
+save_synchronised_android_data
+    Function used for saving synchronised android data into a single file
+
+snyc_android_files
+    Function to synchronise multiple android files into one. The function has two modes.
 
 Available Functions
 -------------------
@@ -53,6 +59,9 @@ import json
 import biosignalsnotebooks as bsnb
 import numpy as np
 from h5py import File
+import os
+from .android import re_sample_data, _round_sampling_rate
+from .load import load_android_data
 
 
 def synchronise_signals(in_signal_1, in_signal_2):
@@ -316,11 +325,11 @@ def create_synchronised_files(in_path=(('file1.txt', 'file2.txt'), ('file1.h5', 
 def create_android_sync_header(in_path):
 
     '''
-    function in order to creating a new header for a synchronized android sensor file
+    function in order to creating a new header for a synchronised android sensor file
     (i.e. multiple android sensor files into one single file)
     Parameters
     ----------
-    in_path (list of strings or string): list containing the paths to the files that are supposed to be synchronized
+    in_path (list of strings): list containing the paths to the files that are supposed to be synchronised
 
     Returns
     -------
@@ -392,14 +401,14 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
     the sensor name instead.
 
     example:
-    let's assume an acquistion was made with the following sensors Acc, GPS, Light, and Proximity.
+    let's assume an acquisition was made with the following sensors Acc, GPS, Light, and Proximity.
     The sensors start acquiring data in the following order: ['Proximity', 'Light', 'Acc', 'GPS']
     The sensor stop acquiring data in the following order: ['Proximity', 'Light', 'GPS', 'Acc']
 
     Then the user can specify where to start and end the synchronization by for example setting:
     start_with='Proximity', and
     stop_with='GPS'
-    In this case the signals are synchronized when the Proximity sensor starts recording until the GPS sensor stops
+    In this case the signals are synchronised when the Proximity sensor starts recording until the GPS sensor stops
     recording data. The other sensors are padded / cropped to the corresponding starting / stopping points.
     At the beginning:The 'Light', 'Acc', and 'GPS' sensors are padded to the staring point of the Proximity sensor
     At the end: The 'Proximity' and 'Light' sensors are padded until the stopping point of the 'GPS' sensor and the
@@ -407,7 +416,7 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
 
     Parameters
     ----------
-    sensor_data (list): A list containing the data of the sensors to be synchronized.
+    sensor_data (list): A list containing the data of the sensors to be synchronised.
 
     report (dict): The report returned by the 'load_android_data' function.
 
@@ -514,7 +523,7 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
             # check if cropping leads to elimination of signal
             if (time_axis.size == 0):
                 raise IOError(
-                    'The configuration you chose led to elimination of the {} sensor. Please choose another sensor for paremeter \'end\'.'.format(
+                    'The configuration you chose led to elimination of the {} sensor. Please choose another sensor for paremeter \'end_with\'.'.format(
                         name))
 
             # crop the signal data
@@ -570,7 +579,282 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
     return padded_sensor_data
 
 
-    # TODO: android synchronization function that does basically everything, the user only has to give the file_list
+def save_synchronised_android_data(time_axis, data, header, path, file_name='android_synchroinsed'):
+    """
+    Function used for saving synchronised android data into a single file
+
+    Parameters
+    ----------
+    time_axis (N,  array_like): The time axis after the padding and re-sampling the sensor data.
+
+    data (list): List containing the padded and re-sampled sensor signals. The length of data along the 0-axis has to be
+                 the same size as time_axis
+
+   header (string): A string containing the header that is supposed to be added to the file.
+
+    path (string): A string with the location where the file should be saved.
+
+    file_name (string, optional): The name of the file, with the suffix '.txt'. If not specified, the file is named
+                             'android_synchronised.txt'.
+
+    """
+    # add .txt suffix to the file name
+    file_name = file_name + '.txt'
+    # create final save path
+    save_path = os.path.join(path, file_name)
+
+    # add the time axis for the final data array
+    # make the time axis a column vecotr
+    final_data_array = np.expand_dims(time_axis, 1)
+
+    # write all the data into a single array
+    for signals in data:
+        final_data_array = np.append(final_data_array, signals, axis=1)
+
+    # open a new file at the path location
+    sync_file = open(save_path, 'w')
+
+    # write the header to the file
+    sync_file.write(header)
+
+    # write the data to the file
+    for row in final_data_array:
+        sync_file.write('\t'.join(str(value) for value in row) + '\t\n')
+
+    # close the file
+    sync_file.close()
+
+    return save_path
+
+
+def snyc_android_files(in_path, out_path, sync_file_name='android_synchroinzed', automatic_sync=True):
+    """
+    Function to synchronise multiple android files into one. The function has two modes.
+
+    1.) automatic_sync = True:
+        In this mode, the function will do a full automatic syncrhonization of the files. The synchronization will only
+        take place in the time window in which all sensors are runinng simultaneously. The rest of the data will be cut.
+        Furthermore, the sampling rate for re-sampling the signals will be set to the highest sampling rate present.
+        This sampling rate is rounded to the next tens digit (i.e 43 Hz -> 40 Hz | 98 Hz -> 100 Hz). Sampling rates below
+        5 Hz are set to 1 Hz.
+        In this mode, the function will give feedback on what it is doing and how it is setting the values.
+
+    2.) automatic_sync = False
+        In this mode, the function will prompt the user for specific inputs that are needed to set certain parameters.
+        The function will prompt the user with appropriate prompts and also handles when the user inputs something invalid.
+
+    Parameters
+    ----------
+    in_path (list): list of paths that point to the files that are supposed to be synchronised
+    out_path (string): The path where the synchronised file is supposed to be saved
+    sync_file_name (String, optional): The name of the new file. If not provided then the name will be set to
+                                       'android_synchronised.txt'
+    automatic_sync (boolean, optional): boolean for setting the mode of the function.
+                                        If not provided it will be set to True
+
+    Returns
+    -------
+
+    """
+
+    # create new file header
+    new_header = create_android_sync_header(in_path)
+
+    # load the data
+    sensor_data, report = load_android_data(in_path, print_report=True)
+
+    # ---- data padding ---- #
+    print('\n---- DATA PADDING ----\n')
+    # check for synchroization option
+    if (not automatic_sync):
+
+        # flags for checking user input
+        check_input1 = False  # for start_with and end_with
+        check_input2 = False  # for padding_type
+
+        # prompt user for start_with and end_with
+        while (not check_input1):
+
+            # get the input from the user
+            start_with = input('Type in the sensor for specifying where to START the synchronization:')
+            end_with = input('Type in the sensor name for specifiying where to END the synchronization:')
+
+            # check the input for validity
+            if (start_with not in report['names'] or end_with not in report['names']):
+
+                # wrong input: prompt user again
+                print(
+                    '\nOne of the sensors you chose is not listed in the report. \nPlease choose from the following sensors {}.\n'.format(
+                        report['names']))
+
+            else:  # input correct
+
+                check_input1 = True
+
+        # prompt user for padding_type
+        while (not check_input2):
+
+            # get input from the user
+            padding_type = input('Choose a PADDING TYPE (same or zeros):')
+
+            # check for validity
+            if (padding_type not in ['same', 'zeros']):
+
+                # wrong input: prompt user again
+                print('\nThe padding type you chose does not exist. \nPlease input either same or zeros.\n')
+
+            else:  # input correct
+
+                check_input2 = True
+
+        # pad the data
+        padded_sensor_data = pad_android_data(sensor_data, report, start_with=start_with, end_with=end_with,
+                                              padding_type=padding_type)
+
+    else:  # automatic sync
+
+        # inform the user
+        print('Synchronizing from start of {} sensor until end of {} sensor.'.format(report['starting order'][-1],
+                                                                                     report['stopping order'][0]))
+        print('Using padding type: same.')
+
+        padded_sensor_data = pad_android_data(sensor_data, report)
+
+    # ---- data re-sampling ---- #
+    print('\n---- DATA RE-SAMPLING ----\n')
+
+    # list for holding the re-sampled data
+    re_sampled_data = []
+
+    # list for holding the time axes of each sensor
+    re_sampled_time = []
+
+    # check for synchroization option
+    if (not automatic_sync):
+
+        # set the flag for checking input to false
+        check_input1 = False  # for shift_time_axis
+        check_input2 = False  # for sampling_rate
+        check_input3 = False  # for kind_interp
+
+        # prompt for shift_time_axis
+        while (not check_input1):
+
+            # get the input of the user
+            # shift_time_axis=False, sampling_rate=None, kind_interp='linear'
+            shift_request = input(
+                'Do you want to shift the time axis in order to start at zero and convert it to seconds (yes/no)?:')
+
+            # convert to lowercase in case user types 'Yes, YES' or 'No, NO'
+            shift_request = shift_request.lower()
+
+            # check for validity
+            if (shift_request not in ['yes', 'no']):
+
+                # wrong input: prompt user again
+                print('\nInvalid input. \nPlease input either yes or no.\n')
+
+            else:  # correct input
+
+                # check which kind of input the user provided (Yes or No) and set the shift_time_axis accordingly
+                if (shift_request == 'yes'):
+
+                    shift_time_axis = True
+
+                else:  # user chose 'no'
+
+                    shift_time_axis = False
+
+                check_input1 = True
+
+        # prompt input for sampling rate
+        while (not check_input2):
+
+            # get the input from the user
+            sampling_request = input(
+                'Please provide a sampling rate (in Hz). The value will be converted to an Integer:')
+
+            # check if input is really a number
+            try:
+
+                sampling_rate = int(sampling_request)
+
+                # check if the user decied to input zero
+                if (sampling_rate <= 0):
+
+                    print('\nThe sampling rate you chose is invalid.\nPlease input a sampling rate > 0.\n')
+
+                else:  # correct input
+
+                    check_input2 = True
+
+            except ValueError:
+
+                print('\nThe input you provided is not a number.\n')
+
+        # prompt for interpolation type
+        interp_types = ['linear', 'nearest', 'zero', 'slinear', 'quadratic', 'cubic', 'previous', 'next']
+        while (not check_input3):
+
+            # get input from the user
+
+            kind_interp = input(
+                'Type in the kind of interpolation you want to use. \nYou can choose the folloiwng {}:'.format(
+                    interp_types))
+
+            # check the input for validity
+            if (kind_interp not in interp_types):
+
+                # wrong input: prompt user again
+                print(
+                    '\nThe interpolation type you choose is not valid. \nPlease choose from the following types {}.\n'.format(
+                        interp_types))
+
+            else:  # input correct
+
+                check_input3 = True
+
+        # cycle over the data and re-sample it
+        for data in padded_sensor_data:
+            # resample the data ('_' suppreses the output for the sampling rate)
+            re_time, re_data, _ = re_sample_data(data[:, 0], data[:, 1:], shift_time_axis=shift_time_axis,
+                                                 sampling_rate=sampling_rate, kind_interp=kind_interp)
+
+            # add the the time and data to the lists
+            re_sampled_time.append(re_time)
+            re_sampled_data.append(re_data)
+
+    else:  # automatic sync
+
+        # get the highest sampling rate and round it accordingly
+        sampling_rate = _round_sampling_rate(report['max. sampling rate'])
+
+        # inform the user
+        print('The signals will be re-sampled to a sampling rate of {} Hz.'.format(sampling_rate))
+        print('Shifting the time axis to start at zero and converting to seconds.')
+        print('Using interpolation type: previous.')
+
+        # cycle over the sig
+        for data in padded_sensor_data:
+            # resample the data ('_' suppreses the output for the sampling rate)
+            re_time, re_data, _ = re_sample_data(data[:, 0], data[:, 1:], shift_time_axis=True,
+                                                 sampling_rate=sampling_rate, kind_interp='previous')
+
+            # add the the time and data to the lists
+            re_sampled_time.append(re_time)
+            re_sampled_data.append(re_data)
+
+    # ---- Saving data to file ---- #
+    print('\n---- Saving Data to file ----\n')
+
+    # save the data to the file
+    save_path = save_synchronised_android_data(re_sampled_time[0], re_sampled_data, new_header, out_path,
+                                               file_name=sync_file_name)
+
+    # inform the user where the file has been saved
+    print('The file has been saved to: {}'.format(save_path))
+
+
 # ==================================================================================================
 # ================================= Private Functions ==============================================
 # ==================================================================================================
@@ -806,3 +1090,5 @@ def _create_txt_from_list(in_path, channels, new_path):
     for line in new_file:
         sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
     sync_file.close()
+
+
