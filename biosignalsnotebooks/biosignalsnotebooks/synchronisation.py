@@ -27,7 +27,7 @@ pad_android_data
 save_synchronised_android_data
     Function used for saving synchronised android data into a single file
 
-snyc_android_files
+sync_android_files
     Function to synchronise multiple android files into one. The function has two modes.
 
 Available Functions
@@ -627,7 +627,7 @@ def save_synchronised_android_data(time_axis, data, header, path, file_name='and
     return save_path
 
 
-def snyc_android_files(in_path, out_path, sync_file_name='android_synchroinzed', automatic_sync=True):
+def sync_android_files(in_path, out_path, sync_file_name='android_synchroinzed', automatic_sync=True):
     """
     Function to synchronise multiple android files into one. The function has two modes.
 
