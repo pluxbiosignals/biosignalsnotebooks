@@ -127,22 +127,38 @@ def re_sample_data(time_axis, data, start=0, stop=-1, shift_time_axis=False, sam
 # ==================================================================================================
 
 
-def _calc_avg_sampling_rate(time_axis, unit=1):
+def _calc_avg_sampling_rate(time_axis, unit='seconds', round=True):
     '''
     function to calculate the average sampling rate of signals recorded with an android sensor. The sampling rate is
-    rounded to the next tens digit (i.e 34.4 Hz = 30 Hz | 87.3 Hz = 90 Hz).
+    rounded to the next tens digit if specified(i.e 34.4 Hz = 30 Hz | 87.3 Hz = 90 Hz).
     sampling rates below 5 Hz are set to 1 Hz.
 
     Parameters
     ----------
-    time_axis (N array_like): the time axis of the sensor
-    unit (int): the unit of the time_axis, if seconds unit=1, if nanoseconds unit=1e9  (1s = 1e9 nanoseconds)
+    time_axis (N array_like): The time axis of the sensor
+    unit (string, optional): the unit of the time_axis. Either 'seconds' or 'nanoseconds' can be used.
+                             If not specified 'seconds' is used
+    round (boolean, true): Boolean to indicate whether the sampling rate should be rounded to the next tens digit
 
     Returns
     -------
     avg_sampling_rate: the average sampling rate of the sensor
 
     '''
+
+    # check the input for unit and set the dividend accordingly
+    if(unit == 'seconds'):
+
+        dividend = 1
+
+    elif(unit == 'nanoseconds'):
+
+        dividend = 1e9
+
+    else:  # invalid input
+
+        raise IOError('The value for unit is not valid. Use either seconds or nanoseconds')
+
 
     # calculate the distance between sampling points
     # data[:,0] is the time axis
@@ -153,10 +169,11 @@ def _calc_avg_sampling_rate(time_axis, unit=1):
 
     # calculate the sampling rate and add it to the list
     # 1e9 is used because the time axis is in nanoseconds
-    avg_sampling_rate = unit / mean_dist
+    avg_sampling_rate = dividend / mean_dist
 
-    # round the sampling rate
-    avg_sampling_rate = _round_sampling_rate(avg_sampling_rate)
+    # round the sampling rate if specified
+    if(round):
+        avg_sampling_rate = _round_sampling_rate(avg_sampling_rate)
 
     return avg_sampling_rate
 

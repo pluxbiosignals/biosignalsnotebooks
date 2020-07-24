@@ -582,8 +582,9 @@ def load_android_data(in_path, print_report=True):
                 # get the times axis
                 time_axis = data[:, 0]
 
-                # calculate the average sampling rate
-                avg_sampling_rates.append(_calc_avg_sampling_rate(time_axis, unit=1e9))
+                # calculate the average sampling rate (the time axis in the files is in nanoseconds)
+                # the sampling rate will not be rounded in order to show the 'true' average sampling rate
+                avg_sampling_rates.append(_calc_avg_sampling_rate(time_axis, unit='nanoseconds', round=False))
 
             # get the number of samples
             num_samples.append(time_axis.size)
