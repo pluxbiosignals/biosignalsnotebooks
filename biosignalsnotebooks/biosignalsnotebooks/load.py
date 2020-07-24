@@ -533,7 +533,7 @@ def load_android_data(in_path, print_report=True):
         # put the in_path string into a list (in order to cycle over it later)
         in_path = [in_path]
 
-    # list for holding the data all sensors
+    # list for holding the data of all sensors
     sensor_data = []
 
     # list for holding sensor names
