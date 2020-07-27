@@ -569,6 +569,10 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
                     sig_channel = np.pad(sig_channel, (start_pad.size, end_pad.size), 'constant',
                                          constant_values=(0, 0))
 
+                else:  # undefined input
+
+                    raise IOError('Invalid padding type. Please choose between padding types \'same\' or \'zero\'.')
+
             # concatenate the channel to the padded data
             padded_data = np.vstack((padded_data, sig_channel))
 
@@ -594,7 +598,7 @@ def save_synchronised_android_data(time_axis, data, header, path, file_name='and
 
     path (string): A string with the location where the file should be saved.
 
-    file_name (string, optional): The name of the file, with the suffix '.txt'. If not specified, the file is named
+    file_name (string, optional): The name of the file. If not specified, the file is named
                              'android_synchronised.txt'.
 
     """
@@ -716,7 +720,7 @@ def sync_android_files(in_path, out_path, sync_file_name='android_synchroinzed',
         # inform the user
         print('Synchronizing from start of {} sensor until end of {} sensor.'.format(report['starting order'][-1],
                                                                                      report['stopping order'][0]))
-        print('Using padding type: same.')
+        print('Using padding type: \'same\'.')
 
         padded_sensor_data = pad_android_data(sensor_data, report)
 
@@ -830,9 +834,9 @@ def sync_android_files(in_path, out_path, sync_file_name='android_synchroinzed',
         sampling_rate = _round_sampling_rate(report['max. sampling rate'])
 
         # inform the user
-        print('The signals will be re-sampled to a sampling rate of {} Hz.'.format(sampling_rate))
+        print('The signals will be re-sampled to:  {} Hz.'.format(sampling_rate))
         print('Shifting the time axis to start at zero and converting to seconds.')
-        print('Using interpolation type: previous.')
+        print('Using interpolation type: \'previous\'.')
 
         # cycle over the sig
         for data in padded_sensor_data:
