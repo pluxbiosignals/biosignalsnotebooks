@@ -603,8 +603,11 @@ def load_android_data(in_path, print_report=True):
                 # convert the header into a dict
                 header = json.loads(header_string)
 
+                # get the key 'internal sensor' or 'sensores internos'
+                dict_key = list(header.keys())[0]
+
                 # add the name of the sensor to the list
-                name = header['internal sensors']['sensor'][0]
+                name = header[dict_key]['sensor'][0]
 
                 # remove the x from the name (in case it is a 3-axis sensor)
                 if (name.startswith('x')): name = name[1:]
@@ -647,7 +650,8 @@ def load_android_data(in_path, print_report=True):
     }
 
     # print a report if the user indicates to do so
-    if (print_report): [print('{}: {}'.format(key, value)) for key, value in report.items()]
+    # \n is used to improve readability when a lot of sensors are loaded
+    if (print_report): [print('{}: {}\n'.format(key, value)) for key, value in report.items()]
 
     # check if single file was loaded in that case return sensor_data as an array instead of a list
     if(single_file):
