@@ -20,6 +20,8 @@ opensignals_color_pallet
 opensignals_kwargs
     Function used in order to be automatically applied the OpenSignals graphical style to the
     toolbar of Bokeh grid plots.
+plot_android_sensor_timeline
+    Function to visualise the sensor acquisition timeline of android sensors.
 
 Available Functions
 -------------------
@@ -43,6 +45,8 @@ from bokeh.models.tools import PanTool, ResetTool, BoxZoomTool, WheelZoomTool
 from bokeh.models.glyphs import Line
 from bokeh.plotting.figure import FigureOptions
 from bokeh.layouts import gridplot
+# select a palette
+from bokeh.palettes import Category20_20 as palette
 from IPython.display import HTML
 from .aux_functions import _filter_keywords, _is_instance, _generate_bokeh_file
 
@@ -906,6 +910,101 @@ def opensignals_kwargs(obj):
         out = {"line_width": 2, "line_color": opensignals_color_pallet()}
 
     return out
+
+
+def plot_android_sensor_timeline(sensor_data, report, plot_until_seconds=-1, line_thickness=1):
+
+    """
+    Function to visualise the sensor acquisition timeline of android sensors contained in the sensor data list. The time
+    axes of the sensors are shifted to start at zero and converted to seconds.
+
+    Parameters
+    ----------
+    sensor_data (list): A list containing the android sensor data (including the time axis). The list can be obtained by
+                        calling the load_android_data(...) function.
+
+    report (dict): A dictionary containing information on the sensors. The dictionary can be obtained by calling the
+                   load_android_data(...) function.
+
+    plot_until_seconds (int or float, optional): Int or float indicating how many seconds of the timeline should be plotted.
+                                                 The value can be either -1 for plotting the entire timeline or a value > 0.
+                                                 If not specified, then -1 is used.
+
+    line_thickness (float, optional): Float indicating how thickness of the timeline lines. If not specified a thickness
+                                      of 1 is used.
+
+    Returns
+    -------
+
+    """
+
+    # create new bokeh plot
+    p = figure()
+
+    # for overriding y axis ticks
+    label_dict = {}
+
+    # get the earliest starting time
+    start_time = numpy.min(report['starting times'])
+
+    # cycle through the names (enumertaed to get list index)
+    for i, name in enumerate(report['names']):
+
+        # get the data
+        data = sensor_data[i]
+
+        # setup y axis labels
+        label_dict[i + 1] = name
+
+        # check for dimensionality
+        if (data.ndim == 1):  # 1D array
+
+            # get the time axis
+            time_axis = data[:1]
+
+        else:  # multidimensionl array
+
+            # get the time axis
+            time_axis = data[:, 0]
+
+        # shift time axis to start at zero and convert to seconds
+        time_axis = time_axis - start_time
+        time_axis = time_axis * 1e-9
+
+        # check for value of plot_until_seconds
+        if (plot_until_seconds == -1):  # plot entire time line
+
+            # get the number of samples from the size of the time axis
+            num_samples = time_axis.size
+
+        elif (plot_until_seconds > 0):
+
+            # crop the time_axis to the correct specified time
+            time_axis = time_axis[time_axis <= plot_until_seconds]
+
+            # get the number of samples from the size of the time axis
+            num_samples = time_axis.size
+
+        else:  # invalid input
+
+            raise IOError(
+                'The value you entered for \'plot_until_seconds\' is invalid. Please specify either -1 for plotting the entire timeline or a value > 0.')
+
+        # create y axis values for plot (ones array of length num_samples times the index number + 1)
+        y_vals = numpy.ones((num_samples,), dtype=int) * (i + 1)
+
+        # plot the sensor timeline depending on how many samples the user wants to plot
+        p.segment(time_axis, y_vals - 0.25, time_axis, y_vals + 0.25, color=palette[i], line_width=line_thickness)
+
+    # override y axis ticks
+    p.yaxis.ticker = numpy.arange(1, len(sensor_data) + 1)
+    p.yaxis.major_label_overrides = label_dict
+
+    # add x axis label
+    p.xaxis.axis_label = 'Time (s)'
+
+    opensignals_style([p])  # apply biosignalsnotebooks style
+    show(p)
 
 
 # ==================================================================================================
