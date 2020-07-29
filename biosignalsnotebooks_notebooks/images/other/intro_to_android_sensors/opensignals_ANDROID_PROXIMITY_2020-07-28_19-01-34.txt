@@ -1,0 +1,6 @@
+# OpenSignals Text File Format
+# {"internal sensors":{"sensor":["distance"],"device name":"internal sensors","column":["nSeq","distance"],"sync interval":2,"time":"19:01:34","comments":"","keywords":"","device connection":"UNKNOWNinternal sensors","channels":[0],"date":"2020-07-28","mode":0,"digital IO":[],"firmware version":0,"device":"android","position":0,"sampling rate":100,"label":["distance"],"resolution":[1],"special":[{}],"sleeve color":["UNKNOWN"]}}
+# EndOfHeader
+1465354576786829	5.000305	
+1465449644857948	0.0	
+1465450249350135	5.000305	
