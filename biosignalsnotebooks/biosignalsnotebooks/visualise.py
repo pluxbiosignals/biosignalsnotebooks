@@ -941,6 +941,9 @@ def plot_android_sensor_timeline(sensor_data, report, plot_until_seconds=-1, lin
     # create new bokeh plot
     p = figure()
 
+    # create a color iterator
+    colors = itertools.cycle(palette)
+
     # for overriding y axis ticks
     label_dict = {}
 
@@ -994,7 +997,8 @@ def plot_android_sensor_timeline(sensor_data, report, plot_until_seconds=-1, lin
         y_vals = numpy.ones((num_samples,), dtype=int) * (i + 1)
 
         # plot the sensor timeline depending on how many samples the user wants to plot
-        p.segment(time_axis, y_vals - 0.25, time_axis, y_vals + 0.25, color=palette[i], line_width=line_thickness)
+        # using colors iterator (size: 20 colors) when more than 20 sensors are plotted the colors are repeated
+        p.segment(time_axis, y_vals - 0.25, time_axis, y_vals + 0.25, color=next(colors), line_width=line_thickness)
 
     # override y axis ticks
     p.yaxis.ticker = numpy.arange(1, len(sensor_data) + 1)
