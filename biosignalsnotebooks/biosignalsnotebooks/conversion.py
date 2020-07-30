@@ -25,6 +25,7 @@ None
 import numpy
 from .aux_functions import _is_a_url, _generate_download_google_link
 from .load import load
+import math
 
 
 def raw_to_phy(sensor, device, raw_signal, resolution, option):
@@ -228,15 +229,32 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
     elif sensor == "ACC":
         available_dev_1 = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller",
                            "swifter", "ddme_openbanplux"]
+
+        available_dev_2 = ["bitalino_rev", "bitalino_riot"]
         if option == "g":
             if device in available_dev_1:
                 Cm = 28000.0
                 CM = 38000.0
+
+                out = 2.0 * ((2 ** (16.0 - resolution) * raw_signal - Cm) / (CM - Cm)) - 1.0
+
+            elif device in available_dev_2:
+
+                # for bitalino the default calibration values are
+                # for 6bit channel:
+                # Cmax = 38
+                # Cmin = 25
+                # for 10bit channel:
+                # Cmax = 608
+                # Cmin = 400
+                Cm = 400.0 / math.pow(2.0, 10 - resolution)
+                CM = 608.0 / math.pow(2.0, 10 - resolution)
+
+                out = 2.0 * ((raw_signal - Cm) / (CM - Cm)) - 1.0
+
             else:
                 raise RuntimeError("The output specified unit does not have a defined transfer "
                                    "function for the used device.")
-
-            out = 2.0*((2**(16.0 - resolution) * raw_signal - Cm) / (CM - Cm)) - 1.0
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
