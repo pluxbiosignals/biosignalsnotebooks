@@ -1018,6 +1018,7 @@ def _create_txt_from_str(in_path, channels, new_path):
 
     data = []
     nr_channels = []
+    is_integer_data = True
     for file in files:
         for i, device in enumerate(file.keys()):
             nr_channels.append(len(list(file[device])))
@@ -1025,17 +1026,33 @@ def _create_txt_from_str(in_path, channels, new_path):
 
     dephase, s1, s2 = synchronise_signals(data[0], data[1])
 
+    if data[0] is not int or data[1] is not int:
+        is_integer_data = False
+
     new_header = [h.replace("\n", "") for h in header]
     sync_file = open(new_path, 'w')
     sync_file.write(' \n'.join(new_header) + '\n')
 
+    # Avoid change in float precision if we are working with float numbers.
+    if not is_integer_data:
+        round_data_0 = [float('%.2f' % (value)) for value in data[0]]
+        round_data_1 = [float('%.2f' % (value)) for value in data[1]]
+        round_s_1 = [float('%.2f' % (value)) for value in s1]
+        round_s_2 = [float('%.2f' % (value)) for value in s2]
+    else:
+        round_data_0 = data[0]
+        round_data_1 = data[1]
+        round_s_1 = s1
+        round_s_2 = s2
+
+    # Check which array is aligned.
     old_columns = np.loadtxt(in_path)
-    if np.array_equal(s1, data[0]):
+    if np.array_equal(round_s_1, round_data_0):
         # Change the second device
         aux = 3 * nr_channels[0]
         columns = old_columns[dephase:, aux:]
         new_file = _shape_array(old_columns[:, :aux], columns)
-    elif np.array_equal(s2, data[1]):
+    elif np.array_equal(round_s_2, round_data_1):
         # Change the first device
         aux = 3 * nr_channels[1]
         columns = old_columns[dephase:, :aux]
@@ -1044,7 +1061,10 @@ def _create_txt_from_str(in_path, channels, new_path):
         print("The devices are synchronised.")
         return
     for line in new_file:
-        sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
+        if is_integer_data:
+            sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
+        else:
+            sync_file.write('\t'.join(str(i) for i in line) + '\t\n')
     sync_file.close()
 
 
@@ -1071,22 +1091,39 @@ def _create_txt_from_list(in_path, channels, new_path):
 
     data = []
     nr_channels = []
+    is_integer_data = True
     for i, file in enumerate(files):
         nr_channels.append(len(list(file)))
         data.append(file[channels[i]])
 
     dephase, s1, s2 = synchronise_signals(data[0], data[1])
 
+    if data[0] is not int or data[1] is not int:
+        is_integer_data = False
+
     new_header = [h.replace("\n", "") for h in header]
     sync_file = open(new_path, 'w')
     sync_file.write('\n'.join(new_header) + '\n')
 
-    if np.array_equal(s1, data[0]):
+    # Avoid change in float precision if we are working with float numbers.
+    if not is_integer_data:
+        round_data_0 = [float('%.2f' % (value)) for value in data[0]]
+        round_data_1 = [float('%.2f' % (value)) for value in data[1]]
+        round_s_1 = [float('%.2f' % (value)) for value in s1]
+        round_s_2 = [float('%.2f' % (value)) for value in s2]
+    else:
+        round_data_0 = data[0]
+        round_data_1 = data[1]
+        round_s_1 = s1
+        round_s_2 = s2
+
+    # Check which array is aligned.
+    if np.array_equal(round_s_1, round_data_0):
         # Change the second device
         old_columns = np.loadtxt(in_path[1])
         columns = old_columns[dephase:]
         new_file = _shape_array(columns, np.loadtxt(in_path[0]))
-    elif np.array_equal(s2, data[1]):
+    elif np.array_equal(round_s_2, round_data_1):
         # Change the first device
         old_columns = np.loadtxt(in_path[0])
         columns = old_columns[dephase:]
@@ -1095,7 +1132,10 @@ def _create_txt_from_list(in_path, channels, new_path):
         print("The devices are synchronised.")
         return
     for line in new_file:
-        sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
+        if is_integer_data:
+            sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
+        else:
+            sync_file.write('\t'.join(str(i) for i in line) + '\t\n')
     sync_file.close()
 
 
