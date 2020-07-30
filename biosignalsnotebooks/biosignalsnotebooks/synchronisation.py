@@ -362,29 +362,32 @@ def create_android_sync_header(in_path):
                 # convert header into a dict
                 curr_header = json.loads(header_string)
 
+                # get the key 'internal sensor' or 'sensores internos'
+                dict_key = list(header.keys())[0]
+
                 # add the fields from the header of the current file
-                header['internal sensors']['sensor'].extend(curr_header['internal sensors']['sensor'])  # sensor field
-                header['internal sensors']['column'].extend(
-                    curr_header['internal sensors']['column'][1:])  # column field
+                header[dict_key]['sensor'].extend(curr_header[dict_key]['sensor'])  # sensor field
+                header[dict_key]['column'].extend(
+                    curr_header[dict_key]['column'][1:])  # column field
 
                 # get the last channel from the channel field
-                num_channels = header['internal sensors']['channels'][-1]
+                num_channels = header[dict_key]['channels'][-1]
 
                 # get the channels from the current sensor
-                new_channels = curr_header['internal sensors']['channels']
+                new_channels = curr_header[dict_key]['channels']
 
                 # adjust the channel number
                 new_channels = [ch + (num_channels + 1) for ch in new_channels]
 
-                header['internal sensors']['channels'].extend(new_channels)  # channels field
-                header['internal sensors']['label'].extend(
-                    curr_header['internal sensors']['label'])  # label field
-                header['internal sensors']['resolution'].extend(
-                    curr_header['internal sensors']['resolution'])  # resolution field
-                header['internal sensors']['special'].extend(
-                    curr_header['internal sensors']['special'])  # special field
-                header['internal sensors']['sleeve color'].extend(
-                    curr_header['internal sensors']['sleeve color'])  # sleeve color field
+                header[dict_key]['channels'].extend(new_channels)  # channels field
+                header[dict_key]['label'].extend(
+                    curr_header[dict_key]['label'])  # label field
+                header[dict_key]['resolution'].extend(
+                    curr_header[dict_key]['resolution'])  # resolution field
+                header[dict_key]['special'].extend(
+                    curr_header[dict_key]['special'])  # special field
+                header[dict_key]['sleeve color'].extend(
+                    curr_header[dict_key]['sleeve color'])  # sleeve color field
 
     # create new header string
     header_string = "# OpenSignals Text File Format\n# " + json.dumps(header) + '\n# EndOfHeader\n'
