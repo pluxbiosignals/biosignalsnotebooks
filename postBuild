@@ -45,6 +45,14 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_signal_type.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/android_bitalino_sync.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Other/android_bitalino_sync.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/android_file_sync.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Other/android_file_sync.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/android_signal_resampling.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Other/android_signal_resampling.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/bvp_analysis.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/bvp_analysis.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/eda_analysis.ipynb
@@ -55,6 +63,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/Other/hands_on_biostec.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/hands_on_biostec_solutions.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/hands_on_biostec_solutions.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/intro_to_android_sensors.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Other/intro_to_android_sensors.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/quick_start_guide.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/quick_start_guide.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Pre-Process/digital_filtering.ipynb
