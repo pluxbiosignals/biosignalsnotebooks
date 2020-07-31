@@ -211,14 +211,26 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_5_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 5] </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='4'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/bvp_analysis_rev.php' target='_blank'> BVP Signal Analysis - A Complete Tour </a> </td>
+		<td rowspan='8'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/android_bitalino_sync_rev.php' target='_blank'> Synchronising Android and PLUX sensors</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/android_file_sync_rev.php'> Synchronising data from multiple Android sensor files into one file</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/android_signal_resampling_rev.php'> Resampling of signals recorded with Android sensors</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/bvp_analysis_rev.php'> BVP Signal Analysis - A Complete Tour </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/eda_analysis_rev.php'> EDA Signal Analysis - A Complete Tour </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/emg_overview_rev.php'> EMG - Overview </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/intro_to_android_sensors_rev.php'>Introduction to Android sensors</a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/quick_start_guide_rev.php'> Quick-Start Guide </a> </td>

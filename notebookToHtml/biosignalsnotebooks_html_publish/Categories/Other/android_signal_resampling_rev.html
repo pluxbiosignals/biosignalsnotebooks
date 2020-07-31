@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>
+   android_signal_resampling
+  </title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+</script>
+<!-- Custom stylesheet, it must be in the same directory as the html file -->
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+</script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+  </script>
+<!-- End of mathjax configuration -->
+<link href="../../styles/bsnb_style.css" rel="stylesheet"/></head>
+<body>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table width="100%">
+<tr style="border-bottom:solid 2pt #009EE3">
+<td class="header_buttons">
+<a download="" href="android_signal_resampling.zip">
+<img alt="biosignalsnotebooks | download button" src="../../images/icons/download.png"/>
+</a>
+</td>
+<td class="header_buttons">
+<a href="https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2FOther%2Fandroid_signal_resampling.ipynb" target="_blank">
+<img alt="biosignalsnotebooks | binder server" src="../../images/icons/program.png" title="Be creative and test your solutions !"/>
+</a>
+</td>
+<td>
+</td>
+<td class="header_icons">
+<a href="../MainFiles/biosignalsnotebooks_rev.php">
+<img alt="biosignalsnotebooks | home button" src="../../images/icons/home.png"/>
+</a>
+</td>
+<td class="header_icons">
+<a href="../MainFiles/contacts_rev.php">
+<img alt="biosignalsnotebooks | contacts button" src="../../images/icons/contacts.png"/>
+</a>
+</td>
+<td class="header_icons">
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
+<img alt="biosignalsnotebooks | github button" src="../../images/icons/github.png"/>
+</a>
+</td>
+<td class="header_logo">
+<img alt="biosignalsnotebooks | project logo" src="../../images/ost_logo.png"/>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+
+<!--link rel="stylesheet" href="../../styles/header_style.css"-->
+</p>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<table width="100%">
+<tr>
+<td class="header_image_color_1" id="image_td" width="15%">
+<div class="header_image_15" id="image_img">
+</div>
+</td>
+<td class="header_text">
+          Resampling of signals recorded with Android sensors
+         </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="flex-container">
+<div class="flex-item" id="diff_level">
+<strong>
+          Difficulty Level:
+         </strong>
+<span class="fa fa-star checked">
+</span>
+<span class="fa fa-star checked">
+</span>
+<span class="fa fa-star checked">
+</span>
+<span class="fa fa-star">
+</span>
+<span class="fa fa-star">
+</span>
+</div>
+<div class="flex-item-tag" id="tag">
+<span id="tag_list">
+<table id="tag_list_table">
+<tr>
+<td class="shield_left">
+             Tags
+            </td>
+<td class="shield_right" id="tags">
+             other☁android☁opensignals mobile☁resampling
+            </td>
+</tr>
+</table>
+</span>
+<!-- [OR] Visit https://img.shields.io in order to create a tag badge-->
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        The
+        <strong>
+<span class="color2">
+          OpenSignals mobile application
+         </span>
+</strong>
+        allows to acquire data from the sensors that are built into the hardware of an Android smartphone.
+       </p>
+<p>
+        However, when recording data from Android sensors it has to be taken into account that the Android system does not allow recording data with a fixed sampling rate. The Android system rather acquires data based on so called "sensor events". When the system picks up on one of these events it will take a sample from the sensor. These events, however, may not occur at fixed time intervals and thus result in a non-equidistant sampling.
+        <br/>
+        If you prefer to have a more detailed look on how Android acquires data from their sensors you can have a look at the
+        <a href="https://developer.android.com/guide/topics/sensors/sensors_overview#java/">
+         Android Developers guide on sensors
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        . (See the section on
+        <strong>
+         "Monitoring Sensor Events"
+        </strong>
+        .)
+        <br/>
+<br/>
+        In order to obtain an equidistant sampling with a fixed rate, the signal has to be resampled with an appropriate interpolation method. We will show how this can be achieved in this
+        <strong>
+<span class="color4">
+          Jupyter Notebook
+         </span>
+</strong>
+        .
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         1 - Package imports
+        </p>
+        First, lets import some useful libraries that will be used for data processing purposes.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_out">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+        In [1]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># package in order to load .txt files</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">loadtxt</span><span class="p">,</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">arange</span><span class="p">,</span> <span class="n">ceil</span>
+
+<span class="c1"># package for signal interpolation</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">interp1d</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hide_both">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [2]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># biosignalsnotebooks package</span>
+<span class="kn">import</span> <span class="nn">biosignalsnotebooks</span> <span class="k">as</span> <span class="nn">bsnb</span>
+
+<span class="c1"># package for plotting the data</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output hide">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="ed296f4a-c734-4742-b59f-f6320ea542ea">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#ed296f4a-c734-4742-b59f-f6320ea542ea');
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+          </script>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="ee2130dd-ffe6-499a-846c-f3e006cda3a1">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#ee2130dd-ffe6-499a-846c-f3e006cda3a1');
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+          </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         2 - A look at the data as it is returned by the OpenSignals mobile app
+        </p>
+        Before we begin with the resampling, we will have a look at the data structure that is returned from an Android sensor by the
+        <strong>
+<span class="color2">
+          OpenSignals mobile application
+         </span>
+</strong>
+        .
+For this
+        <strong>
+<span class="color4">
+          Jupyter Notebook
+         </span>
+</strong>
+        a look at the accelerometer sensor is taken. However, the procedure is the same for any Android sensor type.
+       </p>
+<p>
+        In the cell below, the data is shown in its .txt file format. The file has the usual
+        <strong>
+<span class="color2">
+          OpenSignals
+         </span>
+</strong>
+        format, containing a header and then displaying the recorded data. From the
+        <strong>
+         "column"
+        </strong>
+        field in the header we can see that the last three columns are the x, y, and z channels of the accelerometer.
+       </p>
+<p>
+        The first column indicates at what time the Android system recorded the sensor event. The time shown in this column is in the time-format that the Android system returns whenever it records a sensor event. It is the
+        <strong>
+         time elapsed
+        </strong>
+        , in nanoseconds, since the phone was booted.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [3]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># Embedding of .pdf file</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s2">"../../images/other/android_signal_resampling/opensignals_ANDROID_ACCELEROMETER_2020-07-15_11-33-21.txt"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">"100%"</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">"350"</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">
+          Out[3]:
+         </div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe allowfullscreen="" frameborder="0" height="350" src="../../images/other/android_signal_resampling/opensignals_ANDROID_ACCELEROMETER_2020-07-15_11-33-21.txt" width="100%">
+</iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        The first steps that must be followed should contemplate the load of our data from file, generation of a common time-axis and selection of the relevant channels and time-windows to be analysed:
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p class="steps">
+        2.1 - Load data from file
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [4]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># set file path (this file path needs to be set accoridng to where you saved the data)</span>
+<span class="n">file_path</span><span class="o">=</span><span class="s2">"../../images/other/android_signal_resampling/opensignals_ANDROID_ACCELEROMETER_2020-07-15_11-33-21.txt"</span>
+
+<span class="c1"># load the data from the file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">loadtxt</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         2.2 - Generate a common time-axis
+        </p>
+        The time axis will be shifted so that the recording begins at zero. Additionally an unit conversion (from nanoseconds to seconds) also takes place.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [5]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># get timestamp column</span>
+<span class="n">raw_time</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># get the start of the acquisition</span>
+<span class="n">acq_start</span> <span class="o">=</span> <span class="n">raw_time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># shift time_axis</span>
+<span class="n">time_axis</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_time</span> <span class="o">-</span> <span class="n">acq_start</span><span class="p">)</span>
+
+<span class="c1"># convert from nanoseconds to seconds</span>
+<span class="n">time_axis</span> <span class="o">=</span> <span class="n">time_axis</span> <span class="o">*</span> <span class="mf">1e-9</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         2.3 - Selection of relevant channels and respective window to be analysed
+        </p>
+        For visualisation purposes we will only plot the the first 100 samples of the accelerometer"s z axis.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [6]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># get z axis of accelerometer</span>
+<span class="n">z_acc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># set the number of samples to be shown</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># get the first 100 samples</span>
+<span class="n">time_axis_samples</span> <span class="o">=</span> <span class="n">time_axis</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">]</span>
+<span class="n">z_acc_samples</span> <span class="o">=</span> <span class="n">z_acc</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">]</span> 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        Now lets have a look at the data in a plot!
+       </p>
+<p>
+        Additionally, we will shift the time axis so that the recording begins at zero and we will convert it from nanoseconds to seconds
+       </p>
+<p>
+        Looking at the plot that is generated, we can clearly see that the signal is not equidistantly sampled.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [7]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># array with zeros (for plotting the vertical lines in the plot. These are only used for visualisation purposes)</span>
+<span class="n">line_start</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span>
+
+<span class="c1"># plot the first 100 samples</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">segment</span><span class="p">(</span><span class="n">time_axis_samples</span><span class="p">,</span> <span class="n">line_start</span><span class="p">,</span> <span class="n">time_axis_samples</span><span class="p">,</span> <span class="n">z_acc_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">time_axis_samples</span><span class="p">,</span> <span class="n">z_acc_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Z-Accelerometer (m/sÂ²)'</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p</span><span class="p">])</span> <span class="c1"># apply biosignalsnotebooks style</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_html rendered_html output_subarea">
+<div class="bk-root" data-root-id="1001" id="7bb6a6c0-40b7-428a-bace-aaddac052cc2">
+</div>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="e74e9a7e-8ad5-43cf-991e-64ad9c0fb10b">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#e74e9a7e-8ad5-43cf-991e-64ad9c0fb10b');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"40b09bd6-44ef-49f2-8c22-e5ffb98bac7d":{"roots":{"references":[{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1010","type":"LinearAxis"}],"center":[{"id":"1014","type":"Grid"},{"id":"1019","type":"Grid"}],"height":200,"left":[{"id":"1015","type":"LinearAxis"}],"renderers":[{"id":"1036","type":"GlyphRenderer"},{"id":"1041","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1043","type":"Title"},"toolbar":{"id":"1026","type":"Toolbar"},"x_range":{"id":"1002","type":"DataRange1d"},"x_scale":{"id":"1006","type":"LinearScale"},"y_range":{"id":"1004","type":"DataRange1d"},"y_scale":{"id":"1008","type":"LinearScale"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x0":{"field":"x0"},"x1":{"field":"x1"},"y0":{"field":"y0"},"y1":{"field":"y1"}},"id":"1035","type":"Segment"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{"data_source":{"id":"1033","type":"ColumnDataSource"},"glyph":{"id":"1034","type":"Segment"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1035","type":"Segment"},"selection_glyph":null,"view":{"id":"1037","type":"CDSView"}},"id":"1036","type":"GlyphRenderer"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1021","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1020","type":"PanTool"},{"id":"1021","type":"WheelZoomTool"},{"id":"1022","type":"BoxZoomTool"},{"id":"1024","type":"ResetTool"}]},"id":"1026","type":"Toolbar"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{},"id":"1047","type":"BasicTickFormatter"},{"attributes":{},"id":"1050","type":"Selection"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAAAAA+lj50QX2dP0ylan6mpaQ/TKVqfqalpD9MpWp+pqWkP8CJag9QIao/jXu0t+KCrz8lwNTCcYiyP1cdS7XVALU/ISFTCRKFtz8o5+zmpw26P3fmMvakmrw//OWdhzYnvz8279+M/9rAPzrDROv3MMI/Nlhw81F8wz+8w8rBnLvEP4d6zNAQ/8U/jnfxxbFKxz/5SBWISNTJP/fOch0GGss/ZT8y7QCnzT+0akfZce/OP78WJBgvv9A//j3jiNYG0j82blq+aE7TP1xwoVPZldQ/X+g/29I51T8HizI3uYHWP1nxYYRdJdc/CVR2LzRt2D/yNg5zhBfZPybWvo2IWto/ykXnwmn92j99szoqGETcP4102cTW59w/Z6UWOEOL3T9NQiknyNLeP8Y4Y77adt8/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/3vgkwWVf4D+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j9lP8VQ0pziP54uyu0Q7+I/df+2+Q9B4z+JXvVp3ZLjP2rSYRa+5OM/JCCgp3M45D9WgCyah4nkP2t37MBp3OQ/zrGOczMt5T8GMbkZun7lPzU+xu6Y0OU/htt5mWMk5j+l2SgqnHbmP1BYf9epGuc/UFh/16ka5z8V310ib23nPxiJFd2Wwuc/etWTkWRa6T8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqP3u+OzkQoOo/G5ALbm7z6j9XhU84kEXrP2U3liSNmes/OHrKpGXo6z9+vhS7CUDsPxfuZIkx3ew/F+5kiTHd7D/1SAcUfy7tP+nSAUFnf+0/85fZkTHR7T9U3LbE0SLuP2MHFDh5dO4/hr2sME3G7j/3kpYvBxjvP6G7jLH/ae8/0Siz+lC97z8=","dtype":"float64","shape":[100]},"y":{"__ndarray__":"Ne84RUfSHEDcuMX83JgdQJmGPN3Usx1AmYY83dSzHUCZhjzd1LMdQP8kPneC3R1AzGJi83HtHUDMYmLzce0dQLqISn4f8R1AfpBlwcQPHkBruwm+aeIdQDzw1p7+EB5Ai1OthVkYHkD/JD53gt0dQJG6nX3lyR1A7blMTYK3HUCSJAhXQNEdQMxiYvNx7R1AQe1cvS+7HUDQX+gRo5cdQDm4dMx5hh1AoO5NHfUhHUDijtw/uyAdQIojav2IkhxAKlWi7C1lHEAtUQfDylIcQOnwEMZPAx1ADcfzGVBPHUBEUgslk/MdQE2IFF7d5B1AIihtYGHXHUAjumddo70dQN7140BZ8h1AX2Is0y/hHUCAuRYtQKsdQBO54Az+nh1AJiXzfpKBHUCWkLTAw1EdQFjFG5lHHh1Ao1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAhk50Aj/HHEApkH6ggUUdQCmQfqCBRR1AKZB+oIFFHUApkH6ggUUdQCmQfqCBRR1AKZB+oIFFHUA9YB4y5aMdQLqISn4f8R1AWmWmtP42HkDa+F0iKEgeQG+KIv8nIh5A3SIw1jegHUADkergBV4dQFdbsb/sFh1A1hu1wvTVHECKI2r9iJIcQEC9GTVfNRxAiudsAaH1G0BKitnc4tsbQG4YBcHjcxxAbhgFweNzHEAdHVcju/ocQPK20muzYR1Ag/F4/8Q1HkCNJ4I4DyceQI0ngjgPJx5AjSeCOA8nHkCNJ4I4DyceQI0ngjgPJx5AjSeCOA8nHkCNJ4I4DyceQBNkBFQ4Eh5AJfeFoR8XHkDaJsv/mrIdQAtdiUD1Rx1AvI9IgD85HUCxhovc0/UcQKwleJ7TzxxArCV4ntPPHEA3ww34/OAcQMjuAiUFxhxAuei/YmjYHEDG7eHccAkdQArzHmeaQB1AliGOdXF7HUD0iqceaXAdQM6LE1/tiB1A2SWqtwb2HUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1052","type":"Selection"},"selection_policy":{"id":"1051","type":"UnionRenderers"}},"id":"1038","type":"ColumnDataSource"},{"attributes":{},"id":"1051","type":"UnionRenderers"},{"attributes":{"source":{"id":"1033","type":"ColumnDataSource"}},"id":"1037","type":"CDSView"},{"attributes":{},"id":"1049","type":"UnionRenderers"},{"attributes":{},"id":"1052","type":"Selection"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1053","type":"BoxAnnotation"},{"attributes":{"callback":null,"data":{"x0":{"__ndarray__":"AAAAAAAAAAA+lj50QX2dP0ylan6mpaQ/TKVqfqalpD9MpWp+pqWkP8CJag9QIao/jXu0t+KCrz8lwNTCcYiyP1cdS7XVALU/ISFTCRKFtz8o5+zmpw26P3fmMvakmrw//OWdhzYnvz8279+M/9rAPzrDROv3MMI/Nlhw81F8wz+8w8rBnLvEP4d6zNAQ/8U/jnfxxbFKxz/5SBWISNTJP/fOch0GGss/ZT8y7QCnzT+0akfZce/OP78WJBgvv9A//j3jiNYG0j82blq+aE7TP1xwoVPZldQ/X+g/29I51T8HizI3uYHWP1nxYYRdJdc/CVR2LzRt2D/yNg5zhBfZPybWvo2IWto/ykXnwmn92j99szoqGETcP4102cTW59w/Z6UWOEOL3T9NQiknyNLeP8Y4Y77adt8/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/3vgkwWVf4D+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j9lP8VQ0pziP54uyu0Q7+I/df+2+Q9B4z+JXvVp3ZLjP2rSYRa+5OM/JCCgp3M45D9WgCyah4nkP2t37MBp3OQ/zrGOczMt5T8GMbkZun7lPzU+xu6Y0OU/htt5mWMk5j+l2SgqnHbmP1BYf9epGuc/UFh/16ka5z8V310ib23nPxiJFd2Wwuc/etWTkWRa6T8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqP3u+OzkQoOo/G5ALbm7z6j9XhU84kEXrP2U3liSNmes/OHrKpGXo6z9+vhS7CUDsPxfuZIkx3ew/F+5kiTHd7D/1SAcUfy7tP+nSAUFnf+0/85fZkTHR7T9U3LbE0SLuP2MHFDh5dO4/hr2sME3G7j/3kpYvBxjvP6G7jLH/ae8/0Siz+lC97z8=","dtype":"float64","shape":[100]},"x1":{"__ndarray__":"AAAAAAAAAAA+lj50QX2dP0ylan6mpaQ/TKVqfqalpD9MpWp+pqWkP8CJag9QIao/jXu0t+KCrz8lwNTCcYiyP1cdS7XVALU/ISFTCRKFtz8o5+zmpw26P3fmMvakmrw//OWdhzYnvz8279+M/9rAPzrDROv3MMI/Nlhw81F8wz+8w8rBnLvEP4d6zNAQ/8U/jnfxxbFKxz/5SBWISNTJP/fOch0GGss/ZT8y7QCnzT+0akfZce/OP78WJBgvv9A//j3jiNYG0j82blq+aE7TP1xwoVPZldQ/X+g/29I51T8HizI3uYHWP1nxYYRdJdc/CVR2LzRt2D/yNg5zhBfZPybWvo2IWto/ykXnwmn92j99szoqGETcP4102cTW59w/Z6UWOEOL3T9NQiknyNLeP8Y4Y77adt8/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/3vgkwWVf4D+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j9lP8VQ0pziP54uyu0Q7+I/df+2+Q9B4z+JXvVp3ZLjP2rSYRa+5OM/JCCgp3M45D9WgCyah4nkP2t37MBp3OQ/zrGOczMt5T8GMbkZun7lPzU+xu6Y0OU/htt5mWMk5j+l2SgqnHbmP1BYf9epGuc/UFh/16ka5z8V310ib23nPxiJFd2Wwuc/etWTkWRa6T8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqP3u+OzkQoOo/G5ALbm7z6j9XhU84kEXrP2U3liSNmes/OHrKpGXo6z9+vhS7CUDsPxfuZIkx3ew/F+5kiTHd7D/1SAcUfy7tP+nSAUFnf+0/85fZkTHR7T9U3LbE0SLuP2MHFDh5dO4/hr2sME3G7j/3kpYvBxjvP6G7jLH/ae8/0Siz+lC97z8=","dtype":"float64","shape":[100]},"y0":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","shape":[100]},"y1":{"__ndarray__":"Ne84RUfSHEDcuMX83JgdQJmGPN3Usx1AmYY83dSzHUCZhjzd1LMdQP8kPneC3R1AzGJi83HtHUDMYmLzce0dQLqISn4f8R1AfpBlwcQPHkBruwm+aeIdQDzw1p7+EB5Ai1OthVkYHkD/JD53gt0dQJG6nX3lyR1A7blMTYK3HUCSJAhXQNEdQMxiYvNx7R1AQe1cvS+7HUDQX+gRo5cdQDm4dMx5hh1AoO5NHfUhHUDijtw/uyAdQIojav2IkhxAKlWi7C1lHEAtUQfDylIcQOnwEMZPAx1ADcfzGVBPHUBEUgslk/MdQE2IFF7d5B1AIihtYGHXHUAjumddo70dQN7140BZ8h1AX2Is0y/hHUCAuRYtQKsdQBO54Az+nh1AJiXzfpKBHUCWkLTAw1EdQFjFG5lHHh1Ao1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAhk50Aj/HHEApkH6ggUUdQCmQfqCBRR1AKZB+oIFFHUApkH6ggUUdQCmQfqCBRR1AKZB+oIFFHUA9YB4y5aMdQLqISn4f8R1AWmWmtP42HkDa+F0iKEgeQG+KIv8nIh5A3SIw1jegHUADkergBV4dQFdbsb/sFh1A1hu1wvTVHECKI2r9iJIcQEC9GTVfNRxAiudsAaH1G0BKitnc4tsbQG4YBcHjcxxAbhgFweNzHEAdHVcju/ocQPK20muzYR1Ag/F4/8Q1HkCNJ4I4DyceQI0ngjgPJx5AjSeCOA8nHkCNJ4I4DyceQI0ngjgPJx5AjSeCOA8nHkCNJ4I4DyceQBNkBFQ4Eh5AJfeFoR8XHkDaJsv/mrIdQAtdiUD1Rx1AvI9IgD85HUCxhovc0/UcQKwleJ7TzxxArCV4ntPPHEA3ww34/OAcQMjuAiUFxhxAuei/YmjYHEDG7eHccAkdQArzHmeaQB1AliGOdXF7HUD0iqceaXAdQM6LE1/tiB1A2SWqtwb2HUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1050","type":"Selection"},"selection_policy":{"id":"1049","type":"UnionRenderers"}},"id":"1033","type":"ColumnDataSource"},{"attributes":{"callback":null},"id":"1002","type":"DataRange1d"},{"attributes":{"fill_color":{"value":"#302683"},"line_color":{"value":"#302683"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1039","type":"Circle"},{"attributes":{"data_source":{"id":"1038","type":"ColumnDataSource"},"glyph":{"id":"1039","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1040","type":"Circle"},"selection_glyph":null,"view":{"id":"1042","type":"CDSView"}},"id":"1041","type":"GlyphRenderer"},{"attributes":{},"id":"1006","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1040","type":"Circle"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1047","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1011","type":"BasicTicker"}},"id":"1010","type":"LinearAxis"},{"attributes":{},"id":"1011","type":"BasicTicker"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1011","type":"BasicTicker"}},"id":"1014","type":"Grid"},{"attributes":{"callback":null},"id":"1004","type":"DataRange1d"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1019","type":"Grid"},{"attributes":{"axis_label":"Z-Accelerometer (m/s\u00b2)","axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1045","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1015","type":"LinearAxis"},{"attributes":{"line_color":{"value":"#009EE3"},"x0":{"field":"x0"},"x1":{"field":"x1"},"y0":{"field":"y0"},"y1":{"field":"y1"}},"id":"1034","type":"Segment"},{"attributes":{},"id":"1045","type":"BasicTickFormatter"},{"attributes":{"text":""},"id":"1043","type":"Title"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{"overlay":{"id":"1053","type":"BoxAnnotation"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{"source":{"id":"1038","type":"ColumnDataSource"}},"id":"1042","type":"CDSView"}],"root_ids":["1001"]},"title":"Bokeh Application","version":"1.4.0"}};
+  var render_items = [{"docid":"40b09bd6-44ef-49f2-8c22-e5ffb98bac7d","roots":{"1001":"7bb6a6c0-40b7-428a-bace-aaddac052cc2"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+          </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         3 - Calculating the approximate sampling rate
+        </p>
+        Now we will take a look at how to calculate the approximate sampling rate of the sensor. In order to do this, we will calculate the mean distance between sampling points and then calculate how many samples with this mean distance fit into one second.
+       </p>
+<p>
+        As we we will see, the sensor samples on average with approximately
+        <strong>
+         99.59 Hz
+        </strong>
+        .
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [8]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># calculate the distance between sampling points</span>
+<span class="n">sample_dist</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">time_axis</span><span class="p">)</span>
+
+<span class="c1"># calculate the mean distance</span>
+<span class="n">mean_dist</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">sample_dist</span><span class="p">)</span>
+
+<span class="c1"># calculate the number of samples within 1 second</span>
+<span class="n">samples_per_second</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">mean_dist</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [9]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># print the mean</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mean distance between sampling points: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_dist</span><span class="p">))</span>
+
+<span class="c1"># print the number of samples</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Approximate sampling rate: </span><span class="si">{}</span><span class="s1"> Hz'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples_per_second</span><span class="p">))</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean distance between sampling points: 0.010040886865021772
+Approximate sampling rate: 99.59279627814347 Hz
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         4 - Resampling the signal
+        </p>
+        Now that we have seen that the signal is not equidistantly sampled and know what is the approximate sampling rate, we can resample the signal to a reasonable sampling rate.
+        <br/>
+        In this instance we are going to use a sampling rate of
+        <strong>
+         100 Hz
+        </strong>
+        .
+       </p>
+<p>
+        In order to resample the signal, we will use one of
+        <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d/">
+         scipy"s interpolation methods
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        . To explain the method very briefly, it creates a function which allows for interpolation of the data to a desired range. Additionally, the interpolation method allows for setting which kind of interpolation is used. In order to keep things simple, we will just use linear interpolation, but feel free to try around a little bit with other interpolation functions.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [10]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># get the end of the acquisition</span>
+<span class="n">acq_end</span> <span class="o">=</span> <span class="n">time_axis</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># create interpolation function</span>
+<span class="n">inter_func</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">time_axis</span><span class="p">,</span> <span class="n">z_acc</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+
+<span class="c1"># set sampling frequency</span>
+<span class="n">sample_freq</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># create new time axis</span>
+<span class="n">time_axis_inter</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">acq_end</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sample_freq</span><span class="p">)</span>
+
+<span class="c1"># interpolate the values</span>
+<span class="n">z_acc_inter</span> <span class="o">=</span> <span class="n">inter_func</span><span class="p">(</span><span class="n">time_axis_inter</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        Lets plot the signal again and see the result. As we will see, the signal is now equidistantly sampled.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [11]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># get the first 100 samples</span>
+<span class="n">time_axis_samples_inter</span> <span class="o">=</span> <span class="n">time_axis_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">]</span>
+<span class="n">z_acc_samples_inter</span> <span class="o">=</span> <span class="n">z_acc_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">]</span> 
+
+<span class="c1"># plot the first 100 samples</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">segment</span><span class="p">(</span><span class="n">time_axis_samples_inter</span><span class="p">,</span> <span class="n">line_start</span><span class="p">,</span> <span class="n">time_axis_samples_inter</span><span class="p">,</span> <span class="n">z_acc_samples_inter</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">time_axis_samples_inter</span><span class="p">,</span> <span class="n">z_acc_samples_inter</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Z-Accelerometer (m/sÂ²)'</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p</span><span class="p">])</span> <span class="c1"># apply biosignalsnotebooks style</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_html rendered_html output_subarea">
+<div class="bk-root" data-root-id="1158" id="b5d454dc-77bf-4b24-990a-c7d33d6fb17d">
+</div>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="d2a8f4ac-fafd-405b-abea-d632113a9c58">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#d2a8f4ac-fafd-405b-abea-d632113a9c58');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"d13e7d02-5a9d-4e69-85ba-f2b222a65311":{"roots":{"references":[{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1167","type":"LinearAxis"}],"center":[{"id":"1171","type":"Grid"},{"id":"1176","type":"Grid"}],"height":200,"left":[{"id":"1172","type":"LinearAxis"}],"renderers":[{"id":"1193","type":"GlyphRenderer"},{"id":"1198","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1200","type":"Title"},"toolbar":{"id":"1183","type":"Toolbar"},"x_range":{"id":"1159","type":"DataRange1d"},"x_scale":{"id":"1163","type":"LinearScale"},"y_range":{"id":"1161","type":"DataRange1d"},"y_scale":{"id":"1165","type":"LinearScale"}},"id":"1158","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"y":{"__ndarray__":"Ne84RUfSHECsTZ5nPBcdQCKsA4oxXB1A/brdwKybHUCRrStyEbMdQE6Ky+B62R1ApWLmFBrrHUDMYmLzce0dQECOkQ1Y8B1A5BfN+OwJHkD+KpBhh+odQIQCFoTiCB5A1z4LjhkXHkCVw6xBbOcdQH+vtyrhzR1AmI1ADJG7HUCg67JLCMwdQOHFMdAr6B1A26JTYfTEHUB3h2P6x6wdQCUIizfZmh1AHaPbGneJHUD/3U+5xFwdQLkvG3tTKh1AOR6C7e8gHUARaxjzjeUcQNxIQK5onhxAjiIP/KN/HECFiQb+9WgcQIqmNR6EXRxA3nAnwVFUHEDGtKHJcpwcQBlVp97F9BxAdr3cIcBCHUBNNCeoz5MdQGR8+hTj5R1ASx9klU3nHUASc+rSPd8dQAToxqmA2B1ANxCajb3CHUBbPQeG3dIdQEk7vuKZ7R1AUBcvrCbkHUChIBf7x8odQNjryAy7rx1AYObJPgShHUDkzwttXYYdQK9eM/SKbR1As9lNlKBVHUB0XlT/pyYdQF6PGf4g7xxA0e0qBknMHECz47u90dgcQGVzKFna7RxAFwOV9OICHUDJkgGQ6xcdQHsibiv0LB1ALrLaxvxBHUAs0LqnVpQdQIB1qYYt5B1AxV8yqy4rHkDfhTTtRUUeQHDbdwmEKB5AoS//6kO4HUCIgmPJ+2kdQOCOiV9RJB1AsVJt/pnhHEB0WbRSL54cQOwOYXVYRRxAOUqZQLsBHEDQLTUf9uAbQOM3mAnFGBxAMfnQK6xkHEBEQUX+lt4cQJ39KqXmSB1AIzdK1KKBHUAK13yTPKwdQPJ2r1LW1h1A2RbiEXABHkDBthTRCSweQMsOJdXtMR5AiKBtmPMsHkBEMrZb+SceQE9qOp5iFh5AFnSwUQ4WHkAwwy5kFMkdQJ64D9DmYR1AtLHBfXw8HUDV4Tq/lAcdQGaFaWyZ5xxA61LzaMrTHEApjmd2qN0cQEumD+jwyhxAq0jHLh7VHEBXg7q80wAdQL/NRXsYNx1ArCOwtmNxHUB3Hg+dRXIdQLHtqMbJhB1AVsvaQhPiHUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1209","type":"Selection"},"selection_policy":{"id":"1208","type":"UnionRenderers"}},"id":"1195","type":"ColumnDataSource"},{"attributes":{},"id":"1207","type":"Selection"},{"attributes":{"source":{"id":"1190","type":"ColumnDataSource"}},"id":"1194","type":"CDSView"},{"attributes":{"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x0":{"field":"x0"},"x1":{"field":"x1"},"y0":{"field":"y0"},"y1":{"field":"y1"}},"id":"1192","type":"Segment"},{"attributes":{"line_color":{"value":"#00893E"},"x0":{"field":"x0"},"x1":{"field":"x1"},"y0":{"field":"y0"},"y1":{"field":"y1"}},"id":"1191","type":"Segment"},{"attributes":{},"id":"1209","type":"Selection"},{"attributes":{},"id":"1173","type":"BasicTicker"},{"attributes":{},"id":"1181","type":"ResetTool"},{"attributes":{"callback":null,"data":{"x0":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"x1":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"y0":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","shape":[100]},"y1":{"__ndarray__":"Ne84RUfSHECsTZ5nPBcdQCKsA4oxXB1A/brdwKybHUCRrStyEbMdQE6Ky+B62R1ApWLmFBrrHUDMYmLzce0dQECOkQ1Y8B1A5BfN+OwJHkD+KpBhh+odQIQCFoTiCB5A1z4LjhkXHkCVw6xBbOcdQH+vtyrhzR1AmI1ADJG7HUCg67JLCMwdQOHFMdAr6B1A26JTYfTEHUB3h2P6x6wdQCUIizfZmh1AHaPbGneJHUD/3U+5xFwdQLkvG3tTKh1AOR6C7e8gHUARaxjzjeUcQNxIQK5onhxAjiIP/KN/HECFiQb+9WgcQIqmNR6EXRxA3nAnwVFUHEDGtKHJcpwcQBlVp97F9BxAdr3cIcBCHUBNNCeoz5MdQGR8+hTj5R1ASx9klU3nHUASc+rSPd8dQAToxqmA2B1ANxCajb3CHUBbPQeG3dIdQEk7vuKZ7R1AUBcvrCbkHUChIBf7x8odQNjryAy7rx1AYObJPgShHUDkzwttXYYdQK9eM/SKbR1As9lNlKBVHUB0XlT/pyYdQF6PGf4g7xxA0e0qBknMHECz47u90dgcQGVzKFna7RxAFwOV9OICHUDJkgGQ6xcdQHsibiv0LB1ALrLaxvxBHUAs0LqnVpQdQIB1qYYt5B1AxV8yqy4rHkDfhTTtRUUeQHDbdwmEKB5AoS//6kO4HUCIgmPJ+2kdQOCOiV9RJB1AsVJt/pnhHEB0WbRSL54cQOwOYXVYRRxAOUqZQLsBHEDQLTUf9uAbQOM3mAnFGBxAMfnQK6xkHEBEQUX+lt4cQJ39KqXmSB1AIzdK1KKBHUAK13yTPKwdQPJ2r1LW1h1A2RbiEXABHkDBthTRCSweQMsOJdXtMR5AiKBtmPMsHkBEMrZb+SceQE9qOp5iFh5AFnSwUQ4WHkAwwy5kFMkdQJ64D9DmYR1AtLHBfXw8HUDV4Tq/lAcdQGaFaWyZ5xxA61LzaMrTHEApjmd2qN0cQEumD+jwyhxAq0jHLh7VHEBXg7q80wAdQL/NRXsYNx1ArCOwtmNxHUB3Hg+dRXIdQLHtqMbJhB1AVsvaQhPiHUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1207","type":"Selection"},"selection_policy":{"id":"1206","type":"UnionRenderers"}},"id":"1190","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1190","type":"ColumnDataSource"},"glyph":{"id":"1191","type":"Segment"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1192","type":"Segment"},"selection_glyph":null,"view":{"id":"1194","type":"CDSView"}},"id":"1193","type":"GlyphRenderer"},{"attributes":{"callback":null},"id":"1159","type":"DataRange1d"},{"attributes":{"source":{"id":"1195","type":"ColumnDataSource"}},"id":"1199","type":"CDSView"},{"attributes":{"data_source":{"id":"1195","type":"ColumnDataSource"},"glyph":{"id":"1196","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1197","type":"Circle"},"selection_glyph":null,"view":{"id":"1199","type":"CDSView"}},"id":"1198","type":"GlyphRenderer"},{"attributes":{"text":""},"id":"1200","type":"Title"},{"attributes":{},"id":"1163","type":"LinearScale"},{"attributes":{},"id":"1206","type":"UnionRenderers"},{"attributes":{"callback":null},"id":"1161","type":"DataRange1d"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1197","type":"Circle"},{"attributes":{},"id":"1202","type":"BasicTickFormatter"},{"attributes":{},"id":"1204","type":"BasicTickFormatter"},{"attributes":{"overlay":{"id":"1210","type":"BoxAnnotation"}},"id":"1179","type":"BoxZoomTool"},{"attributes":{"axis_label":"Z-Accelerometer (m/s\u00b2)","axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1202","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1173","type":"BasicTicker"}},"id":"1172","type":"LinearAxis"},{"attributes":{},"id":"1208","type":"UnionRenderers"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1168","type":"BasicTicker"}},"id":"1171","type":"Grid"},{"attributes":{},"id":"1165","type":"LinearScale"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1210","type":"BoxAnnotation"},{"attributes":{},"id":"1178","type":"WheelZoomTool"},{"attributes":{},"id":"1168","type":"BasicTicker"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1204","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1168","type":"BasicTicker"}},"id":"1167","type":"LinearAxis"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1173","type":"BasicTicker"}},"id":"1176","type":"Grid"},{"attributes":{},"id":"1177","type":"PanTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1178","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1177","type":"PanTool"},{"id":"1178","type":"WheelZoomTool"},{"id":"1179","type":"BoxZoomTool"},{"id":"1181","type":"ResetTool"}]},"id":"1183","type":"Toolbar"},{"attributes":{"fill_color":{"value":"#94C11E"},"line_color":{"value":"#94C11E"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1196","type":"Circle"}],"root_ids":["1158"]},"title":"Bokeh Application","version":"1.4.0"}};
+  var render_items = [{"docid":"d13e7d02-5a9d-4e69-85ba-f2b222a65311","roots":{"1158":"b5d454dc-77bf-4b24-990a-c7d33d6fb17d"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+          </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        However, we need to keep in mind, that the interpolation leads to a slight shift of our data points. The shift of the points differs depending on the kind of interpolation method used.
+        <br/>
+        We can see these shifts when we compare both signals in the same plot, as seen below. The original signal is shown in
+        <span class="color13">
+<strong>
+          orange
+         </strong>
+</span>
+        while the interpolated signal is shown in
+        <span class="color7">
+<strong>
+          red
+         </strong>
+</span>
+        . As before, we are only showing the first 100 samples of each signal.
+       </p>
+<p>
+        Try running the code with
+        <strong>
+         different
+        </strong>
+        interpolation methods and see how the interpolated signal changes with the kind of interpolation method used.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [12]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">time_axis_samples</span><span class="p">,</span> <span class="n">z_acc_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">legend_label</span><span class="o">=</span><span class="s2">"original"</span><span class="p">)</span> <span class="c1"># draw original signal</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">time_axis_samples_inter</span><span class="p">,</span> <span class="n">z_acc_samples_inter</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">legend_label</span><span class="o">=</span><span class="s2">"interpolated"</span><span class="p">)</span> <span class="c1"># draw interpolated signal</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'time (s)'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Z-Accelerometer (m/sÂ²)'</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p</span><span class="p">])</span> <span class="c1"># apply biosignalsnotebooks style</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_html rendered_html output_subarea">
+<div class="bk-root" data-root-id="1326" id="cd621602-07e5-47c0-9128-ef2cc766051e">
+</div>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="69e72c20-70e1-4abc-a533-ac98f4a64145">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#69e72c20-70e1-4abc-a533-ac98f4a64145');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"e370d8a2-5c0e-4fb7-bb4d-11a002038805":{"roots":{"references":[{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1335","type":"LinearAxis"}],"center":[{"id":"1339","type":"Grid"},{"id":"1344","type":"Grid"},{"id":"1370","type":"Legend"}],"height":200,"left":[{"id":"1340","type":"LinearAxis"}],"renderers":[{"id":"1361","type":"GlyphRenderer"},{"id":"1375","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1363","type":"Title"},"toolbar":{"id":"1351","type":"Toolbar"},"x_range":{"id":"1327","type":"DataRange1d"},"x_scale":{"id":"1331","type":"LinearScale"},"y_range":{"id":"1329","type":"DataRange1d"},"y_scale":{"id":"1333","type":"LinearScale"}},"id":"1326","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1395","type":"UnionRenderers"},{"attributes":{"axis_label":"time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1367","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1336","type":"BasicTicker"}},"id":"1335","type":"LinearAxis"},{"attributes":{"line_color":"#FDC400","x":{"field":"x"},"y":{"field":"y"}},"id":"1359","type":"Line"},{"attributes":{"data_source":{"id":"1358","type":"ColumnDataSource"},"glyph":{"id":"1359","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1360","type":"Line"},"selection_glyph":null,"view":{"id":"1362","type":"CDSView"}},"id":"1361","type":"GlyphRenderer"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1369","type":"BoxAnnotation"},{"attributes":{"source":{"id":"1358","type":"ColumnDataSource"}},"id":"1362","type":"CDSView"},{"attributes":{"label":{"value":"interpolated"},"renderers":[{"id":"1375","type":"GlyphRenderer"}]},"id":"1386","type":"LegendItem"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1360","type":"Line"},{"attributes":{},"id":"1341","type":"BasicTicker"},{"attributes":{},"id":"1345","type":"PanTool"},{"attributes":{},"id":"1346","type":"WheelZoomTool"},{"attributes":{"callback":null},"id":"1327","type":"DataRange1d"},{"attributes":{},"id":"1336","type":"BasicTicker"},{"attributes":{"overlay":{"id":"1369","type":"BoxAnnotation"}},"id":"1347","type":"BoxZoomTool"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1336","type":"BasicTicker"}},"id":"1339","type":"Grid"},{"attributes":{"line_color":"#E84D0E","x":{"field":"x"},"y":{"field":"y"}},"id":"1373","type":"Line"},{"attributes":{},"id":"1384","type":"Selection"},{"attributes":{},"id":"1349","type":"ResetTool"},{"attributes":{"text":""},"id":"1363","type":"Title"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1341","type":"BasicTicker"}},"id":"1344","type":"Grid"},{"attributes":{},"id":"1331","type":"LinearScale"},{"attributes":{"callback":null},"id":"1329","type":"DataRange1d"},{"attributes":{},"id":"1365","type":"BasicTickFormatter"},{"attributes":{},"id":"1396","type":"Selection"},{"attributes":{"label":{"value":"original"},"renderers":[{"id":"1361","type":"GlyphRenderer"}]},"id":"1371","type":"LegendItem"},{"attributes":{},"id":"1333","type":"LinearScale"},{"attributes":{"items":[{"id":"1371","type":"LegendItem"},{"id":"1386","type":"LegendItem"}]},"id":"1370","type":"Legend"},{"attributes":{},"id":"1383","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"1372","type":"ColumnDataSource"},"glyph":{"id":"1373","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1374","type":"Line"},"selection_glyph":null,"view":{"id":"1376","type":"CDSView"}},"id":"1375","type":"GlyphRenderer"},{"attributes":{"axis_label":"Z-Accelerometer (m/s\u00b2)","axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1365","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1341","type":"BasicTicker"}},"id":"1340","type":"LinearAxis"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1374","type":"Line"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"y":{"__ndarray__":"Ne84RUfSHECsTZ5nPBcdQCKsA4oxXB1A/brdwKybHUCRrStyEbMdQE6Ky+B62R1ApWLmFBrrHUDMYmLzce0dQECOkQ1Y8B1A5BfN+OwJHkD+KpBhh+odQIQCFoTiCB5A1z4LjhkXHkCVw6xBbOcdQH+vtyrhzR1AmI1ADJG7HUCg67JLCMwdQOHFMdAr6B1A26JTYfTEHUB3h2P6x6wdQCUIizfZmh1AHaPbGneJHUD/3U+5xFwdQLkvG3tTKh1AOR6C7e8gHUARaxjzjeUcQNxIQK5onhxAjiIP/KN/HECFiQb+9WgcQIqmNR6EXRxA3nAnwVFUHEDGtKHJcpwcQBlVp97F9BxAdr3cIcBCHUBNNCeoz5MdQGR8+hTj5R1ASx9klU3nHUASc+rSPd8dQAToxqmA2B1ANxCajb3CHUBbPQeG3dIdQEk7vuKZ7R1AUBcvrCbkHUChIBf7x8odQNjryAy7rx1AYObJPgShHUDkzwttXYYdQK9eM/SKbR1As9lNlKBVHUB0XlT/pyYdQF6PGf4g7xxA0e0qBknMHECz47u90dgcQGVzKFna7RxAFwOV9OICHUDJkgGQ6xcdQHsibiv0LB1ALrLaxvxBHUAs0LqnVpQdQIB1qYYt5B1AxV8yqy4rHkDfhTTtRUUeQHDbdwmEKB5AoS//6kO4HUCIgmPJ+2kdQOCOiV9RJB1AsVJt/pnhHEB0WbRSL54cQOwOYXVYRRxAOUqZQLsBHEDQLTUf9uAbQOM3mAnFGBxAMfnQK6xkHEBEQUX+lt4cQJ39KqXmSB1AIzdK1KKBHUAK13yTPKwdQPJ2r1LW1h1A2RbiEXABHkDBthTRCSweQMsOJdXtMR5AiKBtmPMsHkBEMrZb+SceQE9qOp5iFh5AFnSwUQ4WHkAwwy5kFMkdQJ64D9DmYR1AtLHBfXw8HUDV4Tq/lAcdQGaFaWyZ5xxA61LzaMrTHEApjmd2qN0cQEumD+jwyhxAq0jHLh7VHEBXg7q80wAdQL/NRXsYNx1ArCOwtmNxHUB3Hg+dRXIdQLHtqMbJhB1AVsvaQhPiHUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1396","type":"Selection"},"selection_policy":{"id":"1395","type":"UnionRenderers"}},"id":"1372","type":"ColumnDataSource"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1346","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1345","type":"PanTool"},{"id":"1346","type":"WheelZoomTool"},{"id":"1347","type":"BoxZoomTool"},{"id":"1349","type":"ResetTool"}]},"id":"1351","type":"Toolbar"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAAAAA+lj50QX2dP0ylan6mpaQ/TKVqfqalpD9MpWp+pqWkP8CJag9QIao/jXu0t+KCrz8lwNTCcYiyP1cdS7XVALU/ISFTCRKFtz8o5+zmpw26P3fmMvakmrw//OWdhzYnvz8279+M/9rAPzrDROv3MMI/Nlhw81F8wz+8w8rBnLvEP4d6zNAQ/8U/jnfxxbFKxz/5SBWISNTJP/fOch0GGss/ZT8y7QCnzT+0akfZce/OP78WJBgvv9A//j3jiNYG0j82blq+aE7TP1xwoVPZldQ/X+g/29I51T8HizI3uYHWP1nxYYRdJdc/CVR2LzRt2D/yNg5zhBfZPybWvo2IWto/ykXnwmn92j99szoqGETcP4102cTW59w/Z6UWOEOL3T9NQiknyNLeP8Y4Y77adt8/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/esybHm8N4D96zJsebw3gP3rMmx5vDeA/3vgkwWVf4D+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j+Ulj4yJUviP5SWPjIlS+I/lJY+MiVL4j9lP8VQ0pziP54uyu0Q7+I/df+2+Q9B4z+JXvVp3ZLjP2rSYRa+5OM/JCCgp3M45D9WgCyah4nkP2t37MBp3OQ/zrGOczMt5T8GMbkZun7lPzU+xu6Y0OU/htt5mWMk5j+l2SgqnHbmP1BYf9epGuc/UFh/16ka5z8V310ib23nPxiJFd2Wwuc/etWTkWRa6T8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqPw3BGxl+TOo/DcEbGX5M6j8NwRsZfkzqP3u+OzkQoOo/G5ALbm7z6j9XhU84kEXrP2U3liSNmes/OHrKpGXo6z9+vhS7CUDsPxfuZIkx3ew/F+5kiTHd7D/1SAcUfy7tP+nSAUFnf+0/85fZkTHR7T9U3LbE0SLuP2MHFDh5dO4/hr2sME3G7j/3kpYvBxjvP6G7jLH/ae8/0Siz+lC97z8=","dtype":"float64","shape":[100]},"y":{"__ndarray__":"Ne84RUfSHEDcuMX83JgdQJmGPN3Usx1AmYY83dSzHUCZhjzd1LMdQP8kPneC3R1AzGJi83HtHUDMYmLzce0dQLqISn4f8R1AfpBlwcQPHkBruwm+aeIdQDzw1p7+EB5Ai1OthVkYHkD/JD53gt0dQJG6nX3lyR1A7blMTYK3HUCSJAhXQNEdQMxiYvNx7R1AQe1cvS+7HUDQX+gRo5cdQDm4dMx5hh1AoO5NHfUhHUDijtw/uyAdQIojav2IkhxAKlWi7C1lHEAtUQfDylIcQOnwEMZPAx1ADcfzGVBPHUBEUgslk/MdQE2IFF7d5B1AIihtYGHXHUAjumddo70dQN7140BZ8h1AX2Is0y/hHUCAuRYtQKsdQBO54Az+nh1AJiXzfpKBHUCWkLTAw1EdQFjFG5lHHh1Ao1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAo1nZPuTlHECjWdk+5OUcQKNZ2T7k5RxAhk50Aj/HHEApkH6ggUUdQCmQfqCBRR1AKZB+oIFFHUApkH6ggUUdQCmQfqCBRR1AKZB+oIFFHUA9YB4y5aMdQLqISn4f8R1AWmWmtP42HkDa+F0iKEgeQG+KIv8nIh5A3SIw1jegHUADkergBV4dQFdbsb/sFh1A1hu1wvTVHECKI2r9iJIcQEC9GTVfNRxAiudsAaH1G0BKitnc4tsbQG4YBcHjcxxAbhgFweNzHEAdHVcju/ocQPK20muzYR1Ag/F4/8Q1HkCNJ4I4DyceQI0ngjgPJx5AjSeCOA8nHkCNJ4I4DyceQI0ngjgPJx5AjSeCOA8nHkCNJ4I4DyceQBNkBFQ4Eh5AJfeFoR8XHkDaJsv/mrIdQAtdiUD1Rx1AvI9IgD85HUCxhovc0/UcQKwleJ7TzxxArCV4ntPPHEA3ww34/OAcQMjuAiUFxhxAuei/YmjYHEDG7eHccAkdQArzHmeaQB1AliGOdXF7HUD0iqceaXAdQM6LE1/tiB1A2SWqtwb2HUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1384","type":"Selection"},"selection_policy":{"id":"1383","type":"UnionRenderers"}},"id":"1358","type":"ColumnDataSource"},{"attributes":{},"id":"1367","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"1372","type":"ColumnDataSource"}},"id":"1376","type":"CDSView"}],"root_ids":["1326"]},"title":"Bokeh Application","version":"1.4.0"}};
+  var render_items = [{"docid":"e370d8a2-5c0e-4fb7-bb4d-11a002038805","roots":{"1326":"cd621602-07e5-47c0-9128-ef2cc766051e"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+          </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         5 - Resampling all sensor channels at once using the biosiganlsnotebooks package
+        </p>
+        Doing the interpolation manually for each column might seem a bit redundant. Thus, the
+        <strong>
+<span class="color2">
+          biosiganlsnotebooks
+         </span>
+</strong>
+        package has a function that handles all the work for you. This function uses the same mechanisms as we have implemented above, but is also able to handle multiple data channels. In case you are interested in the implementation, you are welcome to visit our
+        <strong>
+         GitHub
+        </strong>
+<strong>
+<span class="color2">
+          biosiganlsnotebooks
+         </span>
+</strong>
+        repository. This
+        <a href="https://github.com/biosignalsplux/biosignalsnotebooks/blob/768a6426da6be15a5cb64ce1507654c112fa3465/biosignalsnotebooks/biosignalsnotebooks/android.py#L29-L123/">
+         link
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        will direct you extactly to the correct code snippet.
+       </p>
+<p>
+        The function is called
+        <strong>
+         re_sample_data(...)
+        </strong>
+        and it takes the following parameters:
+        <ul>
+<li>
+<span class="color1">
+<strong>
+            time (N, array_like):
+           </strong>
+</span>
+          A 1D array containing the original time axis of the data
+         </li>
+<br/>
+</ul>
+</p>
+<p>
+<li>
+<span class="color2">
+<strong>
+           data (...,N,..., array_like):
+          </strong>
+</span>
+         A N-D array containing data columns that are supposed to be interpolated. The length of data along the interpolation axis has to be the same size as time.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color4">
+<strong>
+           start (int, optional):
+          </strong>
+</span>
+         The sample from which the interpolation should be started. When not specified the interpolation starts at 0. When specified the signal will be cropped to this value.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color5">
+<strong>
+           stop (int, optional):
+          </strong>
+</span>
+         The sample at which the interpolation should be stopped. When not specified the interpolation stops at the last value. When specified the signal will be cropped to this value.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color7">
+<strong>
+           shift_time_axis (bool, optional):
+          </strong>
+</span>
+         If true the time axis will be shifted to start at zero and will be converted to seconds.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color13">
+<strong>
+           sampling_rate (int, optional):
+          </strong>
+</span>
+         The sampling rate to which the signal should be resampled. The value should be &gt; 0. If not specified the signal will be resampled to the next tens digit with respect to the approximate sampling rate of the signal (i.e. approx. sampling of 99.59 Hz will be resampled to 100 Hz).
+        </li>
+<br/>
+<li>
+<span class="color11">
+<strong>
+           kind_interp (string, optional):
+          </strong>
+</span>
+         Specifies the kind of interpolation method to be used as string. If not specified, "linear" interpolation will be used. Available options are:
+         <strong>
+          "linear", "nearest", "zero", "slinear", "quadratic", "cubic", "previous", "next"</strong>
+         .
+        </li>
+<br/>
+        &lt;/ul&gt; 
+The way we call the function below will do the same re-sampling to the z-axis of the accelerometer as we have done above, while also re-sampling the x- and y-axis. This function can also be used for any other Android sensor type, as long as it has more than one sampling point.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [13]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># resample all three acceleromter channels at once (the accelerometer data are columns 1-3)</span>
+<span class="n">time_inter</span><span class="p">,</span> <span class="n">data_inter</span><span class="p">,</span> <span class="n">sampling_rate_inter</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">re_sample_data</span><span class="p">(</span><span class="n">raw_time</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span> <span class="n">shift_time_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [14]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># plot the z-axis data for the first 100 samples</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">segment</span><span class="p">(</span><span class="n">time_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">],</span> <span class="n">line_start</span><span class="p">,</span> <span class="n">time_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">],</span> <span class="n">data_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">time_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">],</span> <span class="n">data_inter</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Z-Accelerometer (m/sÂ²)'</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p</span><span class="p">])</span> <span class="c1"># apply biosignalsnotebooks style</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_html rendered_html output_subarea">
+<div class="bk-root" data-root-id="1524" id="dd008766-49d1-4bac-85a6-124057c48eef">
+</div>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="ecd5a560-6662-48ac-aaad-713818adee80">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#ecd5a560-6662-48ac-aaad-713818adee80');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"c77c1afa-a9fa-4a7d-bfe4-7b7c14687ce3":{"roots":{"references":[{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1533","type":"LinearAxis"}],"center":[{"id":"1537","type":"Grid"},{"id":"1542","type":"Grid"}],"height":200,"left":[{"id":"1538","type":"LinearAxis"}],"renderers":[{"id":"1559","type":"GlyphRenderer"},{"id":"1564","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1566","type":"Title"},"toolbar":{"id":"1549","type":"Toolbar"},"x_range":{"id":"1525","type":"DataRange1d"},"x_scale":{"id":"1529","type":"LinearScale"},"y_range":{"id":"1527","type":"DataRange1d"},"y_scale":{"id":"1531","type":"LinearScale"}},"id":"1524","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1544","type":"WheelZoomTool"},{"attributes":{},"id":"1568","type":"BasicTickFormatter"},{"attributes":{"axis_label":"Z-Accelerometer (m/s\u00b2)","axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1568","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1539","type":"BasicTicker"}},"id":"1538","type":"LinearAxis"},{"attributes":{"callback":null,"data":{"x0":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"x1":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"y0":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","shape":[100]},"y1":{"__ndarray__":"Ne84RUfSHECsTZ5nPBcdQCKsA4oxXB1A/brdwKybHUCRrStyEbMdQE6Ky+B62R1ApWLmFBrrHUDMYmLzce0dQECOkQ1Y8B1A5BfN+OwJHkD+KpBhh+odQIQCFoTiCB5A1z4LjhkXHkCVw6xBbOcdQH+vtyrhzR1AmI1ADJG7HUCg67JLCMwdQOHFMdAr6B1A26JTYfTEHUB3h2P6x6wdQCUIizfZmh1AHaPbGneJHUD/3U+5xFwdQLkvG3tTKh1AOR6C7e8gHUARaxjzjeUcQNxIQK5onhxAjiIP/KN/HECFiQb+9WgcQIqmNR6EXRxA3nAnwVFUHEDGtKHJcpwcQBlVp97F9BxAdr3cIcBCHUBNNCeoz5MdQGR8+hTj5R1ASx9klU3nHUASc+rSPd8dQAToxqmA2B1ANxCajb3CHUBbPQeG3dIdQEk7vuKZ7R1AUBcvrCbkHUChIBf7x8odQNjryAy7rx1AYObJPgShHUDkzwttXYYdQK9eM/SKbR1As9lNlKBVHUB0XlT/pyYdQF6PGf4g7xxA0e0qBknMHECz47u90dgcQGVzKFna7RxAFwOV9OICHUDJkgGQ6xcdQHsibiv0LB1ALrLaxvxBHUAs0LqnVpQdQIB1qYYt5B1AxV8yqy4rHkDfhTTtRUUeQHDbdwmEKB5AoS//6kO4HUCIgmPJ+2kdQOCOiV9RJB1AsVJt/pnhHEB0WbRSL54cQOwOYXVYRRxAOUqZQLsBHEDQLTUf9uAbQOM3mAnFGBxAMfnQK6xkHEBEQUX+lt4cQJ39KqXmSB1AIzdK1KKBHUAK13yTPKwdQPJ2r1LW1h1A2RbiEXABHkDBthTRCSweQMsOJdXtMR5AiKBtmPMsHkBEMrZb+SceQE9qOp5iFh5AFnSwUQ4WHkAwwy5kFMkdQJ64D9DmYR1AtLHBfXw8HUDV4Tq/lAcdQGaFaWyZ5xxA61LzaMrTHEApjmd2qN0cQEumD+jwyhxAq0jHLh7VHEBXg7q80wAdQL/NRXsYNx1ArCOwtmNxHUB3Hg+dRXIdQLHtqMbJhB1AVsvaQhPiHUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1573","type":"Selection"},"selection_policy":{"id":"1572","type":"UnionRenderers"}},"id":"1556","type":"ColumnDataSource"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1539","type":"BasicTicker"}},"id":"1542","type":"Grid"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1544","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1543","type":"PanTool"},{"id":"1544","type":"WheelZoomTool"},{"id":"1545","type":"BoxZoomTool"},{"id":"1547","type":"ResetTool"}]},"id":"1549","type":"Toolbar"},{"attributes":{},"id":"1574","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1563","type":"Circle"},{"attributes":{"source":{"id":"1556","type":"ColumnDataSource"}},"id":"1560","type":"CDSView"},{"attributes":{"fill_color":{"value":"#F199C1"},"line_color":{"value":"#F199C1"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1562","type":"Circle"},{"attributes":{},"id":"1547","type":"ResetTool"},{"attributes":{},"id":"1575","type":"Selection"},{"attributes":{},"id":"1573","type":"Selection"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8=","dtype":"float64","shape":[100]},"y":{"__ndarray__":"Ne84RUfSHECsTZ5nPBcdQCKsA4oxXB1A/brdwKybHUCRrStyEbMdQE6Ky+B62R1ApWLmFBrrHUDMYmLzce0dQECOkQ1Y8B1A5BfN+OwJHkD+KpBhh+odQIQCFoTiCB5A1z4LjhkXHkCVw6xBbOcdQH+vtyrhzR1AmI1ADJG7HUCg67JLCMwdQOHFMdAr6B1A26JTYfTEHUB3h2P6x6wdQCUIizfZmh1AHaPbGneJHUD/3U+5xFwdQLkvG3tTKh1AOR6C7e8gHUARaxjzjeUcQNxIQK5onhxAjiIP/KN/HECFiQb+9WgcQIqmNR6EXRxA3nAnwVFUHEDGtKHJcpwcQBlVp97F9BxAdr3cIcBCHUBNNCeoz5MdQGR8+hTj5R1ASx9klU3nHUASc+rSPd8dQAToxqmA2B1ANxCajb3CHUBbPQeG3dIdQEk7vuKZ7R1AUBcvrCbkHUChIBf7x8odQNjryAy7rx1AYObJPgShHUDkzwttXYYdQK9eM/SKbR1As9lNlKBVHUB0XlT/pyYdQF6PGf4g7xxA0e0qBknMHECz47u90dgcQGVzKFna7RxAFwOV9OICHUDJkgGQ6xcdQHsibiv0LB1ALrLaxvxBHUAs0LqnVpQdQIB1qYYt5B1AxV8yqy4rHkDfhTTtRUUeQHDbdwmEKB5AoS//6kO4HUCIgmPJ+2kdQOCOiV9RJB1AsVJt/pnhHEB0WbRSL54cQOwOYXVYRRxAOUqZQLsBHEDQLTUf9uAbQOM3mAnFGBxAMfnQK6xkHEBEQUX+lt4cQJ39KqXmSB1AIzdK1KKBHUAK13yTPKwdQPJ2r1LW1h1A2RbiEXABHkDBthTRCSweQMsOJdXtMR5AiKBtmPMsHkBEMrZb+SceQE9qOp5iFh5AFnSwUQ4WHkAwwy5kFMkdQJ64D9DmYR1AtLHBfXw8HUDV4Tq/lAcdQGaFaWyZ5xxA61LzaMrTHEApjmd2qN0cQEumD+jwyhxAq0jHLh7VHEBXg7q80wAdQL/NRXsYNx1ArCOwtmNxHUB3Hg+dRXIdQLHtqMbJhB1AVsvaQhPiHUA=","dtype":"float64","shape":[100]}},"selected":{"id":"1575","type":"Selection"},"selection_policy":{"id":"1574","type":"UnionRenderers"}},"id":"1561","type":"ColumnDataSource"},{"attributes":{},"id":"1531","type":"LinearScale"},{"attributes":{},"id":"1570","type":"BasicTickFormatter"},{"attributes":{},"id":"1572","type":"UnionRenderers"},{"attributes":{"line_color":{"value":"#CF0272"},"x0":{"field":"x0"},"x1":{"field":"x1"},"y0":{"field":"y0"},"y1":{"field":"y1"}},"id":"1557","type":"Segment"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1576","type":"BoxAnnotation"},{"attributes":{"source":{"id":"1561","type":"ColumnDataSource"}},"id":"1565","type":"CDSView"},{"attributes":{"data_source":{"id":"1561","type":"ColumnDataSource"},"glyph":{"id":"1562","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1563","type":"Circle"},"selection_glyph":null,"view":{"id":"1565","type":"CDSView"}},"id":"1564","type":"GlyphRenderer"},{"attributes":{},"id":"1539","type":"BasicTicker"},{"attributes":{"text":""},"id":"1566","type":"Title"},{"attributes":{"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x0":{"field":"x0"},"x1":{"field":"x1"},"y0":{"field":"y0"},"y1":{"field":"y1"}},"id":"1558","type":"Segment"},{"attributes":{"data_source":{"id":"1556","type":"ColumnDataSource"},"glyph":{"id":"1557","type":"Segment"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1558","type":"Segment"},"selection_glyph":null,"view":{"id":"1560","type":"CDSView"}},"id":"1559","type":"GlyphRenderer"},{"attributes":{"callback":null},"id":"1525","type":"DataRange1d"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1570","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1534","type":"BasicTicker"}},"id":"1533","type":"LinearAxis"},{"attributes":{},"id":"1534","type":"BasicTicker"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1534","type":"BasicTicker"}},"id":"1537","type":"Grid"},{"attributes":{"callback":null},"id":"1527","type":"DataRange1d"},{"attributes":{},"id":"1543","type":"PanTool"},{"attributes":{},"id":"1529","type":"LinearScale"},{"attributes":{"overlay":{"id":"1576","type":"BoxAnnotation"}},"id":"1545","type":"BoxZoomTool"}],"root_ids":["1524"]},"title":"Bokeh Application","version":"1.4.0"}};
+  var render_items = [{"docid":"c77c1afa-a9fa-4a7d-bfe4-7b7c14687ce3","roots":{"1524":"dd008766-49d1-4bac-85a6-124057c48eef"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+          </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        In this
+        <strong>
+<span class="color4">
+          Jupyter notebook
+         </span>
+</strong>
+        we learned how to resample signals from sensors integrated into the hardware of an Android smartphone and how to use the
+        <strong>
+<span class="color2">
+          biosiganlsnotebooks
+         </span>
+</strong>
+        package in order to re-sample all channels of an Android sensor.
+       </p>
+<p>
+<strong>
+<span class="color7">
+          We hope that you have enjoyed this guide
+         </span>
+</strong>
+        .
+        <strong>
+<span class="color2">
+          biosiganlsnotebooks
+         </span>
+<span class="color4">
+          is an environment in continuous expansion, so don"t stop your journey and learn more with the remaining
+         </span>
+<a href="../MainFiles/biosignalsnotebooks_rev.php">
+          Notebooks
+          <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+</strong>
+        .
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<hr/>
+</p>
+<table width="100%">
+<tr>
+<td class="footer_logo">
+<img alt="biosignalsnotebooks | project logo [footer]" src="../../images/ost_logo.png"/>
+</td>
+<td style="text-align:left" width="40%">
+<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">
+           ☌ Project Presentation
+          </a>
+<br/>
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
+           ☌ GitHub Repository
+          </a>
+<br/>
+<a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">
+           ☌ How to install biosignalsnotebooks Python package ?
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/signal_samples_rev.php">
+           ☌ Signal Library
+          </a>
+</td>
+<td style="text-align:left" width="40%">
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php">
+           ☌ Notebook Categories
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_diff_rev.php">
+           ☌ Notebooks by Difficulty
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type_rev.php">
+           ☌ Notebooks by Signal Type
+          </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_tag_rev.php">
+           ☌ Notebooks by Tag
+          </a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="hide_both">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [15]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="kn">from</span> <span class="nn">biosignalsnotebooks.__notebook_support__</span> <span class="k">import</span> <span class="n">css_style_apply</span>
+<span class="n">css_style_apply</span><span class="p">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output hide">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>.................... CSS Style Applied to Jupyter Notebook .........................
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt output_prompt">
+          Out[15]:
+         </div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="style_import">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# OpenSignals Text File Format
+# {"internal sensors":{"sensor":["SigMotion"],"device name":"internal sensors","column":["nSeq","SigMotion"],"sync interval":2,"time":"14:55:57","comments":"","keywords":"","device connection":"UNKNOWNinternal sensors","channels":[0],"date":"2020-07-17","mode":0,"digital IO":[],"firmware version":0,"device":"android","position":0,"sampling rate":100,"label":["SigMotion"],"resolution":[1],"special":[{}],"sleeve color":["UNKNOWN"]}}
+# EndOfHeader
+188502049742000	1.0	

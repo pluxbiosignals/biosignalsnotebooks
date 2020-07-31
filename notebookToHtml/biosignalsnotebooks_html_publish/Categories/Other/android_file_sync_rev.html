@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>
+   android_file_sync
+  </title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+</script>
+<!-- Custom stylesheet, it must be in the same directory as the html file -->
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+</script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+  </script>
+<!-- End of mathjax configuration -->
+<link href="../../styles/bsnb_style.css" rel="stylesheet"/></head>
+<body>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table width="100%">
+<tr style="border-bottom:solid 2pt #009EE3">
+<td class="header_buttons">
+<a download="" href="android_file_sync.zip">
+<img alt="biosignalsnotebooks | download button" src="../../images/icons/download.png"/>
+</a>
+</td>
+<td class="header_buttons">
+<a href="https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2FOther%2Fandroid_file_sync.ipynb" target="_blank">
+<img alt="biosignalsnotebooks | binder server" src="../../images/icons/program.png" title="Be creative and test your solutions !"/>
+</a>
+</td>
+<td>
+</td>
+<td class="header_icons">
+<a href="../MainFiles/biosignalsnotebooks_rev.php">
+<img alt="biosignalsnotebooks | home button" src="../../images/icons/home.png"/>
+</a>
+</td>
+<td class="header_icons">
+<a href="../MainFiles/contacts_rev.php">
+<img alt="biosignalsnotebooks | contacts button" src="../../images/icons/contacts.png"/>
+</a>
+</td>
+<td class="header_icons">
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
+<img alt="biosignalsnotebooks | github button" src="../../images/icons/github.png"/>
+</a>
+</td>
+<td class="header_logo">
+<img alt="biosignalsnotebooks | project logo" src="../../images/ost_logo.png"/>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+
+<!--link rel="stylesheet" href="../../styles/header_style.css"-->
+</p>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<table width="100%">
+<tr>
+<td class="header_image_color_1" id="image_td" width="15%">
+<div class="header_image_15" id="image_img">
+</div>
+</td>
+<td class="header_text">
+          Synchronising data from multiple Android sensor files into one file
+         </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div id="flex-container">
+<div class="flex-item" id="diff_level">
+<strong>
+          Difficulty Level:
+         </strong>
+<span class="fa fa-star checked">
+</span>
+<span class="fa fa-star checked">
+</span>
+<span class="fa fa-star">
+</span>
+<span class="fa fa-star">
+</span>
+<span class="fa fa-star">
+</span>
+</div>
+<div class="flex-item-tag" id="tag">
+<span id="tag_list">
+<table id="tag_list_table">
+<tr>
+<td class="shield_left">
+             Tags
+            </td>
+<td class="shield_right" id="tags">
+             other☁android☁opensignals mobile☁file handling ☁file synchronisation
+            </td>
+</tr>
+</table>
+</span>
+<!-- [OR] Visit https://img.shields.io in order to create a tag badge-->
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        The
+        <strong>
+<span class="color2">
+          OpenSignals mobile application
+         </span>
+</strong>
+        (
+        <a href="https://play.google.com/store/apps/details?id=info.plux.opensignalsmobile">
+         Google Play link
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        ) allows to acquire data from the sensors that are built into the hardware of an Android smartphone. When acquiring data from multiple Android sensors, the data for each is saved into an individual ".txt" file. In order to properly put the data of the sensors into context the files need to be synchronised. In this
+        <strong>
+<span class="color13">
+          Jupyter Notebook
+         </span>
+</strong>
+        we will have a look at how to synchronise the sensors and how to write them all into a single ".txt" file.
+       </p>
+<p>
+        For this
+        <strong>
+<span class="color13">
+          Jupyter Notebook
+         </span>
+</strong>
+        we will synchronise the data from five sensors: The accelerometer, GPS, light, proximity, and significant motion. This is done because these sensors represent a wide range of different acquisition types. However, the procedures shown here can be also applied to as many Android sensors as you record using the
+        <strong>
+<span class="color2">
+          OpenSignals mobile application
+         </span>
+</strong>
+        .
+        <br/>
+</p>
+<p>
+        As part of this
+        <strong>
+<span class="color13">
+          Jupyter Notebook
+         </span>
+</strong>
+        we will guide you through all essential steps for synchronising the Android sensors that will allow you to have full control over the entire synchronisation process. In the last section we will present a function integrated into our
+        <strong>
+<span class="color2">
+          biosignalsnotebooks
+         </span>
+</strong>
+        package that conveniently handles all these steps for you.
+       </p>
+<p>
+        In case this is your first time working with Android sensors, we highly recommend reading the
+        <a href="intro_to_android_sensors_rev.php">
+         Introduction to Android sensors
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        notebook with general information on Android sensors.
+       </p>
+<p>
+        If you want to have a look into the implementation of all this functions, you are welcome to visit our
+        <strong>
+         GitHub biosignalsnotebooks
+        </strong>
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks">
+         repository
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        . We will provide direct links to each presented function throughout this
+        <strong>
+<span class="color4">
+          notebook
+         </span>
+</strong>
+        .
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         1 - Package imports
+        </p>
+        First, lets import the
+        <strong>
+<span class="color2">
+          biosignalsnotebooks
+         </span>
+</strong>
+        package. All functions we will need for the synchronisation steps are part of this package. Furthermore, we are going to import the
+        <span class="color4">
+<strong>
+          os
+         </strong>
+</span>
+        package.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [1]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># biosignalsnotebooks package</span>
+<span class="kn">import</span> <span class="nn">biosignalsnotebooks</span> <span class="k">as</span> <span class="nn">bsnb</span>
+
+<span class="c1"># package for using operating system dependent functionality</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper hide">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="9f0ec9c5-508b-43cb-b8d3-f8d003bc8fef">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+          var element = $('#9f0ec9c5-508b-43cb-b8d3-f8d003bc8fef');
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+         </script>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="7e4d037f-2e24-4010-8d39-55e27e5b0788">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+          var element = $('#7e4d037f-2e24-4010-8d39-55e27e5b0788');
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+         </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         2 - Loading the data and gathering information on the signals
+        </p>
+        Next, we will load the sensor data and gather some useful information about the signals we are going to synchronise. We will do this with the
+        <a href="https://github.com/biosignalsplux/biosignalsnotebooks/blob/768a6426da6be15a5cb64ce1507654c112fa3465/biosignalsnotebooks/biosignalsnotebooks/load.py#L488-L655">
+         load_android_data(...)
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        function.
+       </p>
+<p>
+        This function takes two inputs:
+       </p>
+<ul>
+<li>
+<span class="color7">
+<strong>
+           in_path (list of strings or string):
+          </strong>
+</span>
+         String or list of strings containing the path(s) to the files that are supposed to be loaded
+        </li>
+<br/>
+<li>
+<span class="color8">
+<strong>
+           print_report (boolean):
+          </strong>
+</span>
+         Boolean indicating to print the report that is generated while loading the data
+        </li>
+</ul>
+<p>
+<br/>
+        The function returns the
+        <strong>
+         sensor data
+        </strong>
+        in a list and a
+        <strong>
+         dictionary
+        </strong>
+        with the following information about the signals:
+       </p>
+<ul>
+<li>
+<span class="color1">
+<strong>
+           names:
+          </strong>
+</span>
+         The names of the sensors.
+        </li>
+<br/>
+<li>
+<span class="color2">
+<strong>
+           number of samples:
+          </strong>
+</span>
+         The number of samples each sensor recorded.
+        </li>
+<br/>
+<li>
+<span class="color3">
+<strong>
+           starting times:
+          </strong>
+</span>
+         The timestamps when the sensors started recording.
+        </li>
+<br/>
+<li>
+<span class="color2">
+<strong>
+           stopping times:
+          </strong>
+</span>
+         The timestamps when the sensors stopped recording.
+        </li>
+<br/>
+<li>
+<span class="color1">
+<strong>
+           avg. sampling rates:
+          </strong>
+</span>
+         The average sampling rate of each sensor (*).
+        </li>
+<br/>
+<li>
+<span class="color2">
+<strong>
+           min:
+          </strong>
+</span>
+         The minimum sampling rate.
+        </li>
+<br/>
+<li>
+<span class="color3">
+<strong>
+           max:
+          </strong>
+</span>
+         The maximum sampling rate.
+        </li>
+<br/>
+<li>
+<span class="color2">
+<strong>
+           mean:
+          </strong>
+</span>
+         The mean of the sampling rates.
+        </li>
+<br/>
+<li>
+<span class="color1">
+<strong>
+           std:
+          </strong>
+</span>
+         The standard deviation of the sampling rates.
+        </li>
+<br/>
+<li>
+<span class="color2">
+<strong>
+           starting order:
+          </strong>
+</span>
+         Order in which the sensors started recording, from first to last.
+        </li>
+<br/>
+<li>
+<span class="color3">
+<strong>
+           stopping order:
+          </strong>
+</span>
+         Order in which the sensors stopped recording, from first to last.
+        </li>
+</ul>
+<p>
+        In order to use this function we will first have to make a list containing all the file paths pointing to the files we want to synchronise. For simplicity we added all our files into one folder, thus making the process of creating a file list much more straight forward.
+       </p>
+<p>
+        When we run the function with the parameter
+        <strong>
+         print_report=True
+        </strong>
+        , a report is printed. The printed report shows that the accelerometer samples at the highest rate, while the GPS, light, and the proximity sensor sample at lower rates. Furthermore, we see that the significant motion sensor detected only one motion that it labelled as significant. Thus, its sampling rate is set to zero. The report also shows that the proximity sensor was the first to start recording, while the significant motion sensor was the last to start recording. The accelerometer was the last to stop recording and the significant motion sensor the first to stop recording.
+       </p>
+<p>
+        (*) in case you are wondering why an average sampling rate is displayed, then have a look at this
+        <a href="android_signal_resampling_rev.php">
+         notebook
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        about resampling signals recorded with Android sensors.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [2]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># set file path</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">'../../images/other/android_file_sync/'</span>
+
+<span class="c1"># get a list with all the files within that folder</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># make full path for each file</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">]</span>
+
+<span class="c1"># load the files</span>
+<span class="n">sensor_data</span><span class="p">,</span> <span class="n">report</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">load_android_data</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>names: ['Acc', 'GPS', 'Light', 'Proximity', 'SigMotion']
+
+number of samples: [17661, 132, 178, 18, 1]
+
+starting times: [188488175020937.0, 188490065043301.0, 188488121593000.0, 188488102522000.0, 188502049742000.0]
+
+stopping times: [188669138104000.0, 188668271596298.0, 188668132960000.0, 188636399533000.0, 188502049742000.0]
+
+avg. sampling rates: [97.58896511423767, 0.7351020363555616, 0.9832712397545429, 0.11463481216084659, 0]
+
+min. sampling rate: 0.0
+
+max. sampling rate: 97.58896511423767
+
+mean sampling rate: 19.88439464050172
+
+std. sampling rate: 38.85403633973379
+
+starting order: ['Proximity', 'Light', 'Acc', 'GPS', 'SigMotion']
+
+stopping order: ['SigMotion', 'Proximity', 'Light', 'GPS', 'Acc']
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         3 - Creating a new header
+        </p>
+        Before we start synchronising our data, we are going to create a new header that will be written to the file in which we are going to store all our data. This can be done using the
+        <a href="https://github.com/biosignalsplux/biosignalsnotebooks/blob/768a6426da6be15a5cb64ce1507654c112fa3465/biosignalsnotebooks/biosignalsnotebooks/synchronisation.py#L325-L392">
+         create_android_sync_header(...)
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        function.
+       </p>
+<p>
+        The function takes a single input:
+       </p>
+<ul>
+<li>
+<span class="color7">
+<strong>
+           in_path (list of strings or string):
+          </strong>
+</span>
+         List containing the paths to the files that are supposed to be synchronised
+        </li>
+</ul>
+<p>
+        It returns the
+        <span class="color2">
+<strong>
+          header
+         </strong>
+</span>
+        as a string.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [3]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># create header</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">create_android_sync_header</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [4]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># print the edited header string</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre># OpenSignals Text File Format
+# {"internal sensors": {"sensor": ["xAcc", "yAcc", "zAcc", "Latitude", "Longitude", "Altitude", "Light", "distance", "SigMotion"], "device name": "internal sensors", "column": ["nSeq", "xAcc", "yAcc", "zAcc", "Latitude", "Longitude", "Altitude", "Light", "distance", "SigMotion"], "sync interval": 2, "time": "14:55:57", "comments": "", "keywords": "", "device connection": "UNKNOWNinternal sensors", "channels": [0, 1, 2, 3, 4, 5, 6, 7, 8], "date": "2020-07-17", "mode": 0, "digital IO": [], "firmware version": 0, "device": "android", "position": 0, "sampling rate": 100, "label": ["xAcc", "yAcc", "zAcc", "Latitude", "Longitude", "Altitude", "Light", "distance", "SigMotion"], "resolution": [1, 1, 1, 1, 1, 1, 1, 1, 1], "special": [{}, {}, {}, {}, {}, {}, {}, {}, {}], "sleeve color": ["UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN"]}}
+# EndOfHeader
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         4 - Padding all signals to the same length
+        </p>
+        Since the signals are going to be synchronised and written into the same file, all signals have to be of the same length. However, depending on what parts of the signals we want to include into our synchronised file, the length to which all signals should be padded to varies. In order to make this a little bit more clear, we will have a look at two "toy" signals.
+       </p>
+<p>
+        For these two signals, there are four possible ways on how to decide which parts of these signals to include into the synchronisation. The graphs are shown below.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_in">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+        In [5]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># imports for bokeh plotting</span>
+<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="k">import</span> <span class="n">gridplot</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># define signals</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+
+<span class="c1"># define color and alph</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s1">'white'</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">color1</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">()</span>
+<span class="n">color2</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_color_pallet</span><span class="p">()</span>
+
+<span class="c1"># ------ figure 1 -------</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="o">**</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_kwargs</span><span class="p">(</span><span class="s2">"figure"</span><span class="p">))</span>
+<span class="c1"># rectangle for highlighting</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># x1</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_1'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="c1"># x2</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_2'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'Entire recording time'</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="s1">'center'</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s2">"15px"</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">"top_left"</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p1</span><span class="p">])</span> 
+<span class="c1">#show(p1)</span>
+
+<span class="c1"># ------ figure 2 ------</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="o">**</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_kwargs</span><span class="p">(</span><span class="s2">"figure"</span><span class="p">))</span>
+<span class="c1"># lines for indicating sart and stop</span>
+<span class="c1"># rectangle for highlighting</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># x1</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_1'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="c1"># x2</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_2'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'Recording time of x_1'</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="s1">'center'</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s2">"15px"</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">"top_left"</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p2</span><span class="p">])</span> 
+<span class="c1">#show(p2)</span>
+
+<span class="c1"># ------ figure 3 -------</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="o">**</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_kwargs</span><span class="p">(</span><span class="s2">"figure"</span><span class="p">))</span>
+<span class="c1"># lines for indicating sart and stop</span>
+<span class="c1"># rectangle for highlighting</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># x1</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_1'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="c1"># x2</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_2'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'Recording time of x_2'</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="s1">'center'</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s2">"15px"</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">"top_left"</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p3</span><span class="p">])</span> 
+<span class="c1">#show(p3)</span>
+
+<span class="c1"># ------ figure 4 -------</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="o">**</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_kwargs</span><span class="p">(</span><span class="s2">"figure"</span><span class="p">))</span>
+<span class="c1"># lines for indicating sart and stop</span>
+<span class="c1"># rectangle for highlighting</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="mf">11.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">fill_alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># x1</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_1'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="c1"># x2</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">'x_2'</span><span class="p">)</span> <span class="c1"># draw lines</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># draw circles</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Time (s)'</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">'x_1 and x_2 recording at the same time'</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="s1">'center'</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s2">"15px"</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">"top_left"</span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_style</span><span class="p">([</span><span class="n">p4</span><span class="p">])</span> 
+<span class="c1">#show(p4)</span>
+
+<span class="c1"># ------ Grid plot -------</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">gridplot</span><span class="p">([[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">],</span> <span class="p">[</span><span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">]],</span> <span class="o">**</span><span class="n">bsnb</span><span class="o">.</span><span class="n">opensignals_kwargs</span><span class="p">(</span><span class="s2">"gridplot"</span><span class="p">))</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">sizing_mode</span> <span class="o">=</span> <span class="s1">'scale_width'</span>
+<span class="c1">#bsnb.opensignals_style([grid]) </span>
+
+<span class="n">show</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_html rendered_html output_subarea">
+<div class="bk-root" data-root-id="1592" id="c08d3b3a-9c47-4e77-86e1-bb260cc43e9f">
+</div>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt">
+</div>
+<div id="559c50a5-72a2-4be5-aa4e-29edba3ffa69">
+</div>
+<div class="output_subarea output_javascript">
+<script type="text/javascript">
+           var element = $('#559c50a5-72a2-4be5-aa4e-29edba3ffa69');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"6f599db7-c5e9-4636-841f-fd0be3f9b102":{"roots":{"references":[{"attributes":{"children":[{"id":"1591","type":"ToolbarBox"},{"id":"1589","type":"GridBox"}],"sizing_mode":"scale_width"},"id":"1592","type":"Column"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1436","type":"BoxAnnotation"},{"attributes":{"source":{"id":"1038","type":"ColumnDataSource"}},"id":"1042","type":"CDSView"},{"attributes":{},"id":"1306","type":"BasicTickFormatter"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1178","type":"BoxAnnotation"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1307","type":"BoxAnnotation"},{"attributes":{},"id":"1437","type":"UnionRenderers"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1021","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1020","type":"PanTool"},{"id":"1021","type":"WheelZoomTool"},{"id":"1022","type":"BoxZoomTool"},{"id":"1024","type":"ResetTool"}]},"id":"1026","type":"Toolbar"},{"attributes":{},"id":"1304","type":"BasicTickFormatter"},{"attributes":{},"id":"1438","type":"Selection"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1074","type":"Selection"},"selection_policy":{"id":"1073","type":"UnionRenderers"}},"id":"1038","type":"ColumnDataSource"},{"attributes":{"line_color":"#302683","x":{"field":"x"},"y":{"field":"y"}},"id":"1447","type":"Line"},{"attributes":{"fill_color":{"value":"#009EE3"},"line_color":{"value":"#009EE3"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1055","type":"Circle"},{"attributes":{},"id":"1308","type":"UnionRenderers"},{"attributes":{"line_color":"#302683","x":{"field":"x"},"y":{"field":"y"}},"id":"1060","type":"Line"},{"attributes":{},"id":"1309","type":"Selection"},{"attributes":{"line_color":"#302683","x":{"field":"x"},"y":{"field":"y"}},"id":"1318","type":"Line"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1463","type":"Selection"},"selection_policy":{"id":"1462","type":"UnionRenderers"}},"id":"1441","type":"ColumnDataSource"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1443","type":"Circle"},{"attributes":{"data_source":{"id":"1038","type":"ColumnDataSource"},"glyph":{"id":"1039","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1040","type":"Line"},"selection_glyph":null,"view":{"id":"1042","type":"CDSView"}},"id":"1041","type":"GlyphRenderer"},{"attributes":{"align":"center","text":"Entire recording time","text_font_size":{"value":"15px"}},"id":"1044","type":"Title"},{"attributes":{"data_source":{"id":"1441","type":"ColumnDataSource"},"glyph":{"id":"1442","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1443","type":"Circle"},"selection_glyph":null,"view":{"id":"1445","type":"CDSView"}},"id":"1444","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1334","type":"Selection"},"selection_policy":{"id":"1333","type":"UnionRenderers"}},"id":"1312","type":"ColumnDataSource"},{"attributes":{"fill_color":{"value":"#302683"},"line_color":{"value":"#302683"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1466","type":"Circle"},{"attributes":{"items":[{"id":"1053","type":"LegendItem"},{"id":"1077","type":"LegendItem"}],"location":"top_left"},"id":"1052","type":"Legend"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1314","type":"Circle"},{"attributes":{},"id":"1048","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"1441","type":"ColumnDataSource"}},"id":"1445","type":"CDSView"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1049","type":"BoxAnnotation"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1487","type":"Selection"},"selection_policy":{"id":"1486","type":"UnionRenderers"}},"id":"1446","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1312","type":"ColumnDataSource"},"glyph":{"id":"1313","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1314","type":"Circle"},"selection_glyph":null,"view":{"id":"1316","type":"CDSView"}},"id":"1315","type":"GlyphRenderer"},{"attributes":{},"id":"1046","type":"BasicTickFormatter"},{"attributes":{"fill_color":{"value":"#302683"},"line_color":{"value":"#302683"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1337","type":"Circle"},{"attributes":{"source":{"id":"1312","type":"ColumnDataSource"}},"id":"1316","type":"CDSView"},{"attributes":{"source":{"id":"1446","type":"ColumnDataSource"}},"id":"1450","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1448","type":"Line"},{"attributes":{"label":{"value":"x_1"},"renderers":[{"id":"1041","type":"GlyphRenderer"}]},"id":"1053","type":"LegendItem"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1358","type":"Selection"},"selection_policy":{"id":"1357","type":"UnionRenderers"}},"id":"1317","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1446","type":"ColumnDataSource"},"glyph":{"id":"1447","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1448","type":"Line"},"selection_glyph":null,"view":{"id":"1450","type":"CDSView"}},"id":"1449","type":"GlyphRenderer"},{"attributes":{"source":{"id":"1317","type":"ColumnDataSource"}},"id":"1321","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1319","type":"Line"},{"attributes":{},"id":"1051","type":"Selection"},{"attributes":{},"id":"1460","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"1317","type":"ColumnDataSource"},"glyph":{"id":"1318","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1319","type":"Line"},"selection_glyph":null,"view":{"id":"1321","type":"CDSView"}},"id":"1320","type":"GlyphRenderer"},{"attributes":{"label":{"value":"x_2"},"renderers":[{"id":"1449","type":"GlyphRenderer"}]},"id":"1464","type":"LegendItem"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1076","type":"Selection"},"selection_policy":{"id":"1075","type":"UnionRenderers"}},"id":"1054","type":"ColumnDataSource"},{"attributes":{},"id":"1461","type":"Selection"},{"attributes":{},"id":"1463","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1056","type":"Circle"},{"attributes":{},"id":"1331","type":"UnionRenderers"},{"attributes":{"label":{"value":"x_2"},"renderers":[{"id":"1320","type":"GlyphRenderer"}]},"id":"1335","type":"LegendItem"},{"attributes":{"data_source":{"id":"1054","type":"ColumnDataSource"},"glyph":{"id":"1055","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1056","type":"Circle"},"selection_glyph":null,"view":{"id":"1058","type":"CDSView"}},"id":"1057","type":"GlyphRenderer"},{"attributes":{},"id":"1332","type":"Selection"},{"attributes":{"fill_color":{"value":"#302683"},"line_color":{"value":"#302683"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1079","type":"Circle"},{"attributes":{},"id":"1334","type":"Selection"},{"attributes":{"source":{"id":"1054","type":"ColumnDataSource"}},"id":"1058","type":"CDSView"},{"attributes":{},"id":"1462","type":"UnionRenderers"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1100","type":"Selection"},"selection_policy":{"id":"1099","type":"UnionRenderers"}},"id":"1059","type":"ColumnDataSource"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1489","type":"Selection"},"selection_policy":{"id":"1488","type":"UnionRenderers"}},"id":"1465","type":"ColumnDataSource"},{"attributes":{},"id":"1333","type":"UnionRenderers"},{"attributes":{"source":{"id":"1059","type":"ColumnDataSource"}},"id":"1063","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1467","type":"Circle"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1061","type":"Line"},{"attributes":{"data_source":{"id":"1465","type":"ColumnDataSource"},"glyph":{"id":"1466","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1467","type":"Circle"},"selection_glyph":null,"view":{"id":"1469","type":"CDSView"}},"id":"1468","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1360","type":"Selection"},"selection_policy":{"id":"1359","type":"UnionRenderers"}},"id":"1336","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1059","type":"ColumnDataSource"},"glyph":{"id":"1060","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1061","type":"Line"},"selection_glyph":null,"view":{"id":"1063","type":"CDSView"}},"id":"1062","type":"GlyphRenderer"},{"attributes":{},"id":"1489","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1338","type":"Circle"},{"attributes":{"source":{"id":"1465","type":"ColumnDataSource"}},"id":"1469","type":"CDSView"},{"attributes":{},"id":"1073","type":"UnionRenderers"},{"attributes":{},"id":"1486","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"1336","type":"ColumnDataSource"},"glyph":{"id":"1337","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1338","type":"Circle"},"selection_glyph":null,"view":{"id":"1340","type":"CDSView"}},"id":"1339","type":"GlyphRenderer"},{"attributes":{"line_color":"#009EE3","x":{"field":"x"},"y":{"field":"y"}},"id":"1039","type":"Line"},{"attributes":{"label":{"value":"x_2"},"renderers":[{"id":"1062","type":"GlyphRenderer"}]},"id":"1077","type":"LegendItem"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1040","type":"Line"},{"attributes":{"source":{"id":"1336","type":"ColumnDataSource"}},"id":"1340","type":"CDSView"},{"attributes":{},"id":"1074","type":"Selection"},{"attributes":{"children":[[{"id":"1001","subtype":"Figure","type":"Plot"},0,0],[{"id":"1130","subtype":"Figure","type":"Plot"},0,1],[{"id":"1259","subtype":"Figure","type":"Plot"},1,0],[{"id":"1388","subtype":"Figure","type":"Plot"},1,1]]},"id":"1589","type":"GridBox"},{"attributes":{},"id":"1050","type":"UnionRenderers"},{"attributes":{},"id":"1076","type":"Selection"},{"attributes":{},"id":"1357","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.7},"fill_color":{"value":"white"},"height":{"units":"data","value":3},"line_color":{"value":"white"},"width":{"units":"data","value":17},"x":{"value":11.5},"y":{"value":2}},"id":"1421","type":"Rect"},{"attributes":{},"id":"1360","type":"Selection"},{"attributes":{},"id":"1358","type":"Selection"},{"attributes":{},"id":"1075","type":"UnionRenderers"},{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1397","type":"LinearAxis"}],"center":[{"id":"1401","type":"Grid"},{"id":"1406","type":"Grid"},{"id":"1439","type":"Legend"}],"height":200,"left":[{"id":"1402","type":"LinearAxis"}],"renderers":[{"id":"1423","type":"GlyphRenderer"},{"id":"1428","type":"GlyphRenderer"},{"id":"1444","type":"GlyphRenderer"},{"id":"1449","type":"GlyphRenderer"},{"id":"1468","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1431","type":"Title"},"toolbar":{"id":"1413","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"1389","type":"DataRange1d"},"x_scale":{"id":"1393","type":"LinearScale"},"y_range":{"id":"1391","type":"DataRange1d"},"y_scale":{"id":"1395","type":"LinearScale"}},"id":"1388","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1488","type":"UnionRenderers"},{"attributes":{"callback":null},"id":"1389","type":"DataRange1d"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1102","type":"Selection"},"selection_policy":{"id":"1101","type":"UnionRenderers"}},"id":"1078","type":"ColumnDataSource"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1080","type":"Circle"},{"attributes":{},"id":"1359","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"1078","type":"ColumnDataSource"},"glyph":{"id":"1079","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1080","type":"Circle"},"selection_glyph":null,"view":{"id":"1082","type":"CDSView"}},"id":"1081","type":"GlyphRenderer"},{"attributes":{"callback":null},"id":"1391","type":"DataRange1d"},{"attributes":{"logo":null,"tools":[{"id":"1020","type":"PanTool"},{"id":"1021","type":"WheelZoomTool"},{"id":"1022","type":"BoxZoomTool"},{"id":"1024","type":"ResetTool"},{"id":"1149","type":"PanTool"},{"id":"1150","type":"WheelZoomTool"},{"id":"1151","type":"BoxZoomTool"},{"id":"1153","type":"ResetTool"},{"id":"1278","type":"PanTool"},{"id":"1279","type":"WheelZoomTool"},{"id":"1280","type":"BoxZoomTool"},{"id":"1282","type":"ResetTool"},{"id":"1407","type":"PanTool"},{"id":"1408","type":"WheelZoomTool"},{"id":"1409","type":"BoxZoomTool"},{"id":"1411","type":"ResetTool"}]},"id":"1590","type":"ProxyToolbar"},{"attributes":{},"id":"1393","type":"LinearScale"},{"attributes":{"toolbar":{"id":"1590","type":"ProxyToolbar"},"toolbar_location":"above"},"id":"1591","type":"ToolbarBox"},{"attributes":{"source":{"id":"1078","type":"ColumnDataSource"}},"id":"1082","type":"CDSView"},{"attributes":{},"id":"1102","type":"Selection"},{"attributes":{},"id":"1099","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.7},"fill_color":{"value":"white"},"height":{"units":"data","value":3},"line_color":{"value":"white"},"width":{"units":"data","value":20},"x":{"value":10},"y":{"value":2}},"id":"1163","type":"Rect"},{"attributes":{},"id":"1395","type":"LinearScale"},{"attributes":{},"id":"1100","type":"Selection"},{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1139","type":"LinearAxis"}],"center":[{"id":"1143","type":"Grid"},{"id":"1148","type":"Grid"},{"id":"1181","type":"Legend"}],"height":200,"left":[{"id":"1144","type":"LinearAxis"}],"renderers":[{"id":"1165","type":"GlyphRenderer"},{"id":"1170","type":"GlyphRenderer"},{"id":"1186","type":"GlyphRenderer"},{"id":"1191","type":"GlyphRenderer"},{"id":"1210","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1173","type":"Title"},"toolbar":{"id":"1155","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"1131","type":"DataRange1d"},"x_scale":{"id":"1135","type":"LinearScale"},"y_range":{"id":"1133","type":"DataRange1d"},"y_scale":{"id":"1137","type":"LinearScale"}},"id":"1130","subtype":"Figure","type":"Plot"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1433","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1398","type":"BasicTicker"}},"id":"1397","type":"LinearAxis"},{"attributes":{},"id":"1403","type":"BasicTicker"},{"attributes":{"callback":null},"id":"1131","type":"DataRange1d"},{"attributes":{},"id":"1398","type":"BasicTicker"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1398","type":"BasicTicker"}},"id":"1401","type":"Grid"},{"attributes":{},"id":"1101","type":"UnionRenderers"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1403","type":"BasicTicker"}},"id":"1406","type":"Grid"},{"attributes":{"axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1435","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1403","type":"BasicTicker"}},"id":"1402","type":"LinearAxis"},{"attributes":{"fill_alpha":{"value":0.7},"fill_color":{"value":"white"},"height":{"units":"data","value":3},"line_color":{"value":"white"},"width":{"units":"data","value":21},"x":{"value":10.5},"y":{"value":2}},"id":"1034","type":"Rect"},{"attributes":{"callback":null},"id":"1133","type":"DataRange1d"},{"attributes":{},"id":"1135","type":"LinearScale"},{"attributes":{"callback":null,"data":{},"selected":{"id":"1438","type":"Selection"},"selection_policy":{"id":"1437","type":"UnionRenderers"}},"id":"1420","type":"ColumnDataSource"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1408","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1407","type":"PanTool"},{"id":"1408","type":"WheelZoomTool"},{"id":"1409","type":"BoxZoomTool"},{"id":"1411","type":"ResetTool"}]},"id":"1413","type":"Toolbar"},{"attributes":{"line_color":"#009EE3","x":{"field":"x"},"y":{"field":"y"}},"id":"1426","type":"Line"},{"attributes":{},"id":"1137","type":"LinearScale"},{"attributes":{},"id":"1407","type":"PanTool"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1175","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1140","type":"BasicTicker"}},"id":"1139","type":"LinearAxis"},{"attributes":{},"id":"1408","type":"WheelZoomTool"},{"attributes":{},"id":"1145","type":"BasicTicker"},{"attributes":{},"id":"1140","type":"BasicTicker"},{"attributes":{"overlay":{"id":"1436","type":"BoxAnnotation"}},"id":"1409","type":"BoxZoomTool"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1140","type":"BasicTicker"}},"id":"1143","type":"Grid"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1145","type":"BasicTicker"}},"id":"1148","type":"Grid"},{"attributes":{},"id":"1411","type":"ResetTool"},{"attributes":{"axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1177","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1145","type":"BasicTicker"}},"id":"1144","type":"LinearAxis"},{"attributes":{"callback":null,"data":{},"selected":{"id":"1180","type":"Selection"},"selection_policy":{"id":"1179","type":"UnionRenderers"}},"id":"1162","type":"ColumnDataSource"},{"attributes":{"fill_color":{"value":"#009EE3"},"line_color":{"value":"#009EE3"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1442","type":"Circle"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1150","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1149","type":"PanTool"},{"id":"1150","type":"WheelZoomTool"},{"id":"1151","type":"BoxZoomTool"},{"id":"1153","type":"ResetTool"}]},"id":"1155","type":"Toolbar"},{"attributes":{"line_color":"#009EE3","x":{"field":"x"},"y":{"field":"y"}},"id":"1168","type":"Line"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"height":{"units":"data","value":3},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"width":{"units":"data","value":17},"x":{"value":11.5},"y":{"value":2}},"id":"1422","type":"Rect"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1203","type":"Selection"},"selection_policy":{"id":"1202","type":"UnionRenderers"}},"id":"1167","type":"ColumnDataSource"},{"attributes":{},"id":"1149","type":"PanTool"},{"attributes":{},"id":"1150","type":"WheelZoomTool"},{"attributes":{"source":{"id":"1420","type":"ColumnDataSource"}},"id":"1424","type":"CDSView"},{"attributes":{"overlay":{"id":"1178","type":"BoxAnnotation"}},"id":"1151","type":"BoxZoomTool"},{"attributes":{"data_source":{"id":"1420","type":"ColumnDataSource"},"glyph":{"id":"1421","type":"Rect"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1422","type":"Rect"},"selection_glyph":null,"view":{"id":"1424","type":"CDSView"}},"id":"1423","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1461","type":"Selection"},"selection_policy":{"id":"1460","type":"UnionRenderers"}},"id":"1425","type":"ColumnDataSource"},{"attributes":{"source":{"id":"1425","type":"ColumnDataSource"}},"id":"1429","type":"CDSView"},{"attributes":{},"id":"1153","type":"ResetTool"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1427","type":"Line"},{"attributes":{"label":{"value":"x_1"},"renderers":[{"id":"1428","type":"GlyphRenderer"}]},"id":"1440","type":"LegendItem"},{"attributes":{"data_source":{"id":"1425","type":"ColumnDataSource"},"glyph":{"id":"1426","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1427","type":"Line"},"selection_glyph":null,"view":{"id":"1429","type":"CDSView"}},"id":"1428","type":"GlyphRenderer"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"height":{"units":"data","value":3},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"width":{"units":"data","value":20},"x":{"value":10},"y":{"value":2}},"id":"1164","type":"Rect"},{"attributes":{"overlay":{"id":"1049","type":"BoxAnnotation"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{"align":"center","text":"x_1 and x_2 recording at the same time","text_font_size":{"value":"15px"}},"id":"1431","type":"Title"},{"attributes":{"items":[{"id":"1440","type":"LegendItem"},{"id":"1464","type":"LegendItem"}],"location":"top_left"},"id":"1439","type":"Legend"},{"attributes":{},"id":"1435","type":"BasicTickFormatter"},{"attributes":{"data_source":{"id":"1162","type":"ColumnDataSource"},"glyph":{"id":"1163","type":"Rect"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1164","type":"Rect"},"selection_glyph":null,"view":{"id":"1166","type":"CDSView"}},"id":"1165","type":"GlyphRenderer"},{"attributes":{"source":{"id":"1162","type":"ColumnDataSource"}},"id":"1166","type":"CDSView"},{"attributes":{"fill_color":{"value":"#009EE3"},"line_color":{"value":"#009EE3"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1184","type":"Circle"},{"attributes":{},"id":"1433","type":"BasicTickFormatter"},{"attributes":{},"id":"1175","type":"BasicTickFormatter"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1169","type":"Line"},{"attributes":{"line_color":"#302683","x":{"field":"x"},"y":{"field":"y"}},"id":"1189","type":"Line"},{"attributes":{"source":{"id":"1167","type":"ColumnDataSource"}},"id":"1171","type":"CDSView"},{"attributes":{"data_source":{"id":"1167","type":"ColumnDataSource"},"glyph":{"id":"1168","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1169","type":"Line"},"selection_glyph":null,"view":{"id":"1171","type":"CDSView"}},"id":"1170","type":"GlyphRenderer"},{"attributes":{"align":"center","text":"Recording time of x_1","text_font_size":{"value":"15px"}},"id":"1173","type":"Title"},{"attributes":{"items":[{"id":"1182","type":"LegendItem"},{"id":"1206","type":"LegendItem"}],"location":"top_left"},"id":"1181","type":"Legend"},{"attributes":{},"id":"1179","type":"UnionRenderers"},{"attributes":{"label":{"value":"x_1"},"renderers":[{"id":"1170","type":"GlyphRenderer"}]},"id":"1182","type":"LegendItem"},{"attributes":{},"id":"1180","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"height":{"units":"data","value":3},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"width":{"units":"data","value":21},"x":{"value":10.5},"y":{"value":2}},"id":"1035","type":"Rect"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1205","type":"Selection"},"selection_policy":{"id":"1204","type":"UnionRenderers"}},"id":"1183","type":"ColumnDataSource"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1185","type":"Circle"},{"attributes":{"data_source":{"id":"1183","type":"ColumnDataSource"},"glyph":{"id":"1184","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1185","type":"Circle"},"selection_glyph":null,"view":{"id":"1187","type":"CDSView"}},"id":"1186","type":"GlyphRenderer"},{"attributes":{"fill_color":{"value":"#302683"},"line_color":{"value":"#302683"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1208","type":"Circle"},{"attributes":{"source":{"id":"1183","type":"ColumnDataSource"}},"id":"1187","type":"CDSView"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1229","type":"Selection"},"selection_policy":{"id":"1228","type":"UnionRenderers"}},"id":"1188","type":"ColumnDataSource"},{"attributes":{"source":{"id":"1188","type":"ColumnDataSource"}},"id":"1192","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1190","type":"Line"},{"attributes":{"data_source":{"id":"1188","type":"ColumnDataSource"},"glyph":{"id":"1189","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1190","type":"Line"},"selection_glyph":null,"view":{"id":"1192","type":"CDSView"}},"id":"1191","type":"GlyphRenderer"},{"attributes":{},"id":"1202","type":"UnionRenderers"},{"attributes":{"label":{"value":"x_2"},"renderers":[{"id":"1191","type":"GlyphRenderer"}]},"id":"1206","type":"LegendItem"},{"attributes":{},"id":"1203","type":"Selection"},{"attributes":{},"id":"1205","type":"Selection"},{"attributes":{},"id":"1204","type":"UnionRenderers"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AwAAAAYAAAAJAAAADAAAAA8AAAASAAAAFQAAAA==","dtype":"int32","shape":[7]},"y":[0.5,2,1.5,3.5,1,2,0.5]},"selected":{"id":"1231","type":"Selection"},"selection_policy":{"id":"1230","type":"UnionRenderers"}},"id":"1207","type":"ColumnDataSource"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1209","type":"Circle"},{"attributes":{"data_source":{"id":"1207","type":"ColumnDataSource"},"glyph":{"id":"1208","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1209","type":"Circle"},"selection_glyph":null,"view":{"id":"1211","type":"CDSView"}},"id":"1210","type":"GlyphRenderer"},{"attributes":{},"id":"1231","type":"Selection"},{"attributes":{"source":{"id":"1207","type":"ColumnDataSource"}},"id":"1211","type":"CDSView"},{"attributes":{},"id":"1228","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.7},"fill_color":{"value":"white"},"height":{"units":"data","value":3},"line_color":{"value":"white"},"width":{"units":"data","value":18},"x":{"value":12},"y":{"value":2}},"id":"1292","type":"Rect"},{"attributes":{},"id":"1229","type":"Selection"},{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1268","type":"LinearAxis"}],"center":[{"id":"1272","type":"Grid"},{"id":"1277","type":"Grid"},{"id":"1310","type":"Legend"}],"height":200,"left":[{"id":"1273","type":"LinearAxis"}],"renderers":[{"id":"1294","type":"GlyphRenderer"},{"id":"1299","type":"GlyphRenderer"},{"id":"1315","type":"GlyphRenderer"},{"id":"1320","type":"GlyphRenderer"},{"id":"1339","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1302","type":"Title"},"toolbar":{"id":"1284","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"1260","type":"DataRange1d"},"x_scale":{"id":"1264","type":"LinearScale"},"y_range":{"id":"1262","type":"DataRange1d"},"y_scale":{"id":"1266","type":"LinearScale"}},"id":"1259","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null},"id":"1260","type":"DataRange1d"},{"attributes":{},"id":"1230","type":"UnionRenderers"},{"attributes":{"callback":null},"id":"1262","type":"DataRange1d"},{"attributes":{},"id":"1264","type":"LinearScale"},{"attributes":{},"id":"1266","type":"LinearScale"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1304","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1269","type":"BasicTicker"}},"id":"1268","type":"LinearAxis"},{"attributes":{},"id":"1274","type":"BasicTicker"},{"attributes":{},"id":"1269","type":"BasicTicker"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1269","type":"BasicTicker"}},"id":"1272","type":"Grid"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1274","type":"BasicTicker"}},"id":"1277","type":"Grid"},{"attributes":{"axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1306","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1274","type":"BasicTicker"}},"id":"1273","type":"LinearAxis"},{"attributes":{"background_fill_color":{"value":"rgb(242, 242, 242)"},"below":[{"id":"1010","type":"LinearAxis"}],"center":[{"id":"1014","type":"Grid"},{"id":"1019","type":"Grid"},{"id":"1052","type":"Legend"}],"height":200,"left":[{"id":"1015","type":"LinearAxis"}],"renderers":[{"id":"1036","type":"GlyphRenderer"},{"id":"1041","type":"GlyphRenderer"},{"id":"1057","type":"GlyphRenderer"},{"id":"1062","type":"GlyphRenderer"},{"id":"1081","type":"GlyphRenderer"}],"sizing_mode":"scale_width","title":{"id":"1044","type":"Title"},"toolbar":{"id":"1026","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"1002","type":"DataRange1d"},"x_scale":{"id":"1006","type":"LinearScale"},"y_range":{"id":"1004","type":"DataRange1d"},"y_scale":{"id":"1008","type":"LinearScale"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"data":{},"selected":{"id":"1309","type":"Selection"},"selection_policy":{"id":"1308","type":"UnionRenderers"}},"id":"1291","type":"ColumnDataSource"},{"attributes":{"callback":null},"id":"1002","type":"DataRange1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"1279","type":"WheelZoomTool"},"active_tap":"auto","logo":null,"tools":[{"id":"1278","type":"PanTool"},{"id":"1279","type":"WheelZoomTool"},{"id":"1280","type":"BoxZoomTool"},{"id":"1282","type":"ResetTool"}]},"id":"1284","type":"Toolbar"},{"attributes":{"line_color":"#009EE3","x":{"field":"x"},"y":{"field":"y"}},"id":"1297","type":"Line"},{"attributes":{"callback":null},"id":"1004","type":"DataRange1d"},{"attributes":{},"id":"1278","type":"PanTool"},{"attributes":{},"id":"1006","type":"LinearScale"},{"attributes":{},"id":"1279","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1307","type":"BoxAnnotation"}},"id":"1280","type":"BoxZoomTool"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{},"id":"1282","type":"ResetTool"},{"attributes":{"axis_label":"Time (s)","axis_line_color":{"value":"white"},"formatter":{"id":"1046","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_line_color":{"value":"white"},"minor_tick_line_color":{"value":"white"},"ticker":{"id":"1011","type":"BasicTicker"}},"id":"1010","type":"LinearAxis"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{},"id":"1011","type":"BasicTicker"},{"attributes":{"fill_color":{"value":"#009EE3"},"line_color":{"value":"#009EE3"},"size":{"units":"screen","value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1313","type":"Circle"},{"attributes":{"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1011","type":"BasicTicker"}},"id":"1014","type":"Grid"},{"attributes":{"source":{"id":"1033","type":"ColumnDataSource"}},"id":"1037","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"height":{"units":"data","value":3},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"width":{"units":"data","value":18},"x":{"value":12},"y":{"value":2}},"id":"1293","type":"Rect"},{"attributes":{"dimension":1,"grid_line_color":"rgb(150, 150, 150)","grid_line_dash":[2,2],"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1019","type":"Grid"},{"attributes":{"axis_line_color":{"value":"rgb(150, 150, 150)"},"axis_line_dash":[2,2],"formatter":{"id":"1048","type":"BasicTickFormatter"},"major_label_text_color":{"value":"rgb(88, 88, 88)"},"major_tick_in":0,"major_tick_line_color":{"value":"white"},"major_tick_out":0,"minor_tick_line_color":{"value":"white"},"minor_tick_out":0,"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1015","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1033","type":"ColumnDataSource"},"glyph":{"id":"1034","type":"Rect"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1035","type":"Rect"},"selection_glyph":null,"view":{"id":"1037","type":"CDSView"}},"id":"1036","type":"GlyphRenderer"},{"attributes":{"source":{"id":"1291","type":"ColumnDataSource"}},"id":"1295","type":"CDSView"},{"attributes":{"data_source":{"id":"1291","type":"ColumnDataSource"},"glyph":{"id":"1292","type":"Rect"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1293","type":"Rect"},"selection_glyph":null,"view":{"id":"1295","type":"CDSView"}},"id":"1294","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"x":{"__ndarray__":"AAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAA=","dtype":"int32","shape":[11]},"y":[0.5,2,1,3,2.5,2,2.5,1.5,1.5,3,2]},"selected":{"id":"1332","type":"Selection"},"selection_policy":{"id":"1331","type":"UnionRenderers"}},"id":"1296","type":"ColumnDataSource"},{"attributes":{},"id":"1487","type":"Selection"},{"attributes":{"callback":null,"data":{},"selected":{"id":"1051","type":"Selection"},"selection_policy":{"id":"1050","type":"UnionRenderers"}},"id":"1033","type":"ColumnDataSource"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{"source":{"id":"1296","type":"ColumnDataSource"}},"id":"1300","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1298","type":"Line"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{"label":{"value":"x_1"},"renderers":[{"id":"1299","type":"GlyphRenderer"}]},"id":"1311","type":"LegendItem"},{"attributes":{"data_source":{"id":"1296","type":"ColumnDataSource"},"glyph":{"id":"1297","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1298","type":"Line"},"selection_glyph":null,"view":{"id":"1300","type":"CDSView"}},"id":"1299","type":"GlyphRenderer"},{"attributes":{"items":[{"id":"1311","type":"LegendItem"},{"id":"1335","type":"LegendItem"}],"location":"top_left"},"id":"1310","type":"Legend"},{"attributes":{},"id":"1177","type":"BasicTickFormatter"},{"attributes":{"align":"center","text":"Recording time of x_2","text_font_size":{"value":"15px"}},"id":"1302","type":"Title"}],"root_ids":["1592"]},"title":"Bokeh Application","version":"1.4.0"}};
+  var render_items = [{"docid":"6f599db7-c5e9-4636-841f-fd0be3f9b102","roots":{"1592":"c08d3b3a-9c47-4e77-86e1-bb260cc43e9f"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+          </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        In order to have the freedom to explore all possible options, the
+        <strong>
+<span class="color2">
+          biosignalsnotebooks
+         </span>
+</strong>
+        package provides a function that allows setting when to start and when to end the synchronisation. This, of course, means that all signals will either be padded or cropped to the defined start and end points. To provide an intuitive usage, the start and end points are defined by the sensor names, thus, making it possible to easily choose from our set of recorded signals.
+       </p>
+<p>
+        Additionally, it gives the possibility to set the type of padding to be used. There are only some exceptions because an arbitrary padding doesn"t make sense for all sensor types. The GPS always uses a padding of type "same", thus mimicking that the phone is at fixed location. The significant motion sensor is always padded with zeros.
+       </p>
+<p>
+        The name of function is
+        <a href="https://github.com/biosignalsplux/biosignalsnotebooks/blob/00ff7f6544a98581fd37d86f5821a1fdfa27112d/biosignalsnotebooks/biosignalsnotebooks/synchronisation.py#L395-L579">
+         pad_android_data(...)
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        and it takes the following inputs:
+        <ul>
+<li>
+<span class="color3">
+<strong>
+            sensor_data (list):
+           </strong>
+</span>
+          A list containing the data of the sensors to be synchronised.
+         </li>
+<br/>
+</ul>
+</p>
+<p>
+<li>
+<span class="color2">
+<strong>
+           report (dict):
+          </strong>
+</span>
+         The report returned by the
+         <strong>
+          load_android_data
+         </strong>
+         function.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color1">
+<strong>
+           start (string, optional):
+          </strong>
+</span>
+         The sensor that indicates that indicates when the synchronisation should be started. If not specified the sensor that started latest is chosen.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color2">
+<strong>
+           stop (string, optional):
+          </strong>
+</span>
+         The sensor that indicates when the synchronising should be stopped. If not specified the sensor that stopped earliest is chosen
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color3">
+<strong>
+           padding_type (string, optional):
+          </strong>
+</span>
+         The padding type used for padding the signal. Options are either
+         <strong>
+          "same"
+         </strong>
+         or
+         <strong>
+          "zero"
+         </strong>
+         . If not specified,
+         <strong>
+          "same"
+         </strong>
+         is used.
+        </li>
+       </p>
+<p>
+        The function returns the
+        <span class="color4">
+<strong>
+          padded sensor data
+         </strong>
+</span>
+        within a list.
+       </p>
+<p>
+        For the purpose of this
+        <strong>
+<span class="color13">
+          Jupyter Notebook
+         </span>
+</strong>
+        we will be using the entire recording time (start when the proximity sensors starts recording and end when the accelerometer sensor stops recording) and we will pad using the padding type
+        <strong>
+         "same"
+        </strong>
+        . This means that the values at the start and end of the recording are repeated.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [6]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">padded_sensor_data</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">pad_android_data</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">,</span> <span class="n">report</span><span class="p">,</span> <span class="n">start_with</span><span class="o">=</span><span class="s1">'Proximity'</span><span class="p">,</span> <span class="n">end_with</span><span class="o">=</span><span class="s1">'Acc'</span><span class="p">,</span> <span class="n">padding_type</span><span class="o">=</span><span class="s1">'same'</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         5 - Resampling all signals to the same sampling rate
+        </p>
+        In this next step, we will resample all our signals to the same sampling rate. This has to be done in order to ensure that all signal columns are of the same length. We will be using the function we developed in the
+        <a href="android_signal_resampling_rev.php">
+         notebook focused on resampling signals recorded with Android sensors
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        .
+       </p>
+<p>
+        For each sensor we are going to resample the data to a sampling rate of
+        <strong>
+         100 Hz
+        </strong>
+        , which would be the approximate sampling rate of the accelerometer according to the report we generated above. In addition to that we will shift the time axis to start at zero and display it in seconds and use the interpolation type
+        <strong>
+         "previous"
+        </strong>
+        . The results of the resampling are then saved into two lists. One for holding the resampled signal data and the other for holding the resampled time axes.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [7]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># list for holding the resampled data</span>
+<span class="n">re_sampled_data</span> <span class="o">=</span> <span class="p">[]</span>
+    
+<span class="c1"># list for holding the time axes of each sensor</span>
+<span class="n">re_sampled_time</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># cycle over the sig</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">padded_sensor_data</span><span class="p">:</span>
+    
+    <span class="c1"># resample the data ('_' suppresses the output for the sampling rate)</span>
+    <span class="n">re_time</span><span class="p">,</span> <span class="n">re_data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">bsnb</span><span class="o">.</span><span class="n">re_sample_data</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span> <span class="n">shift_time_axis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">kind_interp</span><span class="o">=</span><span class="s1">'previous'</span><span class="p">)</span>
+    
+    <span class="c1"># add the the time and data to the lists</span>
+    <span class="n">re_sampled_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re_time</span><span class="p">)</span>
+    <span class="n">re_sampled_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re_data</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        Since we resampled all of our signals to the same sampling rate, all time axes should be equal and the data of each sensor should be of the same length. We can easily check this by doing the following:
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+       In [8]:
+      </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Checking for number of samples in each sensor'</span><span class="p">)</span>
+<span class="c1"># cycle through the data list</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">re_sampled_data</span><span class="p">):</span>
+    
+    <span class="c1"># get the sensor name</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="s1">'names'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="c1"># print the first axis of the data </span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># get the number of unique time axes</span>
+<span class="n">unique_axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">re_sampled_time</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Number of unique time axes: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">unique_axes</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Checking for number of samples in each sensor
+Acc: 18104
+GPS: 18104
+Light: 18104
+Proximity: 18104
+SigMotion: 18104
+
+Number of unique time axes: 1
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         6 - Writing the synchronised data to a new file
+        </p>
+        The last step that we need to conclude the synchronisation is to write our data to a new file. For this, you can use the
+        <a href="https://github.com/biosignalsplux/biosignalsnotebooks/blob/00ff7f6544a98581fd37d86f5821a1fdfa27112d/biosignalsnotebooks/biosignalsnotebooks/synchronisation.py#L582-L627">
+         save_synchronised_android_data(...)
+         <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+        function.
+       </p>
+<p>
+        The function takes the following inputs:
+        <br/>
+<ul>
+</ul>
+</p>
+<p>
+<li>
+<span class="color7">
+<strong>
+           time_axis (1D array):
+          </strong>
+</span>
+         The time axis after the padding and resampling the sensor data.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color8">
+<strong>
+           data (list):
+          </strong>
+</span>
+         List containing the padded and resampled sensor signals. The length of data along the 0-axis has to be the same size as time_axis.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color7">
+<strong>
+           header (string):
+          </strong>
+</span>
+         A string containing the header that is supposed to be added to the file.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color8">
+<strong>
+           path (string):
+          </strong>
+</span>
+         A string with the location where the file should be saved.
+        </li>
+<br/>
+</p>
+<p>
+<li>
+<span class="color7">
+<strong>
+           name (string, optional):
+          </strong>
+</span>
+         The name of the file. If not specified, the file is named
+         <strong>
+          "android_synchronised.txt"
+         </strong>
+         .
+        </li>
+<br/>
+       </p>
+<p>
+        The function returns the path, where the file was saved. We will save the file with the synchronised data to our current working directory. You can of course choose any other valid directory.
+       </p>
+</div>
+</div>
+</div>
+<div class="hide_out">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+        In [9]:
+       </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># get the current path</span>
+<span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="c1"># save the synchronised data </span>
+<span class="n">bsnb</span><span class="o">.</span><span class="n">save_synchronised_android_data</span><span class="p">(</span><span class="n">re_sampled_time</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">re_sampled_data</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output hide">
+<div class="output_area">
+<div class="prompt output_prompt">
+          Out[9]:
+         </div>
+<div class="output_text output_subarea output_execute_result">
+<pre>'C:\\Users\\gui_s\\Documents\\biosignalsnotebooks_org\\header_footer\\biosignalsnotebooks_environment\\categories\\Other\\android_synchroinsed.txt'</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+        Thus, our step by step synchronisation process is concluded. Following these steps gives you full control over the entire synchronisation process and all data that is returned during that process.
+       </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<p class="steps">
+         7 - Synchronisation with a single function call
+        </p>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+package
+In case you want to use a function that conveniently handles everything for you, you can use the
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks/blob/00ff7f6544a98581fd37d86f5821a1fdfa27112d/biosignalsnotebooks/biosignalsnotebooks/synchronisation.py#L630-L855">
+ sync_android_files(...)
+ <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+.
+<p>
+ The function takes the following inputs:
+</p>
+<ul>
+<li>
+<span class="color2">
+<strong>
+    in_path (list of strings):
+   </strong>
+</span>
+  List of strings that contain the paths that point to the files that are supposed to be synchronised.
+ </li>
+<br/>
+<li>
+<span class="color4">
+<strong>
+    out_path (string):
+   </strong>
+</span>
+  The path where the synchronised file is supposed to be saved.
+ </li>
+<br/>
+<li>
+<span class="color13">
+<strong>
+    sync_file_name (String, optional):
+   </strong>
+</span>
+  The name of the new file. If not provided then the name will be set to
+  <strong>
+   "android_synchronised.txt"
+  </strong>
+  .
+ </li>
+<br/>
+<li>
+<span class="color7">
+<strong>
+    automatic_sync (boolean, optional):
+   </strong>
+</span>
+  Boolean for setting the mode of the function. If not provided it will be set to True.
+ </li>
+<br/>
+</ul>
+<p>
+ As the parameter
+ <span class="color13">
+<strong>
+   automatic_sync
+  </strong>
+</span>
+ indicates, the function can be run in two different modes:
+</p>
+<p>
+ If
+ <strong>
+  automatic_sync=True
+ </strong>
+ , the function will do a full automatic synchronisation of the files. The synchronisation will only take place in the time window in which all sensors are running simultaneously. The rest of the data is cropped accordingly. Furthermore, the sampling rate for resampling the signals is set to the highest sampling rate present. This sampling rate is rounded to the next tens digit (i.e 43 Hz -&gt; 40 Hz | 98 Hz -&gt; 100 Hz). Sampling rates below 5 Hz are set to 1 Hz. The interpolation type
+ <strong>
+  "previous"
+ </strong>
+ is always used. In this mode, the function will give feedback on what it is doing and how it is setting the values.
+</p>
+<p>
+ If
+ <strong>
+  automatic_sync=False
+ </strong>
+ , the function will run in an interactive mode. It will guide you through the entire synchronisation process step by step and prompt you for specific inputs that are needed to set certain parameters.
+</p>
+<p>
+ Below, we run the function in the automatic synchronisation mode. Feel free to change the boolean to "False" and try out the function in the interactive mode.
+</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+   In [10]:
+  </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">bsnb</span><span class="o">.</span><span class="n">sync_android_files</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">sync_file_name</span><span class="o">=</span><span class="s1">'automatic_android_sync'</span><span class="p">,</span> <span class="n">automatic_sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>names: ['Acc', 'GPS', 'Light', 'Proximity', 'SigMotion']
+
+number of samples: [17661, 132, 178, 18, 1]
+
+starting times: [188488175020937.0, 188490065043301.0, 188488121593000.0, 188488102522000.0, 188502049742000.0]
+
+stopping times: [188669138104000.0, 188668271596298.0, 188668132960000.0, 188636399533000.0, 188502049742000.0]
+
+avg. sampling rates: [97.58896511423767, 0.7351020363555616, 0.9832712397545429, 0.11463481216084659, 0]
+
+min. sampling rate: 0.0
+
+max. sampling rate: 97.58896511423767
+
+mean sampling rate: 19.88439464050172
+
+std. sampling rate: 38.85403633973379
+
+starting order: ['Proximity', 'Light', 'Acc', 'GPS', 'SigMotion']
+
+stopping order: ['SigMotion', 'Proximity', 'Light', 'GPS', 'Acc']
+
+
+---- DATA PADDING ----
+
+Synchronizing from start of SigMotion sensor until end of SigMotion sensor.
+Using padding type: 'same'.
+Warning: Start and end at same time...using next sensor that stopped earliest instead
+
+---- DATA RE-SAMPLING ----
+
+The signals will be re-sampled to:  100.0 Hz.
+Shifting the time axis to start at zero and converting to seconds.
+Using interpolation type: 'previous'.
+
+---- Saving Data to file ----
+
+The file has been saved to: C:\Users\gui_s\Documents\biosignalsnotebooks_org\header_footer\biosignalsnotebooks_environment\categories\Other\automatic_android_sync.txt
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+    In this
+    <strong>
+<span class="color4">
+      Jupyter notebook
+     </span>
+</strong>
+    we learned how to synchronise multiple Android sensors and write them to a single file. Additionally we saw how we can do the entire synchronisation process with a single function call.
+   </p>
+<p>
+<strong>
+<span class="color7">
+      We hope that you have enjoyed this guide
+     </span>
+</strong>
+    .
+    <strong>
+<span class="color2">
+      biosiganlsnotebooks
+     </span>
+<span class="color4">
+      is an environment in continuous expansion, so don"t stop your journey and learn more with the remaining
+     </span>
+<a href="../MainFiles/biosignalsnotebooks_rev.php">
+      Notebooks
+      <img height="10px" src="../../images/icons/link.png" style="display:inline" width="10px"/>
+</a>
+</strong>
+    .
+   </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<hr/>
+</p>
+<table width="100%">
+<tr>
+<td class="footer_logo">
+<img alt="biosignalsnotebooks | project logo [footer]" src="../../images/ost_logo.png"/>
+</td>
+<td style="text-align:left" width="40%">
+<a href="../MainFiles/aux_files/biosignalsnotebooks_presentation.pdf" target="_blank">
+       ☌ Project Presentation
+      </a>
+<br/>
+<a href="https://github.com/biosignalsplux/biosignalsnotebooks" target="_blank">
+       ☌ GitHub Repository
+      </a>
+<br/>
+<a href="https://pypi.org/project/biosignalsnotebooks/" target="_blank">
+       ☌ How to install biosignalsnotebooks Python package ?
+      </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/signal_samples_rev.php">
+       ☌ Signal Library
+      </a>
+</td>
+<td style="text-align:left" width="40%">
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php">
+       ☌ Notebook Categories
+      </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_diff_rev.php">
+       ☌ Notebooks by Difficulty
+      </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type_rev.php">
+       ☌ Notebooks by Signal Type
+      </a>
+<br/>
+<a href="https://www.biosignalsplux.com/notebooks/Categories/MainFiles/by_tag_rev.php">
+       ☌ Notebooks by Tag
+      </a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="hide_both">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input hide">
+<div class="prompt input_prompt">
+    In [11]:
+   </div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="kn">from</span> <span class="nn">biosignalsnotebooks.__notebook_support__</span> <span class="k">import</span> <span class="n">css_style_apply</span>
+<span class="n">css_style_apply</span><span class="p">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output hide">
+<div class="output_area">
+<div class="prompt">
+</div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>.................... CSS Style Applied to Jupyter Notebook .........................
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt output_prompt">
+      Out[11]:
+     </div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="style_import">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

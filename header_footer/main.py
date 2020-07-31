@@ -238,8 +238,9 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["All"], exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
-    signal_samples_flag=False, delete_old_files=False, delete_base_files=True,
-    new_notebooks_list=["digital_filtering_filtfilt", "temporal_statistical_parameters", "snr_determination", "outliers_detection"])
+run(list_notebooks=["intro_to_android_sensors", "android_signal_resampling", "android_file_sync", "android_bitalino_sync"],
+    exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
+    signal_samples_flag=False, delete_old_files=True, delete_base_files=False,
+    new_notebooks_list=["intro_to_android_sensors", "android_signal_resampling", "android_file_sync", "android_bitalino_sync"])
 
 # 29/11/2018  17h18m :)
