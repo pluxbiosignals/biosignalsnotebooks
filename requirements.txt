@@ -12,3 +12,4 @@ PyWavelets
 scikit-learn
 seaborn
 statsmodels
+pandas
