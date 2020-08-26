@@ -573,6 +573,16 @@ padding-left: 20px !important;
 margin-left: 10px !important;
 }
 
+.contributors_image{
+height:40% !important;
+border:solid 5px #808080 !important;
+}
+
+.special_contributors_text{
+text-align:center !important;
+border-bottom: solid 3px #808080 !important;
+}
+
 .header_image_color_1{
 border-right: 2pt solid #62C3EE !important;
 }

@@ -11,7 +11,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -1075,13 +1075,13 @@ html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {
+/*body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1.42857143;
   color: #000;
   background-color: #fff;
-}
+}*/
 input,
 button,
 select,
@@ -13637,6 +13637,16 @@ padding-left: 20px !important;
 
 .notebook_title{
 margin-left: 10px !important;
+}
+
+.contributors_image{
+height:40% !important;
+border:solid 5px #808080 !important;
+}
+
+.special_contributors_text{
+text-align:center !important;
+border-bottom: solid 3px #808080 !important;
 }
 
 .header_image_color_1{
