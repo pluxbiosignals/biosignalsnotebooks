@@ -165,7 +165,7 @@ def _get_metadata(notebook, filename, category):
                     cell_content = cell["source"]
 
                     # Notebook Title.
-                    title = cell_content.split('<td class="header_text">')[1].split('</td>')[0]
+                    title = cell_content.split('class="header_text">')[1].split('</td>')[0]
 
                 # [Tags]
                 if "intro_info_tags" in cell["metadata"]["tags"]:
@@ -238,9 +238,9 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["intro_to_android_sensors", "android_signal_resampling", "android_file_sync", "android_bitalino_sync"],
+run(list_notebooks=["emg_fist_classifier"],
     exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
     signal_samples_flag=False, delete_old_files=True, delete_base_files=False,
-    new_notebooks_list=["intro_to_android_sensors", "android_signal_resampling", "android_file_sync", "android_bitalino_sync"])
+    new_notebooks_list=["emg_fist_classifier"])
 
 # 29/11/2018  17h18m :)
