@@ -361,10 +361,18 @@ def read_header(file):
 
             # ---------------- Combination of the information in "label" and "column" -------------
             column_labels = {}
+            label_counts = {}
             for chn_nbr, chn in enumerate(header[mac]["channels"]):
                 chn_label = header[mac]["label"][chn_nbr]
+
+                # Control the number of channels belonging to the same label.
+                if chn_label not in label_counts.keys():
+                    label_counts[chn_label] = 1
+                else:
+                    label_counts[chn_label] += 1
                 column_labels[chn] = col_nbr + numpy.where(numpy.array(header[mac]["column"]) ==
-                                                           chn_label)[0][0]
+                                                           chn_label)[0][label_counts[chn_label] - 1]
+
             header[mac]["column labels"] = column_labels
 
             col_nbr += len(header[mac]["column"])
