@@ -893,11 +893,31 @@ def _shape_array(array1, array2):
 
     length = len(old_array) - len(new_array)
 
-    for i in range(length):
-        n = new_array[-1].copy()
-        n[0::3] += 1
-        n[2::3] = 0
-        new_array = np.vstack([new_array, [n]])
+    # get the sampling period (or distance between sampling points, for PLUX devices this is always 1)
+    # it is assumed that the signals are equidistantly sampled therefore only the distance between to sampling points
+    # is needed to calculate the sampling period
+    T = new_array[:, 0][1] - new_array[:, 0][0]
+
+    # get the number of columns for the zero padding
+    num_cols = new_array.shape[1] -1 # ignoring the time/sample column
+
+    # zero pad array
+    zero_pad = np.zeros((length, num_cols))
+
+    # create the time / sample axis that needs to be padded
+    start = new_array[:, 0][-1] + T
+    stop = start + (T * length)
+    time_pad = np.arange(start, stop, T)
+    time_pad = time_pad[:length] # crop the array if there are to many values
+
+    # expand dimension for hstack operation
+    time_pad = np.expand_dims(time_pad, axis=1)
+
+    # hstack the time_pad and the zero_pad to get the final padding array
+    pad_array = np.hstack((time_pad, zero_pad))
+
+    # vstack the pad_array and the new_array
+    new_array = np.vstack([new_array, pad_array])
 
     arrays = np.hstack([old_array, new_array])
     return arrays
