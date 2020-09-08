@@ -1029,10 +1029,6 @@ def _create_txt_from_str(in_path, channels, new_path):
     if data[0] is not int or data[1] is not int:
         is_integer_data = False
 
-    new_header = [h.replace("\n", "") for h in header]
-    sync_file = open(new_path, 'w')
-    sync_file.write(' \n'.join(new_header) + '\n')
-
     # Avoid change in float precision if we are working with float numbers.
     if not is_integer_data:
         round_data_0 = [float('%.2f' % (value)) for value in data[0]]
@@ -1060,6 +1056,13 @@ def _create_txt_from_str(in_path, channels, new_path):
     else:
         print("The devices are synchronised.")
         return
+
+    # write header to file
+    new_header = [h.replace("\n", "") for h in header]
+    sync_file = open(new_path, 'w')
+    sync_file.write(' \n'.join(new_header) + '\n')
+
+    # write data to file
     for line in new_file:
         if is_integer_data:
             sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
@@ -1082,12 +1085,16 @@ def _create_txt_from_list(in_path, channels, new_path):
     new_path : str
         Path to create the new file.
     """
-    header = ["# OpenSignals Text File Format"]
+
+    header = ["# OpenSignals Text File Format\n"]
     files = [bsnb.load(p) for p in in_path]
     with open(in_path[0], encoding="latin-1") as opened_p:
         with open(in_path[1], encoding="latin-1") as opened_p_1:
-            header.append(opened_p.readlines()[1][:-2] + ', ' + opened_p_1.readlines()[1][3:])
-    header.append("# EndOfHeader")
+
+            # append both headers
+            header.append(opened_p.readlines()[1][3:-2])
+            header.append(opened_p_1.readlines()[1][3:-2])
+    header.append("# EndOfHeader\n")
 
     data = []
     nr_channels = []
@@ -1100,10 +1107,6 @@ def _create_txt_from_list(in_path, channels, new_path):
 
     if data[0] is not int or data[1] is not int:
         is_integer_data = False
-
-    new_header = [h.replace("\n", "") for h in header]
-    sync_file = open(new_path, 'w')
-    sync_file.write('\n'.join(new_header) + '\n')
 
     # Avoid change in float precision if we are working with float numbers.
     if not is_integer_data:
@@ -1128,9 +1131,27 @@ def _create_txt_from_list(in_path, channels, new_path):
         old_columns = np.loadtxt(in_path[0])
         columns = old_columns[dephase:]
         new_file = _shape_array(columns, np.loadtxt(in_path[1]))
+
+        # swap sensor headers because the data arrays were exchanged
+        header[1], header[2] = header[2], header[1]
     else:
         print("The devices are synchronised.")
         return
+
+    # header[0]: start of the header
+    # header[1]: info of sensor
+    # header[2]: info of sensor
+    # header[3]: end of header
+    # add start of sensor info line and add comma between both sensor headers
+    header[1] = '# {' + header[1] + ','
+
+    # add closing curly brackets to end of sensor info
+    header[2] = header[2] + '}\n'
+
+    sync_file = open(new_path, 'w')
+    sync_file.write(''.join(header))
+
+    # writing synchronised data to file
     for line in new_file:
         if is_integer_data:
             sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
