@@ -334,7 +334,7 @@ def create_synchronised_files(in_path=(('file1.txt', 'file2.txt'), ('file1.h5', 
     generate_sync_txt_file(in_path[0], channels=txt_channels, new_path=file_name + '.txt')
 
 
-def create_android_sync_header(in_path):
+def create_android_sync_header(in_path, sampling_rate):
 
     '''
     function in order to creating a new header for a synchronised android sensor file
@@ -342,6 +342,7 @@ def create_android_sync_header(in_path):
     Parameters
     ----------
     in_path (list of strings): list containing the paths to the files that are supposed to be synchronised
+    sampling_rate(int): The sampling rate to which the signals are going to be synchronised
 
     Returns
     -------
@@ -400,6 +401,8 @@ def create_android_sync_header(in_path):
                     curr_header[dict_key]['special'])  # special field
                 header[dict_key]['sleeve color'].extend(
                     curr_header[dict_key]['sleeve color'])  # sleeve color field
+                header[dict_key]['sampling rate'] = sampling_rate # changing sampling rate to the one specified by the
+                                                                  # user
 
     # create new header string
     header_string = "# OpenSignals Text File Format\n# " + json.dumps(header) + '\n# EndOfHeader\n'
@@ -676,9 +679,6 @@ def sync_android_files(in_path, out_path, sync_file_name='android_synchroinzed',
 
     """
 
-    # create new file header
-    new_header = create_android_sync_header(in_path)
-
     # load the data
     sensor_data, report = load_android_data(in_path, print_report=True)
 
@@ -865,6 +865,9 @@ def sync_android_files(in_path, out_path, sync_file_name='android_synchroinzed',
 
     # ---- Saving data to file ---- #
     print('\n---- Saving Data to file ----\n')
+
+    # create new file header
+    new_header = create_android_sync_header(in_path, sampling_rate)
 
     # save the data to the file
     save_path = save_synchronised_android_data(re_sampled_time[0], re_sampled_data, new_header, out_path,
