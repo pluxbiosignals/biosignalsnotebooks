@@ -49,6 +49,9 @@ _create_txt_from_str
 _create_txt_from_list
     This function allows to generate a text file with synchronised signals from the input files.
 
+_pad_data:
+    Function to pad data with either padding type 'same' or 'zero'
+
 Observations/Comments
 ---------------------
 None
@@ -99,6 +102,7 @@ def synchronise_signals(in_signal_1, in_signal_2):
         The second signal synchronised.
     """
 
+    # signal normalisation
     mean_1, std_1, mean_2, std_2 = [np.mean(in_signal_1), np.std(in_signal_1), np.mean(in_signal_2),
                                     np.std(in_signal_2)]
     signal_1 = in_signal_1 - mean_1
@@ -106,38 +110,46 @@ def synchronise_signals(in_signal_1, in_signal_2):
     signal_2 = in_signal_2 - mean_2
     signal_2 /= std_2
 
+    # zero padding signals so that they are of same length, this facilitates the calculation because
+    # then the delay between both signals can be directly calculated
+    # zero padding only if needed
+    if (len(signal_1) != len(signal_2)):
+
+        # check which signal has to be zero padded
+        if (len(signal_1) < len(signal_2)):
+
+            # pad first signal
+            signal_1 = np.append(signal_1, np.zeros(len(signal_2) - len(signal_1)))
+
+        else:
+
+            # pad second signal
+            signal_2 = np.append(signal_2, np.zeros(len(signal_1) - len(signal_2)))
+
     # Calculate the full cross-correlation between the two signals.
     correlation = np.correlate(signal_1, signal_2, 'full')
 
-    # Finding the edge of the correct correlation signal
-    center = len(correlation) - len(signal_1) if len(signal_1) < len(signal_2) else len(correlation) - len(signal_2)
+    # crop signals to original length (removing zero padding)
+    signal_1 = signal_1[:len(in_signal_1)]
+    signal_2 = signal_2[:len(in_signal_2)]
 
-    # Finding the position of the maximum value of the correlation signal
-    max_position = correlation.argmax()
-    # Calculating the difference between the center and the position of the maximum value
-    phase_straight = center - max_position
+    # calculate tau / shift between both signals
+    tau = int(np.argmax(correlation) - (len(correlation)) / 2)
 
-    # Finding the position of the maximum value of the reversed signal (corr[::-1])
-    max_position_reversed = correlation[::-1].argmax()
-    # Calculating the difference between the center and the position of the maximum value in the reversed correlation
-    # signal
-    phase_reversed = center - max_position_reversed
+    # check which signal has to be sliced
+    if (tau < 0):
+        # tau negative --> second signal lags
+        signal_2 = signal_2[np.abs(tau):]
 
-    # Calculate the dephasing between the signals. Maximum value of both results guarantees that we find the true
-    # dephasing of the signals
-    phases_aux = [phase_straight, phase_reversed]
-    phase = np.abs(phases_aux).argmax()
-    true_phase = np.abs(phases_aux[phase])
+    elif (tau > 0):
+        # tau positive ---> firs signal lags
+        signal_1 = signal_1[np.abs(tau):]
 
-    if phases_aux[0] < phases_aux[1]:
-        signal_1 = signal_1[true_phase:]
-    else:
-        signal_2 = signal_2[true_phase:]
-
+    # revert signals to orignal scale
     result_signal_1 = signal_1 * std_1 + mean_1
     result_signal_2 = signal_2 * std_2 + mean_2
 
-    return true_phase, result_signal_1, result_signal_2
+    return tau, result_signal_1, result_signal_2
 
 
 def generate_sync_txt_file(in_path, channels=("CH1", "CH1"), new_path='sync_file.txt'):
@@ -869,7 +881,8 @@ def sync_android_files(in_path, out_path, sync_file_name='android_synchroinzed',
 
 def _shape_array(array1, array2):
     """
-    Function that equalises the input arrays by zero-padding the shortest one.
+    Function that equalises the input arrays by padding the shortest one using padding type 'same', i.e. replicating
+    the last row.
 
     ----------
     Parameters
@@ -884,42 +897,30 @@ def _shape_array(array1, array2):
     arrays: numpy.array
         Array containing the equal-length arrays.
     """
-    if len(array1) > len(array2):
-        new_array = array2
-        old_array = array1
-    else:
-        new_array = array1
-        old_array = array2
 
-    length = len(old_array) - len(new_array)
+    # check if the data arrays are of different size
+    if (len(array1) != len(array2)):
 
-    # get the sampling period (or distance between sampling points, for PLUX devices this is always 1)
-    # it is assumed that the signals are equidistantly sampled therefore only the distance between to sampling points
-    # is needed to calculate the sampling period
-    T = new_array[:, 0][1] - new_array[:, 0][0]
+        # check which array needs to be padded
+        if (len(array1) < len(array2)):
 
-    # get the number of columns for the zero padding
-    num_cols = new_array.shape[1] -1 # ignoring the time/sample column
+            # get the length of the padding
+            pad_length = len(array2) - len(array1)
 
-    # zero pad array
-    zero_pad = np.zeros((length, num_cols))
+            # pad the first array
+            array1 = _pad_data(array1, pad_length)
 
-    # create the time / sample axis that needs to be padded
-    start = new_array[:, 0][-1] + T
-    stop = start + (T * length)
-    time_pad = np.arange(start, stop, T)
-    time_pad = time_pad[:length] # crop the array if there are to many values
+        else:
 
-    # expand dimension for hstack operation
-    time_pad = np.expand_dims(time_pad, axis=1)
+            # get the length of the padding
+            pad_length = len(array1) - len(array2)
 
-    # hstack the time_pad and the zero_pad to get the final padding array
-    pad_array = np.hstack((time_pad, zero_pad))
+            # pad the second array
+            array2 = _pad_data(array2, pad_length)
 
-    # vstack the pad_array and the new_array
-    new_array = np.vstack([new_array, pad_array])
+    # hstack both arrays / concatenate both array horizontally
+    arrays = np.hstack([array1, array2])
 
-    arrays = np.hstack([old_array, new_array])
     return arrays
 
 
@@ -1106,77 +1107,126 @@ def _create_txt_from_list(in_path, channels, new_path):
         Path to create the new file.
     """
 
-    header = ["# OpenSignals Text File Format\n"]
+    header = ["# OpenSignals Text File Format"]
     files = [bsnb.load(p) for p in in_path]
     with open(in_path[0], encoding="latin-1") as opened_p:
         with open(in_path[1], encoding="latin-1") as opened_p_1:
-
             # append both headers
-            header.append(opened_p.readlines()[1][3:-2])
-            header.append(opened_p_1.readlines()[1][3:-2])
-    header.append("# EndOfHeader\n")
+            header.append(opened_p.readlines()[1][:-2] + ', ' + opened_p_1.readlines()[1][3:])
 
+    header.append("# EndOfHeader")
+
+    # lists for holding the read data
     data = []
     nr_channels = []
-    is_integer_data = True
+
+    # read the data
     for i, file in enumerate(files):
         nr_channels.append(len(list(file)))
         data.append(file[channels[i]])
 
-    dephase, s1, s2 = synchronise_signals(data[0], data[1])
+    # calculate the delay between both signals
+    dephase, _, _ = synchronise_signals(data[0], data[1])
 
-    if data[0] is not int or data[1] is not int:
-        is_integer_data = False
+    # Check which device lags
+    if (dephase < 0):
 
-    # Avoid change in float precision if we are working with float numbers.
-    if not is_integer_data:
-        round_data_0 = [float('%.2f' % (value)) for value in data[0]]
-        round_data_1 = [float('%.2f' % (value)) for value in data[1]]
-        round_s_1 = [float('%.2f' % (value)) for value in s1]
-        round_s_2 = [float('%.2f' % (value)) for value in s2]
+        # second device lags
+
+        # load the data of the second device
+        data_2 = np.loadtxt(in_path[1])
+
+        # slice the data
+        sliced_2 = data_2[np.abs(dephase):]
+
+        # pad data so that both devices are of the same length
+        new_file = _shape_array(sliced_2, np.loadtxt(in_path[0]))
+
+    elif (dephase > 0):
+
+        # first device lags
+        data_1 = np.loadtxt(in_path[0])
+
+        # slice the data
+        sliced_1 = data_1[np.abs(dephase):]
+
+        # pad data so that both devices are of the same length
+        new_file = _shape_array(sliced_1, np.loadtxt(in_path[1]))
+
     else:
-        round_data_0 = data[0]
-        round_data_1 = data[1]
-        round_s_1 = s1
-        round_s_2 = s2
+        # dephase == 0 ---> devices were already syncronised
+        print("The devices were already synchronised.")
 
-    # Check which array is aligned.
-    if np.array_equal(round_s_1, round_data_0):
-        # Change the second device
-        old_columns = np.loadtxt(in_path[1])
-        columns = old_columns[dephase:]
-        new_file = _shape_array(columns, np.loadtxt(in_path[0]))
-    elif np.array_equal(round_s_2, round_data_1):
-        # Change the first device
-        old_columns = np.loadtxt(in_path[0])
-        columns = old_columns[dephase:]
-        new_file = _shape_array(columns, np.loadtxt(in_path[1]))
+        # only concatenate both files
+        new_file = _shape_array(np.loadtxt(in_path[0]), np.loadtxt(in_path[1]))
 
-        # swap sensor headers because the data arrays were exchanged
-        header[1], header[2] = header[2], header[1]
-    else:
-        print("The devices are synchronised.")
-        return
-
-    # header[0]: start of the header
-    # header[1]: info of sensor
-    # header[2]: info of sensor
-    # header[3]: end of header
-    # add start of sensor info line and add comma between both sensor headers
-    header[1] = '# {' + header[1] + ','
-
-    # add closing curly brackets to end of sensor info
-    header[2] = header[2] + '}\n'
-
+    # write header to file
+    new_header = [h.replace("\n", "") for h in header]
     sync_file = open(new_path, 'w')
-    sync_file.write(''.join(header))
+    sync_file.write('\n'.join(new_header) + '\n')
 
     # writing synchronised data to file
     for line in new_file:
-        if is_integer_data:
-            sync_file.write('\t'.join(str(int(i)) for i in line) + '\t\n')
-        else:
-            sync_file.write('\t'.join(str(i) for i in line) + '\t\n')
+        sync_file.write('\t'.join(str(i) for i in line) + '\t\n')
+
     sync_file.close()
+
+
+def _pad_data(data, pad_length, padding_type='same'):
+    """
+    Function for padding data. The function uses padding type 'same', i.e. it replicates the last row of the data, as default
+
+    ----------
+    Parameters
+    ----------
+    data (numpy.array): the data that is supposed to be padded
+
+    pad_length (int): the length of the padding that is supposed to be applied to data
+
+    padding_type (string, optional): The type of padding applied, either: 'same' or 'zero'. Default: 'same'
+
+    Return
+    ------
+    padded_data (numpy.array): The data with the padding
+    """
+
+    # get the sampling period (or distance between sampling points, for PLUX devices this is always 1)
+    # it is assumed that the signals are equidistantly sampled therefore only the distance between to sampling points
+    # is needed to calculate the sampling period
+    T = data[:, 0][1] - data[:, 0][0]
+
+    if padding_type == 'same':
+
+        # create the 'same' padding array
+        padding = np.tile(data[-1, 1:], (pad_length, 1))
+
+    elif padding_type == 'zero':
+
+        # get the number of columns for the zero padding
+        num_cols = data.shape[1] - 1  # ignoring the time/sample column
+
+        # create the zero padding array
+        padding = np.zeros((pad_length, num_cols))
+
+    else:
+
+        IOError('The padding type you chose is not defined. Use either \'same\ or \'zero\'.')
+
+    # create the time / sample axis that needs to be padded
+    start = data[:, 0][-1] + T
+    stop = start + (T * pad_length)
+    time_pad = np.arange(start, stop, T)
+    time_pad = time_pad[:pad_length]  # crop the array if there are to many values
+
+    # expand dimension for hstack operation
+    time_pad = np.expand_dims(time_pad, axis=1)
+
+    # hstack the time_pad and the zero_pad to get the final padding array
+    pad_array = np.hstack((time_pad, padding))
+
+    # vstack the pad_array and the new_array
+    padded_data = np.vstack([data, pad_array])
+
+    return padded_data
 
 
