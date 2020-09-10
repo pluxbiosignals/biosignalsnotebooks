@@ -1128,37 +1128,30 @@ def _create_txt_from_list(in_path, channels, new_path):
     # calculate the delay between both signals
     dephase, _, _ = synchronise_signals(data[0], data[1])
 
+    # load original data
+    data_1 = np.loadtxt(in_path[0])
+    data_2 = np.loadtxt(in_path[1])
+
     # Check which device lags
-    if (dephase < 0):
+    if dephase < 0:
 
         # second device lags
-
-        # load the data of the second device
-        data_2 = np.loadtxt(in_path[1])
-
         # slice the data
-        sliced_2 = data_2[np.abs(dephase):]
+        data_2 = data_2[np.abs(dephase):]
 
-        # pad data so that both devices are of the same length
-        new_file = _shape_array(sliced_2, np.loadtxt(in_path[0]))
-
-    elif (dephase > 0):
+    elif dephase > 0:
 
         # first device lags
-        data_1 = np.loadtxt(in_path[0])
-
         # slice the data
-        sliced_1 = data_1[np.abs(dephase):]
-
-        # pad data so that both devices are of the same length
-        new_file = _shape_array(sliced_1, np.loadtxt(in_path[1]))
+        data_1 = data_1[np.abs(dephase):]
 
     else:
         # dephase == 0 ---> devices were already syncronised
         print("The devices were already synchronised.")
 
-        # only concatenate both files
-        new_file = _shape_array(np.loadtxt(in_path[0]), np.loadtxt(in_path[1]))
+    # pad data so that both devices are of the same length
+    # in case that phase = 0 the data will only be concatenated horizontally
+    new_file = _shape_array(data_1, data_2)
 
     # write header to file
     new_header = [h.replace("\n", "") for h in header]
@@ -1169,6 +1162,7 @@ def _create_txt_from_list(in_path, channels, new_path):
     for line in new_file:
         sync_file.write('\t'.join(str(i) for i in line) + '\t\n')
 
+    # close the file
     sync_file.close()
 
 
