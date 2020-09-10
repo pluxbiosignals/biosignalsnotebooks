@@ -26,6 +26,7 @@ import numpy
 from .aux_functions import _is_a_url, _generate_download_google_link
 from .load import load
 import math
+from scipy.constants import g
 
 
 def raw_to_phy(sensor, device, raw_signal, resolution, option):
@@ -83,6 +84,8 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         - "Ohm"
         - "A"
         - "uA"
+        - "g"
+        - "m/s^2"
         (When is not applicable a warning message is raised).
 
     Returns
@@ -255,7 +258,10 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
             else:
                 raise RuntimeError("The output specified unit does not have a defined transfer "
                                    "function for the used device.")
+        elif option == "m/s^2":
 
+            out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
+                                         option="g")) * g
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
 
