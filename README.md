@@ -214,8 +214,11 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_5_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 5] </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='8'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/android_bitalino_sync_rev.php' target='_blank'> Synchronising Android and PLUX sensors</a> </td>
+		<td rowspan='9'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/activity_distinction_rev.php' target='_blank'>Activity Distinction using Android Sensors</a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/android_bitalino_sync_rev.php'> Synchronising Android and PLUX sensors</a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/android_file_sync_rev.php'> Synchronising data from multiple Android sensor files into one file</a> </td>
