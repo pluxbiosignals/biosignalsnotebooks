@@ -24,6 +24,7 @@ None
 
 import numpy as np
 import scipy.interpolate as scp
+from .aux_functions import _calc_time_precision, _truncate_time, _truncate_value
 
 
 def re_sample_data(time_axis, data, start=0, stop=-1, shift_time_axis=False, sampling_rate=None, kind_interp='linear'):
@@ -100,6 +101,9 @@ def re_sample_data(time_axis, data, start=0, stop=-1, shift_time_axis=False, sam
         # calculate the interpolated column and save it to the correct column of the data_inter array
         data_inter = inter_func(time_inter)
 
+        # truncate the interpolated data
+        data_inter = np.array([_truncate_value(value) for value in data_inter])
+
     else:  # multidimensional array
 
         # create dummy array
@@ -110,14 +114,24 @@ def re_sample_data(time_axis, data, start=0, stop=-1, shift_time_axis=False, sam
             # create the interpolation function
             inter_func = scp.interp1d(time_axis, data[:, col], kind=kind_interp)
 
-            # calculate the interpolated column and save it to the correct column of the data_inter array
-            data_inter[:, col] = inter_func(time_inter)
+            # calculate the interpolated data
+            di = inter_func(time_inter)
+
+            # truncate the interpolated data and save the data to the correct column of the dat_inter array
+            data_inter[:, col] = np.array([_truncate_value(value) for value in di])
 
     # check if time is not supposed to be shifted
     if not shift_time_axis:
         # shift back
         time_inter = time_inter * 1e9
         time_inter = time_inter + time_origin
+    else:
+
+        # calculate the precision needed
+        precision = _calc_time_precision(sampling_rate)
+
+        # truncate the time axis to the needed precision
+        time_inter = [_truncate_time(value, precision) for value in time_inter]
 
     # return the interpolated time axis and data
     return time_inter, data_inter, sampling_rate

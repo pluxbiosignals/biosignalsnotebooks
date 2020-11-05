@@ -601,7 +601,7 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
     return padded_sensor_data
 
 
-def save_synchronised_android_data(time_axis, data, header, path, file_name='android_synchroinsed'):
+def save_synchronised_android_data(time_axis, data, header, path, file_name='android_synchronised'):
     """
     Function used for saving synchronised android data into a single file
 

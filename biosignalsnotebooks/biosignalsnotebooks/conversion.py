@@ -23,13 +23,14 @@ None
 """
 
 import numpy
-from .aux_functions import _is_a_url, _generate_download_google_link
+from .aux_functions import _is_a_url, _generate_download_google_link, _calc_time_precision, _truncate_time, \
+    _truncate_value, _calc_value_precision
 from .load import load
 import math
 from scipy.constants import g
 
 
-def raw_to_phy(sensor, device, raw_signal, resolution, option):
+def raw_to_phy(sensor, device, raw_signal, resolution, option, truncate=True):
     """
     -----
     Brief
@@ -88,11 +89,15 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
         - "m/s^2"
         (When is not applicable a warning message is raised).
 
+    truncate: boolean (optional)
+        indicates whether the resulting
+
     Returns
     -------
     out : list
         Signal in the new scale.
     """
+
     raw_signal = numpy.array(raw_signal)
 
     # Check if resolution has the correct data format.
@@ -116,13 +121,13 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
             a_1 = 2.34282709e-4
             a_2 = 8.77303013e-8
             out = 1 / (a_0 + a_1 * numpy.log(raw_to_phy(sensor, device, list(raw_signal),
-                                                        resolution, option="Ohm")) + a_2 *
+                                                        resolution, option="Ohm", truncate=False)) + a_2 *
                        ((numpy.log(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                              option="Ohm"))) ** 3))
+                                              option="Ohm", truncate=False))) ** 3))
         elif option == "C":
             if device in available_dev_1:
                 out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                             option="K")) - 273.15
+                                             option="K", truncate=False)) - 273.15
             elif device in available_dev_2:
                 out = ((raw_signal / (2 ** resolution)) * vcc - 0.5) * 100
             else:
@@ -156,7 +161,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
 
         elif option == "V":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="mV")) / 1000
+                                         option="mV", truncate=False)) / 1000
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
@@ -181,7 +186,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
 
         elif option == "V":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="mV")) / 1000
+                                         option="mV", truncate=False)) / 1000
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
@@ -201,7 +206,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
 
         elif option == "A":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="uA")) * 1e-6
+                                         option="uA", truncate=False)) * 1e-6
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
@@ -224,7 +229,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
 
         elif option == "A":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="uA")) * 1e-6
+                                         option="uA", truncate=False)) * 1e-6
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
@@ -260,8 +265,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
                                    "function for the used device.")
         elif option == "m/s^2":
 
-            out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="g")) * g
+            out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,option="g", truncate=False)) * g
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
 
@@ -285,7 +289,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
 
         elif option == "V":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="uV")) * 1e6
+                                         option="uV", truncate=False)) * 1e6
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
@@ -301,7 +305,9 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
                 offset = 0
                 gain = 0.12
             elif device in available_dev_2:
-                return 1.0 / (1.0 - (raw_signal / (2 ** resolution)))
+                # out = 1.0 / (1.0 - (raw_signal / (2 ** resolution)))
+
+                return 1.0 / (1.0 - (raw_signal / (2 ** resolution)))  # [_truncate_value(value) for value in out]
             elif device in available_dev_3:
                 vcc = 3.3
                 offset = 0
@@ -313,7 +319,7 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
 
         elif option == "S":
             out = numpy.array(raw_to_phy(sensor, device, list(raw_signal), resolution,
-                                         option="uS")) * 1e6
+                                         option="uS", truncate=False)) * 1e6
 
         else:
             raise RuntimeError("The selected output unit is invalid for the sensor under analysis.")
@@ -321,6 +327,15 @@ def raw_to_phy(sensor, device, raw_signal, resolution, option):
     else:
         raise RuntimeError("The specified sensor is not valid or for now is not available for unit "
                            "conversion.")
+
+    # truncate the sensor data
+    # i.e. truncate 1.2081179279999996 to 1.2081179279
+    if truncate:
+
+        # get the precision needed (by calculating the least significant bit / the smallest step size achievable)
+        precision = _calc_value_precision(device, resolution)
+
+        out = numpy.array([_truncate_value(value, precision) for value in out])
 
     return out
 
@@ -373,13 +388,18 @@ def generate_time(signal, sample_rate=1000):
             chn = key_level_1
             signal = data[chn]
 
-
     nbr_of_samples = len(signal)
     end_of_time = nbr_of_samples / sample_rate
+
+    # calculate the precision needed
+    precision = _calc_time_precision(sample_rate)
 
     # ================================= Generation of the Time Axis ===============================
     time_axis = numpy.linspace(0, end_of_time, nbr_of_samples)
 
+    time_axis = [_truncate_time(value, precision) for value in time_axis]
+
     return list(time_axis)
+
 
 # 25/09/2018 18h58m :)

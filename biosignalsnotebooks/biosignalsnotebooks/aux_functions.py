@@ -27,6 +27,10 @@ _filter_keywords
 _inv_key
     It is invoked by _filter_keywords and used for identification when a list of keywords contain
     invalid keywords.
+_calc_time_precision
+    Calculates the precision needed for generating the time axis
+_truncate
+    truncates a number to the given decimal places
 
 
 Observations/Comments
@@ -44,6 +48,7 @@ from scipy.interpolate import interp1d
 import time as time_package
 import os
 from bokeh.plotting import output_file
+import math
 
 
 def _is_instance(type_to_check, element, condition="any", deep=False):
@@ -573,5 +578,257 @@ def _interpolated_segments(segments, kind='linear'):
     interpolated_segments = numpy.vstack(interpolated_segments)
 
     return interpolated_segments
+
+
+def _calc_time_precision(sampling_rate):
+    """
+    Calculates the number of needed digits after the decimal point based on the given sampling rate.
+    This is done by finding the periodicity within the fraction. The precision is the number of digits of a non-repeated
+    sequence AFTER the decimal point + 1.
+    Parameters
+    ----------
+    sampling_rate: integer
+        Sampling frequency of acquisition.
+
+    Returns
+    -------
+    the precision needed for the given sqmpling rate
+
+    """
+
+    # convert sampling rate to int
+    sampling_rate = int(sampling_rate)
+
+    # calculate the first remainder
+    remainder = 1 % sampling_rate
+
+    # list for holding all remainders that have been calculated
+    seen_remainders = []
+
+    # calculate all other remainders until the modulo operation yields either zero or the remainder has already appeared
+    # before (this is when the periodicity starts)
+    while (remainder != 0) and (remainder not in seen_remainders):
+
+        # append the current remainder to the seen remainder list
+        seen_remainders.append(remainder)
+
+        # multiply the remainder by ten (this is basically the process of converting a fraction to a decimal number
+        # using long division
+        remainder = remainder * 10
+
+        # calculate the next remainder
+        remainder = remainder % sampling_rate
+
+    return len(seen_remainders) + 1
+
+
+def _truncate_time(number, decimals=0):
+    """
+    Truncates a time to the specified decimal places. This function is needed when a time axis is generated for PLUX
+    devices, because otherwise there will be approximation "errors" that come from the binary internal representation
+    of fractions with floats. See: https://docs.python.org/3/tutorial/floatingpoint.html
+    Parameters
+    ----------
+    number: float
+            The float number that is supposed to be truncated
+    decimals: int
+            The number of decimal places that are supposed to stay preserved after the truncation
+
+    Returns
+    -------
+    A truncated float number
+
+    """
+
+    # check for validity of inputs
+    if not isinstance(decimals, int):
+        raise TypeError("The parameter \'decimal\' must be an integer value.")
+    elif decimals < 0:
+        raise ValueError("The parameter \'decimal\' has to be >= 0.")
+    elif decimals == 0:
+        return math.trunc(number)
+
+    # calculate the shift factor for truncation
+    shift_factor = 10 ** decimals
+
+    # calculate the truncated number (shift --> truncate --> shift back)
+    return math.trunc(number * shift_factor) / shift_factor
+
+
+def _calc_value_precision(device, resolution):
+    """
+    Function to calculate the precision needed for a PLUX device based on the resolution of the device.
+    This function calculates the least significant bit / the smallest step size achievable, finds the first non-zero
+    digit after the decimal point and returns the position of that digit as the precision needed
+    Parameters
+    ----------
+    device: String
+        The name of the deivce as string
+    resolution:
+        The resolution of the device
+
+    Returns
+    -------
+    The precision needed for the device as integer
+
+    """
+
+    # lists for checking device type
+    biosignalsplux_devices = ["bioplux", "bioplux_exp", "biosignalsplux", "rachimeter", "channeller", "swifter",
+                              "biosignalspluxsolo"]
+
+    bitalino_devices = ["bitalino_rev", "bitalino_riot", "bitalino"]
+
+    # check for the device
+    if device not in biosignalsplux_devices or device not in bitalino_devices:
+
+        # set standard precision of 5 digits
+        precision = 4
+
+        return precision
+
+    # get the full-scale volatge
+    vcc = 3.0 if device in biosignalsplux_devices else 3.3  # assuming all other devices are bitalino devices
+
+    # calculate the least significant bit /  the smallest step size achievable
+    lsb = vcc / (2 ** resolution)
+
+    # convert lsb to string and make sure that the number is not in scientifc exponential notation
+    # using 10 digits after the decimal point
+    lsb = '{:.10f}'.format(lsb)
+
+    # get the position of the first non-zero value on the fractional part (the part after the decimal point)
+    precision = _get_pos_first_nonzero_at_start(lsb.split('.')[1])
+
+    return precision - 1
+
+
+def _get_pos_first_nonzero_at_start(fractional):
+    """
+    function that returns all zeros at the beginning of the fractional part (the part that comes after the decimal point)
+    of a number and returns the position of the first non-zero number.
+
+    example: 00000056789999 the first 6 zeroes are ignored and the function returns 6
+             (the position of the 5 in that sequence)
+
+    Parameters
+    ----------
+    fractional: String
+            The fractional part of a float number converted to a string
+
+    Returns
+    -------
+    The position of the first non-zero number in the input string
+
+    """
+
+    # bolean for checking if a digit of the fractional part is zero
+    is_zero = True
+
+    # start from postion 1 in the array
+    pos = 0
+
+    # ignore all zeros at the beginning
+    while is_zero:
+
+        # check if the digit is not zero
+        if fractional[pos] != '0':
+
+            # set isZero to false
+            is_zero = False
+
+        else:  # current digit is zero
+
+            # update position
+            pos += 1
+
+    return pos
+
+
+def _truncate_value(value, repeat=4):
+    """
+    Truncates a the fractional part of a number (part after the decimal point) based on the number of repeats given
+    (i.e. 8.284657919999999 is truncated to 8.284657919 if repeats = 3).
+    This function is needed when PLUX RAW sensor values are converted to their physical values. Otherwise there will be
+    approximation "errors" that come from the binary internal representation of fractions with floats.
+    See: https://docs.python.org/3/tutorial/floatingpoint.html
+
+    Parameters
+    ----------
+    value: float
+        The converted sensor value.
+    repeat: int, optional
+        The
+
+    Returns
+    -------
+    A truncated float
+
+    """
+    # check for validity of inputs
+    if not isinstance(repeat, int):
+        raise TypeError("The parameter \'repeat\' places must be an integer value.")
+    elif repeat <= 0:
+        raise ValueError("The parameter \'repeat\' has to be > 0")
+
+    # check if sensor value is 0.0
+    if str(value) == '0.0':
+        return value
+
+    # make sure that the string is not in scientific exponential notation
+    # 25 decimal places after the decimal point should be more than enough...
+    value = '{:.25f}'.format(value)
+
+    # split the string at the decimal point
+    split = value.split('.')
+
+    # get the fractional part
+    frac = split[1]
+
+    # check if the integer part (part before the decimal point) is zero
+    if split[0] == '0' or split[0] =='-0':
+        # ignore zeroes at the beginning of the fractional part
+        start_pos = _get_pos_first_nonzero_at_start(frac)
+
+    else:
+        # set start position to 1 (second digit after the decimal point)
+        start_pos = 1
+
+    # get the digit before the start position
+    check_digit = frac[start_pos - 1]
+
+    # counter for counting the occurence of the digit
+    counter = 0
+    precision = 0
+
+    for pos in range(start_pos, len(frac)):
+
+        # get the next digit
+        digit = frac[pos]
+
+        # check if digit is equal to the last seen digit
+        if digit == check_digit:
+
+            # update the counter
+            counter += 1
+        else:
+
+            # update the current digit
+            check_digit = digit
+
+            # reset the counter
+            counter = 0
+
+        if counter == repeat:
+            precision = pos - (repeat - 1)
+            break
+
+    # check if there is a repeating sequence of min length 'repeat' in the fractional part
+    if precision != 0:
+        # truncate the fractional part
+        split[1] = frac[:precision]
+
+    # join both the the number again
+    return float('.'.join(split))
 
 # 01/10/2018 19h19m :)
