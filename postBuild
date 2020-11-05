@@ -47,6 +47,8 @@ jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignal
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/by_tag.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/MainFiles/contacts.ipynb
+jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/activity_distinction.ipynb
+jupyter trust biosignalsnotebooks_environment/categories/Other/activity_distinction.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/android_bitalino_sync.ipynb
 jupyter trust biosignalsnotebooks_environment/categories/Other/android_bitalino_sync.ipynb
 jupyter nbconvert --execute --inplace --ExecutePreprocessor.timeout=-1 biosignalsnotebooks_environment/categories/Other/android_file_sync.ipynb
