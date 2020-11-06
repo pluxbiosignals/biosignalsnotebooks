@@ -163,9 +163,6 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/eeg_detect_erp_rev.php'> EEG - Event Related Potentials (ERP) Detection </a> </td>
 	</tr>
 	<tr>
-		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/eeg_detect_erp_rev.php'> EEG - Event Related Potentials (ERP) Detection </a> </td>
-	</tr>
-	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/outliers_detection_rev.php'> Detection of Outliers </a> </td>
 	</tr>
 	<tr>
