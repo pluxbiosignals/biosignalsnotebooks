@@ -156,8 +156,14 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Pre-Process/unit_conversion_SpO2_rev.php'>SpO2 Sensor - Unit Conversion </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='3'><p align='center'><img src='https://i.ibb.co/rymrvFL/Detect.png' width='50%' align='center'></p></td>
+		<td rowspan='5'><p align='center'><img src='https://i.ibb.co/rymrvFL/Detect.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/detect_bursts_rev.php' target='_blank'> Event Detection - Muscular Activations (EMG) </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/eeg_detect_erp_rev.php'> EEG - Event Related Potentials (ERP) Detection </a> </td>
+	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/eeg_detect_erp_rev.php'> EEG - Event Related Potentials (ERP) Detection </a> </td>
 	</tr>
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Detect/outliers_detection_rev.php'> Detection of Outliers </a> </td>
