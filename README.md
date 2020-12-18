@@ -217,7 +217,7 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Evaluate/classification_game_volume_5_rev.php' target='_blank'> Rock, Paper or Scissor Game - Train and Classify [Volume 5] </a> </td>
 	</tr>
 	<tr>
-		<td rowspan='9'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
+		<td rowspan='10'><p align='center'><img src='https://i.ibb.co/ry9BzhV/Other.png' width='50%' align='center'></p></td>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/activity_distinction_rev.php' target='_blank'>Activity Distinction using Android Sensors</a> </td>
 	</tr>
 	<tr>
@@ -244,7 +244,11 @@ We encourage you to share new example ideas, to pose questions info@plux.info, a
 	<tr>
 		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/quick_start_guide_rev.php'> Quick-Start Guide </a> </td>
 	</tr>
+	<tr>
+		<td align='center'> <a href='http://www.biosignalsplux.com/notebooks/Categories/Other/rip_science_hour_rev.php'> Respiration (RIP) Sensor Science Hour </a> </td>
+	</tr>
 </table>
+
 
 ## What is **PLUX**
 
