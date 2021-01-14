@@ -238,7 +238,7 @@ def _generate_post_build_files():
     post_build_file.close()
 
 # Execute Script.
-run(list_notebooks=["rip_science_hour", "activity_distinction"],
+run(list_notebooks=["android_file_sync"],
     exclude_notebooks=["hands_on_biostec", "hands_on_biostec_solutions"],
     signal_samples_flag=False, delete_old_files=True, delete_base_files=False,
     new_notebooks_list=["rip_science_hour"])

@@ -217,8 +217,11 @@
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="kn">from</span> <span class="nn">IPython.lib.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">'F2kPjjVP6JA'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1440</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">770</span><span class="p">)</span>
+<pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;iframe width="100%" height="500vw" src="https://www.youtube.com/embed/F2kPjjVP6JA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;'</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -231,7 +234,7 @@
           Out[1]:
          </div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe allowfullscreen="" frameborder="0" height="770" src="https://www.youtube.com/embed/F2kPjjVP6JA" width="1440">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="500vw" src="https://www.youtube.com/embed/F2kPjjVP6JA" width="100%">
 </iframe>
 </div>
 </div>
@@ -345,11 +348,11 @@
 <div class="output_area">
 <div class="prompt">
 </div>
-<div id="74a3d683-4df8-4541-91a8-352ca5167126">
+<div id="f1aecae0-a10d-4bcb-b025-374b6eede5dd">
 </div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-           var element = $('#74a3d683-4df8-4541-91a8-352ca5167126');
+           var element = $('#f1aecae0-a10d-4bcb-b025-374b6eede5dd');
 
 (function(root) {
   function now() {
@@ -643,11 +646,11 @@
 <div class="output_area">
 <div class="prompt">
 </div>
-<div id="6b3e0139-fd04-4c28-bc43-96f376a95cac">
+<div id="7e3ebdcc-c348-4dc7-ac4e-3fc082700f53">
 </div>
 <div class="output_subarea output_javascript">
 <script type="text/javascript">
-           var element = $('#6b3e0139-fd04-4c28-bc43-96f376a95cac');
+           var element = $('#7e3ebdcc-c348-4dc7-ac4e-3fc082700f53');
 
 (function(root) {
   function now() {
