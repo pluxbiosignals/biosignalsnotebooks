@@ -609,8 +609,9 @@ def save_synchronised_android_data(time_axis, data, header, path, file_name='and
     ----------
     time_axis (N,  array_like): The time axis after the padding and re-sampling the sensor data.
 
-    data (list): List containing the padded and re-sampled sensor signals. The length of data along the 0-axis has to be
-                 the same size as time_axis
+    data(list of arrays or list of list): List containing the padded and re-sampled sensor signal arrays or lists.
+                                          The length of each signal array/list along the 0-axis has to be the same size
+                                          as time_axis.
 
    header (string): A string containing the header that is supposed to be added to the file.
 
