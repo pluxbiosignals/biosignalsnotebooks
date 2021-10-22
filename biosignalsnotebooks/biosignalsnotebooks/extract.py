@@ -301,7 +301,7 @@ def psd(tachogram_time, tachogram_data):
     tck = interpol.splrep(tachogram_time, tachogram_data)
     interpolation_rate = 4
 
-    nn_time_even = numpy.linspace(init_time, fin_time, (fin_time - init_time) * interpolation_rate)
+    nn_time_even = numpy.linspace(init_time, fin_time, len(tachogram_time) * interpolation_rate)
     nn_tachogram_even = interpol.splev(nn_time_even, tck)
 
     freq_axis, power_axis = scisignal.welch(nn_tachogram_even, interpolation_rate,
