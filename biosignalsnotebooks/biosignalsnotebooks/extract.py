@@ -303,8 +303,9 @@ def psd(tachogram_time, tachogram_data):
 
     nn_time_even = numpy.linspace(init_time, fin_time, len(tachogram_time) * interpolation_rate)
     nn_tachogram_even = interpol.splev(nn_time_even, tck)
+    tachogram_sampling_rate = len(nn_time_even) / (fin_time - init_time)
 
-    freq_axis, power_axis = scisignal.welch(nn_tachogram_even, interpolation_rate,
+    freq_axis, power_axis = scisignal.welch(nn_tachogram_even, tachogram_sampling_rate,
                                             window=scisignal.get_window("hanning",
                                                                         min(len(nn_tachogram_even),
                                                                             1000)),
