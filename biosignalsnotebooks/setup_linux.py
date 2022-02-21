@@ -13,12 +13,12 @@ requirements = ['numpy', 'matplotlib', 'scipy', 'h5py', 'python-magic', 'wget', 
 
 # read the contents of your README file
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README_BSN.md')) as f:
+with open(path.join(this_directory, 'README_BSNB.md')) as f:
       long_description = f.read()
 
 
 setup(name='biosignalsnotebooks',
-      version='0.6.6',#major.minor.build_nbr
+      version='0.6.8',#major.minor.build_nbr
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,
