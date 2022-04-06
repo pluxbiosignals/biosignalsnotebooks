@@ -14,9 +14,9 @@ In many cases we also point and illustrate with code the usage of other python t
 The notebooks will cover the full topics pipeline of working with biosignals, such as: **<span style="color: #62C3EE">Load</span>** a file; **<span style="color:#AFE1F6">Visualise</span>** the data online and offline, **<span style="color:#00893E">Pre-Process</span>** a one channel signal or a multi-channel acquisition, **<span style="color:#72BE94">Detect</span>** relevant events in the signals, **<span style="#A8D7BD">Extract</span>** features from many different type of sensors and domains, **<span style="#CF0272">Train and Classify</span>** among a set of classes with several machine learning approaches, **<span style="#F0B2D4">Understand</span>** the obtained results with metrics and validations techniques.
 
 These examples are carried in a multitude of biosignals , from ECG, EDA, EMG, Accelerometer, Respiration among many others.
-The notebooks have a set of labels to help navigate among topics <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_tag_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_signal_type_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/by_diff_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
+The notebooks have a set of labels to help navigate among topics <a href="http://notebooks.pluxbiosignals.com/notebooks/Categories/MainFiles/by_tag_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, types of signals <a href="http://notebooks.pluxbiosignals.com/notebooks/Categories/MainFiles/by_signal_type_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a>, application area <a href="http://notebooks.pluxbiosignals.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> and complexity <a href="http://notebooks.pluxbiosignals.com/notebooks/Categories/MainFiles/by_diff_rev.php"><img src="https://image.ibb.co/cNnx6V/link.png" width="10px" height="10px" style="display:inline"></a> level to support the search for particular solutions.
 
-We encourage you to share new example ideas, to pose questions info@plux.info, and to make improvements or suggestion to this set of notebooks.
+We encourage you to share new example ideas, to pose questions helpdesk@pluxbiosignals.com, and to make improvements or suggestion to this set of notebooks.
 
 **Be inspired on how to make the most of your biosignals!**
 
@@ -29,15 +29,15 @@ We have been perusing the mission of making biosignals as accessible as possible
 
 ## PLUX's Software and Hardware Environment
 
-[**OpenSignals**](http://biosignalsplux.com/en/software/opensignals) is the companion application to *PLUX* devices ([**BITalino**](http://bitalino.com/en/) or [**biosignalsplux**](http://biosignalsplux.com/en/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected from other devices.
+[**OpenSignals**](https://support.pluxbiosignals.com/knowledge-base/introducing-opensignals-revolution/) is the companion application to *PLUX* devices ([**BITalino**](https://support.pluxbiosignals.com/article-categories/bitalino/) or [**biosignalsplux**](https://support.pluxbiosignals.com/article-categories/biosignalsplux/)) where the users collect visualize an process biosignals in a intuitive user interface. Opensignals is free and can be used also with signals collected from other devices.
 
-In some cases **OpenSignals** provides [*plugins*](http://biosignalsplux.com/en/software/add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
+In some cases **OpenSignals** provides [*plugins*](https://www.pluxbiosignals.com/collections/software-add-ons) for advanced signals processing operations that automate some of the research process. Some of the plugins are curated and advanced versions of the base notebooks explained in here.
 
-The list of plugins can be found here: http://biosignalsplux.com/en/software/add-ons
+The list of plugins can be found here: https://www.pluxbiosignals.com/collections/software-add-ons
 
 ## Access to biosignalsnotebooks Notebooks
 
-<a href="http://biosignalsplux.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php">
+<a href="http://notebooks.pluxbiosignals.com/notebooks/Categories/MainFiles/biosignalsnotebooks_rev.php">
     <p align="center">
       <img src="https://image.ibb.co/ingFWV/bsnb-logo-animation.gif" width="40%">
     </p>
