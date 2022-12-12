@@ -27,6 +27,7 @@ None
 """
 
 import numpy
+import scipy
 import scipy.signal as scisignal
 import scipy.interpolate as interpol
 import scipy.integrate as integr
@@ -306,7 +307,7 @@ def psd(tachogram_time, tachogram_data):
     tachogram_sampling_rate = len(nn_time_even) / (fin_time - init_time)
 
     freq_axis, power_axis = scisignal.welch(nn_tachogram_even, tachogram_sampling_rate,
-                                            window=scisignal.get_window("hanning",
+                                            window=scisignal.get_window("hanning" if scipy.__version__ <= "1.8.1" else "hann",
                                                                         min(len(nn_tachogram_even),
                                                                             1000)),
                                             nperseg=min(len(nn_tachogram_even), 1000))
