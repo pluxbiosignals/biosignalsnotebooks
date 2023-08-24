@@ -8,8 +8,8 @@ from os import path
 from sys import platform
 
 # Adjust requirements accordingly to the operating system.
-requirements = ['numpy', 'matplotlib', 'scipy', 'h5py', 'python-magic', 'wget', 'datetime',
-      'libmagic', 'bokeh>=1.4.0', 'scipy', 'IPython', 'pandas', 'nbformat', 'ipython', 'requests']
+requirements = ['numpy==1.22.2', 'matplotlib', 'scipy==1.8.1', 'h5py', 'python-magic', 'wget', 'datetime',
+      'libmagic', 'bokeh==2.4.3', 'scipy', 'IPython', 'pandas', 'nbformat', 'ipython', 'requests']
 
 # read the contents of your README file
 this_directory = path.abspath(path.dirname(__file__))
@@ -18,7 +18,7 @@ with open(path.join(this_directory, 'README_BSNB.md')) as f:
 
 
 setup(name='biosignalsnotebooks',
-      version='0.6.11',#major.minor.build_nbr
+      version='0.6.13',#major.minor.build_nbr
       description='A Python package for supporting the external loading and processing of '
                   'OpenSignals electrophysiological acquisitions.',
       long_description=long_description,
