@@ -427,7 +427,7 @@ def emg_parameters(data, sample_rate, raw_to_mv=True, device="biosignalsplux", r
     # -------------------- Total power and frequency reference points -----------------------------
     # Signal Power Spectrum.
     freq_axis, power_axis = scisignal.welch(data, fs=sample_rate,
-                                            window='hanning' if scipy.__version__ <= "1.8.1" else "hann",
+                                            window='hammining' if scipy.__version__ <= "1.8.1" else "hann",
                                             noverlap=0,
                                             nfft=int(256.))
 
@@ -523,7 +523,7 @@ def fatigue_eval_med_freq(data, sample_rate, time_units=True, raw_to_mv=True,
 
         # Generation of the processing window power spectrum.
         freqs, power = scisignal.welch(processing_window, fs=sample_rate,
-                                       window='hanning' if scipy.__version__ <= "1.8.1" else "hann",
+                                       window='hamming' if scipy.__version__ <= "1.8.1" else "hann",
                                        noverlap=0, nfft=int(256.))
 
         # Determination of median power frequency.
