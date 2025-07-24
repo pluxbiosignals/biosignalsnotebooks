@@ -183,13 +183,13 @@ def load(file, channels=None, devices=None, get_header=False, remote=False, out_
     if file_type in ["txt", "plain", "bat"]:
         data = _load_txt(file, dev_list_standard, chn_list_standard, header, **kwargs)
         if remote is True:
-            if extension == None:
+            if extension is None:
                 extension = ".txt"
                 remote_file_path = "download_file_name" + extension
     elif file_type in ["h5", "x-hdf", "a", "bin"]:
         data = _load_h5(file, dev_list_standard, chn_list_standard)
         if remote is True:
-            if extension == None:
+            if extension is None:
                 extension = ".h5"
                 remote_file_path = "download_file_name" + extension
     elif file_type in ["edf", "octet-stream"]:
@@ -791,7 +791,7 @@ def _check_shape_and_type(devices, channels):
         dev_chn_type = type(devices)
         if devices is None:
             pass
-        elif dev_chn_type == list:
+        elif isinstance(dev_chn_type, list):
             # Comparision of the shape.
             if len(devices) == sum(isinstance(i, list) for i in channels):
                 # ----------- Verification if all mac addresses are in a string format ------------

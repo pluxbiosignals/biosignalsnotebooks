@@ -1,17 +1,17 @@
 [project]
 name = "biosignalsnotebooks"
-version = "0.6.14"
+version = "0.6.15"
 authors = [{ name = "PLUX Wireless Biosignals", email = "gramos@plux.info" }]
 license = "MIT"
 description = "A Python package for supporting the external loading and processing of OpenSignals electrophysiological acquisitions."
 dependencies = [
-    "numpy==1.22.2",
+    "numpy>1.23.0",
     "matplotlib",
-    "scipy==1.8.1",
+    "scipy",
     "h5py",
     "wget",
     "datetime",
-    "bokeh==2.4.3",
+    "bokeh>3.4.0",
     "scipy",
     "IPython",
     "pandas",

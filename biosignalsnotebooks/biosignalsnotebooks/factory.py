@@ -594,7 +594,7 @@ def _generate_header(notebook_object, notebook_type, notebook_file):
     """
 
     header_aux = HEADER
-    if notebook_file != None:
+    if notebook_file is not None:
         header_aux = header_aux.replace("FILENAME", notebook_file.split(".")[0] + ".zip")
         header_aux = header_aux.replace("SOURCE", "https://mybinder.org/v2/gh/biosignalsplux/biosignalsnotebooks/mybinder_complete?filepath=biosignalsnotebooks_environment%2Fcategories%2F" + notebook_type + "%2F" + notebook_file + ".dwipynb")
 
