@@ -399,9 +399,9 @@ def plot_ecg_pan_tompkins_peaks(time, orig_ecg, integrated_ecg, sampling_rate, p
 
     list_figures.append(figure(x_axis_label='Time (s)', y_axis_label='Raw Data', **opensignals_kwargs("figure")))
     list_figures[-1].line(segment_time, segment_int, **opensignals_kwargs("line"))
-    list_figures[-1].circle(segment_time[definitive_peaks_wind], segment_int[definitive_peaks_wind], size=30, color="#00893E", legend_label="Definitive Peaks")
-    list_figures[-1].circle(segment_time[probable_peaks_wind], segment_int[probable_peaks_wind], size=20, color="#009EE3", legend_label="Probable Peaks")
-    list_figures[-1].circle(segment_time[possible_peaks_wind], segment_int[possible_peaks_wind], size=10, color="#302683", legend_label="Possible Peaks")
+    list_figures[-1].scatter(segment_time[definitive_peaks_wind], segment_int[definitive_peaks_wind], size=30, color="#00893E", legend_label="Definitive Peaks")
+    list_figures[-1].scatter(segment_time[probable_peaks_wind], segment_int[probable_peaks_wind], size=20, color="#009EE3", legend_label="Probable Peaks")
+    list_figures[-1].scatter(segment_time[possible_peaks_wind], segment_int[possible_peaks_wind], size=10, color="#302683", legend_label="Possible Peaks")
 
     # Show figure.
     opensignals_style(list_figures)
@@ -532,10 +532,10 @@ def plot_emg_graphical_statistical(time, signal, max_sample_value, min_sample_va
         find_time_max = numpy.array(time)[numpy.where(numpy.array(signal) == max_sample_value)]
         find_time_min = numpy.array(time)[numpy.where(numpy.array(signal) == min_sample_value)]
         if parameter == "Maximum":
-            list_figures[-1].circle(find_time_max, max_sample_value, radius = 0.5, fill_color=opensignals_color_pallet(),
+            list_figures[-1].scatter(find_time_max, max_sample_value, radius = 0.5, fill_color=opensignals_color_pallet(),
                                     legend_label=parameter + " EMG")
         elif parameter == "Minimum":
-            list_figures[-1].circle(find_time_min, min_sample_value, radius=0.5, fill_color=opensignals_color_pallet(),
+            list_figures[-1].scatter(find_time_min, min_sample_value, radius=0.5, fill_color=opensignals_color_pallet(),
                                     legend_label=parameter + " EMG")
         elif parameter == "Average":
             list_figures[-1].line([0, time[-1]], [avg_sample_value, avg_sample_value],
@@ -742,7 +742,7 @@ def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_wind
         box_annotations.append(BoxAnnotation(left=eyes_open_begin[i], right=eyes_open_end[i],
                                              fill_color=color_open_eyes, fill_alpha=0.1))
         list_figures[-1].add_layout(box_annotations[-1])
-    list_figures[-1].circle([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend_label=legend_label[0])
+    list_figures[-1].scatter([-100], [0], fill_color=color_open_eyes, fill_alpha=0.1, legend_label=legend_label[0])
 
     if len(time_windows_evt_2) != 0:
         # ["Eyes Closed"]
@@ -751,7 +751,7 @@ def plot_eeg_signal_wind(time, signal, time_range, time_windows_evt_1, time_wind
                 BoxAnnotation(left=eyes_closed_begin[i], right=eyes_closed_end[i], fill_color=color_closed_eyes,
                               fill_alpha=0.1))
             list_figures[-1].add_layout(box_annotations[-1])
-        list_figures[-1].circle([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend_label=legend_label[1])
+        list_figures[-1].scatter([-100], [0], fill_color=color_closed_eyes, fill_alpha=0.1, legend_label=legend_label[1])
 
     # Show figure.
     show(list_figures[-1])
@@ -964,12 +964,12 @@ def plot_hrv_parameters(tachogram_time, tachogram_data, time_param_dict):
     for key in dict_keys:
         if ("Maximum" in key or "Minimum" in key) and "BPM" not in key:
             find_time = tachogram_time[numpy.where(tachogram_data == time_param_dict[key])[0][0]]
-            list_figures[-1].circle(find_time, time_param_dict[key], radius=5,
+            list_figures[-1].scatter(find_time, time_param_dict[key], radius=5,
                                       fill_color=opensignals_color_pallet(), legend_label=key)
 
         elif ("Maximum" in key or "Minimum" in key) and "BPM" in key:
             find_time = tachogram_time[numpy.where(bpm_data == time_param_dict[key])[0][0]]
-            list_figures[-1].circle(find_time, time_param_dict[key], radius=5,
+            list_figures[-1].scatter(find_time, time_param_dict[key], radius=5,
                                       fill_color=opensignals_color_pallet(), legend_label=key, y_range_name="BPM")
 
         elif "Average" in key and "BPM" not in key:
@@ -1406,7 +1406,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     color = opensignals_color_pallet()
     box_annotation = BoxAnnotation(left=band_begin, right=band_end, fill_color=color,
                                    fill_alpha=0.1)
-    list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1,
+    list_figures[-1].scatter([-100], [0], fill_color=color, fill_alpha=0.1,
                               legend_label="Informational Band")
     list_figures[-1].add_layout(box_annotation)
 
@@ -1419,7 +1419,7 @@ def plot_informational_band(freqs, power, signal, sr, band_begin, band_end,
     #                                 fill_alpha=0.1)
     #
     # # Show of the plots with the rejection band
-    # list_figures[-1].circle([-100], [0], fill_color=color, fill_alpha=0.1, legend_label="Rejected Band")
+    # list_figures[-1].scatter([-100], [0], fill_color=color, fill_alpha=0.1, legend_label="Rejected Band")
     # list_figures[-1].add_layout(box_annotations)
     # list_figures[-1].add_layout(Arrow(end=VeeHead(size=15, line_color=color, fill_color=color,
     #                                                 fill_alpha=0.1), line_color=color,
@@ -1637,7 +1637,7 @@ def plot_low_pass_filter_response(show_plot=False, file_name=None):
     box_annotation = BoxAnnotation(left=0.1, right=1, top=0, bottom=-120,
                                    fill_color=color,
                                    fill_alpha=0.3)
-    fig_list[0].circle([-100], [0], fill_color=color, fill_alpha=0.3, legend_label="Ideal Filter Response")
+    fig_list[0].scatter([-100], [0], fill_color=color, fill_alpha=0.3, legend_label="Ideal Filter Response")
     fig_list[0].add_layout(box_annotation)
 
     # Show figure.
@@ -2192,9 +2192,9 @@ def plot_simple_threshold_algorithm(time, signal_smooth, binary_signal, sr, thre
                       list(thresh2)], legend_label=["Activation Signal", "Smoothed Signal", "Threshold 1", "Threshold 2"],
                       grid_plot=False, opensignals_style=True, x_axis_label="Time (s)", y_axis_label="RAW Data Samples",
                       x_range=(11, 13), get_fig_list=True, show_plot=False)
-    fig_list[0].circle(numpy.array(intersect_index_on) / sr, intersect_on, size=10, color="yellowgreen",
+    fig_list[0].scatter(numpy.array(intersect_index_on) / sr, intersect_on, size=10, color="yellowgreen",
                        legend_label="Onset")
-    fig_list[0].circle(numpy.array(intersect_index_off) / sr, intersect_off, size=10, color="darkorange",
+    fig_list[0].scatter(numpy.array(intersect_index_off) / sr, intersect_off, size=10, color="darkorange",
                        legend_label="Offset")
     show(fig_list[0])
 

@@ -215,7 +215,7 @@ def generate_sync_h5_file(in_paths, channels=('channel_1', 'channel_1'), new_pat
         The path to create the new file. (default: 'sync_file.h5')
     """
 
-    if type(in_paths) == list or type(in_paths) == str:
+    if isinstance(in_paths, list) or isinstance(in_paths,str):
         new_file = _create_h5_file(in_paths, new_path)
     else:
         raise TypeError('The path should be a list of str or a str.')
@@ -248,7 +248,7 @@ def generate_sync_h5_file(in_paths, channels=('channel_1', 'channel_1'), new_pat
                     channel = raw_di[key][other_key]
                     level = int(key.split('_')[-1])
                     for yak in list(channel.keys()):
-                        if yak is not 't':
+                        if yak != 't':
                             data_aux = list(channel[yak])[int(np.ceil(phase/level)):]
                         else:
                             data_aux = list(channel[yak])[:len(channel[yak][:])-int(np.ceil(phase / level))]
@@ -280,7 +280,7 @@ def generate_sync_h5_file(in_paths, channels=('channel_1', 'channel_1'), new_pat
                     channel = raw_di[key][other_key]
                     level = int(key.split('_')[-1])
                     for yak in list(channel.keys()):
-                        if yak is not 't':
+                        if yak != 't':
                             data_aux = np.vstack([list(channel[yak]),
                                                   np.zeros(int(length / level)).reshape(-1, 1)])
                         else:
@@ -458,7 +458,7 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
 
     # get the index of the sensor used for padding in the start (ssi = start sensor index)
     # if none is provided (start == None) then the latest starting sensor is used
-    if (start_with == None):
+    if (start_with is None):
         ssi = report['starting times'].index(max(report['starting times']))
 
     else:
@@ -466,7 +466,7 @@ def pad_android_data(sensor_data, report, start_with=None, end_with=None, paddin
 
     # get the index of the sensor used for padding in the end (esi = end sensor index)
     # if none is provided (end == None) then the sensor that stopped earliest is used
-    if (end_with == None):
+    if (end_with is None):
         esi = report['stopping times'].index(min(report['stopping times']))
 
     else:
@@ -943,7 +943,7 @@ def _create_h5_file_old(in_paths, new_path):
     new_file : h5py Object
         Object of the h5py package containing the new file containing the copy of the contents of the input file(s).
     """
-    if type(in_paths) == str:
+    if isinstance(in_paths, str):
         in_paths = [in_paths]
     new_file = File(new_path, 'w')
     for in_path in in_paths:
@@ -973,7 +973,7 @@ def _create_h5_file_old(in_paths, new_path):
                                                      + yet_another_key + '/' + y].attrs.__setitem__(
                                                 name=attribute[0],
                                                 value=attribute[1])
-                                except:
+                                except Exception:
                                     new_file.create_dataset(
                                         name=key + '/' + other_key + '/' + another_key + '/' + yet_another_key,
                                         data=file[key][other_key][another_key][yet_another_key])
@@ -984,7 +984,7 @@ def _create_h5_file_old(in_paths, new_path):
                                             key + '/' + other_key + '/' + another_key + '/' + yet_another_key].attrs.__setitem__(
                                             name=attribute[0],
                                             value=attribute[1])
-                        except:
+                        except Exception:
                             new_file.create_dataset(name=key + '/' + other_key + '/' + another_key,
                                                     data=list(file[key][other_key][another_key]))
                             for attribute in list(file[key + '/' + other_key + '/' + another_key].attrs.items()):
@@ -1010,7 +1010,7 @@ def _create_h5_file(in_paths, new_path):
     new_file : h5py Object
         Object of the h5py package containing the new file containing the copy of the contents of the input file(s).
     """
-    if type(in_paths) == str:
+    if isinstance(in_paths, str):
         in_paths = [in_paths]
     new_file = File(new_path, 'w')
     for i, in_path in enumerate(in_paths):
@@ -1208,7 +1208,7 @@ def _pad_data(data, pad_length, padding_type='same'):
 
     else:
 
-        IOError('The padding type you chose is not defined. Use either \'same\ or \'zero\'.')
+        IOError("The padding type you chose is not defined. Use either 'same' or 'zero'.")
 
     # create the time / sample axis that needs to be padded
     start = data[:, 0][-1] + T

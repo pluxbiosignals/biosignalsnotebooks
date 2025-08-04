@@ -1,0 +1,41 @@
+[project]
+name = "biosignalsnotebooks"
+version = "0.6.15"
+authors = [{ name = "PLUX Wireless Biosignals", email = "gramos@plux.info" }]
+license = "MIT"
+description = "A Python package for supporting the external loading and processing of OpenSignals electrophysiological acquisitions."
+dependencies = [
+    "numpy>1.23.0",
+    "matplotlib",
+    "scipy",
+    "h5py",
+    "wget",
+    "datetime",
+    "bokeh>3.4.0",
+    "scipy",
+    "IPython",
+    "pandas",
+    "nbformat",
+    "ipython",
+    "requests",
+    'python-magic;platform_system=="Linux"',
+    'python-magic-bin;platform_system!="Linux"',
+    "libmagic",
+]
+
+[project.readme]
+file = "README_BSNB.md"
+content-type = "text/markdown"
+
+[project.urls]
+Homepage = "https://github.com/biosignalsplux/biosignalsnotebooks"
+
+[build-system]
+requires = ["setuptools>=61.2", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["biosignalsnotebooks"]
+zip-safe = false
+include-package-data = true
+platforms = ["win32", "darwin", "os2", "os2emx"]

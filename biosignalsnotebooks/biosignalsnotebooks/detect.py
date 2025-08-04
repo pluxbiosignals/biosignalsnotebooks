@@ -176,17 +176,17 @@ def detect_r_peaks(ecg_signal, sample_rate, time_units=False, volts=False, resol
         fig = figure(x_axis_label='Time (s)', y_axis_label='Raw Data',
                      **opensignals_kwargs("figure"))
         fig.line(time_int, integrated, **opensignals_kwargs("line"))
-        fig.circle(time_int[definitive_peaks], integrated[definitive_peaks], size=30,
+        fig.scatter(time_int[definitive_peaks], integrated[definitive_peaks], size=30,
                    color="#00893E", legend_label="Definitive Peaks")
-        fig.circle(time_int[probable_peaks], integrated[probable_peaks], size=20, color="#009EE3",
+        fig.scatter(time_int[probable_peaks], integrated[probable_peaks], size=20, color="#009EE3",
                    legend_label="Probable Peaks")
-        fig.circle(time_int[possible_peaks], integrated[possible_peaks], size=10, color="#302683",
+        fig.scatter(time_int[possible_peaks], integrated[possible_peaks], size=10, color="#302683",
                    legend_label="Possible Peaks")
 
         fig2 = figure(x_axis_label='Time (s)', y_axis_label='Raw Data',
                       **opensignals_kwargs("figure"))
         fig2.line(time, ecg_signal, **opensignals_kwargs("line"))
-        fig2.circle(time[definitive_peaks_rephase],
+        fig2.scatter(time[definitive_peaks_rephase],
                     numpy.array(ecg_signal)[definitive_peaks_rephase],
                     size=30, color=opensignals_color_pallet(), legend_label="Definitive Peaks")
 

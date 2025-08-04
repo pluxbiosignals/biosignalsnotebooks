@@ -43,7 +43,7 @@ import numpy
 from bokeh.plotting import figure, output_file, show, save
 from bokeh.models.tools import PanTool, ResetTool, BoxZoomTool, WheelZoomTool
 from bokeh.models.glyphs import Line
-from bokeh.plotting.figure import FigureOptions
+from bokeh.plotting._figure import FigureOptions
 from bokeh.layouts import gridplot
 # select a palette
 from bokeh.palettes import Category20_20 as palette
@@ -556,13 +556,13 @@ def plot(*args, legend_label=None, title=None, x_axis_label="Time (s)", y_axis_l
                             fig_list[-1].line(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
                                           **style_line)
                         else:
-                            fig_list[-1].circle(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
+                            fig_list[-1].scatter(time[list_entry], data[list_entry], legend_label=legend_label[list_entry],
                                           **style_line)
                     else:
                         if not scatter:
                             fig_list[-1].line(time[list_entry], data[list_entry], **style_line)
                         else:
-                            fig_list[-1].circle(time[list_entry], data[list_entry], **style_line)
+                            fig_list[-1].scatter(time[list_entry], data[list_entry], **style_line)
 
                     # Representation of horizontal lines.
                     if hor_lines is not None:
@@ -729,7 +729,7 @@ def dispersion(x_axis, y_axis, x_axis_label, y_axis_label, show_plot=True):
     -----------
     Description
     -----------
-    Through Bokeh tools, a dispersion plot can be generated using circles to present each
+    Through Bokeh tools, a dispersion plot can be generated using scatters to present each
     point of the plot and removing the connection lines.
 
     ----------
@@ -761,7 +761,7 @@ def dispersion(x_axis, y_axis, x_axis_label, y_axis_label, show_plot=True):
     # Plotting of Tachogram
     list_figures_1.append(figure(x_axis_label=x_axis_label, y_axis_label=y_axis_label,
                                  **opensignals_kwargs("figure")))
-    list_figures_1[-1].circle(x_axis, y_axis, **opensignals_kwargs("line"))
+    list_figures_1[-1].scatter(x_axis, y_axis, **opensignals_kwargs("line"))
 
     # Apply Opensignals style
     opensignals_style(list_figures_1)
